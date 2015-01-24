@@ -2,30 +2,66 @@
 using System.Collections;
 
 public class FrostieScript : MonoBehaviour {
-
-	/// <summary>
-	/// 1 - The speed of the ship
-	/// </summary>
+	
 	public float speed = 10;
-
 	public float jumpHight = 5;
+	private bool letJump;
+	public bool letGoRight = true;
+	public bool letGoLeft = true;
+	public string tag = "test";
 	
-	// 2 - Store the movement
+
 	private float movement;
-	
+	void OnCollisionEnter2D(Collision2D collision)
+	{
+		tag = collision.gameObject.tag;
+		  
+		if (collision.gameObject.tag == "surfaceTop") {
+			letJump = true;
+		 }
+
+		if (collision.gameObject.tag == "surfaceLeft") {
+			letGoRight = false;
+		}
+
+		if (collision.gameObject.tag == "surfaceRight") {
+			letGoLeft = false;
+		}
+	}
+
+
+	void OnCollisionExit2D(Collision2D collision)
+	{
+		if (collision.gameObject.tag == "surfaceLeft") {
+			letGoRight = true;
+		}
+		
+		if (collision.gameObject.tag == "surfaceRight") {
+			letGoLeft = true;
+		}
+	}
+
+
+
+
 	void Update()
 	{
-		// 3 - Retrieve axis information
+
 		float inputX = Input.GetAxis("Horizontal");
-		
-		// 4 - Movement per direction
+
+		if ((inputX < 0 && !letGoLeft) || (inputX > 0 && !letGoRight)) {
+			inputX = 0;
+				}
+
+
 		movement =speed * inputX;
 
-		if (Input.GetKeyDown ("space")){
+		if (Input.GetKeyDown ("space") && letJump){
+			letJump = false;
 			rigidbody2D.AddForce(new Vector2(0, jumpHight), ForceMode2D.Impulse);
 		} 
 		
-		// 6 - Make sure we are not outside the camera bounds
+		// Make sure we are not outside the camera bounds
 		var dist = (transform.position - Camera.main.transform.position).z;
 		
 		var leftBorder = Camera.main.ViewportToWorldPoint(
@@ -58,4 +94,5 @@ public class FrostieScript : MonoBehaviour {
 		float speedY = rigidbody2D.velocity.y;
 		rigidbody2D.velocity = new Vector2(speedX,speedY);
 	}
+
 }
