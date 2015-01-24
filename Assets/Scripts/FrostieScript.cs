@@ -8,23 +8,27 @@ public class FrostieScript : MonoBehaviour {
 	private bool letJump;
 	public bool letGoRight = true;
 	public bool letGoLeft = true;
-	public string tag = "test";
 	
 
 	private float movement;
 	void OnCollisionEnter2D(Collision2D collision)
 	{
-		tag = collision.gameObject.tag;
+		Debug.Log ("collision");
+
+
 		  
-		if (collision.gameObject.tag == "surfaceTop") {
+		if (collision.collider.tag == "surfaceTop") {
 			letJump = true;
+			Debug.Log ("top");
 		 }
 
-		if (collision.gameObject.tag == "surfaceLeft") {
+		if (collision.collider.tag == "surfaceLeft") {
+			Debug.Log ("left");
 			letGoRight = false;
 		}
 
-		if (collision.gameObject.tag == "surfaceRight") {
+		if (collision.collider.tag == "surfaceRight") {
+			Debug.Log ("right");
 			letGoLeft = false;
 		}
 	}
@@ -32,11 +36,13 @@ public class FrostieScript : MonoBehaviour {
 
 	void OnCollisionExit2D(Collision2D collision)
 	{
-		if (collision.gameObject.tag == "surfaceLeft") {
+		if (collision.collider.tag == "surfaceLeft") {
+			Debug.Log ("collisionExit left");
 			letGoRight = true;
 		}
 		
-		if (collision.gameObject.tag == "surfaceRight") {
+		if (collision.collider.tag == "surfaceRight") {
+			Debug.Log ("collisionExit right");
 			letGoLeft = true;
 		}
 	}

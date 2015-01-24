@@ -1,7 +1,10 @@
 fileFormatVersion: 2
 guid: fdc96034d6e99134fa8aed8afea00907
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Snowman_0
+    21300002: Snowman_1
+    21300004: Snowman_2
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -27,11 +30,11 @@ TextureImporter:
     filterMode: -1
     aniso: 16
     mipBias: -1
-    wrapMode: -1
+    wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -42,6 +45,36 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: Snowman_0
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 15
+        width: 266
+        height: 153
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 3}
+    - name: Snowman_1
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 166
+        width: 283
+        height: 124
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 42, y: 0, z: 0, w: 0}
+    - name: Snowman_2
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 321
+        width: 296
+        height: 143
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 19, y: 0, z: 61, w: 16}
   spritePackingTag: 
   userData: 
