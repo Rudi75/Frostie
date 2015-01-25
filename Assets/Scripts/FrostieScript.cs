@@ -5,30 +5,48 @@ public class FrostieScript : MonoBehaviour {
 	
 	public float speed = 10;
 	public float jumpHight = 5;
-	private bool letJump;
 	public bool letGoRight = true;
 	public bool letGoLeft = true;
 	
 
 	private float movement;
+	private Vector3 bottomCenter;
+
+	public bool isGrounded()
+	{
+		float distToGround = 0;
+		float distToFront = 0;
+		foreach (Transform child in transform)
+		{
+			if(child.name == "FrostieBottom")
+			{
+				distToGround = child.collider2D.bounds.extents.y + 0.1f;
+				distToFront = child.collider2D.bounds.extents.x + 0.1f;
+				bottomCenter = child.position;
+			}
+		}
+		RaycastHit2D hitMiddle =  Physics2D.Raycast(bottomCenter,-Vector2.up,distToGround);
+		RaycastHit2D hitFront =  Physics2D.Raycast(bottomCenter + new Vector3(distToFront,0,0),-Vector2.up,distToGround);
+		RaycastHit2D hitBack =  Physics2D.Raycast(bottomCenter - new Vector3(distToFront,0,0),-Vector2.up,distToGround);
+		if (hitMiddle.collider == null && hitFront.collider == null && hitBack.collider == null)
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+
+				
+	}
+
 	void OnCollisionEnter2D(Collision2D collision)
 	{
-		Debug.Log ("collision");
-
-
-		  
-		if (collision.collider.tag == "surfaceTop") {
-			letJump = true;
-			Debug.Log ("top");
-		 }
-
 		if (collision.collider.tag == "surfaceLeft") {
-			Debug.Log ("left");
 			letGoRight = false;
 		}
 
 		if (collision.collider.tag == "surfaceRight") {
-			Debug.Log ("right");
 			letGoLeft = false;
 		}
 	}
@@ -37,14 +55,13 @@ public class FrostieScript : MonoBehaviour {
 	void OnCollisionExit2D(Collision2D collision)
 	{
 		if (collision.collider.tag == "surfaceLeft") {
-			Debug.Log ("collisionExit left");
 			letGoRight = true;
 		}
 		
 		if (collision.collider.tag == "surfaceRight") {
-			Debug.Log ("collisionExit right");
 			letGoLeft = true;
 		}
+
 	}
 
 
@@ -60,10 +77,9 @@ public class FrostieScript : MonoBehaviour {
 				}
 
 
-		movement =speed * inputX;
+		movement = speed * inputX;
 
-		if (Input.GetKeyDown ("space") && letJump){
-			letJump = false;
+		if (Input.GetKeyDown ("space") && isGrounded()){
 			rigidbody2D.AddForce(new Vector2(0, jumpHight), ForceMode2D.Impulse);
 		} 
 		
