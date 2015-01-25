@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using AssemblyCSharp;
 
 public class FrostieScript : MonoBehaviour {
 	
@@ -11,7 +12,7 @@ public class FrostieScript : MonoBehaviour {
 
 	private float movement;
 	private Vector3 bottomCenter;
-
+	
 	public bool isGrounded()
 	{
 		float distToGround = 0;
@@ -21,14 +22,11 @@ public class FrostieScript : MonoBehaviour {
 			if(child.name == "FrostieBottom")
 			{
 				distToGround = child.collider2D.bounds.extents.y + 0.1f;
-				distToFront = child.collider2D.bounds.extents.x + 0.1f;
 				bottomCenter = child.position;
 			}
 		}
 		RaycastHit2D hitMiddle =  Physics2D.Raycast(bottomCenter,-Vector2.up,distToGround);
-		RaycastHit2D hitFront =  Physics2D.Raycast(bottomCenter + new Vector3(distToFront,0,0),-Vector2.up,distToGround);
-		RaycastHit2D hitBack =  Physics2D.Raycast(bottomCenter - new Vector3(distToFront,0,0),-Vector2.up,distToGround);
-		if (hitMiddle.collider == null && hitFront.collider == null && hitBack.collider == null)
+		if (hitMiddle.collider == null )// && hitFront.collider == null && hitBack.collider == null)
 		{
 			return false;
 		}
@@ -42,11 +40,14 @@ public class FrostieScript : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D collision)
 	{
-		if (collision.collider.tag == "surfaceLeft") {
+
+		Edges edge = CollisionHelper.getCollisionEdge (collision);
+		Debug.Log ("Plaxer Collision : " + edge.ToString ());
+		if (Edges.RIGHT.Equals(edge)) {
 			letGoRight = false;
 		}
 
-		if (collision.collider.tag == "surfaceRight") {
+		if (Edges.LEFT.Equals(edge)) {
 			letGoLeft = false;
 		}
 	}
@@ -54,11 +55,14 @@ public class FrostieScript : MonoBehaviour {
 
 	void OnCollisionExit2D(Collision2D collision)
 	{
-		if (collision.collider.tag == "surfaceLeft") {
+
+		Edges edge = CollisionHelper.getCollisionEdge (collision);
+		Debug.Log ("Plaxer Collision Exit : " + edge.ToString ());
+		if (Edges.RIGHT.Equals(edge)) {
 			letGoRight = true;
 		}
 		
-		if (collision.collider.tag == "surfaceRight") {
+		if (Edges.LEFT.Equals(edge)) {
 			letGoLeft = true;
 		}
 

@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
+using AssemblyCSharp;
 
-public class BlockScript : MonoBehaviour {
-
-	public bool canBeMoved;
-	public bool getsPushed;
+public class PushableScript : MonoBehaviour {
+	
 	public bool isStuckLeft;
 	public bool isStuckRight;
 
@@ -14,39 +13,34 @@ public class BlockScript : MonoBehaviour {
 	  
 	void OnCollisionEnter2D(Collision2D collision)
 	{
+		Edges edge = CollisionHelper.getCollisionEdge (collision);
+
 		string otherObject = collision.gameObject.tag;
-		string thisCollider = collision.contacts[0].otherCollider.tag;
 
 		if (otherObject == "Block") 
 		{
-			string otherCollider = collision.collider.tag;
-			if(otherCollider == "surfaceLeft")
-			{
+			if (Edges.RIGHT.Equals(edge)) {
 				isStuckRight = true;
 			}
-			if(otherCollider == "surfaceRight")
-			{
+			
+			if (Edges.LEFT.Equals(edge)) {
 				isStuckLeft = true;
 			}
 		}
 
-		Debug.Log("Block : Collision");
-
 		if (otherObject == "Player") 
 		{
-			Debug.Log("Block : Player Collided with " + thisCollider);
 			FrostieScript frostieScript = collision.gameObject.GetComponent<FrostieScript>();
 
 			if(frostieScript.isGrounded())
 			{
 				float speed = frostieScript.speed;
 
-				if(thisCollider == "surfaceRight")
-				{
+				if (Edges.RIGHT.Equals(edge)) {
 					movement.x = -1 * speed;
 				}
-				if(thisCollider == "surfaceLeft")
-				{
+				
+				if (Edges.LEFT.Equals(edge)) {
 					movement.x = speed;
 				}
 			}
@@ -55,20 +49,7 @@ public class BlockScript : MonoBehaviour {
 
 	void OnCollisionExit2D(Collision2D collision)
 	{
-		string otherObject = collision.gameObject.tag;
-		string thisCollider = collision.contacts[0].otherCollider.tag;
-		if (otherObject == "Block") 
-		{
-			string otherCollider = collision.collider.tag;
-			if(otherCollider == "surfaceLeft")
-			{
-				isStuckRight = false;
-			}
-			if(otherCollider == "surfaceRight")
-			{
-				isStuckLeft = false;
-			}
-		}
+
 	}
 
 
@@ -83,9 +64,6 @@ public class BlockScript : MonoBehaviour {
 
 	void FixedUpdate()
 	{
-		if(canBeMoved)
-		{
 			rigidbody2D.velocity = movement;
-		}
 	}
 }
