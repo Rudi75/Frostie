@@ -25,6 +25,12 @@ namespace AssemblyCSharp
 				float colliderEdgeTop = thisCollider.transform.position.y + thisCollider.bounds.extents.x - 0.1f;
 				float colliderEdgeBottom = thisCollider.transform.position.y - thisCollider.bounds.extents.y + 0.1f;
 				
+
+				if(colliderEdgeTop < contactPoint.point.y)
+				{
+					return Edges.TOP;
+				}
+
 				if(colliderEdgeRight < contactPoint.point.x)
 				{
 					return Edges.RIGHT;
@@ -33,11 +39,6 @@ namespace AssemblyCSharp
 				if(colliderEdgeLeft > contactPoint.point.x)
 				{
 					return Edges.LEFT;
-				}
-				
-				if(colliderEdgeTop < contactPoint.point.y)
-				{
-					return Edges.TOP;
 				}
 				
 				if(colliderEdgeBottom > contactPoint.point.y)

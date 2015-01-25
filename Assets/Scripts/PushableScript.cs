@@ -9,7 +9,7 @@ public class PushableScript : MonoBehaviour {
 
 	public float speedReduction = 1f;
 
-	private Vector2 movement = new Vector2(0,0);
+	private float movement = 0;
 	  
 	void OnCollisionEnter2D(Collision2D collision)
 	{
@@ -37,11 +37,11 @@ public class PushableScript : MonoBehaviour {
 				float speed = frostieScript.speed;
 
 				if (Edges.RIGHT.Equals(edge)) {
-					movement.x = -1 * speed;
+					movement= -1 * speed;
 				}
 				
 				if (Edges.LEFT.Equals(edge)) {
-					movement.x = speed;
+					movement= speed;
 				}
 			}
 		}
@@ -55,15 +55,17 @@ public class PushableScript : MonoBehaviour {
 
 	void Update()
 	{
-		if(movement.x > 0)
-			movement.x -= speedReduction * Time.deltaTime;
-		if(movement.x < 0)
-			movement.x += speedReduction * Time.deltaTime;
+		if(movement > 0)
+			movement -= speedReduction * Time.deltaTime;
+		if(movement < 0)
+			movement += speedReduction * Time.deltaTime;
 	}
 
 
 	void FixedUpdate()
 	{
-			rigidbody2D.velocity = movement;
+		float speedX = movement;
+		float speedY = rigidbody2D.velocity.y;
+		rigidbody2D.velocity = new Vector2(speedX,speedY);
 	}
 }

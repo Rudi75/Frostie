@@ -22,11 +22,14 @@ public class FrostieScript : MonoBehaviour {
 			if(child.name == "FrostieBottom")
 			{
 				distToGround = child.collider2D.bounds.extents.y + 0.1f;
+				distToFront = child.collider2D.bounds.extents.x + 0.1f;
 				bottomCenter = child.position;
 			}
 		}
 		RaycastHit2D hitMiddle =  Physics2D.Raycast(bottomCenter,-Vector2.up,distToGround);
-		if (hitMiddle.collider == null )// && hitFront.collider == null && hitBack.collider == null)
+		RaycastHit2D hitFront =  Physics2D.Raycast(bottomCenter + new Vector3(distToFront,0,0),-Vector2.up,distToGround);
+		RaycastHit2D hitBack =  Physics2D.Raycast(bottomCenter - new Vector3(distToFront,0,0),-Vector2.up,distToGround);
+		if (hitMiddle.collider == null  && hitFront.collider == null && hitBack.collider == null)
 		{
 			return false;
 		}
