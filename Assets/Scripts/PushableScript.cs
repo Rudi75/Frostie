@@ -27,22 +27,24 @@ public class PushableScript : MonoBehaviour {
 				isStuckLeft = true;
 			}
 		}
+	}
 
+	void OnCollisionStay2D(Collision2D collision)
+	{
+		Edges edge = CollisionHelper.getCollisionEdge (collision);
+		string otherObject = collision.gameObject.tag;
 		if (otherObject == "Player") 
 		{
 			FrostieScript frostieScript = collision.gameObject.GetComponent<FrostieScript>();
 
-			if(frostieScript.isGrounded())
-			{
-				float speed = frostieScript.speed;
-
-				if (Edges.RIGHT.Equals(edge)) {
-					movement= -1 * speed;
-				}
-				
-				if (Edges.LEFT.Equals(edge)) {
-					movement= speed;
-				}
+			float speed = frostieScript.speed;
+			
+			if (Edges.RIGHT.Equals(edge) && frostieScript.canJump()) {
+				movement= -1 * speed;
+			}
+			
+			if (Edges.LEFT.Equals(edge) && frostieScript.canJump()){
+				movement= speed;
 			}
 		}
 	}
