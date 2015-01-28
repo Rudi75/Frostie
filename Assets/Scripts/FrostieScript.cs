@@ -31,26 +31,31 @@ public class FrostieScript : MonoBehaviour {
 		RaycastHit2D hit2 = new RaycastHit2D ();
 		RaycastHit2D hit3 = new RaycastHit2D ();
 
+		int layer = 1 << 6;
+		layer += 1;
+		layer = layer << 2;
+		layer = ~layer;
+
 		if(Edges.BOTTOM.Equals(side))
 		{
-			hit1 =  Physics2D.Raycast(bottomCenter,-Vector2.up,distToGround+0.1f);
-			hit2 =  Physics2D.Raycast(bottomCenter + new Vector3(distToFront-0.1f,0,0),-Vector2.up,distToGround+0.1f);
-			hit3 =  Physics2D.Raycast(bottomCenter - new Vector3(distToFront-0.1f,0,0),-Vector2.up,distToGround+0.1f);
+			hit1 =  Physics2D.Raycast(bottomCenter,-Vector2.up,distToGround+0.1f,layer);
+			hit2 =  Physics2D.Raycast(bottomCenter + new Vector3(distToFront-0.1f,0,0),-Vector2.up,distToGround+0.1f,layer);
+			hit3 =  Physics2D.Raycast(bottomCenter - new Vector3(distToFront-0.1f,0,0),-Vector2.up,distToGround+0.1f,layer);
 		}else if(Edges.TOP.Equals(side))
 		{
-			hit1 =  Physics2D.Raycast(bottomCenter,Vector2.up,distToGround+0.1f);
-			hit2 =  Physics2D.Raycast(bottomCenter + new Vector3(distToFront-0.1f,0,0),Vector2.up,distToGround+0.1f);
-			hit3 =  Physics2D.Raycast(bottomCenter - new Vector3(distToFront-0.1f,0,0),Vector2.up,distToGround+0.1f);
+			hit1 =  Physics2D.Raycast(bottomCenter,Vector2.up,distToGround+0.1f,layer);
+			hit2 =  Physics2D.Raycast(bottomCenter + new Vector3(distToFront-0.1f,0,0),Vector2.up,distToGround+0.1f,layer);
+			hit3 =  Physics2D.Raycast(bottomCenter - new Vector3(distToFront-0.1f,0,0),Vector2.up,distToGround+0.1f,layer);
 		}else if(Edges.RIGHT.Equals(side))
 		{
-			hit1 =  Physics2D.Raycast(bottomCenter,Vector2.right,distToFront+0.1f);
-			hit2 =  Physics2D.Raycast(bottomCenter + new Vector3(0,distToGround-0.1f,0),Vector2.right,distToFront+0.1f);
-			hit3 =  Physics2D.Raycast(bottomCenter - new Vector3(0,distToGround-0.1f,0),Vector2.right,distToFront+0.1f);
+			hit1 =  Physics2D.Raycast(bottomCenter,Vector2.right,distToFront+0.1f,layer);
+			hit2 =  Physics2D.Raycast(bottomCenter + new Vector3(0,distToGround-0.1f,0),Vector2.right,distToFront+0.1f,layer);
+			hit3 =  Physics2D.Raycast(bottomCenter - new Vector3(0,distToGround-0.1f,0),Vector2.right,distToFront+0.1f,layer);
 		}else if(Edges.LEFT.Equals(side))
 		{
-			hit1 =  Physics2D.Raycast(bottomCenter,-Vector2.right,distToFront+0.1f);
-			hit2 =  Physics2D.Raycast(bottomCenter + new Vector3(0,distToGround-0.1f,0),-Vector2.right,distToFront+0.1f);
-			hit3 =  Physics2D.Raycast(bottomCenter - new Vector3(0,distToGround-0.1f,0),-Vector2.right,distToFront+0.1f);
+			hit1 =  Physics2D.Raycast(bottomCenter,-Vector2.right,distToFront+0.1f,layer);
+			hit2 =  Physics2D.Raycast(bottomCenter + new Vector3(0,distToGround-0.1f,0),-Vector2.right,distToFront+0.1f,layer);
+			hit3 =  Physics2D.Raycast(bottomCenter - new Vector3(0,distToGround-0.1f,0),-Vector2.right,distToFront+0.1f,layer);
 		}
 
 
@@ -60,6 +65,19 @@ public class FrostieScript : MonoBehaviour {
 		}
 		else
 		{
+			Debug.Log("side: " + side);
+			if(hit1.collider != null)
+			{
+				Debug.Log("Hit1 : " + hit1.collider.gameObject.name);
+			}
+			if(hit2.collider != null)
+			{
+				Debug.Log("Hit2 : " + hit2.collider.gameObject.name);
+			}
+			if(hit3.collider != null)
+			{
+				Debug.Log("Hit3 : " + hit3.collider.gameObject.name);
+			}
 			return true;
 		}
 
