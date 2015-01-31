@@ -22,32 +22,80 @@ namespace AssemblyCSharp
 				
 				float colliderEdgeRight = thisCollider.transform.position.x + thisCollider.bounds.extents.x - 0.1f;
 				float colliderEdgeLeft = thisCollider.transform.position.x - thisCollider.bounds.extents.x + 0.1f;
-				float colliderEdgeTop = thisCollider.transform.position.y + thisCollider.bounds.extents.x - 0.1f;
+				float colliderEdgeTop = thisCollider.transform.position.y + thisCollider.bounds.extents.y - 0.1f;
 				float colliderEdgeBottom = thisCollider.transform.position.y - thisCollider.bounds.extents.y + 0.1f;
 				
 
 				if(colliderEdgeTop < contactPoint.point.y)
 				{
 					return Edges.TOP;
-				}
-
-				if(colliderEdgeRight < contactPoint.point.x)
+				}else if(colliderEdgeRight < contactPoint.point.x)
 				{
 					return Edges.RIGHT;
-				}
-				
-				if(colliderEdgeLeft > contactPoint.point.x)
+				}else if(colliderEdgeLeft > contactPoint.point.x)
 				{
 					return Edges.LEFT;
-				}
-				
-				if(colliderEdgeBottom > contactPoint.point.y)
+				}else if(colliderEdgeBottom > contactPoint.point.y)
 				{
 					return Edges.BOTTOM;
+				}else
+				{
+					return Edges.NONE;
 				}
 				
-				return Edges.NONE;
+
 			}
+
+		public static bool isCollision(Collider2D collider, Edges side)
+		{
+			float distToGround = collider.bounds.extents.y ;
+			float distToFront = collider.bounds.extents.x ;
+			Vector3 bottomCenter = collider.transform.position;
+
+			
+			RaycastHit2D hit1 = new RaycastHit2D ();
+			RaycastHit2D hit2 = new RaycastHit2D ();
+			RaycastHit2D hit3 = new RaycastHit2D ();
+			
+			int layer = 1 << 6;
+			layer += 1;
+			layer = layer << 2;
+			layer = ~layer;
+			
+			if(Edges.BOTTOM.Equals(side))
+			{
+				hit1 =  Physics2D.Raycast(bottomCenter + new Vector3(distToFront-0.1f,-(distToGround +0.1f),0),-Vector2.up,0.1f,layer);
+				hit2 =  Physics2D.Raycast(bottomCenter + new Vector3(-(distToFront-0.1f),-(distToGround +0.1f),0),-Vector2.up,0.1f,layer);
+				hit3 =  Physics2D.Raycast(bottomCenter + new Vector3(0,-(distToGround +0.1f),0),-Vector2.up,0.1f,layer);
+			}else if(Edges.TOP.Equals(side))
+			{
+				hit1 =  Physics2D.Raycast(bottomCenter + new Vector3(distToFront-0.1f,(distToGround +0.1f),0),Vector2.up,0.1f,layer);
+				hit2 =  Physics2D.Raycast(bottomCenter + new Vector3(-(distToFront-0.1f),(distToGround +0.1f),0),Vector2.up,0.1f,layer);
+				hit3 =  Physics2D.Raycast(bottomCenter + new Vector3(0,(distToGround +0.1f),0),Vector2.up,0.1f,layer);
+			}else if(Edges.RIGHT.Equals(side))
+			{
+				hit1 =  Physics2D.Raycast(bottomCenter + new Vector3(distToFront + 0.1f,0,0) ,Vector2.right,0.1f,layer);
+				hit2 =  Physics2D.Raycast(bottomCenter + new Vector3(distToFront + 0.1f,-(distToGround-0.1f),0),Vector2.right,0.1f,layer);
+				hit3 =  Physics2D.Raycast(bottomCenter + new Vector3(distToFront + 0.1f,distToGround-0.1f,0),Vector2.right,0.1f,layer);
+			}else if(Edges.LEFT.Equals(side))
+			{
+				hit1 =  Physics2D.Raycast(bottomCenter + new Vector3(-(distToFront + 0.1f),0,0) ,-Vector2.right,0.1f,layer);
+				hit2 =  Physics2D.Raycast(bottomCenter + new Vector3(-(distToFront + 0.1f),-(distToGround-0.1f),0),-Vector2.right,0.1f,layer);
+				hit3 =  Physics2D.Raycast(bottomCenter + new Vector3(-(distToFront + 0.1f),distToGround-0.1f,0),-Vector2.right,0.1f,layer);
+			}
+			
+			
+			if (hit1.collider == null && hit2.collider == null && hit3.collider == null)
+			{
+				return false;
+			}
+			else
+			{
+				return true;
+			}
+			
+			
+		}
 		}
 }
 

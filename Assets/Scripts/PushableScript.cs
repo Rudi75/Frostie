@@ -31,10 +31,12 @@ public class PushableScript : MonoBehaviour {
 
 	void OnCollisionStay2D(Collision2D collision)
 	{
-		Edges edge = CollisionHelper.getCollisionEdge (collision);
+
 		string otherObject = collision.gameObject.tag;
 		if (otherObject == "Player") 
 		{
+			Edges edge = CollisionHelper.getCollisionEdge (collision);
+
 			FrostieScript frostieScript = collision.gameObject.GetComponent<FrostieScript>();
 
 			float speed = frostieScript.speed;
@@ -47,11 +49,6 @@ public class PushableScript : MonoBehaviour {
 				movement= speed;
 			}
 		}
-	}
-
-	void OnCollisionExit2D(Collision2D collision)
-	{
-
 	}
 
 

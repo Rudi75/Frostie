@@ -11,87 +11,29 @@ public class FrostieScript : MonoBehaviour {
 	
 
 	private float movement;
-	private Vector3 bottomCenter;
-	
-	public bool isCollision(Edges side)
+
+
+	private Collider2D getButtom()
 	{
-		float distToGround = 0;
-		float distToFront = 0;
 		foreach (Transform child in transform)
 		{
 			if(child.name == "FrostieBottom")
 			{
-				distToGround = child.collider2D.bounds.extents.y ;
-				distToFront = child.collider2D.bounds.extents.x ;
-				bottomCenter = child.position;
+				return child.collider2D;
 			}
 		}
-
-		RaycastHit2D hit1 = new RaycastHit2D ();
-		RaycastHit2D hit2 = new RaycastHit2D ();
-		RaycastHit2D hit3 = new RaycastHit2D ();
-
-		int layer = 1 << 6;
-		layer += 1;
-		layer = layer << 2;
-		layer = ~layer;
-
-		if(Edges.BOTTOM.Equals(side))
-		{
-			hit1 =  Physics2D.Raycast(bottomCenter,-Vector2.up,distToGround+0.1f,layer);
-			hit2 =  Physics2D.Raycast(bottomCenter + new Vector3(distToFront-0.1f,0,0),-Vector2.up,distToGround+0.1f,layer);
-			hit3 =  Physics2D.Raycast(bottomCenter - new Vector3(distToFront-0.1f,0,0),-Vector2.up,distToGround+0.1f,layer);
-		}else if(Edges.TOP.Equals(side))
-		{
-			hit1 =  Physics2D.Raycast(bottomCenter,Vector2.up,distToGround+0.1f,layer);
-			hit2 =  Physics2D.Raycast(bottomCenter + new Vector3(distToFront-0.1f,0,0),Vector2.up,distToGround+0.1f,layer);
-			hit3 =  Physics2D.Raycast(bottomCenter - new Vector3(distToFront-0.1f,0,0),Vector2.up,distToGround+0.1f,layer);
-		}else if(Edges.RIGHT.Equals(side))
-		{
-			hit1 =  Physics2D.Raycast(bottomCenter,Vector2.right,distToFront+0.1f,layer);
-			hit2 =  Physics2D.Raycast(bottomCenter + new Vector3(0,distToGround-0.1f,0),Vector2.right,distToFront+0.1f,layer);
-			hit3 =  Physics2D.Raycast(bottomCenter - new Vector3(0,distToGround-0.1f,0),Vector2.right,distToFront+0.1f,layer);
-		}else if(Edges.LEFT.Equals(side))
-		{
-			hit1 =  Physics2D.Raycast(bottomCenter,-Vector2.right,distToFront+0.1f,layer);
-			hit2 =  Physics2D.Raycast(bottomCenter + new Vector3(0,distToGround-0.1f,0),-Vector2.right,distToFront+0.1f,layer);
-			hit3 =  Physics2D.Raycast(bottomCenter - new Vector3(0,distToGround-0.1f,0),-Vector2.right,distToFront+0.1f,layer);
-		}
-
-
-		if (hit1.collider == null && hit2.collider == null && hit3.collider == null)
-		{
-			return false;
-		}
-		else
-		{
-			Debug.Log("side: " + side);
-			if(hit1.collider != null)
-			{
-				Debug.Log("Hit1 : " + hit1.collider.gameObject.name);
-			}
-			if(hit2.collider != null)
-			{
-				Debug.Log("Hit2 : " + hit2.collider.gameObject.name);
-			}
-			if(hit3.collider != null)
-			{
-				Debug.Log("Hit3 : " + hit3.collider.gameObject.name);
-			}
-			return true;
-		}
-
-				
+		return null;
 	}
+
+
 
 	void OnCollisionEnter2D(Collision2D collision)
 	{
 		PushableScript pushScript = collision.gameObject.GetComponent<PushableScript> ();
 
-		if(pushScript == null || (pushScript != null && !isCollision(Edges.BOTTOM)))
+		if(pushScript == null || (pushScript != null && !CollisionHelper.isCollision(getButtom(),Edges.BOTTOM)))
 		{
 			Edges edge = CollisionHelper.getCollisionEdge (collision);
-			Debug.Log ("Plaxer Collision : " + edge.ToString ());
 			if (Edges.RIGHT.Equals(edge)) {
 				letGoRight = false;
 			}
@@ -104,7 +46,7 @@ public class FrostieScript : MonoBehaviour {
 
 	public bool canJump()
 	{
-		return isCollision (Edges.BOTTOM);
+		return CollisionHelper.isCollision(getButtom(),Edges.BOTTOM);
 	}
 
 
@@ -115,12 +57,12 @@ public class FrostieScript : MonoBehaviour {
 
 		if(!letGoLeft)
 		{
-			letGoLeft = !isCollision(Edges.LEFT);
+			letGoLeft = !CollisionHelper.isCollision(getButtom(),Edges.LEFT);
 		}
 
 		if(!letGoRight)
 		{
-			letGoRight = !isCollision(Edges.RIGHT);
+			letGoRight = !CollisionHelper.isCollision(getButtom(),Edges.RIGHT);
 		}
 
 
@@ -132,7 +74,7 @@ public class FrostieScript : MonoBehaviour {
 
 		movement = speed * inputX;
 
-		if (Input.GetKeyDown ("space") && canJump()){
+		if (Input.GetKeyDown("space") && canJump()){
 			rigidbody2D.AddForce(new Vector2(0, jumpHight), ForceMode2D.Impulse);
 		} 
 		
