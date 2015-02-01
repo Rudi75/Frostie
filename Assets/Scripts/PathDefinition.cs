@@ -2,6 +2,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using System.Linq;
 
 public class PathDefinition : MonoBehaviour
 {
@@ -32,11 +33,16 @@ public class PathDefinition : MonoBehaviour
 	
 	public void OnDrawGizmos()
 	{
-		if (Points == null || Points.Length < 2)
+        if (Points == null || Points.Length < 2)
 			return;
+
+        var points = Points.Where(t => t != null).ToList();
+        if(points.Count < 2)
+            return;
 		
-		for (var i = 1; i < Points.Length; i++) {
-			Gizmos.DrawLine (Points [i - 1].position, Points [i].position);
+		
+		for (var i = 1; i < points.Count; i++) {
+			Gizmos.DrawLine (points [i - 1].position, Points [i].position);
 		}
 	}
 }

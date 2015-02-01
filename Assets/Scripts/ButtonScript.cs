@@ -48,7 +48,7 @@ public class ButtonScript : MonoBehaviour {
 		if(withRelease && isPressed)
 		{			
 			Debug.Log("Button FixedUpdate");
-			if(!CollisionHelper.isCollision(collider2D,Edges.TOP))//Button pressed
+			if(CollisionHelper.getCollidingObject(collider2D,Edges.TOP) == null)//Button released
 			{
 				//FrostiePartScript part = collision.collider.gameObject.GetComponent<FrostiePartScript>();
 				//TODO restriction ButtonSize and FrostiePart

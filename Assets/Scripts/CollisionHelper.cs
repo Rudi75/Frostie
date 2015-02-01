@@ -46,7 +46,7 @@ namespace AssemblyCSharp
 
 			}
 
-		public static bool isCollision(Collider2D collider, Edges side)
+		public static GameObject getCollidingObject(Collider2D collider, Edges side)
 		{
 			float distToGround = collider.bounds.extents.y ;
 			float distToFront = collider.bounds.extents.x ;
@@ -64,14 +64,14 @@ namespace AssemblyCSharp
 			
 			if(Edges.BOTTOM.Equals(side))
 			{
-				hit1 =  Physics2D.Raycast(bottomCenter + new Vector3(distToFront-0.1f,-(distToGround +0.1f),0),-Vector2.up,0.1f,layer);
+                hit1 = Physics2D.Raycast(bottomCenter + new Vector3(0, -(distToGround + 0.1f), 0), -Vector2.up, 0.1f, layer);
 				hit2 =  Physics2D.Raycast(bottomCenter + new Vector3(-(distToFront-0.1f),-(distToGround +0.1f),0),-Vector2.up,0.1f,layer);
-				hit3 =  Physics2D.Raycast(bottomCenter + new Vector3(0,-(distToGround +0.1f),0),-Vector2.up,0.1f,layer);
+                hit3 = Physics2D.Raycast(bottomCenter + new Vector3(distToFront - 0.1f, -(distToGround + 0.1f), 0), -Vector2.up, 0.1f, layer);
 			}else if(Edges.TOP.Equals(side))
 			{
-				hit1 =  Physics2D.Raycast(bottomCenter + new Vector3(distToFront-0.1f,(distToGround +0.1f),0),Vector2.up,0.1f,layer);
+                hit1 = Physics2D.Raycast(bottomCenter + new Vector3(0, (distToGround + 0.1f), 0), Vector2.up, 0.1f, layer);
 				hit2 =  Physics2D.Raycast(bottomCenter + new Vector3(-(distToFront-0.1f),(distToGround +0.1f),0),Vector2.up,0.1f,layer);
-				hit3 =  Physics2D.Raycast(bottomCenter + new Vector3(0,(distToGround +0.1f),0),Vector2.up,0.1f,layer);
+                hit3 = Physics2D.Raycast(bottomCenter + new Vector3(distToFront - 0.1f, (distToGround + 0.1f), 0), Vector2.up, 0.1f, layer);
 			}else if(Edges.RIGHT.Equals(side))
 			{
 				hit1 =  Physics2D.Raycast(bottomCenter + new Vector3(distToFront + 0.1f,0,0) ,Vector2.right,0.1f,layer);
@@ -85,14 +85,22 @@ namespace AssemblyCSharp
 			}
 			
 			
-			if (hit1.collider == null && hit2.collider == null && hit3.collider == null)
+			if (hit1.collider != null)
 			{
-				return false;
+				return hit1.collider.gameObject;
 			}
-			else
+			else if(hit2.collider != null)
 			{
-				return true;
+                return hit2.collider.gameObject;
 			}
+            else if (hit3.collider != null)
+            {
+                return hit3.collider.gameObject;
+            }
+            else
+            {
+                return null;
+            }
 			
 			
 		}

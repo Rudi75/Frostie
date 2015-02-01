@@ -12,8 +12,10 @@ public class FrostieScript : MonoBehaviour {
 
 	private float movement;
 
+    private Vector3 oltPlatformPosition = Vector3.zero;
 
-	private Collider2D getButtom()
+
+	private Collider2D getBottom()
 	{
 		foreach (Transform child in transform)
 		{
@@ -31,7 +33,7 @@ public class FrostieScript : MonoBehaviour {
 	{
 		PushableScript pushScript = collision.gameObject.GetComponent<PushableScript> ();
 
-		if(pushScript == null || (pushScript != null && !CollisionHelper.isCollision(getButtom(),Edges.BOTTOM)))
+        if (pushScript == null || (pushScript != null && CollisionHelper.getCollidingObject(getBottom(), Edges.BOTTOM) == null))
 		{
 			Edges edge = CollisionHelper.getCollisionEdge (collision);
 			if (Edges.RIGHT.Equals(edge)) {
@@ -46,9 +48,29 @@ public class FrostieScript : MonoBehaviour {
 
 	public bool canJump()
 	{
-		return CollisionHelper.isCollision(getButtom(),Edges.BOTTOM);
+		return CollisionHelper.getCollidingObject(getBottom(),Edges.BOTTOM) != null;
 	}
 
+
+    private void handleMovingPlatforms()
+    {
+        Vector3 movement = Vector3.zero;
+       GameObject platform =  CollisionHelper.getCollidingObject(getBottom(), Edges.BOTTOM);
+
+       if (platform == null || platform.tag != "Platform")
+       {
+           oltPlatformPosition = Vector3.zero;
+           return;
+       }
+       Vector3 platformPosition = platform.transform.position;
+        if(!Vector3.zero.Equals(oltPlatformPosition))
+        {
+            movement = platformPosition - oltPlatformPosition;
+        }
+        oltPlatformPosition = platformPosition;
+
+        transform.Translate(movement, Space.World);
+    }
 
 	void Update()
 	{
@@ -57,12 +79,12 @@ public class FrostieScript : MonoBehaviour {
 
 		if(!letGoLeft)
 		{
-			letGoLeft = !CollisionHelper.isCollision(getButtom(),Edges.LEFT);
+			letGoLeft = CollisionHelper.getCollidingObject(getBottom(),Edges.LEFT) == null;
 		}
 
 		if(!letGoRight)
 		{
-			letGoRight = !CollisionHelper.isCollision(getButtom(),Edges.RIGHT);
+            letGoRight = CollisionHelper.getCollidingObject(getBottom(), Edges.RIGHT) == null;
 		}
 
 
@@ -73,6 +95,8 @@ public class FrostieScript : MonoBehaviour {
 
 
 		movement = speed * inputX;
+
+        handleMovingPlatforms();
 
 		if (Input.GetKeyDown("space") && canJump()){
 			rigidbody2D.AddForce(new Vector2(0, jumpHight), ForceMode2D.Impulse);
