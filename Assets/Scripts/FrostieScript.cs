@@ -14,21 +14,6 @@ public class FrostieScript : MonoBehaviour {
 
     private Vector3 oltPlatformPosition = Vector3.zero;
 
-
-	private Collider2D getBottom()
-	{
-		foreach (Transform child in transform)
-		{
-			if(child.name == "FrostieBottom")
-			{
-				return child.collider2D;
-			}
-		}
-		return null;
-	}
-
-
-
 	void OnCollisionEnter2D(Collision2D collision)
 	{
 		PushableScript pushScript = collision.gameObject.GetComponent<PushableScript> ();
@@ -45,32 +30,6 @@ public class FrostieScript : MonoBehaviour {
 			}
 		}
 	}
-
-	public bool canJump()
-	{
-		return CollisionHelper.getCollidingObject(getBottom(),Edges.BOTTOM) != null;
-	}
-
-
-    private void handleMovingPlatforms()
-    {
-        Vector3 movement = Vector3.zero;
-       GameObject platform =  CollisionHelper.getCollidingObject(getBottom(), Edges.BOTTOM);
-
-       if (platform == null || platform.tag != "Platform")
-       {
-           oltPlatformPosition = Vector3.zero;
-           return;
-       }
-       Vector3 platformPosition = platform.transform.position;
-        if(!Vector3.zero.Equals(oltPlatformPosition))
-        {
-            movement = platformPosition - oltPlatformPosition;
-        }
-        oltPlatformPosition = platformPosition;
-
-        transform.Translate(movement, Space.World);
-    }
 
 	void Update()
 	{
@@ -98,7 +57,7 @@ public class FrostieScript : MonoBehaviour {
 
         handleMovingPlatforms();
 
-		if (Input.GetKeyDown("space") && canJump()){
+		if (Input.GetKeyDown("space") && isGrounded()){
 			rigidbody2D.AddForce(new Vector2(0, jumpHight), ForceMode2D.Impulse);
 		} 
 		
@@ -135,5 +94,43 @@ public class FrostieScript : MonoBehaviour {
 		float speedY = rigidbody2D.velocity.y;
 		rigidbody2D.velocity = new Vector2(speedX,speedY);
 	}
+
+    public bool isGrounded()
+    {
+        return CollisionHelper.getCollidingObject(getBottom(), Edges.BOTTOM) != null;
+    }
+
+
+    private Collider2D getBottom()
+    {
+        foreach (Transform child in transform)
+        {
+            if (child.name == "FrostieBottom")
+            {
+                return child.collider2D;
+            }
+        }
+        return null;
+    }
+
+    private void handleMovingPlatforms()
+    {
+        Vector3 movement = Vector3.zero;
+        GameObject platform = CollisionHelper.getCollidingObject(getBottom(), Edges.BOTTOM);
+
+        if (platform == null || platform.tag != "Platform")
+        {
+            oltPlatformPosition = Vector3.zero;
+            return;
+        }
+        Vector3 platformPosition = platform.transform.position;
+        if (!Vector3.zero.Equals(oltPlatformPosition))
+        {
+            movement = platformPosition - oltPlatformPosition;
+        }
+        oltPlatformPosition = platformPosition;
+
+        transform.Translate(movement, Space.World);
+    }
 
 }

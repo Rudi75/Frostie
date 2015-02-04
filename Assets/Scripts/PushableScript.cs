@@ -41,11 +41,11 @@ public class PushableScript : MonoBehaviour {
 
 			float speed = frostieScript.speed;
 			
-			if (Edges.RIGHT.Equals(edge) && frostieScript.canJump()) {
+			if (Edges.RIGHT.Equals(edge) && frostieScript.isGrounded()) {
 				movement= -1 * speed;
 			}
 			
-			if (Edges.LEFT.Equals(edge) && frostieScript.canJump()){
+			if (Edges.LEFT.Equals(edge) && frostieScript.isGrounded()){
 				movement= speed;
 			}
 		}
