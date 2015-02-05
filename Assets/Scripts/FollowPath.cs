@@ -16,7 +16,7 @@ public class FollowPath : TargetActionScript
 	public float MaxDistanceToGoal = .1f;
 	
 	private IEnumerator<Transform> currentPoint;
-    private bool started = false;
+    public bool started = false;
 	
 	public void Start()
 	{
