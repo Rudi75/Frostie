@@ -8,32 +8,18 @@ public class FrostieScript : MonoBehaviour {
 	public float jumpHight = 5;
 	public bool letGoRight = true;
 	public bool letGoLeft = true;
+    public float viewDirection = +1;
 	
 
 	private float movement;
 
-    private Vector3 oltPlatformPosition = Vector3.zero;
-
-
-	private Collider2D getBottom()
-	{
-		foreach (Transform child in transform)
-		{
-			if(child.name == "FrostieBottom")
-			{
-				return child.collider2D;
-			}
-		}
-		return null;
-	}
-
-
+    private Vector3 oldPlatformPosition = Vector3.zero;
 
 	void OnCollisionEnter2D(Collision2D collision)
 	{
-		PushableScript pushScript = collision.gameObject.GetComponent<PushableScript> ();
+		MoveableScript pushScript = collision.gameObject.GetComponent<MoveableScript> ();
 
-        if (pushScript == null || (pushScript != null && CollisionHelper.getCollidingObject(getBottom(), Edges.BOTTOM) == null))
+        if (pushScript == null || (pushScript != null && CollisionHelper.getCollidingObject(getBottomCollider(), Edges.BOTTOM,0.1f) == null))
 		{
 			Edges edge = CollisionHelper.getCollisionEdge (collision);
 			if (Edges.RIGHT.Equals(edge)) {
@@ -46,50 +32,31 @@ public class FrostieScript : MonoBehaviour {
 		}
 	}
 
-	public bool canJump()
-	{
-		return CollisionHelper.getCollidingObject(getBottom(),Edges.BOTTOM) != null;
-	}
-
-
-    private void handleMovingPlatforms()
-    {
-        Vector3 movement = Vector3.zero;
-       GameObject platform =  CollisionHelper.getCollidingObject(getBottom(), Edges.BOTTOM);
-
-       if (platform == null || platform.tag != "Platform")
-       {
-           oltPlatformPosition = Vector3.zero;
-           return;
-       }
-       Vector3 platformPosition = platform.transform.position;
-        if(!Vector3.zero.Equals(oltPlatformPosition))
-        {
-            movement = platformPosition - oltPlatformPosition;
-        }
-        oltPlatformPosition = platformPosition;
-
-        transform.Translate(movement, Space.World);
-    }
-
 	void Update()
 	{
 
 		float inputX = Input.GetAxis("Horizontal");
+        if(viewDirection*inputX < 0 && !Input.GetKey(KeyCode.LeftControl))
+        {
+            Vector3 scale = transform.localScale; 
+            scale.x *= -1;
+            transform.localScale = scale;
+            viewDirection = inputX;
+        }
 
 		if(!letGoLeft)
 		{
-			letGoLeft = CollisionHelper.getCollidingObject(getBottom(),Edges.LEFT) == null;
+            letGoLeft = CollisionHelper.getCollidingObject(getBottomCollider(), Edges.LEFT, 0.1f) == null;
 		}
 
 		if(!letGoRight)
 		{
-            letGoRight = CollisionHelper.getCollidingObject(getBottom(), Edges.RIGHT) == null;
+            letGoRight = CollisionHelper.getCollidingObject(getBottomCollider(), Edges.RIGHT, 0.1f) == null;
 		}
 
 
 
-		if ((inputX < 0 && !letGoLeft) || (inputX > 0 && !letGoRight)) {
+		if ((inputX < 0 && !letGoLeft) || (inputX > 0 && !letGoRight) || (viewDirection*inputX > 0 && Input.GetKey(KeyCode.LeftControl))) {
 			inputX = 0;
 				}
 
@@ -98,7 +65,8 @@ public class FrostieScript : MonoBehaviour {
 
         handleMovingPlatforms();
 
-		if (Input.GetKeyDown("space") && canJump()){
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded())
+        {
 			rigidbody2D.AddForce(new Vector2(0, jumpHight), ForceMode2D.Impulse);
 		} 
 		
@@ -131,9 +99,48 @@ public class FrostieScript : MonoBehaviour {
 	
 	void FixedUpdate()
 	{
+        handleMovingPlatforms();
 		float speedX = movement;
 		float speedY = rigidbody2D.velocity.y;
 		rigidbody2D.velocity = new Vector2(speedX,speedY);
 	}
+
+    public bool isGrounded()
+    {
+        return CollisionHelper.getCollidingObject(getBottomCollider(), Edges.BOTTOM, 0.1f) != null;
+    }
+
+
+    private Collider2D getBottomCollider()
+    {
+        foreach (Transform child in transform)
+        {
+            if (child.name == "FrostieBottom")
+            {
+                return child.collider2D;
+            }
+        }
+        return null;
+    }
+
+    private void handleMovingPlatforms()
+    {
+        Vector3 movement = Vector3.zero;
+        GameObject platform = CollisionHelper.getCollidingObject(getBottomCollider(), Edges.BOTTOM, 0.1f);
+
+        if (platform == null || platform.tag != "Platform")
+        {
+            oldPlatformPosition = Vector3.zero;
+            return;
+        }
+        Vector3 platformPosition = platform.transform.position;
+        if (!Vector3.zero.Equals(oldPlatformPosition))
+        {
+            movement = platformPosition - oldPlatformPosition;
+        }
+        oldPlatformPosition = platformPosition;
+
+        transform.Translate(movement, Space.World);
+    }
 
 }

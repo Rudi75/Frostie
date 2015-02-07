@@ -24,7 +24,7 @@ public class CameraControler : MonoBehaviour
 		var x = camera.transform.position.x;
 		var y = camera.transform.position.y;
 
-		if(IsFollowing)
+        if (IsFollowing && Player != null)
 		{
 			if (Mathf.Abs (x - Player.position.x) > Margin.x)
 				x = Mathf.Lerp (x, Player.position.x, Smoothing.x * Time.deltaTime);

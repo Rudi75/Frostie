@@ -9,24 +9,44 @@ public class ButtonScript : MonoBehaviour {
 	public bool isPressed;
 	public bool withRelease = true;
     private TargetActionScript target;
+    private Edges buttonEdge;
 
 	void Awake()
 	{
 		animator = GetComponentInParent<Animator>();
 		isPressed = false;
+
+        float rotation = transform.localEulerAngles.z;
+
+        if (rotation >= 225 && rotation < 315)
+        {
+            buttonEdge = Edges.RIGHT;
+        }
+        else if (rotation >= 45 && rotation < 135)
+        {
+            buttonEdge = Edges.LEFT;
+        }
+        else if (rotation >= 135 && rotation < 225)
+        {
+            buttonEdge = Edges.BOTTOM;
+        }
+        else
+        {
+            buttonEdge = Edges.TOP;
+        }
 	}
     
 
 	public void OnCollisionEnter2D(Collision2D collision)
 	{
         
-        Debug.Log("Button Collision");
+        Debug.Log("Button Collision " +  transform.localEulerAngles.z + " " + buttonEdge);
 
 
 
-		    Edges edge = CollisionHelper.getCollisionEdge(collision);
+		    Edges collisionEdge = CollisionHelper.getCollisionEdge(collision);
 
-		    if(Edges.TOP.Equals(edge))//Button pressed
+		    if(buttonEdge.Equals(collisionEdge))//Button pressed
 		    {
 			    //FrostiePartScript part = collision.collider.gameObject.GetComponent<FrostiePartScript>();
 			    //TODO restriction ButtonSize and FrostiePart
@@ -48,10 +68,9 @@ public class ButtonScript : MonoBehaviour {
 		if(withRelease && isPressed)
 		{			
 			Debug.Log("Button FixedUpdate");
-			if(CollisionHelper.getCollidingObject(collider2D,Edges.TOP) == null)//Button released
+
+            if (CollisionHelper.getCollidingObject(getButtonCollider(), buttonEdge, 0.1f) == null)//Button released
 			{
-				//FrostiePartScript part = collision.collider.gameObject.GetComponent<FrostiePartScript>();
-				//TODO restriction ButtonSize and FrostiePart
 				
 				isPressed = false;
 				animator.SetBool("pressed",isPressed);
@@ -59,5 +78,15 @@ public class ButtonScript : MonoBehaviour {
 			}
 		}
 	}
-
+    private Collider2D getButtonCollider()
+    {
+        foreach (Transform child in transform)
+        {
+            if (child.name == "Button")
+            {
+                return child.collider2D;
+            }
+        }
+        return null;
+    }
 }

@@ -46,7 +46,7 @@ namespace AssemblyCSharp
 
 			}
 
-		public static GameObject getCollidingObject(Collider2D collider, Edges side)
+		public static GameObject getCollidingObject(Collider2D collider, Edges side, float distance)
 		{
 			float distToGround = collider.bounds.extents.y ;
 			float distToFront = collider.bounds.extents.x ;
@@ -64,24 +64,24 @@ namespace AssemblyCSharp
 			
 			if(Edges.BOTTOM.Equals(side))
 			{
-                hit1 = Physics2D.Raycast(bottomCenter + new Vector3(0, -(distToGround + 0.1f), 0), -Vector2.up, 0.1f, layer);
-				hit2 =  Physics2D.Raycast(bottomCenter + new Vector3(-(distToFront-0.1f),-(distToGround +0.1f),0),-Vector2.up,0.1f,layer);
-                hit3 = Physics2D.Raycast(bottomCenter + new Vector3(distToFront - 0.1f, -(distToGround + 0.1f), 0), -Vector2.up, 0.1f, layer);
+                hit1 = Physics2D.Raycast(bottomCenter + new Vector3(0, -(distToGround + 0.1f), 0), -Vector2.up, distance, layer);
+                hit2 = Physics2D.Raycast(bottomCenter + new Vector3(-(distToFront - 0.1f), -(distToGround + 0.1f), 0), -Vector2.up, distance, layer);
+                hit3 = Physics2D.Raycast(bottomCenter + new Vector3(distToFront - 0.1f, -(distToGround + 0.1f), 0), -Vector2.up, distance, layer);
 			}else if(Edges.TOP.Equals(side))
 			{
-                hit1 = Physics2D.Raycast(bottomCenter + new Vector3(0, (distToGround + 0.1f), 0), Vector2.up, 0.1f, layer);
-				hit2 =  Physics2D.Raycast(bottomCenter + new Vector3(-(distToFront-0.1f),(distToGround +0.1f),0),Vector2.up,0.1f,layer);
-                hit3 = Physics2D.Raycast(bottomCenter + new Vector3(distToFront - 0.1f, (distToGround + 0.1f), 0), Vector2.up, 0.1f, layer);
+                hit1 = Physics2D.Raycast(bottomCenter + new Vector3(0, (distToGround + 0.1f), 0), Vector2.up, distance, layer);
+                hit2 = Physics2D.Raycast(bottomCenter + new Vector3(-(distToFront - 0.1f), (distToGround + 0.1f), 0), Vector2.up, distance, layer);
+                hit3 = Physics2D.Raycast(bottomCenter + new Vector3(distToFront - 0.1f, (distToGround + 0.1f), 0), Vector2.up, distance, layer);
 			}else if(Edges.RIGHT.Equals(side))
 			{
-				hit1 =  Physics2D.Raycast(bottomCenter + new Vector3(distToFront + 0.1f,0,0) ,Vector2.right,0.1f,layer);
-				hit2 =  Physics2D.Raycast(bottomCenter + new Vector3(distToFront + 0.1f,-(distToGround-0.1f),0),Vector2.right,0.1f,layer);
-				hit3 =  Physics2D.Raycast(bottomCenter + new Vector3(distToFront + 0.1f,distToGround-0.1f,0),Vector2.right,0.1f,layer);
+                hit1 = Physics2D.Raycast(bottomCenter + new Vector3(distToFront + 0.1f, 0, 0), Vector2.right, distance, layer);
+                hit2 = Physics2D.Raycast(bottomCenter + new Vector3(distToFront + 0.1f, -(distToGround - 0.1f), 0), Vector2.right, distance, layer);
+                hit3 = Physics2D.Raycast(bottomCenter + new Vector3(distToFront + 0.1f, distToGround - 0.1f, 0), Vector2.right, distance, layer);
 			}else if(Edges.LEFT.Equals(side))
 			{
-				hit1 =  Physics2D.Raycast(bottomCenter + new Vector3(-(distToFront + 0.1f),0,0) ,-Vector2.right,0.1f,layer);
-				hit2 =  Physics2D.Raycast(bottomCenter + new Vector3(-(distToFront + 0.1f),-(distToGround-0.1f),0),-Vector2.right,0.1f,layer);
-				hit3 =  Physics2D.Raycast(bottomCenter + new Vector3(-(distToFront + 0.1f),distToGround-0.1f,0),-Vector2.right,0.1f,layer);
+                hit1 = Physics2D.Raycast(bottomCenter + new Vector3(-(distToFront + 0.1f), 0, 0), -Vector2.right, distance, layer);
+                hit2 = Physics2D.Raycast(bottomCenter + new Vector3(-(distToFront + 0.1f), -(distToGround - 0.1f), 0), -Vector2.right, distance, layer);
+                hit3 = Physics2D.Raycast(bottomCenter + new Vector3(-(distToFront + 0.1f), distToGround - 0.1f, 0), -Vector2.right, distance, layer);
 			}
 			
 			
