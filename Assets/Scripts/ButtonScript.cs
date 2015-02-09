@@ -39,8 +39,6 @@ public class ButtonScript : MonoBehaviour {
 
 	public void OnCollisionEnter2D(Collision2D collision)
 	{
-        
-        Debug.Log("Button Collision " +  transform.localEulerAngles.z + " " + buttonEdge);
 
 
 
@@ -66,8 +64,7 @@ public class ButtonScript : MonoBehaviour {
 	void FixedUpdate()
 	{
 		if(withRelease && isPressed)
-		{			
-			Debug.Log("Button FixedUpdate");
+		{
 
             if (CollisionHelper.getCollidingObject(getButtonCollider(), buttonEdge, 0.1f) == null)//Button released
 			{

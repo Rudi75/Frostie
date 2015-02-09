@@ -9,17 +9,22 @@ public class FrostieScript : MonoBehaviour {
 	public bool letGoRight = true;
 	public bool letGoLeft = true;
     public float viewDirection = +1;
-	
 
+    private bool isMelted = false;
 	private float movement;
 
-    private Vector3 oldPlatformPosition = Vector3.zero;
+    private Animator animator;
+
+    void Start()
+    {
+        animator = GetComponentInParent<Animator>();
+    }
 
 	void OnCollisionEnter2D(Collision2D collision)
 	{
 		MoveableScript pushScript = collision.gameObject.GetComponent<MoveableScript> ();
 
-        if (pushScript == null || (pushScript != null && CollisionHelper.getCollidingObject(getBottomCollider(), Edges.BOTTOM,0.1f) == null))
+        if (!isMelted && (pushScript == null || (pushScript != null && CollisionHelper.getCollidingObject(getBottomCollider(), Edges.BOTTOM,0.1f) == null)))
 		{
 			Edges edge = CollisionHelper.getCollisionEdge (collision);
 			if (Edges.RIGHT.Equals(edge)) {
@@ -34,6 +39,16 @@ public class FrostieScript : MonoBehaviour {
 
 	void Update()
 	{
+
+
+        if(Input.GetKeyDown(KeyCode.LeftAlt))
+        {
+            isMelted = !isMelted;
+            animator.SetBool("isMelted", isMelted);
+            movement = 0;
+            Debug.Log("isMelted = " + isMelted);
+        }
+
 
 		float inputX = Input.GetAxis("Horizontal");
         if(viewDirection*inputX < 0 && !Input.GetKey(KeyCode.LeftControl))
@@ -63,9 +78,7 @@ public class FrostieScript : MonoBehaviour {
 
 		movement = speed * inputX;
 
-        handleMovingPlatforms();
-
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded())
+        if (Input.GetKeyDown(KeyCode.Space) && canJump())
         {
 			rigidbody2D.AddForce(new Vector2(0, jumpHight), ForceMode2D.Impulse);
 		} 
@@ -99,7 +112,6 @@ public class FrostieScript : MonoBehaviour {
 	
 	void FixedUpdate()
 	{
-        handleMovingPlatforms();
 		float speedX = movement;
 		float speedY = rigidbody2D.velocity.y;
 		rigidbody2D.velocity = new Vector2(speedX,speedY);
@@ -108,6 +120,14 @@ public class FrostieScript : MonoBehaviour {
     public bool isGrounded()
     {
         return CollisionHelper.getCollidingObject(getBottomCollider(), Edges.BOTTOM, 0.1f) != null;
+    }
+
+    private bool canJump()
+    {
+        if (isMelted)
+            return false;
+        else
+            return isGrounded();
     }
 
 
@@ -123,24 +143,6 @@ public class FrostieScript : MonoBehaviour {
         return null;
     }
 
-    private void handleMovingPlatforms()
-    {
-        Vector3 movement = Vector3.zero;
-        GameObject platform = CollisionHelper.getCollidingObject(getBottomCollider(), Edges.BOTTOM, 0.1f);
-
-        if (platform == null || platform.tag != "Platform")
-        {
-            oldPlatformPosition = Vector3.zero;
-            return;
-        }
-        Vector3 platformPosition = platform.transform.position;
-        if (!Vector3.zero.Equals(oldPlatformPosition))
-        {
-            movement = platformPosition - oldPlatformPosition;
-        }
-        oldPlatformPosition = platformPosition;
-
-        transform.Translate(movement, Space.World);
-    }
+    
 
 }
