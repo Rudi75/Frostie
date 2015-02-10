@@ -43,10 +43,7 @@ public class FrostieScript : MonoBehaviour {
 
         if(Input.GetKeyDown(KeyCode.LeftAlt))
         {
-            isMelted = !isMelted;
-            animator.SetBool("isMelted", isMelted);
-            movement = 0;
-            Debug.Log("isMelted = " + isMelted);
+            melt();
         }
 
 
@@ -120,6 +117,14 @@ public class FrostieScript : MonoBehaviour {
     public bool isGrounded()
     {
         return CollisionHelper.getCollidingObject(getBottomCollider(), Edges.BOTTOM, 0.1f) != null;
+    }
+
+    public void melt()
+    {
+        isMelted = !isMelted;
+        animator.SetBool("isMelted", isMelted);
+        movement = 0;
+        Debug.Log("isMelted = " + isMelted);
     }
 
     private bool canJump()
