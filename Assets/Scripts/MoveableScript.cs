@@ -63,8 +63,8 @@ public class MoveableScript : MonoBehaviour {
                 if (Input.GetKey(KeyCode.LeftControl))
                 {
                     Vector3 movement = Vector3.zero;
-                    GameObject playerLeft = CollisionHelper.getCollidingObject(collider2D, Edges.LEFT, 0.2f);
-                    GameObject playerRight = CollisionHelper.getCollidingObject(collider2D, Edges.RIGHT, 0.2f);
+                    GameObject playerLeft = CollisionHelper.getCollidingObject(collider2D, Edges.LEFT, 0.3f);
+                    GameObject playerRight = CollisionHelper.getCollidingObject(collider2D, Edges.RIGHT, 0.3f);
 
                     if ((playerLeft == null || playerLeft.tag != "Player") && (playerRight == null || playerRight.tag != "Player"))
                     {

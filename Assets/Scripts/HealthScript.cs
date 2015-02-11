@@ -23,9 +23,17 @@ public class HealthScript : MonoBehaviour {
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    public void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag.Equals("Lethal"))
+        if (other.tag.Contains("Lethal"))
+        {
+            Damage(hp);
+        }
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.tag.Contains("Lethal"))
         {
             Damage(hp);
         }

@@ -5,7 +5,7 @@ public class IceCubeScript : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.name.Equals("Lava"))
+        if (other.gameObject.tag.Contains("Hot"))
         {
             Destroy(gameObject);
         }
