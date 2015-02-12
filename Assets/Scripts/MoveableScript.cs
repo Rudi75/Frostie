@@ -5,9 +5,10 @@ using AssemblyCSharp;
 public class MoveableScript : MonoBehaviour {
 
 	private float movement = 0;
-    private Vector3 oldPlayerPosition;	  
+    private Vector3 oldPlayerPosition;
+    private float speedReduction = 0.5f;   
 
-        void OnCollisionEnter2D(Collision2D collision)
+        void OnCollisionStay2D(Collision2D collision)
         {
             if(!Input.GetKey(KeyCode.LeftControl))
             {
@@ -31,16 +32,6 @@ public class MoveableScript : MonoBehaviour {
             }
         }
 
-        void OnCollisionExit2D(Collision2D collision)
-        {
-
-            string otherObject = collision.gameObject.tag;
-            if (otherObject == "Player")
-            {
-                movement = 0;
-            }
-        }
-
 
         void FixedUpdate()
         { 
@@ -51,7 +42,7 @@ public class MoveableScript : MonoBehaviour {
                 float speedY = rigidbody2D.velocity.y;
                 rigidbody2D.velocity = new Vector2(speedX,speedY);
             }
-            
+            movement *= speedReduction ;
             
             
         }
