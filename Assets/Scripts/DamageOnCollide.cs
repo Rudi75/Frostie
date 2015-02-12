@@ -7,7 +7,7 @@ public class DamageOnCollide : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        HealthScript livingBeeing = collider.gameObject.GetComponent<HealthScript>();
+        HealthScript livingBeeing = collider.gameObject.GetComponentInParent<HealthScript>();
         if (livingBeeing != null)
         {
             livingBeeing.Damage(Damage);

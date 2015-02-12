@@ -5,12 +5,17 @@ using System.Linq;
 
 public class GifLikeAnimation : MonoBehaviour 
 {
-    public float animationRate = 0.25f;
+    public float animationRate = 0.0f;
 
     private float timeToNextFrame;
 
     private int currentID;
     private SortedList<int, SpriteRenderer> images;
+
+    void Awake()
+    {
+        images = new SortedList<int, SpriteRenderer>();
+    }
 
 	// Use this for initialization
 	void Start () 
@@ -24,12 +29,13 @@ public class GifLikeAnimation : MonoBehaviour
             if (childRenderer != null)
             {
                 childRenderer.enabled = false;
-                images.Add(childRenderer.sortingLayerID, childRenderer);
+                images.Add(currentID, childRenderer);
+                currentID++;
             }
         }
 
+        currentID = 0;
         images.ElementAt(currentID).Value.enabled = true;
-
 	}
 	
 	// Update is called once per frame
@@ -40,10 +46,11 @@ public class GifLikeAnimation : MonoBehaviour
             timeToNextFrame -= Time.deltaTime;
         }
         else
-        { 
+        {
             //Switch frame
             images.ElementAt(currentID).Value.enabled = false;
-            currentID = (currentID++) % images.Count;
+            currentID++;
+            currentID = currentID % images.Count;
             images.ElementAt(currentID).Value.enabled = true;
 
             timeToNextFrame = animationRate;

@@ -7,14 +7,14 @@ public class HeatDamageOnCollide : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        FrostieScript frostie = collision.gameObject.GetComponent<FrostieScript>();
-        if (frostie != null)
+        FrostieScript frostie = collision.gameObject.GetComponentInParent<FrostieScript>();
+        if (frostie != null && !frostie.isMelted)
         {
-            frostie.melt();
+            frostie.ChangeMeltedState();
             return;
         }
 
-        HealthScript livingBeeing = collision.gameObject.GetComponent<HealthScript>();
+        HealthScript livingBeeing = collision.gameObject.GetComponentInParent<HealthScript>();
         if (livingBeeing != null)
         {
             livingBeeing.Damage(Damage);

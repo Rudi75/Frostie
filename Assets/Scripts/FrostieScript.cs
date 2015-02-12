@@ -10,7 +10,7 @@ public class FrostieScript : MonoBehaviour {
 	public bool letGoLeft = true;
     public float viewDirection = +1;
 
-    private bool isMelted = false;
+    public bool isMelted { get; set; }
 	private float movement;
 
     private Animator animator;
@@ -18,6 +18,7 @@ public class FrostieScript : MonoBehaviour {
     void Start()
     {
         animator = GetComponentInParent<Animator>();
+        isMelted = false;
     }
 
 	void OnCollisionEnter2D(Collision2D collision)
@@ -43,7 +44,7 @@ public class FrostieScript : MonoBehaviour {
 
         if(Input.GetKeyDown(KeyCode.LeftAlt))
         {
-            melt();
+            ChangeMeltedState();
         }
 
 
@@ -119,7 +120,7 @@ public class FrostieScript : MonoBehaviour {
         return CollisionHelper.getCollidingObject(getBottomCollider(), Edges.BOTTOM, 0.1f) != null;
     }
 
-    public void melt()
+    public void ChangeMeltedState()
     {
         isMelted = !isMelted;
         animator.SetBool("isMelted", isMelted);
