@@ -73,6 +73,5 @@ public class ParallaxScrollingScript : MonoBehaviour
 
     movement *= Time.deltaTime;
     transform.Translate(movement);
-    //camera.transform.position = new Vector3(x, y, transform.position.z);
 	}
 }
