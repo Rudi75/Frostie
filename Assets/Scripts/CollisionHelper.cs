@@ -104,6 +104,38 @@ namespace AssemblyCSharp
 			
 			
 		}
+        public static Collider2D getBotomCollider(Collider2D[] colliders)
+        {
+                if (colliders.Length < 1)
+                {
+                    throw new System.Exception("no colliders found");
+                }
+
+                Collider2D bottomCollider = colliders[0];
+                foreach (var aCollider in colliders)
+                {
+                    if (aCollider.transform.position.y < bottomCollider.transform.position.y)
+                        bottomCollider = aCollider;
+                }
+                return bottomCollider;
+        }
+		
+        public static Collider2D getTopCollider(Collider2D[] colliders)
+        {
+                if (colliders.Length < 1)
+                {
+                    throw new System.Exception("no colliders found");
+                }
+
+                Collider2D topCollider = colliders[0];
+                foreach (var aCollider in colliders)
+                {
+                    if (aCollider.transform.position.y > topCollider.transform.position.y)
+                        topCollider = aCollider;
+                }
+                return topCollider;
+        }
 		}
+   
 }
 
