@@ -6,7 +6,10 @@ public class MoveableScript : MonoBehaviour {
 
 	private float movement = 0;
     private Vector3 oldPlayerPosition;
-    private float speedReduction = 0.5f;   
+    private float speedReduction = 0.5f;
+
+    public GameObject playerLeft;
+    public GameObject playerRight;
 
         void OnCollisionStay2D(Collision2D collision)
         {
@@ -53,12 +56,14 @@ public class MoveableScript : MonoBehaviour {
             {
                 if (Input.GetKey(KeyCode.LeftControl))
                 {
+                    
                     Vector3 movement = Vector3.zero;
-                    GameObject playerLeft = CollisionHelper.getCollidingObject(collider2D, Edges.LEFT, 0.5f);
-                    GameObject playerRight = CollisionHelper.getCollidingObject(collider2D, Edges.RIGHT, 0.5f);
+                     playerLeft = CollisionHelper.getCollidingObject(collider2D, Edges.LEFT, 0.5f);
+                     playerRight = CollisionHelper.getCollidingObject(collider2D, Edges.RIGHT, 0.5f);
 
                     if ((playerLeft == null || playerLeft.tag != "Player") && (playerRight == null || playerRight.tag != "Player"))
                     {
+                        Debug.Log("Pull");
                         oldPlayerPosition = Vector3.zero;
                         return false;
                     }
