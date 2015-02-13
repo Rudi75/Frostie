@@ -63,7 +63,6 @@ public class MoveableScript : MonoBehaviour {
 
                     if ((playerLeft == null || playerLeft.tag != "Player") && (playerRight == null || playerRight.tag != "Player"))
                     {
-                        Debug.Log("Pull");
                         oldPlayerPosition = Vector3.zero;
                         return false;
                     }

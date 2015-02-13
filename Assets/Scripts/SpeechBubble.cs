@@ -11,7 +11,7 @@ public class SpeechBubble : MonoBehaviour
 	
 	//a guiSkin, to render the round part of the speech balloon
 	public GUISkin guiSkin;
-    private string speech = "hello";
+    public string speech = "hello";
 	
     public int OffsetXStart = -50;
     public int OffsetYStart = 100;
@@ -56,14 +56,14 @@ public class SpeechBubble : MonoBehaviour
         if(x > 30)
         {
             int temp = x / 30;
-            potensator = 1.2f + (float)temp/10;
+            potensator = 1.1f + (float)temp/10;
         }
-        int bubbleWidth = (int)(Math.Log(Math.Pow((double)x, potensator)) * 30);
-        int bubbleHeight = bubbleWidth;
+        int bubbleWidth = (int)(Math.Log(Math.Pow((double)x, potensator)) * 40);
+        int bubbleHeight = (int)(Math.Log(Math.Pow((double)x, potensator)) * 20);
         int centerOffsetX = bubbleWidth / 2;
         int centerOffsetY = bubbleHeight / 2;
         int offsetX = OffsetXStart - (bubbleWidth - 40) / 2;
-        int offsetY = OffsetYStart + (bubbleWidth - 40) / 2;
+        int offsetY = OffsetYStart + (bubbleHeight - 40) / 2;
 		//Begin the GUI group centering the speech bubble at the same position of this game object. After that, apply the offset
 		GUI.BeginGroup(new Rect(goScreenPos.x-centerOffsetX-offsetX,Screen.height-goScreenPos.y-centerOffsetY-offsetY,bubbleWidth,bubbleHeight));
 			
@@ -71,8 +71,8 @@ public class SpeechBubble : MonoBehaviour
         GUI.Label(new Rect(0, 0, bubbleWidth, bubbleHeight), "", guiSkin.customStyles[0]);
 
 			//Render the text
-        float startLeft = bubbleWidth * 0.25f;
-        float startTop = bubbleHeight * 0.2f;
+        float startLeft = bubbleWidth * 0.1f;
+        float startTop = bubbleHeight * 0.1f;
         GUI.Label(new Rect(startLeft, startTop, bubbleWidth - (2 * startLeft), bubbleHeight - (2 * startTop)), speech, guiSkin.label);
 		
 		GUI.EndGroup();
