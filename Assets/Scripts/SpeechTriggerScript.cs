@@ -27,6 +27,7 @@ public class SpeechTriggerScript : MonoBehaviour {
             {
                 bubble.setSpeech(" ");
                 bubble.enabled = false;
+                Destroy(gameObject);
             }
         }
     }
