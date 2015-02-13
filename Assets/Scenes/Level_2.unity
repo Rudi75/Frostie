@@ -2062,6 +2062,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dba15eac7ad0cf64cbfeef75b432ab99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerLeft: {fileID: 0}
+  playerRight: {fileID: 0}
 --- !u!50 &368791553
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -4667,6 +4669,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11448068, guid: 3962b70393a1e194dbe1ae457fd4cb85, type: 2}
+      propertyPath: viewDirection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11448066, guid: 3962b70393a1e194dbe1ae457fd4cb85, type: 2}
+      propertyPath: isEnemy
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3962b70393a1e194dbe1ae457fd4cb85, type: 2}
   m_RootGameObject: {fileID: 2107134402}
@@ -4922,6 +4932,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dba15eac7ad0cf64cbfeef75b432ab99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerLeft: {fileID: 0}
+  playerRight: {fileID: 0}
 --- !u!50 &833018700
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -8309,6 +8321,7 @@ GameObject:
   - 114: {fileID: 1438421701}
   - 114: {fileID: 1438421700}
   - 114: {fileID: 1438421704}
+  - 114: {fileID: 1438421705}
   m_Layer: 0
   m_Name: Frostie
   m_TagString: Player
@@ -8357,6 +8370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 5
+  isEnemy: 0
 --- !u!114 &1438421702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8402,6 +8416,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd0e7ec1cac22db49bf85125f2d80e6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1438421705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11403552, guid: 3962b70393a1e194dbe1ae457fd4cb85,
+    type: 2}
+  m_PrefabInternal: {fileID: 769401613}
+  m_GameObject: {fileID: 1438421698}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c33d3792b226cfb4193966ecbb1d2a05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guiSkin: {fileID: 11400000, guid: 9f33556ed15707342b6b9407570ebf8e, type: 2}
+  speech: hello
+  OffsetXStart: -50
+  OffsetYStart: 120
 --- !u!1001 &1445950043
 Prefab:
   m_ObjectHideFlags: 0
