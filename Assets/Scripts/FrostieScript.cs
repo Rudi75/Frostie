@@ -15,10 +15,31 @@ public class FrostieScript : MonoBehaviour {
 
     private Animator animator;
 
+    private Transform head;
+    private Transform middlePart;
+    private Transform bottomPart;
+    private Vector3 headLocalPosition;
+    private Vector3 middleLocalPosition;
+    private Vector3 bottomLocalPosition;
+    public bool isHeadOff { get; set; }
     void Start()
     {
         animator = GetComponentInParent<Animator>();
         isMelted = false;
+        foreach (Transform child in transform)
+        {
+            Debug.Log("name: " + child.name);
+            if (child.name.Contains("Head"))
+                head = child;
+            else if (child.name.Contains("Middle"))
+                middlePart = child;
+            else if (child.name.Contains("Bottom"))
+                bottomPart = child;           
+        }
+        middleLocalPosition = middlePart.localPosition;
+        bottomLocalPosition = bottomPart.localPosition;
+        headLocalPosition = head.localPosition;
+        isHeadOff = false;
     }
 
 	void OnCollisionEnter2D(Collision2D collision)
@@ -46,13 +67,26 @@ public class FrostieScript : MonoBehaviour {
         {
             ChangeMeltedState();
         }
-
+        if(Input.GetKeyDown(KeyCode.Y))
+        {
+            recallParts();
+        }
 
 		float inputX = Input.GetAxis("Horizontal");
         if(viewDirection*inputX < 0 && !Input.GetKey(KeyCode.LeftControl))
         {
             Vector3 scale = transform.localScale; 
             scale.x *= -1;
+            if(isHeadOff)
+            {
+                Vector3 headScale = head.localScale;
+                headScale.x *= -1;
+                head.localScale = headScale;
+
+                Vector3 headposition = head.localPosition;
+                headposition.x *= -1;
+                head.localPosition = headposition;
+            }
             transform.localScale = scale;
             viewDirection = inputX;
         }
@@ -148,6 +182,34 @@ public class FrostieScript : MonoBehaviour {
         return null;
     }
 
+    void recallParts()
+    {
+
+        Rigidbody2D headRigidbody = head.GetComponent<Rigidbody2D>();
+        if (headRigidbody != null)
+            Destroy(headRigidbody);
+        head.localScale = bottomPart.localScale;
+        isHeadOff = false;
+
+        Rigidbody2D middleRigidbody = middlePart.GetComponent<Rigidbody2D>();
+        if (middleRigidbody != null)
+            Destroy(middleRigidbody);
+
+        Rigidbody2D bottomRigidbody = bottomPart.GetComponent<Rigidbody2D>();
+        if (bottomRigidbody != null)
+            Destroy(bottomRigidbody);
+
+        AimScript headAim = head.GetComponentInChildren<AimScript>();
+       if(headAim != null)
+        {
+            headAim.reset();
+        }
+
+        GetComponentInParent<Transform>().position = bottomPart.position - bottomLocalPosition;
+        head.localPosition = headLocalPosition;
+        middlePart.localPosition = middleLocalPosition;
+        bottomPart.localPosition = bottomLocalPosition;
+    }
     
 
 }

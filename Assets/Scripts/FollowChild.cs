@@ -9,10 +9,10 @@ public class FollowChild : MonoBehaviour {
 
     void FixedUpdate()
     {
-        handleMovingPlatforms();
+        followChild();
     }
 
-    private void handleMovingPlatforms()
+    private void followChild()
     {
 
         Vector3 movement = Vector3.zero;
