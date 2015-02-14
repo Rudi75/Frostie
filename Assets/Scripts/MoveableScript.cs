@@ -5,9 +5,13 @@ using AssemblyCSharp;
 public class MoveableScript : MonoBehaviour {
 
 	private float movement = 0;
-    private Vector3 oldPlayerPosition;	  
+    private Vector3 oldPlayerPosition;
+    private float speedReduction = 0.5f;
 
-        void OnCollisionEnter2D(Collision2D collision)
+    public GameObject playerLeft;
+    public GameObject playerRight;
+
+        void OnCollisionStay2D(Collision2D collision)
         {
             if(!Input.GetKey(KeyCode.LeftControl))
             {
@@ -31,16 +35,6 @@ public class MoveableScript : MonoBehaviour {
             }
         }
 
-        void OnCollisionExit2D(Collision2D collision)
-        {
-
-            string otherObject = collision.gameObject.tag;
-            if (otherObject == "Player")
-            {
-                movement = 0;
-            }
-        }
-
 
         void FixedUpdate()
         { 
@@ -51,7 +45,7 @@ public class MoveableScript : MonoBehaviour {
                 float speedY = rigidbody2D.velocity.y;
                 rigidbody2D.velocity = new Vector2(speedX,speedY);
             }
-            
+            movement *= speedReduction ;
             
             
         }
@@ -62,9 +56,10 @@ public class MoveableScript : MonoBehaviour {
             {
                 if (Input.GetKey(KeyCode.LeftControl))
                 {
+                    
                     Vector3 movement = Vector3.zero;
-                    GameObject playerLeft = CollisionHelper.getCollidingObject(collider2D, Edges.LEFT, 0.3f);
-                    GameObject playerRight = CollisionHelper.getCollidingObject(collider2D, Edges.RIGHT, 0.3f);
+                     playerLeft = CollisionHelper.getCollidingObject(collider2D, Edges.LEFT, 0.5f);
+                     playerRight = CollisionHelper.getCollidingObject(collider2D, Edges.RIGHT, 0.5f);
 
                     if ((playerLeft == null || playerLeft.tag != "Player") && (playerRight == null || playerRight.tag != "Player"))
                     {

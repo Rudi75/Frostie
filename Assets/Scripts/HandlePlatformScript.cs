@@ -15,16 +15,8 @@ public class HandlePlatformScript : MonoBehaviour {
     private void handleMovingPlatforms()
     {
         Collider2D[] colliders =  GetComponentsInChildren<Collider2D>();
-        if(colliders.Length < 1)
-        {
-            throw new System.Exception("no colliders found");
-        }
-        Collider2D bottomCollider = colliders[0];
-        foreach (var aCollider in colliders)
-        {
-            if (aCollider.transform.position.y < bottomCollider.transform.position.y)
-                bottomCollider = aCollider;
-        }
+
+        Collider2D bottomCollider = CollisionHelper.getBotomCollider(colliders);
 
         Vector3 movement = Vector3.zero;
         GameObject platform = CollisionHelper.getCollidingObject(bottomCollider, Edges.BOTTOM, 0.1f);

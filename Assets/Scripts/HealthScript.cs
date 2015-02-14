@@ -19,15 +19,24 @@ public class HealthScript : MonoBehaviour {
         if (hp <= 0)
         {
             // Dead!
+            FollowChild parent = GetComponentInParent<FollowChild>();
+            if(parent != null)
+            {
+                Destroy(parent.gameObject);
+            }
             Destroy(gameObject);
         }
     }
 
+    public void Die()
+    {
+        Damage(hp);
+    }
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag.Contains("Lethal"))
         {
-            Damage(hp);
+            Die();
         }
     }
 
@@ -35,7 +44,7 @@ public class HealthScript : MonoBehaviour {
     {
         if (collision.collider.tag.Contains("Lethal"))
         {
-            Damage(hp);
+            Die();
         }
     }
 }

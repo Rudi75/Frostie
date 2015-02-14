@@ -43,7 +43,6 @@ public class ButtonScript : MonoBehaviour {
 
 
 		    Edges collisionEdge = CollisionHelper.getCollisionEdge(collision);
-            Debug.Log("Collision : " + buttonEdge + " : " + collisionEdge);
 
 		    if(buttonEdge.Equals(collisionEdge))//Button pressed
 		    {

@@ -18,15 +18,15 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: {x: .600000024, y: .210000098, z: 1}
-        inSlope: {x: 0, y: .779999852, z: 0}
-        outSlope: {x: 0, y: .779999852, z: 0}
-        tangentMode: 1702060354
+        value: {x: 1, y: .337500513, z: 1}
+        inSlope: {x: 0, y: 1.32499897, z: 0}
+        outSlope: {x: 0, y: 1.32499897, z: 0}
+        tangentMode: 0
       - time: .5
-        value: {x: .600000024, y: .600000024, z: 1}
-        inSlope: {x: 0, y: .779999852, z: 0}
-        outSlope: {x: 0, y: .779999852, z: 0}
-        tangentMode: 19
+        value: {x: 1, y: 1, z: 1}
+        inSlope: {x: 0, y: 1.32499897, z: 0}
+        outSlope: {x: 0, y: 1.32499897, z: 0}
+        tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
     path: Button
@@ -68,12 +68,12 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: .600000024
+        value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 10
       - time: .5
-        value: .600000024
+        value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 10
@@ -87,14 +87,14 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: .210000098
-        inSlope: .779999852
-        outSlope: .779999852
+        value: .337500513
+        inSlope: 1.32499897
+        outSlope: 1.32499897
         tangentMode: 10
       - time: .5
-        value: .600000024
-        inSlope: .779999852
-        outSlope: .779999852
+        value: 1
+        inSlope: 1.32499897
+        outSlope: 1.32499897
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2

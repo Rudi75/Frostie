@@ -43,7 +43,7 @@ BoxCollider2D:
   m_Center: {x: 0, y: -.330000013}
 --- !u!114 &11440846
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 140846}
