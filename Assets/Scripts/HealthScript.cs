@@ -41,7 +41,7 @@ public class HealthScript : MonoBehaviour {
         {
             Debug.Log("jop");
             return;
-        }        
+        }
         if (other.tag.Contains("Lethal"))
         {
             Die();
@@ -49,8 +49,10 @@ public class HealthScript : MonoBehaviour {
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.collider.tag.Contains("Lethal"))
+    {        
+        HealthScript healthScript = collision.gameObject.GetComponent<HealthScript>();
+        if (collision.collider.tag.Contains("Lethal") && healthScript == null
+            || collision.collider.tag.Contains("Lethal") && healthScript.isEnemy != isEnemy)
         {
             Die();
         }
