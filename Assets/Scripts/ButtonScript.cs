@@ -46,7 +46,7 @@ public class ButtonScript : MonoBehaviour {
 
             GameObject other = collision.collider.gameObject;
 
-		    if(buttonEdge.Equals(collisionEdge) && !other.tag.Contains("Enemy"))//Button pressed by everythin except enemies
+		    if(buttonEdge.Equals(collisionEdge) && !other.tag.Contains("Lethal"))//Button pressed by everythin except enemies
 		    {
 			    //FrostiePartScript part = collision.collider.gameObject.GetComponent<FrostiePartScript>();
 			    //TODO restriction ButtonSize and FrostiePart
