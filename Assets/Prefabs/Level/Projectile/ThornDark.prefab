@@ -10,9 +10,12 @@ GameObject:
   - 4: {fileID: 489328}
   - 212: {fileID: 21289328}
   - 61: {fileID: 6189328}
+  - 114: {fileID: 11456266}
+  - 114: {fileID: 11410516}
+  - 50: {fileID: 5010516}
   m_Layer: 0
   m_Name: ThornDark
-  m_TagString: Untagged
+  m_TagString: Lethal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24,11 +27,26 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 189328}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -30.5100002, y: -2.63000011, z: 0}
   m_LocalScale: {x: .200000003, y: .200000003, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!50 &5010516
+Rigidbody2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 189328}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: .0500000007
+  m_GravityScale: 0
+  m_FixedAngle: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
 --- !u!61 &6189328
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -37,9 +55,35 @@ BoxCollider2D:
   m_GameObject: {fileID: 189328}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Size: {x: 2.25, y: 4.36000013}
   m_Center: {x: 0, y: 0}
+--- !u!114 &11410516
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 189328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d476bc84f30cbb1449e556f9d4a7d16c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: {x: 11, y: 5}
+  direction: {x: -1, y: 0}
+--- !u!114 &11456266
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 189328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e0f46b3d3005548b11aea24e6590dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  isEnemyShot: 1
 --- !u!212 &21289328
 SpriteRenderer:
   m_ObjectHideFlags: 1
