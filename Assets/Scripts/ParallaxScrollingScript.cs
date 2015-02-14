@@ -55,11 +55,11 @@ public class ParallaxScrollingScript : MonoBehaviour
     }
 
     Vector3 movement = new Vector3(
-      speed.x * direction.x,
-      speed.y * direction.y,
+      speed.x * (oldCamX - x) / 4.5f,
+      speed.y * (oldCamY - y) / 4.5f,
       0);
 
-    movement *= Time.deltaTime;
+    //movement *= Time.deltaTime;
     transform.Translate(movement);
 	}
 }
