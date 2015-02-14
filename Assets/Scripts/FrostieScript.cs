@@ -8,31 +8,33 @@ public class FrostieScript : MonoBehaviour {
 	public float jumpHight = 5;
 	public bool letGoRight = true;
 	public bool letGoLeft = true;
-    public float viewDirection = +1;
+  public float viewDirection = +1;
 
-    public bool isMelted { get; set; }
+  public bool isMelted { get; set; }
 	private float movement;
 
-    private Animator animator;
+  private Animator animator;
 
-    void Start()
-    {
-        animator = GetComponentInParent<Animator>();
-        isMelted = false;
-    }
+  void Start()
+  {
+      animator = GetComponentInParent<Animator>();
+      isMelted = false;
+  }
 
 	void OnCollisionEnter2D(Collision2D collision)
 	{
 		MoveableScript pushScript = collision.gameObject.GetComponent<MoveableScript> ();
 
-        if (!isMelted && (pushScript == null || (pushScript != null && CollisionHelper.getCollidingObject(getBottomCollider(), Edges.BOTTOM,0.1f) == null)))
+    if (!isMelted && (pushScript == null || (pushScript != null && CollisionHelper.getCollidingObject(getBottomCollider(), Edges.BOTTOM,0.1f) == null)))
 		{
 			Edges edge = CollisionHelper.getCollisionEdge (collision);
-			if (Edges.RIGHT.Equals(edge)) {
+			if (Edges.RIGHT.Equals(edge))
+      {
 				letGoRight = false;
 			}
 
-			if (Edges.LEFT.Equals(edge)) {
+			if (Edges.LEFT.Equals(edge))
+      {
 				letGoLeft = false;
 			}
 		}
@@ -42,42 +44,44 @@ public class FrostieScript : MonoBehaviour {
 	{
 
 
-        if(Input.GetKeyDown(KeyCode.LeftAlt))
-        {
-            ChangeMeltedState();
-        }
+    if(Input.GetKeyDown(KeyCode.LeftAlt))
+    {
+      ChangeMeltedState();
+    }
 
 
 		float inputX = Input.GetAxis("Horizontal");
-        if(viewDirection*inputX < 0 && !Input.GetKey(KeyCode.LeftControl))
-        {
-            Vector3 scale = transform.localScale; 
-            scale.x *= -1;
-            transform.localScale = scale;
-            viewDirection = inputX;
-        }
+
+    if(viewDirection*inputX < 0 && !Input.GetKey(KeyCode.LeftControl))
+    {
+      Vector3 scale = transform.localScale; 
+      scale.x *= -1;
+      transform.localScale = scale;
+      viewDirection = inputX;
+    }
 
 		if(!letGoLeft)
 		{
-            letGoLeft = CollisionHelper.getCollidingObject(getBottomCollider(), Edges.LEFT, 0.1f) == null;
+      letGoLeft = CollisionHelper.getCollidingObject(getBottomCollider(), Edges.LEFT, 0.1f) == null;
 		}
 
 		if(!letGoRight)
 		{
-            letGoRight = CollisionHelper.getCollidingObject(getBottomCollider(), Edges.RIGHT, 0.1f) == null;
+      letGoRight = CollisionHelper.getCollidingObject(getBottomCollider(), Edges.RIGHT, 0.1f) == null;
 		}
 
 
 
-		if ((inputX < 0 && !letGoLeft) || (inputX > 0 && !letGoRight) || (viewDirection*inputX > 0 && Input.GetKey(KeyCode.LeftControl))) {
+		if ((inputX < 0 && !letGoLeft) || (inputX > 0 && !letGoRight) || (viewDirection*inputX > 0 && Input.GetKey(KeyCode.LeftControl)))
+    {
 			inputX = 0;
-				}
+    }
 
 
 		movement = speed * inputX;
 
-        if (Input.GetKeyDown(KeyCode.Space) && canJump())
-        {
+    if (Input.GetKeyDown(KeyCode.Space) && canJump())
+    {
 			rigidbody2D.AddForce(new Vector2(0, jumpHight), ForceMode2D.Impulse);
 		} 
 		
@@ -102,7 +106,7 @@ public class FrostieScript : MonoBehaviour {
 		
 		transform.position = new Vector3(
 			Mathf.Clamp(transform.position.x, leftBorder, rightBorder),
-            Mathf.Clamp(transform.position.y, transform.position.y, topBorder),//bottomBorder
+      Mathf.Clamp(transform.position.y, transform.position.y, topBorder),//bottomBorder
 			transform.position.z
 			);
 	}
@@ -114,40 +118,38 @@ public class FrostieScript : MonoBehaviour {
 		rigidbody2D.velocity = new Vector2(speedX,speedY);
 	}
 
-    public bool isGrounded()
+  public bool isGrounded()
+  {
+      return CollisionHelper.getCollidingObject(getBottomCollider(), Edges.BOTTOM, 0.1f) != null;
+  }
+
+  public void ChangeMeltedState()
+  {
+    isMelted = !isMelted;
+    animator.SetBool("isMelted", isMelted);
+    movement = 0;
+    Debug.Log("isMelted = " + isMelted);
+  }
+
+  private bool canJump()
+  {
+    if (isMelted)
+        return false;
+    else
+        return isGrounded();
+  }
+
+
+  private Collider2D getBottomCollider()
+  {
+    foreach (Transform child in transform)
     {
-        return CollisionHelper.getCollidingObject(getBottomCollider(), Edges.BOTTOM, 0.1f) != null;
+      if (child.name == "FrostieBottom")
+      {
+        return child.collider2D;
+      }
     }
-
-    public void ChangeMeltedState()
-    {
-        isMelted = !isMelted;
-        animator.SetBool("isMelted", isMelted);
-        movement = 0;
-        Debug.Log("isMelted = " + isMelted);
-    }
-
-    private bool canJump()
-    {
-        if (isMelted)
-            return false;
-        else
-            return isGrounded();
-    }
-
-
-    private Collider2D getBottomCollider()
-    {
-        foreach (Transform child in transform)
-        {
-            if (child.name == "FrostieBottom")
-            {
-                return child.collider2D;
-            }
-        }
-        return null;
-    }
-
-    
+    return null;
+  }
 
 }
