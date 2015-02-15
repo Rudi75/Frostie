@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Assets.Scripts.Utils;
+
+using KindsOfDeath = Assets.Scripts.Utils.Enums.KindsOfDeath;
 
 public class HeatDamageOnCollide : MonoBehaviour
 {
@@ -8,9 +11,9 @@ public class HeatDamageOnCollide : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         FrostieScript frostie = collision.gameObject.GetComponentInParent<FrostieScript>();
-        if (frostie != null && !frostie.isMelted)
+        if (frostie != null)
         {
-            frostie.ChangeMeltedState();
+            frostie.Die(KindsOfDeath.InFire);
             return;
         }
 

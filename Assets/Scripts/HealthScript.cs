@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+using Assets.Scripts.Utils;
+using KindsOfDeath = Assets.Scripts.Utils.Enums.KindsOfDeath;
+
 public class HealthScript : MonoBehaviour {
 
     /// <summary>
@@ -20,19 +23,33 @@ public class HealthScript : MonoBehaviour {
         if (hp <= 0)
         {
             // Dead!
-            FollowChild parent = GetComponentInParent<FollowChild>();
-            if(parent != null)
-            {
-                Destroy(parent.gameObject);
-            }
-            Destroy(gameObject);
+            DieAndStartAnimation(KindsOfDeath.Normal);
+        }
+    }
+
+    public void DieAndStartAnimation(KindsOfDeath deathKind)
+    {
+        FrostieScript frostie = GetComponentInParent<FrostieScript>();
+        if (frostie != null)
+        {
+            frostie.Die(deathKind);
+        }
+        else
+        {
+            Die();
         }
     }
 
     public void Die()
     {
-        Damage(hp);
+        FollowChild parent = GetComponentInParent<FollowChild>();
+        if(parent != null)
+        {
+            Destroy(parent.gameObject);
+        }
+        Destroy(gameObject);
     }
+
     public void OnTriggerEnter2D(Collider2D other)
     {
         // Is this a shot?
@@ -44,7 +61,11 @@ public class HealthScript : MonoBehaviour {
         }
         if (other.tag.Contains("Lethal"))
         {
-            Die();
+            DieAndStartAnimation(KindsOfDeath.Normal);
+        }
+        if (other.tag.Contains("LethalHot"))
+        {
+            DieAndStartAnimation(KindsOfDeath.InFire);
         }
     }
 
@@ -54,7 +75,12 @@ public class HealthScript : MonoBehaviour {
         if (collision.collider.tag.Contains("Lethal") && healthScript == null
             || collision.collider.tag.Contains("Lethal") && healthScript.isEnemy != isEnemy)
         {
-            Die();
+            DieAndStartAnimation(KindsOfDeath.Normal);
+        }
+        if (collision.collider.tag.Contains("LethalHot") && healthScript == null
+        || collision.collider.tag.Contains("LethalHot") && healthScript.isEnemy != isEnemy)
+        {
+            DieAndStartAnimation(KindsOfDeath.InFire);
         }
     }
 }
