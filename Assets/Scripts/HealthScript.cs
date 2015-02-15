@@ -7,6 +7,7 @@ public class HealthScript : MonoBehaviour {
     /// Total hitpoints
     /// </summary>
     public int hp = 1;
+    public bool isEnemy = true;
 
     /// <summary>
     /// Inflicts damage and check if the object should be destroyed
@@ -34,6 +35,13 @@ public class HealthScript : MonoBehaviour {
     }
     public void OnTriggerEnter2D(Collider2D other)
     {
+        // Is this a shot?
+        ShotScript shot = other.gameObject.GetComponent<ShotScript>();
+        if ((shot != null) && (shot.isEnemyShot == isEnemy))
+        {
+            Debug.Log("jop");
+            return;
+        }
         if (other.tag.Contains("Lethal"))
         {
             Die();
@@ -41,8 +49,10 @@ public class HealthScript : MonoBehaviour {
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.collider.tag.Contains("Lethal"))
+    {        
+        HealthScript healthScript = collision.gameObject.GetComponent<HealthScript>();
+        if (collision.collider.tag.Contains("Lethal") && healthScript == null
+            || collision.collider.tag.Contains("Lethal") && healthScript.isEnemy != isEnemy)
         {
             Die();
         }
