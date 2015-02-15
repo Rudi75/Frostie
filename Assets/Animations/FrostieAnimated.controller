@@ -20,6 +20,26 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
+--- !u!1101 &110107078
+Transition:
+  serializedVersion: 2
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_SrcState: {fileID: 110285240}
+  m_DstState: {fileID: 110254744}
+  m_TransitionDuration: .25
+  m_TransitionOffset: 0
+  m_Conditions:
+  - m_ConditionMode: 5
+    m_ConditionEvent: 
+    m_EventTreshold: 0
+    m_ExitTime: .75
+  m_Atomic: 1
+  m_Solo: 0
+  m_Mute: 0
+  m_CanTransitionToSelf: 0
 --- !u!1102 &110213806
 State:
   m_ObjectHideFlags: 3
@@ -132,7 +152,7 @@ StateMachine:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Base Layer
-  m_DefaultState: {fileID: 110213806}
+  m_DefaultState: {fileID: 110274702}
   m_States:
   - {fileID: 110262344}
   - {fileID: 110268366}
@@ -143,7 +163,14 @@ StateMachine:
   - {fileID: 110213806}
   m_ChildStateMachine: []
   m_ChildStateMachinePosition: []
-  m_OrderedTransitions: {}
+  m_OrderedTransitions:
+    data:
+      first: {fileID: 110213806}
+      second: []
+    data:
+      first: {fileID: 110285240}
+      second:
+      - {fileID: 110107078}
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: 324, y: 72, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
