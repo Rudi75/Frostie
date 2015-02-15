@@ -834,6 +834,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: {x: 2, y: 5}
   direction: {x: -1, y: 0}
+  jumpHight: 5
+  canJump: 0
+  jumpingRate: .25
 --- !u!114 &136320228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4869,6 +4872,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: {x: 0, y: 5}
   direction: {x: -1, y: 0}
+  jumpHight: 5
+  canJump: 0
+  jumpingRate: .25
 --- !u!114 &754758837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11108,6 +11114,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: {x: 2, y: 5}
   direction: {x: -1, y: 0}
+  jumpHight: 5
+  canJump: 0
+  jumpingRate: .25
 --- !u!114 &1815314927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11453,6 +11462,7 @@ MonoBehaviour:
   rotationPerFrame: 3
   sizeChangePerFrame: .0199999996
   throwingObject: {fileID: 103440786}
+  throwForce: 800
 --- !u!1001 &1880864139
 Prefab:
   m_ObjectHideFlags: 0

@@ -14,6 +14,8 @@ public class AimScript : MonoBehaviour {
     public float sizeChangePerFrame = 0.05f;
     public GameObject throwingObject;
 
+    public int throwForce = 800;
+
 
     bool isThrown = false;
 	// Use this for initialization
@@ -95,7 +97,7 @@ public class AimScript : MonoBehaviour {
                     float yValue =  1 - Mathf.Abs(angle / 90);
 
                     Vector2 throwVector = new Vector2(xValue / Mathf.Max(xValue, yValue), yValue / Mathf.Max(xValue, yValue));
-                    throwingObject.rigidbody2D.AddForce(throwVector * 800 * scale.x);
+                    throwingObject.rigidbody2D.AddForce(throwVector * throwForce * scale.x);
                     isThrown = true;
 
                     FrostieScript frostie = throwingObject.GetComponentInParent<FrostieScript>();
