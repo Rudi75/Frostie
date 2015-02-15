@@ -132,7 +132,10 @@ public class FrostieScript : MonoBehaviour {
         if (isMelted)
             return false;
         else
+        {
+            Debug.Log("grounded: " + (isGrounded() ? "T" : "F"));
             return isGrounded();
+        }
     }
 
 
