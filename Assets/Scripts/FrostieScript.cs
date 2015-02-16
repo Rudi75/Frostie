@@ -28,7 +28,7 @@ public class FrostieScript : MonoBehaviour {
             if (isWalking != value)
             {
                 isWalking = value;
-                Debug.Log("i running");
+               // Debug.Log("i running");
                 animator.SetBool("IsWalking", isWalking);
             }
         }
@@ -36,27 +36,31 @@ public class FrostieScript : MonoBehaviour {
 
     private Transform head;
     private Transform middlePart;
-    private Transform bottomPart;
+    private Transform basePart;
     private Vector3 headLocalPosition;
     private Vector3 middleLocalPosition;
-    private Vector3 bottomLocalPosition;
+    private Vector3 baseLocalPosition;
     public bool isHeadOff { get; set; }
+
     void Start()
     {
         animator = GetComponentInParent<Animator>();
         isMelted = false;
-        foreach (Transform child in transform)
+        foreach (Transform childTransform in transform)
         {
-            Debug.Log("name: " + child.name);
-            if (child.name.Contains("Head"))
-                head = child;
-            else if (child.name.Contains("Middle"))
-                middlePart = child;
-            else if (child.name.Contains("Bottom"))
-                bottomPart = child;           
+            foreach (Transform child in childTransform)
+            {
+                if (child.name.Contains("Head"))
+                    head = child;
+                else if (child.name.Contains("Middle"))
+                    middlePart = child;
+                else if (child.name.Contains("Base"))
+                    basePart = child;
+            }
+                       
         }
         middleLocalPosition = middlePart.localPosition;
-        bottomLocalPosition = bottomPart.localPosition;
+        baseLocalPosition = basePart.localPosition;
         headLocalPosition = head.localPosition;
         isHeadOff = false;
     }
@@ -65,7 +69,7 @@ public class FrostieScript : MonoBehaviour {
 	{
 		MoveableScript pushScript = collision.gameObject.GetComponent<MoveableScript> ();
 
-        if (!isMelted && (pushScript == null || (pushScript != null && CollisionHelper.getCollidingObject(getBottomCollider(), Edges.BOTTOM,0.1f) == null)))
+        if (!isMelted && (pushScript == null || (pushScript != null && CollisionHelper.getCollidingObject(basePart.collider2D, Edges.BOTTOM, 0.1f) == null)))
 		{
 			Edges edge = CollisionHelper.getCollisionEdge (collision);
 			if (Edges.RIGHT.Equals(edge)) {
@@ -112,12 +116,12 @@ public class FrostieScript : MonoBehaviour {
 
 		if(!letGoLeft)
 		{
-            letGoLeft = CollisionHelper.getCollidingObject(getBottomCollider(), Edges.LEFT, 0.1f) == null;
+            letGoLeft = CollisionHelper.getCollidingObject(basePart.collider2D, Edges.LEFT, 0.1f) == null;
 		}
 
 		if(!letGoRight)
 		{
-            letGoRight = CollisionHelper.getCollidingObject(getBottomCollider(), Edges.RIGHT, 0.1f) == null;
+            letGoRight = CollisionHelper.getCollidingObject(basePart.collider2D, Edges.RIGHT, 0.1f) == null;
 		}
 
 
@@ -160,6 +164,11 @@ public class FrostieScript : MonoBehaviour {
 			transform.position.z
 			);
 	}
+
+    public void Jump()
+    {
+        rigidbody2D.AddForce(new Vector2(0, jumpHight), ForceMode2D.Impulse);
+    }
 	
 	void FixedUpdate()
 	{
@@ -170,7 +179,7 @@ public class FrostieScript : MonoBehaviour {
 
     public bool isGrounded()
     {
-        return CollisionHelper.getCollidingObject(getBottomCollider(), Edges.BOTTOM, 0.1f) != null;
+        return CollisionHelper.getCollidingObject(basePart.collider2D, Edges.BOTTOM, 0.1f) != null;
     }
 
     public void ChangeMeltedState()
@@ -189,54 +198,11 @@ public class FrostieScript : MonoBehaviour {
             return isGrounded();
     }
 
-
-    private Collider2D getBottomCollider()
-    {
-        foreach (Transform child in transform)
-        {
-            if (child.name == "FrostieBottom")
-            {
-                return child.collider2D;
-            }
-        }
-        return null;
-    }
-
     private bool isDying;
     public void Die(KindsOfDeath deathKind)
     {
         if (isDying)
             return;
-    void recallParts()
-    {
-
-        Rigidbody2D headRigidbody = head.GetComponent<Rigidbody2D>();
-        if (headRigidbody != null)
-            Destroy(headRigidbody);
-        head.localScale = bottomPart.localScale;
-        isHeadOff = false;
-
-        Rigidbody2D middleRigidbody = middlePart.GetComponent<Rigidbody2D>();
-        if (middleRigidbody != null)
-            Destroy(middleRigidbody);
-
-        Rigidbody2D bottomRigidbody = bottomPart.GetComponent<Rigidbody2D>();
-        if (bottomRigidbody != null)
-            Destroy(bottomRigidbody);
-
-        AimScript headAim = head.GetComponentInChildren<AimScript>();
-       if(headAim != null)
-        {
-            headAim.reset();
-        }
-
-        GetComponentInParent<Transform>().position = bottomPart.position - bottomLocalPosition;
-        head.localPosition = headLocalPosition;
-        middlePart.localPosition = middleLocalPosition;
-        bottomPart.localPosition = bottomLocalPosition;
-    }
-    
-
         isDying = true;
         isFixated = true;
         switch (deathKind)
@@ -251,5 +217,32 @@ public class FrostieScript : MonoBehaviour {
                 break;
         }   
     }
+    void recallParts()
+    {
 
+        Rigidbody2D headRigidbody = head.GetComponent<Rigidbody2D>();
+        if (headRigidbody != null)
+            Destroy(headRigidbody);
+        head.localScale = basePart.localScale;
+        isHeadOff = false;
+
+        Rigidbody2D middleRigidbody = middlePart.GetComponent<Rigidbody2D>();
+        if (middleRigidbody != null)
+            Destroy(middleRigidbody);
+
+        Rigidbody2D bottomRigidbody = basePart.GetComponent<Rigidbody2D>();
+        if (bottomRigidbody != null)
+            Destroy(bottomRigidbody);
+
+        AimScript headAim = head.GetComponentInChildren<AimScript>();
+        if (headAim != null)
+        {
+            headAim.reset();
+        }
+
+        GetComponentInParent<Transform>().position = basePart.position - baseLocalPosition;
+        head.localPosition = headLocalPosition;
+        middlePart.localPosition = middleLocalPosition;
+        basePart.localPosition = baseLocalPosition;
+    }
 }
