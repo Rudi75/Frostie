@@ -97,8 +97,6 @@ public class AimScript : MonoBehaviour {
                     Vector3 dummyPosition = throwingObject.transform.position - throwingObject.transform.localPosition;
                     GameObject dummyObject = Instantiate(Dummy,dummyPosition , Quaternion.identity) as GameObject;
 
-
-                    Vector3 throwingObjectPositionGlobal = throwingObject.transform.position;
                     dummyObject.transform.parent = throwingObject.transform.parent.parent.parent;
                     throwingObject.transform.parent = dummyObject.transform;
 

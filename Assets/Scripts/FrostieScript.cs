@@ -240,7 +240,7 @@ public class FrostieScript : MonoBehaviour {
             headAim.reset();
         }
 
-        GetComponentInParent<Transform>().position = basePart.position - baseLocalPosition;
+        transform.parent.position = basePart.position - baseLocalPosition;
         head.localPosition = headLocalPosition;
         middlePart.localPosition = middleLocalPosition;
         basePart.localPosition = baseLocalPosition;
