@@ -15,6 +15,7 @@ public class AimScript : MonoBehaviour {
     public GameObject throwingObject;
 
     public int throwForce = 800;
+    public GameObject Dummy;
 
 
     bool isThrown = false;
@@ -40,7 +41,8 @@ public class AimScript : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+    void LateUpdate()
+    {
         
 	switch(state)
     {
@@ -91,13 +93,23 @@ public class AimScript : MonoBehaviour {
                 }
                 if (Input.GetKeyDown(KeyCode.LeftShift))
                 {
-                    throwingObject.AddComponent<Rigidbody2D>();
-                    throwingObject.rigidbody2D.fixedAngle = true;
+
+                    Vector3 dummyPosition = throwingObject.transform.position - throwingObject.transform.localPosition;
+                    GameObject dummyObject = Instantiate(Dummy,dummyPosition , Quaternion.identity) as GameObject;
+
+
+                    Vector3 throwingObjectPositionGlobal = throwingObject.transform.position;
+                    dummyObject.transform.parent = throwingObject.transform.parent.parent.parent;
+                    throwingObject.transform.parent = dummyObject.transform;
+
+                    dummyObject.AddComponent<Rigidbody2D>();
+                    dummyObject.rigidbody2D.fixedAngle = true;
                     float xValue = angle / -90;
                     float yValue =  1 - Mathf.Abs(angle / 90);
 
                     Vector2 throwVector = new Vector2(xValue / Mathf.Max(xValue, yValue), yValue / Mathf.Max(xValue, yValue));
-                    throwingObject.rigidbody2D.AddForce(throwVector * throwForce * scale.x);
+
+                   dummyObject.rigidbody2D.AddForce(throwVector * throwForce * scale.x);
                     isThrown = true;
 
                     FrostieScript frostie = throwingObject.GetComponentInParent<FrostieScript>();

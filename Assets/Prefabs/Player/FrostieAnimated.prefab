@@ -1717,6 +1717,7 @@ MonoBehaviour:
   sizeChangePerFrame: .0199999996
   throwingObject: {fileID: 173654}
   throwForce: 800
+  Dummy: {fileID: 125168, guid: 73b0225d7437fd84d9c803a85f585ea9, type: 2}
 --- !u!114 &11413322
 MonoBehaviour:
   m_ObjectHideFlags: 1
