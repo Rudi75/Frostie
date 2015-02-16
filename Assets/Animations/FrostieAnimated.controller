@@ -7,7 +7,43 @@ AnimatorController:
   m_PrefabInternal: {fileID: 0}
   m_Name: FrostieAnimated
   serializedVersion: 2
-  m_AnimatorParameters: []
+  m_AnimatorParameters:
+  - m_Name: Jump
+    m_Type: 9
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: isMelted
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: IsWalking
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: Death
+    m_Type: 9
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: DeathInFire
+    m_Type: 9
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: DeathBySqeezing
+    m_Type: 9
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 3
     m_Name: Base Layer
@@ -20,7 +56,207 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
---- !u!1101 &110107078
+--- !u!1101 &110110104
+Transition:
+  serializedVersion: 2
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_SrcState: {fileID: 110254744}
+  m_DstState: {fileID: 110262344}
+  m_TransitionDuration: 0
+  m_TransitionOffset: 0
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: isMelted
+    m_EventTreshold: 0
+    m_ExitTime: .994901955
+  m_Atomic: 1
+  m_Solo: 0
+  m_Mute: 0
+  m_CanTransitionToSelf: 0
+--- !u!1101 &110116792
+Transition:
+  serializedVersion: 2
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_SrcState: {fileID: 110254744}
+  m_DstState: {fileID: 110285240}
+  m_TransitionDuration: .00498609385
+  m_TransitionOffset: 0
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: IsWalking
+    m_EventTreshold: 0
+    m_ExitTime: .995013833
+  m_Atomic: 1
+  m_Solo: 0
+  m_Mute: 0
+  m_CanTransitionToSelf: 0
+--- !u!1101 &110128610
+Transition:
+  serializedVersion: 2
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_SrcState: {fileID: 110268366}
+  m_DstState: {fileID: 110254744}
+  m_TransitionDuration: 0
+  m_TransitionOffset: 0
+  m_Conditions:
+  - m_ConditionMode: 5
+    m_ConditionEvent: Jump
+    m_EventTreshold: 0
+    m_ExitTime: .99855274
+  m_Atomic: 1
+  m_Solo: 0
+  m_Mute: 0
+  m_CanTransitionToSelf: 0
+--- !u!1101 &110144172
+Transition:
+  serializedVersion: 2
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_SrcState: {fileID: 110254744}
+  m_DstState: {fileID: 110259692}
+  m_TransitionDuration: .00380964181
+  m_TransitionOffset: 0
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: Jump
+    m_EventTreshold: 0
+    m_ExitTime: .99619025
+  m_Atomic: 1
+  m_Solo: 0
+  m_Mute: 0
+  m_CanTransitionToSelf: 0
+--- !u!1101 &110146970
+Transition:
+  serializedVersion: 2
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_SrcState: {fileID: 110262344}
+  m_DstState: {fileID: 110267234}
+  m_TransitionDuration: 0
+  m_TransitionOffset: .007843161
+  m_Conditions:
+  - m_ConditionMode: 5
+    m_ConditionEvent: Jump
+    m_EventTreshold: 0
+    m_ExitTime: .998039186
+  m_Atomic: 1
+  m_Solo: 0
+  m_Mute: 0
+  m_CanTransitionToSelf: 0
+--- !u!1101 &110152624
+Transition:
+  serializedVersion: 2
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_SrcState: {fileID: 0}
+  m_DstState: {fileID: 110269022}
+  m_TransitionDuration: .00784317683
+  m_TransitionOffset: 0
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: DeathBySqeezing
+    m_EventTreshold: 0
+    m_ExitTime: .987768412
+  m_Atomic: 1
+  m_Solo: 0
+  m_Mute: 0
+  m_CanTransitionToSelf: 0
+--- !u!1101 &110166214
+Transition:
+  serializedVersion: 2
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_SrcState: {fileID: 0}
+  m_DstState: {fileID: 110213806}
+  m_TransitionDuration: 0
+  m_TransitionOffset: 0
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: DeathInFire
+    m_EventTreshold: 0
+    m_ExitTime: .99943918
+  m_Atomic: 1
+  m_Solo: 0
+  m_Mute: 0
+  m_CanTransitionToSelf: 0
+--- !u!1101 &110180442
+Transition:
+  serializedVersion: 2
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_SrcState: {fileID: 110267234}
+  m_DstState: {fileID: 110268366}
+  m_TransitionDuration: 0
+  m_TransitionOffset: 0
+  m_Conditions:
+  - m_ConditionMode: 2
+    m_ConditionEvent: isMelted
+    m_EventTreshold: 0
+    m_ExitTime: .998319209
+  m_Atomic: 1
+  m_Solo: 0
+  m_Mute: 0
+  m_CanTransitionToSelf: 0
+--- !u!1101 &110184332
+Transition:
+  serializedVersion: 2
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_SrcState: {fileID: 110285240}
+  m_DstState: {fileID: 110259692}
+  m_TransitionDuration: .00784313772
+  m_TransitionOffset: .0188234802
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: Jump
+    m_EventTreshold: 0
+    m_ExitTime: .98529458
+  m_Atomic: 1
+  m_Solo: 0
+  m_Mute: 0
+  m_CanTransitionToSelf: 0
+--- !u!1101 &110185092
+Transition:
+  serializedVersion: 2
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_SrcState: {fileID: 0}
+  m_DstState: {fileID: 110274702}
+  m_TransitionDuration: 0
+  m_TransitionOffset: 0
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: Death
+    m_EventTreshold: 0
+    m_ExitTime: .984500229
+  m_Atomic: 1
+  m_Solo: 0
+  m_Mute: 0
+  m_CanTransitionToSelf: 0
+--- !u!1101 &110185768
 Transition:
   serializedVersion: 2
   m_ObjectHideFlags: 3
@@ -29,13 +265,33 @@ Transition:
   m_Name: 
   m_SrcState: {fileID: 110285240}
   m_DstState: {fileID: 110254744}
-  m_TransitionDuration: .25
+  m_TransitionDuration: 0
+  m_TransitionOffset: 0
+  m_Conditions:
+  - m_ConditionMode: 2
+    m_ConditionEvent: IsWalking
+    m_EventTreshold: 0
+    m_ExitTime: .98753494
+  m_Atomic: 1
+  m_Solo: 0
+  m_Mute: 0
+  m_CanTransitionToSelf: 0
+--- !u!1101 &110197666
+Transition:
+  serializedVersion: 2
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_SrcState: {fileID: 110259692}
+  m_DstState: {fileID: 110254744}
+  m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 5
-    m_ConditionEvent: 
+    m_ConditionEvent: Jump
     m_EventTreshold: 0
-    m_ExitTime: .75
+    m_ExitTime: .988571286
   m_Atomic: 1
   m_Solo: 0
   m_Mute: 0
@@ -45,13 +301,13 @@ State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: FrostieDeathInFireAnimation
+  m_Name: DeathInFire
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
   - {fileID: 7400000, guid: f3c4340a77a986648ab2e7ac3b9d0613, type: 2}
   m_ParentStateMachine: {fileID: 110762344}
-  m_Position: {x: 84, y: 264, z: 0}
+  m_Position: {x: 36, y: 276, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -60,7 +316,7 @@ State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: FrostieIdleAnimation
+  m_Name: Idle
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
@@ -75,13 +331,13 @@ State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: FrostieJumpAnimation
+  m_Name: Jump
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
   - {fileID: 7400000, guid: b2212d2c26d3d7343b77acefda818034, type: 2}
   m_ParentStateMachine: {fileID: 110762344}
-  m_Position: {x: 324, y: 264, z: 0}
+  m_Position: {x: 384, y: 300, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -90,13 +346,28 @@ State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: FrostieMeltingAnimation
+  m_Name: Melting
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
   - {fileID: 7400000, guid: 8455cce3c33ba874eb9dadb8fd2ba489, type: 2}
   m_ParentStateMachine: {fileID: 110762344}
-  m_Position: {x: 84, y: 60, z: 0}
+  m_Position: {x: 84, y: 12, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
+--- !u!1102 &110267234
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Melted
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 7400000, guid: 188273b11593c0548b2f48aaf7cd3510, type: 2}
+  m_ParentStateMachine: {fileID: 110762344}
+  m_Position: {x: 84, y: 72, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -105,13 +376,28 @@ State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: FrostieUnmeltingAnimation
+  m_Name: Unmelting
+  m_Speed: -1
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 7400000, guid: 8455cce3c33ba874eb9dadb8fd2ba489, type: 2}
+  m_ParentStateMachine: {fileID: 110762344}
+  m_Position: {x: 84, y: 144, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
+--- !u!1102 &110269022
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: DeathBySqueezing
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400000, guid: 1173ba76c51c4734c881463e5ae0a577, type: 2}
+  - {fileID: 7400000, guid: 4c125efc99d14564d9a74ef5ca2aeee6, type: 2}
   m_ParentStateMachine: {fileID: 110762344}
-  m_Position: {x: 84, y: 144, z: 0}
+  m_Position: {x: 36, y: 324, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -120,13 +406,13 @@ State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: FrostieDeathAnimation
+  m_Name: Death
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
   - {fileID: 7400000, guid: 729e66fbe22f5ba46a532331a61ff6d5, type: 2}
   m_ParentStateMachine: {fileID: 110762344}
-  m_Position: {x: 84, y: 204, z: 0}
+  m_Position: {x: 36, y: 228, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -135,13 +421,13 @@ State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: FrostieWalkingAnimation
+  m_Name: Walking
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
   - {fileID: 7400000, guid: b4d575e2e55939748bac5cc98621a8eb, type: 2}
   m_ParentStateMachine: {fileID: 110762344}
-  m_Position: {x: 324, y: 204, z: 0}
+  m_Position: {x: 468, y: 240, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -152,7 +438,7 @@ StateMachine:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Base Layer
-  m_DefaultState: {fileID: 110274702}
+  m_DefaultState: {fileID: 110254744}
   m_States:
   - {fileID: 110262344}
   - {fileID: 110268366}
@@ -161,16 +447,53 @@ StateMachine:
   - {fileID: 110259692}
   - {fileID: 110274702}
   - {fileID: 110213806}
+  - {fileID: 110267234}
+  - {fileID: 110269022}
   m_ChildStateMachine: []
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
     data:
-      first: {fileID: 110213806}
+      first: {fileID: 110269022}
       second: []
+    data:
+      first: {fileID: 0}
+      second:
+      - {fileID: 110166214}
+      - {fileID: 110185092}
+      - {fileID: 110152624}
+    data:
+      first: {fileID: 110254744}
+      second:
+      - {fileID: 110110104}
+      - {fileID: 110116792}
+      - {fileID: 110144172}
+    data:
+      first: {fileID: 110262344}
+      second:
+      - {fileID: 110146970}
+    data:
+      first: {fileID: 110268366}
+      second:
+      - {fileID: 110128610}
     data:
       first: {fileID: 110285240}
       second:
-      - {fileID: 110107078}
+      - {fileID: 110184332}
+      - {fileID: 110185768}
+    data:
+      first: {fileID: 110259692}
+      second:
+      - {fileID: 110197666}
+    data:
+      first: {fileID: 110274702}
+      second: []
+    data:
+      first: {fileID: 110213806}
+      second: []
+    data:
+      first: {fileID: 110267234}
+      second:
+      - {fileID: 110180442}
   m_MotionSetCount: 1
-  m_AnyStatePosition: {x: 324, y: 72, z: 0}
+  m_AnyStatePosition: {x: 276, y: 240, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}

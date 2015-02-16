@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using AssemblyCSharp;
+using Assets.Scripts.Utils;
+
+using KindsOfDeath = Assets.Scripts.Utils.Enums.KindsOfDeath;
 
 public class FrostieScript : MonoBehaviour {
 	
@@ -14,6 +17,22 @@ public class FrostieScript : MonoBehaviour {
 	private float movement;
 
     private Animator animator;
+
+    private bool isFixated = false;
+
+    private bool isWalking;
+    public bool IsWalking 
+    {
+        set
+        {
+            if (isWalking != value)
+            {
+                isWalking = value;
+                Debug.Log("i running");
+                animator.SetBool("IsWalking", isWalking);
+            }
+        }
+    }
 
     private Transform head;
     private Transform middlePart;
@@ -72,10 +91,10 @@ public class FrostieScript : MonoBehaviour {
             recallParts();
         }
 
-		float inputX = Input.GetAxis("Horizontal");
-        if(viewDirection*inputX < 0 && !Input.GetKey(KeyCode.LeftControl))
+		float inputX = isFixated ? 0 : Input.GetAxis("Horizontal");
+        if (viewDirection * inputX < 0 && !Input.GetKey(KeyCode.LeftControl))
         {
-            Vector3 scale = transform.localScale; 
+            Vector3 scale = transform.localScale;
             scale.x *= -1;
             if(isHeadOff)
             {
@@ -107,12 +126,13 @@ public class FrostieScript : MonoBehaviour {
 			inputX = 0;
 				}
 
-
 		movement = speed * inputX;
+        IsWalking = (movement != 0.0f);
 
         if (Input.GetKeyDown(KeyCode.Space) && canJump())
         {
-			rigidbody2D.AddForce(new Vector2(0, jumpHight), ForceMode2D.Impulse);
+			//rigidbody2D.AddForce(new Vector2(0, jumpHight), ForceMode2D.Impulse);
+            animator.SetTrigger("Jump");
 		} 
 		
 		// Make sure we are not outside the camera bounds
@@ -182,6 +202,11 @@ public class FrostieScript : MonoBehaviour {
         return null;
     }
 
+    private bool isDying;
+    public void Die(KindsOfDeath deathKind)
+    {
+        if (isDying)
+            return;
     void recallParts()
     {
 
@@ -211,5 +236,20 @@ public class FrostieScript : MonoBehaviour {
         bottomPart.localPosition = bottomLocalPosition;
     }
     
+
+        isDying = true;
+        isFixated = true;
+        switch (deathKind)
+        {
+            case KindsOfDeath.Normal:
+                animator.SetTrigger("Death");
+                break;
+            case KindsOfDeath.InFire:
+                animator.SetTrigger("DeathInFire");
+                break;
+            case KindsOfDeath.Squeezed:
+                break;
+        }   
+    }
 
 }
