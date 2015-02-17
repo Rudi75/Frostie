@@ -7,19 +7,20 @@ public class GetSqeezedScript : MonoBehaviour {
     private bool squeezed = false;
     private SqeezerAnimationScript sqeeezerScript;
     private Vector3 startScale;
-    private Collider2D[] colliders;
+    
     private float mySize;
 
     public void Start()
     {
         startScale = transform.localScale;
-        colliders = GetComponentsInChildren<Collider2D>();
+        
     }
 
     public void FixedUpdate()
     {
         if (!squeezed)
         {
+            Collider2D[] colliders = GetComponentsInChildren<Collider2D>();
             Collider2D topCollider = CollisionHelper.getTopCollider(colliders);
             Collider2D bottomCollider = CollisionHelper.getBotomCollider(colliders);
 
