@@ -19,6 +19,16 @@ public class FrostieScript : MonoBehaviour {
     private Animator animator;
 
     private bool isFixated = false;
+	
+	public void FixatePosition()
+    {
+        isFixated = true;
+    }
+
+    public void ReleaseFixedPosition()
+    {
+        isFixated = false;
+    }
 
     private bool isWalking;
     public bool IsWalking 
