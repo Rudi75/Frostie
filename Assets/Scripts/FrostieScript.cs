@@ -37,10 +37,12 @@ public class FrostieScript : MonoBehaviour {
     private Transform head;
     private Transform middlePart;
     private Transform basePart;
+    private Transform frotieParent;
     private Vector3 headLocalPosition;
     private Vector3 middleLocalPosition;
     private Vector3 baseLocalPosition;
-    public bool isHeadOff { get; set; }
+    private Vector3 distToBase;
+    public bool isPartMising;
 
     void Start()
     {
@@ -62,7 +64,9 @@ public class FrostieScript : MonoBehaviour {
         middleLocalPosition = middlePart.localPosition;
         baseLocalPosition = basePart.localPosition;
         headLocalPosition = head.localPosition;
-        isHeadOff = false;
+        frotieParent = head.parent;
+        distToBase = basePart.position - transform.position;
+        isPartMising = false;
     }
 
 	void OnCollisionEnter2D(Collision2D collision)
@@ -86,7 +90,7 @@ public class FrostieScript : MonoBehaviour {
 	{
 
 
-        if(Input.GetKeyDown(KeyCode.LeftAlt))
+        if(Input.GetKeyDown(KeyCode.LeftAlt) && !isPartMising)
         {
             ChangeMeltedState();
         }
@@ -94,22 +98,12 @@ public class FrostieScript : MonoBehaviour {
         {
             recallParts();
         }
-
+        
 		float inputX = isFixated ? 0 : Input.GetAxis("Horizontal");
         if (viewDirection * inputX < 0 && !Input.GetKey(KeyCode.LeftControl))
         {
             Vector3 scale = transform.localScale;
             scale.x *= -1;
-            if(isHeadOff)
-            {
-                Vector3 headScale = head.localScale;
-                headScale.x *= -1;
-                head.localScale = headScale;
-
-                Vector3 headposition = head.localPosition;
-                headposition.x *= -1;
-                head.localPosition = headposition;
-            }
             transform.localScale = scale;
             viewDirection = inputX;
         }
@@ -136,6 +130,7 @@ public class FrostieScript : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Space) && canJump())
         {
 			//rigidbody2D.AddForce(new Vector2(0, jumpHight), ForceMode2D.Impulse);
+            isFixated = true;
             animator.SetTrigger("Jump");
 		} 
 		
@@ -167,6 +162,7 @@ public class FrostieScript : MonoBehaviour {
 
     public void Jump()
     {
+        isFixated = false;
         rigidbody2D.AddForce(new Vector2(0, jumpHight), ForceMode2D.Impulse);
     }
 	
@@ -220,29 +216,52 @@ public class FrostieScript : MonoBehaviour {
     void recallParts()
     {
 
-        Rigidbody2D headRigidbody = head.GetComponent<Rigidbody2D>();
-        if (headRigidbody != null)
-            Destroy(headRigidbody);
-        head.localScale = basePart.localScale;
-        isHeadOff = false;
 
-        Rigidbody2D middleRigidbody = middlePart.GetComponent<Rigidbody2D>();
-        if (middleRigidbody != null)
-            Destroy(middleRigidbody);
+        getRidOfDummies(head);
+        head.localScale = new Vector3(1, 1, 1);
 
-        Rigidbody2D bottomRigidbody = basePart.GetComponent<Rigidbody2D>();
-        if (bottomRigidbody != null)
-            Destroy(bottomRigidbody);
+        getRidOfDummies(basePart);
+        basePart.localScale = new Vector3(1, 1, 1);
 
-        AimScript headAim = head.GetComponentInChildren<AimScript>();
+        getRidOfDummies(middlePart);
+        middlePart.localScale = new Vector3(1, 1, 1);
+
+
+        ThrowHeadScript headAim = head.GetComponentInChildren<ThrowHeadScript>();
         if (headAim != null)
         {
             headAim.reset();
         }
 
-        transform.parent.position = basePart.position - baseLocalPosition;
+        transform.position = basePart.position -  distToBase;
+
         head.localPosition = headLocalPosition;
         middlePart.localPosition = middleLocalPosition;
         basePart.localPosition = baseLocalPosition;
+        isPartMising = false;
+    }
+
+    public void pleaseJustKillYourself()
+    {
+        Destroy(head.gameObject);
+        Destroy(middlePart.gameObject);
+        Destroy(basePart.gameObject);
+        Destroy(transform.parent.gameObject);
+    }
+
+    private void getRidOfDummies(Transform part)
+    {
+        if (part.parent == null)
+            return;
+
+        getRidOfDummies(part.parent);
+
+        
+        if( part.parent.name.Contains("Dummy"))
+        {
+            Transform dummy = part.parent; 
+            part.parent = frotieParent;
+            Destroy(dummy.gameObject);           
+        }
     }
 }

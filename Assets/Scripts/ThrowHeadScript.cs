@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AimScript : MonoBehaviour {
+public class ThrowHeadScript : MonoBehaviour {
 
     private int state;
     private Transform arrow;
@@ -16,7 +16,7 @@ public class AimScript : MonoBehaviour {
 
     public int throwForce = 800;
     public GameObject Dummy;
-
+    FrostieScript frostie;
 
     bool isThrown = false;
 	// Use this for initialization
@@ -37,7 +37,7 @@ public class AimScript : MonoBehaviour {
         arrow.GetComponent<SpriteRenderer>().enabled = false;
         halfCircle.GetComponent<SpriteRenderer>().enabled = false;
         scale = arrow.localScale;
-        
+        frostie = throwingObject.GetComponentInParent<FrostieScript>();
 	}
 	
 	// Update is called once per frame
@@ -97,7 +97,7 @@ public class AimScript : MonoBehaviour {
                     Vector3 dummyPosition = throwingObject.transform.position - throwingObject.transform.localPosition;
                     GameObject dummyObject = Instantiate(Dummy,dummyPosition , Quaternion.identity) as GameObject;
 
-                    dummyObject.transform.parent = throwingObject.transform.parent.parent.parent;
+                    dummyObject.transform.parent = throwingObject.transform.parent.parent.parent.parent;
                     throwingObject.transform.parent = dummyObject.transform;
 
                     dummyObject.AddComponent<Rigidbody2D>();
@@ -110,10 +110,10 @@ public class AimScript : MonoBehaviour {
                    dummyObject.rigidbody2D.AddForce(throwVector * throwForce * scale.x);
                     isThrown = true;
 
-                    FrostieScript frostie = throwingObject.GetComponentInParent<FrostieScript>();
+                    
                     if(frostie != null)
                     {
-                        frostie.isHeadOff = true;
+                        frostie.isPartMising = true;
                     }
                     state = 0;
                 }
