@@ -19,7 +19,7 @@ public class AnimationCallbackHelper : MonoBehaviour
         FrostieScript frostie = GetComponentInChildren<FrostieScript>();
         if (frostie != null)
         {
-            rigidbody2D.AddForce(new Vector2(0, frostie.jumpHight), ForceMode2D.Impulse);
+            frostie.Jump();
         }
     }
 }

@@ -42,12 +42,16 @@ public class HealthScript : MonoBehaviour {
 
     public void Die()
     {
-        FollowChild parent = GetComponentInParent<FollowChild>();
-        if(parent != null)
+        FrostieScript frostie = GetComponent<FrostieScript>();
+        if (frostie != null)
         {
-            Destroy(parent.gameObject);
+            frostie.pleaseJustKillYourself();
         }
-        Destroy(gameObject);
+        else
+        {
+            Destroy(gameObject);
+        }
+       
     }
 
     public void OnTriggerEnter2D(Collider2D other)

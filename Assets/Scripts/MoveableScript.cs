@@ -21,15 +21,19 @@ public class MoveableScript : MonoBehaviour {
                     Edges edge = CollisionHelper.getCollisionEdge (collision);
 
                     FrostieScript frostieScript = collision.gameObject.GetComponent<FrostieScript>();
+                    if (frostieScript != null)
+                    {
+                        float speed = frostieScript.speed;
 
-                    float speed = frostieScript.speed;
-			
-                    if (Edges.RIGHT.Equals(edge) && frostieScript.isGrounded()) {
-                        movement= -1 * speed;
-                    }
-			
-                    if (Edges.LEFT.Equals(edge) && frostieScript.isGrounded()){
-                        movement= speed;
+                        if (Edges.RIGHT.Equals(edge) && frostieScript.isGrounded())
+                        {
+                            movement = -1 * speed;
+                        }
+
+                        if (Edges.LEFT.Equals(edge) && frostieScript.isGrounded())
+                        {
+                            movement = speed;
+                        }
                     }
                 }
             }

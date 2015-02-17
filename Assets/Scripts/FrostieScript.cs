@@ -28,23 +28,52 @@ public class FrostieScript : MonoBehaviour {
             if (isWalking != value)
             {
                 isWalking = value;
-                Debug.Log("i running");
+               // Debug.Log("i running");
                 animator.SetBool("IsWalking", isWalking);
             }
         }
     }
 
+    private Transform head;
+    private Transform middlePart;
+    private Transform basePart;
+    private Transform frotieParent;
+    private Vector3 headLocalPosition;
+    private Vector3 middleLocalPosition;
+    private Vector3 baseLocalPosition;
+    private Vector3 distToBase;
+    public bool isPartMising;
+
     void Start()
     {
         animator = GetComponentInParent<Animator>();
         isMelted = false;
+        foreach (Transform childTransform in transform)
+        {
+            foreach (Transform child in childTransform)
+            {
+                if (child.name.Contains("Head"))
+                    head = child;
+                else if (child.name.Contains("Middle"))
+                    middlePart = child;
+                else if (child.name.Contains("Base"))
+                    basePart = child;
+            }
+                       
+        }
+        middleLocalPosition = middlePart.localPosition;
+        baseLocalPosition = basePart.localPosition;
+        headLocalPosition = head.localPosition;
+        frotieParent = head.parent;
+        distToBase = basePart.position - transform.position;
+        isPartMising = false;
     }
 
 	void OnCollisionEnter2D(Collision2D collision)
 	{
 		MoveableScript pushScript = collision.gameObject.GetComponent<MoveableScript> ();
 
-        if (!isMelted && (pushScript == null || (pushScript != null && CollisionHelper.getCollidingObject(getBottomCollider(), Edges.BOTTOM,0.1f) == null)))
+        if (!isMelted && (pushScript == null || (pushScript != null && CollisionHelper.getCollidingObject(basePart.collider2D, Edges.BOTTOM, 0.1f) == null)))
 		{
 			Edges edge = CollisionHelper.getCollisionEdge (collision);
 			if (Edges.RIGHT.Equals(edge)) {
@@ -61,12 +90,15 @@ public class FrostieScript : MonoBehaviour {
 	{
 
 
-        if(Input.GetKeyDown(KeyCode.LeftAlt))
+        if(Input.GetKeyDown(KeyCode.LeftAlt) && !isPartMising)
         {
             ChangeMeltedState();
         }
-
-
+        if(Input.GetKeyDown(KeyCode.Y))
+        {
+            recallParts();
+        }
+        
 		float inputX = isFixated ? 0 : Input.GetAxis("Horizontal");
         if (viewDirection * inputX < 0 && !Input.GetKey(KeyCode.LeftControl))
         {
@@ -78,12 +110,12 @@ public class FrostieScript : MonoBehaviour {
 
 		if(!letGoLeft)
 		{
-            letGoLeft = CollisionHelper.getCollidingObject(getBottomCollider(), Edges.LEFT, 0.1f) == null;
+            letGoLeft = CollisionHelper.getCollidingObject(basePart.collider2D, Edges.LEFT, 0.1f) == null;
 		}
 
 		if(!letGoRight)
 		{
-            letGoRight = CollisionHelper.getCollidingObject(getBottomCollider(), Edges.RIGHT, 0.1f) == null;
+            letGoRight = CollisionHelper.getCollidingObject(basePart.collider2D, Edges.RIGHT, 0.1f) == null;
 		}
 
 
@@ -98,6 +130,7 @@ public class FrostieScript : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Space) && canJump())
         {
 			//rigidbody2D.AddForce(new Vector2(0, jumpHight), ForceMode2D.Impulse);
+            isFixated = true;
             animator.SetTrigger("Jump");
 		} 
 		
@@ -126,6 +159,12 @@ public class FrostieScript : MonoBehaviour {
 			transform.position.z
 			);
 	}
+
+    public void Jump()
+    {
+        isFixated = false;
+        rigidbody2D.AddForce(new Vector2(0, jumpHight), ForceMode2D.Impulse);
+    }
 	
 	void FixedUpdate()
 	{
@@ -136,7 +175,7 @@ public class FrostieScript : MonoBehaviour {
 
     public bool isGrounded()
     {
-        return CollisionHelper.getCollidingObject(getBottomCollider(), Edges.BOTTOM, 0.1f) != null;
+        return CollisionHelper.getCollidingObject(basePart.collider2D, Edges.BOTTOM, 0.1f) != null;
     }
 
     public void ChangeMeltedState()
@@ -155,25 +194,11 @@ public class FrostieScript : MonoBehaviour {
             return isGrounded();
     }
 
-
-    private Collider2D getBottomCollider()
-    {
-        foreach (Transform child in transform)
-        {
-            if (child.name == "FrostieBottom")
-            {
-                return child.collider2D;
-            }
-        }
-        return null;
-    }
-
     private bool isDying;
     public void Die(KindsOfDeath deathKind)
     {
         if (isDying)
             return;
-
         isDying = true;
         isFixated = true;
         switch (deathKind)
@@ -188,5 +213,55 @@ public class FrostieScript : MonoBehaviour {
                 break;
         }   
     }
+    void recallParts()
+    {
 
+
+        getRidOfDummies(head);
+        head.localScale = new Vector3(1, 1, 1);
+
+        getRidOfDummies(basePart);
+        basePart.localScale = new Vector3(1, 1, 1);
+
+        getRidOfDummies(middlePart);
+        middlePart.localScale = new Vector3(1, 1, 1);
+
+
+        ThrowHeadScript headAim = head.GetComponentInChildren<ThrowHeadScript>();
+        if (headAim != null)
+        {
+            headAim.reset();
+        }
+
+        transform.position = basePart.position -  distToBase;
+
+        head.localPosition = headLocalPosition;
+        middlePart.localPosition = middleLocalPosition;
+        basePart.localPosition = baseLocalPosition;
+        isPartMising = false;
+    }
+
+    public void pleaseJustKillYourself()
+    {
+        Destroy(head.gameObject);
+        Destroy(middlePart.gameObject);
+        Destroy(basePart.gameObject);
+        Destroy(transform.parent.gameObject);
+    }
+
+    private void getRidOfDummies(Transform part)
+    {
+        if (part.parent == null)
+            return;
+
+        getRidOfDummies(part.parent);
+
+        
+        if( part.parent.name.Contains("Dummy"))
+        {
+            Transform dummy = part.parent; 
+            part.parent = frotieParent;
+            Destroy(dummy.gameObject);           
+        }
+    }
 }
