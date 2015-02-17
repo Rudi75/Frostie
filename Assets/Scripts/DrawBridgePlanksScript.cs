@@ -17,6 +17,8 @@ public class DrawBridgePlanksScript : MonoBehaviour {
 	// Use this for initialization
     void Start()
     {
+        transform.localScale = new Vector3(transform.localScale.x * Convert.ToInt32(openingDirection), transform.localScale.y, transform.localScale.z);
+
         Transform child = transform.GetChild(0);
         planksCount -= 1;
 
@@ -41,7 +43,7 @@ public class DrawBridgePlanksScript : MonoBehaviour {
 
     public void rotateOnce(Directions direction)
     {
-        float tempAngle = currentAngle + (Convert.ToInt32(direction) * 10f);
+        float tempAngle = currentAngle + (Convert.ToInt32(direction) * 15f);
 
         if (openingDirection == Directions.left)
         {

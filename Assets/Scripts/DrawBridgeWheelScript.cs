@@ -22,7 +22,7 @@ public class DrawBridgeWheelScript : MonoBehaviour {
     {
         if (frostie != null)
         {
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 if (wheelInUse)
                 {                    
