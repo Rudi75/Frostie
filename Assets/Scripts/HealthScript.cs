@@ -60,7 +60,6 @@ public class HealthScript : MonoBehaviour {
         ShotScript shot = other.gameObject.GetComponent<ShotScript>();
         if ((shot != null) && (shot.isEnemyShot == isEnemy))
         {
-            Debug.Log("jop");
             return;
         }
         if (other.tag.Contains("Lethal"))
