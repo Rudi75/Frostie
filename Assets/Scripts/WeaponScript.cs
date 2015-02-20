@@ -14,7 +14,7 @@ public class WeaponScript : MonoBehaviour
     private float shootDirX;
 
     // Use this for initialization
-    void Start()
+    public void Start()
     {
         shootCooldown = 0f;
         if (shootForward)
@@ -30,7 +30,7 @@ public class WeaponScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
         if (shootCooldown > 0)
         {
