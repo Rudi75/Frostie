@@ -107,7 +107,7 @@ public class ThrowHeadScript : MonoBehaviour {
 
                     Vector2 throwVector = new Vector2(xValue / Mathf.Max(xValue, yValue), yValue / Mathf.Max(xValue, yValue));
 
-                   dummyObject.rigidbody2D.AddForce(throwVector * throwForce * scale.x);
+                   dummyObject.rigidbody2D.AddForce(throwVector * throwForce * scale.x,ForceMode2D.Impulse);
                     isThrown = true;
 
                     
