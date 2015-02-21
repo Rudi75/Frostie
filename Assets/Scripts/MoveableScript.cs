@@ -3,104 +3,100 @@ using System.Collections;
 using AssemblyCSharp;
 using Assets.Scripts.Utils;
 
-public class MoveableScript : MonoBehaviour {
+public class MoveableScript : MonoBehaviour
+{
 
-	private float movement = 0;
+    private float movement = 0;
     private Vector3 oldPlayerPosition;
     private float speedReduction = 0.5f;
 
     public GameObject playerLeft;
     public GameObject playerRight;
 
-        void OnCollisionStay2D(Collision2D collision)
+    virtual protected void OnCollisionStay2D(Collision2D collision)
+    {
+        if (!Input.GetKey(KeyCode.LeftControl))
         {
-            if(!Input.GetKey(KeyCode.LeftControl))
+            string otherObject = collision.gameObject.tag;
+            if (otherObject == "Player")
             {
-                string otherObject = collision.gameObject.tag;
-                if (otherObject == "Player") 
+                Enums.Edges edge = CollisionHelper.getCollisionEdge(collision);
+
+                FrostieMoveScript frostieScript = collision.gameObject.GetComponent<FrostieMoveScript>();
+                if (frostieScript != null)
                 {
-                    Enums.Edges edge = CollisionHelper.getCollisionEdge (collision);
+                    float speed = frostieScript.speed;
 
-                    FrostieMoveScript frostieScript = collision.gameObject.GetComponent<FrostieMoveScript>();
-                    if (frostieScript != null)
+                    FrostieStatus frostieStatus = collision.gameObject.GetComponent<FrostieStatus>();
+                    if (Enums.Edges.RIGHT.Equals(edge) && frostieStatus.isGrounded())
                     {
-                        float speed = frostieScript.speed;
+                        movement = -1 * speed;
+                    }
 
-                        FrostieStatus frostieStatus = collision.gameObject.GetComponent<FrostieStatus>();
-
-                        if (Enums.Edges.RIGHT.Equals(edge) && frostieStatus.isGrounded())
-                        {
-                            movement = -1 * speed;
-                        }
-
-                        if (Enums.Edges.LEFT.Equals(edge) && frostieStatus.isGrounded())
-                        {
-                            movement = speed;
-                        }
+                    if (Enums.Edges.LEFT.Equals(edge) && frostieStatus.isGrounded())
+                    {
+                        movement = speed;
                     }
                 }
             }
         }
+    }
 
-
-        void FixedUpdate()
-        { 
-            bool isPull = handlePull();
-            if(!isPull)
-            {
-                float speedX = movement;
-                float speedY = rigidbody2D.velocity.y;
-                rigidbody2D.velocity = new Vector2(speedX,speedY);
-            }
-            movement *= speedReduction ;
-            
-            
+    virtual protected void FixedUpdate()
+    {
+        bool isPull = handlePull();
+        if (!isPull)
+        {
+            float speedX = movement;
+            float speedY = rigidbody2D.velocity.y;
+            rigidbody2D.velocity = new Vector2(speedX, speedY);
         }
+        movement *= speedReduction;
 
 
-    
-            private bool handlePull()
+    }
+
+    private bool handlePull()
+    {
+        if (Input.GetKey(KeyCode.LeftControl))
+        {
+
+            Vector3 movement = Vector3.zero;
+            playerLeft = CollisionHelper.getCollidingObject(collider2D, Enums.Edges.LEFT, 0.5f);
+            playerRight = CollisionHelper.getCollidingObject(collider2D, Enums.Edges.RIGHT, 0.5f);
+
+            if ((playerLeft == null || playerLeft.tag != "Player") && (playerRight == null || playerRight.tag != "Player"))
             {
-                if (Input.GetKey(KeyCode.LeftControl))
-                {
-                    
-                    Vector3 movement = Vector3.zero;
-                     playerLeft = CollisionHelper.getCollidingObject(collider2D, Enums.Edges.LEFT, 0.5f);
-                     playerRight = CollisionHelper.getCollidingObject(collider2D, Enums.Edges.RIGHT, 0.5f);
-
-                    if ((playerLeft == null || playerLeft.tag != "Player") && (playerRight == null || playerRight.tag != "Player"))
-                    {
-                        oldPlayerPosition = Vector3.zero;
-                        return false;
-                    }
-                    GameObject player;
-                    if (playerRight != null && playerRight.tag == "Player")
-                        player = playerRight;
-                    else
-                        player = playerLeft;
-
-                    Vector3 playerPosition = player.transform.position;
-
-                    
-
-                    if (!Vector3.zero.Equals(oldPlayerPosition))
-                    {
-                        movement.x = playerPosition.x - oldPlayerPosition.x;
-                    }
-
-                    oldPlayerPosition = playerPosition;
-                    if ((playerRight != null && movement.x > 0)
-                        || (playerLeft != null && movement.x < 0))
-                    {
-                        transform.Translate(movement, Space.World);
-                        return true;
-                    }
-                    else
-                        return false;
-                }
                 oldPlayerPosition = Vector3.zero;
                 return false;
             }
-            
+            GameObject player;
+            if (playerRight != null && playerRight.tag == "Player")
+                player = playerRight;
+            else
+                player = playerLeft;
+
+            Vector3 playerPosition = player.transform.position;
+
+
+
+            if (!Vector3.zero.Equals(oldPlayerPosition))
+            {
+                movement.x = playerPosition.x - oldPlayerPosition.x;
+            }
+
+            oldPlayerPosition = playerPosition;
+            if ((playerRight != null && movement.x > 0)
+                || (playerLeft != null && movement.x < 0))
+            {
+                transform.Translate(movement, Space.World);
+                return true;
+            }
+            else
+                return false;
+        }
+        oldPlayerPosition = Vector3.zero;
+        return false;
+    }
 
 }

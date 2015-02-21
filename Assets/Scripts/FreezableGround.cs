@@ -4,9 +4,10 @@ using System.Collections;
 public class FreezableGround : MonoBehaviour 
 {
     public Transform FrozenOverlayPrefab;
-    public float TimeToDefrost = 4;
+    public float TimeToDefrost = 12;
 
     private Animator FrozenOverlayAnimator;
+    private Transform FrozenOverlay;
     private bool isFrozen = false;
     private float deltaTime = 0;
 
@@ -15,10 +16,6 @@ public class FreezableGround : MonoBehaviour
 	// Use this for initialization
 	void Start () 
     {
-        FrozenOverlayPrefab = Instantiate(FrozenOverlayPrefab, transform.position, transform.rotation) as Transform;
-        FrozenOverlayPrefab.parent = transform;
-        FrozenOverlayAnimator = FrozenOverlayPrefab.GetComponentInChildren<Animator>();
-        FrozenOverlayAnimator.SetBool("IsFrozen", false);
 	}
 
     public void Freeze()
@@ -27,14 +24,22 @@ public class FreezableGround : MonoBehaviour
         {
             isFrozen = true;
             deltaTime = TimeToDefrost;
-            FrozenOverlayAnimator.SetBool("IsFrozen", true);
+
+            FrozenOverlay = Instantiate(FrozenOverlayPrefab) as Transform;
+            FrozenOverlay.SetParent(transform, false);
+            FrozenOverlayAnimator = FrozenOverlay.GetComponentInChildren<Animator>();
         }
     }
 
-    private void UnFreeze()
+
+    private IEnumerator UnFreeze()
     {
         isFrozen = false;
-        FrozenOverlayAnimator.SetBool("IsFrozen", false);
+        FrozenOverlayAnimator.SetTrigger("IsFrozen");
+        var info = FrozenOverlayAnimator.GetCurrentAnimatorStateInfo(0);
+        yield return new WaitForSeconds(info.length);
+        Destroy(FrozenOverlay.gameObject);
+        FrozenOverlayAnimator = null;
     }
 	
 	// Update is called once per frame
@@ -46,7 +51,7 @@ public class FreezableGround : MonoBehaviour
         }
         if (isFrozen && deltaTime < 0)
         {
-            UnFreeze();
+            StartCoroutine(UnFreeze());
         }
 	}
 }
