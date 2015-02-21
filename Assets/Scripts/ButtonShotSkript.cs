@@ -40,5 +40,6 @@ public class ButtonShotSkript : MonoBehaviour
 
             query.First().WasShot();
         }
-	}
+    }
+	
 }

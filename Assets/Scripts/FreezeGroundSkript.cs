@@ -13,7 +13,7 @@ public class FreezeGroundSkript : MonoBehaviour
         bottomCollider = CollisionHelper.getBotomCollider(colliders);
 	}
 	
-	// Update is called once per frame
+
 	public void FreezeGround() 
     {
         var ground = CollisionHelper.getCollidingObject(bottomCollider, Enums.Edges.BOTTOM, 0.1f);
@@ -44,5 +44,6 @@ public class FreezeGroundSkript : MonoBehaviour
         {
             freezableGround.Freeze();
         }
-	}
+    }
+	
 }
