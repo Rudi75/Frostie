@@ -9,6 +9,8 @@ public class ThrowHeadScript : MonoBehaviour {
     private int direction = 1;
     private float angle;
     private Vector3 scale;
+    private bool forward = false;
+    private bool backward = false;
 
     public float rotationPerFrame = 3;
     public float sizeChangePerFrame = 0.05f;
@@ -51,7 +53,7 @@ public class ThrowHeadScript : MonoBehaviour {
                 arrow.GetComponent<SpriteRenderer>().enabled = false;
                 halfCircle.GetComponent<SpriteRenderer>().enabled = false;
 
-               if(Input.GetKeyDown(KeyCode.LeftShift) && !isThrown)
+               if(forward && !isThrown)
                {
                    state = 1;
                }
@@ -68,7 +70,7 @@ public class ThrowHeadScript : MonoBehaviour {
                 {
                     direction *= -1;
                 }
-                if (Input.GetKeyDown(KeyCode.LeftShift))
+                if (forward)
                 {
                     FrostieMoveScript frostie = throwingObject.GetComponentInParent<FrostieMoveScript>();
                     if(frostie != null && frostie.viewDirection < 0)
@@ -77,7 +79,7 @@ public class ThrowHeadScript : MonoBehaviour {
                     }
                     state = 2;
                 }
-                if (Input.GetKeyDown(KeyCode.Escape))
+                if (backward)
                 {
                     state = 0;
                 }
@@ -85,11 +87,11 @@ public class ThrowHeadScript : MonoBehaviour {
             }
         case 2:
             {
-                if (Input.GetKeyDown(KeyCode.Escape))
+                if (backward)
                 {
                     state = 1;
                 }
-                if (Input.GetKeyDown(KeyCode.LeftShift))
+                if (forward)
                 {
 
                     Vector3 dummyPosition = throwingObject.transform.position - throwingObject.transform.localPosition;
@@ -124,9 +126,19 @@ public class ThrowHeadScript : MonoBehaviour {
                 break;
             }
     }
+    forward = false;
+    backward = false;
 	}
     public void reset()
     {
         isThrown = false;
+    }
+    public void setForward()
+    {
+        forward = true;
+    }
+    public void setBackward()
+    {
+        backward = true;
     }
 }

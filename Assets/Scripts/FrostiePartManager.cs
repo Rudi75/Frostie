@@ -42,16 +42,7 @@ public class FrostiePartManager : MonoBehaviour {
         frostieStatus.isPartMising = false;
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            recallParts();
-        }
-
-    }
-
-    void recallParts()
+    public void recallParts()
     {
 
 

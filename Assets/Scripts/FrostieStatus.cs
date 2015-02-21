@@ -9,6 +9,8 @@ public class FrostieStatus : MonoBehaviour {
     private FrostieAnimationManager frostieAnimationManager;
     private FrostiePartManager frostiePartManager;
 
+    public bool isPulling { get; set; }
+
     public bool isFixated { get; set; }
     public bool isPartMising { get; set; }
     private bool isMelted;

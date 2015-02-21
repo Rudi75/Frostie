@@ -15,11 +15,13 @@ public class MoveableScript : MonoBehaviour
 
     virtual protected void OnCollisionStay2D(Collision2D collision)
     {
-        if (!Input.GetKey(KeyCode.LeftControl))
+  
+        string otherObject = collision.gameObject.tag;
+        if (otherObject == "Player")
         {
-            string otherObject = collision.gameObject.tag;
-            if (otherObject == "Player")
-            {
+            FrostieStatus status = collision.gameObject.GetComponent<FrostieStatus>();
+            if (!status.isPulling)
+            { 
                 Enums.Edges edge = CollisionHelper.getCollisionEdge(collision);
 
                 FrostieMoveScript frostieScript = collision.gameObject.GetComponent<FrostieMoveScript>();
@@ -58,24 +60,26 @@ public class MoveableScript : MonoBehaviour
 
     private bool handlePull()
     {
-        if (Input.GetKey(KeyCode.LeftControl))
+        
+
+        Vector3 movement = Vector3.zero;
+        playerLeft = CollisionHelper.getCollidingObject(collider2D, Enums.Edges.LEFT, 0.5f);
+        playerRight = CollisionHelper.getCollidingObject(collider2D, Enums.Edges.RIGHT, 0.5f);
+
+        if ((playerLeft == null || playerLeft.tag != "Player") && (playerRight == null || playerRight.tag != "Player"))
         {
+            oldPlayerPosition = Vector3.zero;
+            return false;
+        }
+        GameObject player;
+        if (playerRight != null && playerRight.tag == "Player")
+            player = playerRight;
+        else
+            player = playerLeft;
 
-            Vector3 movement = Vector3.zero;
-            playerLeft = CollisionHelper.getCollidingObject(collider2D, Enums.Edges.LEFT, 0.5f);
-            playerRight = CollisionHelper.getCollidingObject(collider2D, Enums.Edges.RIGHT, 0.5f);
-
-            if ((playerLeft == null || playerLeft.tag != "Player") && (playerRight == null || playerRight.tag != "Player"))
-            {
-                oldPlayerPosition = Vector3.zero;
-                return false;
-            }
-            GameObject player;
-            if (playerRight != null && playerRight.tag == "Player")
-                player = playerRight;
-            else
-                player = playerLeft;
-
+        FrostieStatus status = player.GetComponentInParent<FrostieStatus>();
+        if (status.isPulling)
+        {
             Vector3 playerPosition = player.transform.position;
 
 

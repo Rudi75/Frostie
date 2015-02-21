@@ -51,7 +51,7 @@ public class FrostieMoveScript : MonoBehaviour {
     {
         float inputX = frostieStatus.isFixated ? 0 : Input.GetAxis("Horizontal");
 
-        if (viewDirection * inputX < 0 && !Input.GetKey(KeyCode.LeftControl))
+        if (viewDirection * inputX < 0 && !frostieStatus.isPulling)
         {
             Vector3 scale = transform.localScale;
             scale.x *= -1;
@@ -69,7 +69,7 @@ public class FrostieMoveScript : MonoBehaviour {
             letGoRight = CollisionHelper.getCollidingObject(partManager.getBasePart().collider2D, Enums.Edges.RIGHT, 0.1f) == null;
         }
 
-        if ((inputX < 0 && !letGoLeft) || (inputX > 0 && !letGoRight) || (viewDirection * inputX > 0 && Input.GetKey(KeyCode.LeftControl)))
+        if ((inputX < 0 && !letGoLeft) || (inputX > 0 && !letGoRight) || (viewDirection * inputX > 0 && frostieStatus.isPulling))
         {
             inputX = 0;
         }

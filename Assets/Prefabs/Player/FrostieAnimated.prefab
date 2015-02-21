@@ -110,6 +110,9 @@ GameObject:
   - 114: {fileID: 11401474}
   - 114: {fileID: 11401472}
   - 114: {fileID: 11413322}
+  - 114: {fileID: 11469204}
+  - 114: {fileID: 11469202}
+  - 114: {fileID: 11469200}
   m_Layer: 0
   m_Name: FrostieSide
   m_TagString: Player
@@ -494,6 +497,7 @@ GameObject:
   - 4: {fileID: 401530}
   - 95: {fileID: 9501470}
   - 114: {fileID: 11401488}
+  - 114: {fileID: 11471268}
   m_Layer: 0
   m_Name: FrostieAnimated
   m_TagString: Untagged
@@ -1281,7 +1285,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 101530}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.89999962, y: -1.70000005, z: 0}
+  m_LocalPosition: {x: -9.56999969, y: -1.52999997, z: 0}
   m_LocalScale: {x: .300000012, y: .300000012, z: 1}
   m_Children:
   - {fileID: 401482}
@@ -1750,15 +1754,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 101482}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f87212897bd4f7a40ae6ae431dab3a66, type: 3}
+  m_Script: {fileID: 11500000, guid: 87cc284ddce709f48a35af50d73ae2d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  jumpHight: 39
-  letGoRight: 1
-  letGoLeft: 1
-  viewDirection: 1
-  isPartMising: 0
 --- !u!114 &11401480
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1855,6 +1853,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7623f09f27188942b1fae0a052d60bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reserveDisplay: {fileID: 0}
   iceCubePrefab: {fileID: 496540, guid: 02ad297576fa8a744b58a607795c0450, type: 2}
   KeyToTakeWater: 118
   KeyToSpawnIceCube: 99
@@ -1890,6 +1889,63 @@ MonoBehaviour:
   speech: hello
   OffsetXStart: -43
   OffsetYStart: 67
+--- !u!114 &11469200
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 101482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d4b5fa0e6e6afa468975a25a75b41ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11469202
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 101482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 330015b04974d4c46b2b883381f9f774, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11469204
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 101482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c615afa5f2abd9745a07a84f9f7cb14a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  jumpHight: 40
+  letGoRight: 1
+  letGoLeft: 1
+  viewDirection: 1
+--- !u!114 &11471268
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 101530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5179bcccf1121d44d8a697b37274572c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpKey: 32
+  jumpKey2: 273
+  meltKey: 308
+  pullKey: 306
+  throwHeadKey: 304
+  escapeKey: 27
+  recallPartsKey: 121
+  Player: {fileID: 101530}
 --- !u!212 &21201470
 SpriteRenderer:
   m_ObjectHideFlags: 1
