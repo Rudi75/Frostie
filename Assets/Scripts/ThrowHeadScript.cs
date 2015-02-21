@@ -16,7 +16,6 @@ public class ThrowHeadScript : MonoBehaviour {
 
     public int throwForce = 19;
     public GameObject Dummy;
-    FrostieScript frostie;
 
     bool isThrown = false;
 	// Use this for initialization
@@ -37,7 +36,6 @@ public class ThrowHeadScript : MonoBehaviour {
         arrow.GetComponent<SpriteRenderer>().enabled = false;
         halfCircle.GetComponent<SpriteRenderer>().enabled = false;
         scale = arrow.localScale;
-        frostie = throwingObject.GetComponentInParent<FrostieScript>();
 	}
 	
 	// Update is called once per frame
@@ -72,7 +70,7 @@ public class ThrowHeadScript : MonoBehaviour {
                 }
                 if (Input.GetKeyDown(KeyCode.LeftShift))
                 {
-                    FrostieScript frostie = throwingObject.GetComponentInParent<FrostieScript>();
+                    FrostieMoveScript frostie = throwingObject.GetComponentInParent<FrostieMoveScript>();
                     if(frostie != null && frostie.viewDirection < 0)
                     {
                         angle *= -1;
@@ -110,10 +108,10 @@ public class ThrowHeadScript : MonoBehaviour {
                    dummyObject.rigidbody2D.AddForce(throwVector * throwForce * scale.x,ForceMode2D.Impulse);
                     isThrown = true;
 
-                    
-                    if(frostie != null)
+                    FrostieStatus frostieStatus = throwingObject.GetComponentInParent<FrostieStatus>();
+                    if (frostieStatus != null)
                     {
-                        frostie.isPartMising = true;
+                        frostieStatus.isPartMising = true;
                     }
                     state = 0;
                 }

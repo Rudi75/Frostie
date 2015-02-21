@@ -14,7 +14,7 @@ public class ActionTrigger : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        FrostieScript frostie = other.GetComponentInParent<FrostieScript>();
+        FrostieStatus frostie = other.GetComponentInParent<FrostieStatus>();
         if ((frostie != null) && animators.Any())
         {
             Debug.Log("enter");
@@ -27,7 +27,7 @@ public class ActionTrigger : MonoBehaviour
 
     public void OnTriggerExit2D(Collider2D other)
     {
-        FrostieScript frostie = other.GetComponentInParent<FrostieScript>();
+        FrostieStatus frostie = other.GetComponentInParent<FrostieStatus>();
         if ((frostie != null) && animators.Any())
         {
             Debug.Log("exit");

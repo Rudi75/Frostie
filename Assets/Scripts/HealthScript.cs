@@ -27,12 +27,19 @@ public class HealthScript : MonoBehaviour {
         }
     }
 
+
     public void DieAndStartAnimation(KindsOfDeath deathKind)
     {
-        FrostieScript frostie = GetComponentInParent<FrostieScript>();
-        if (frostie != null)
+        FrostieStatus frostieStatus = GetComponent<FrostieStatus>();
+        if (frostieStatus != null)
         {
-            frostie.Die(deathKind);
+            if (frostieStatus.isDying)
+                return;
+            frostieStatus.isDying = true;
+            frostieStatus.isFixated = true;
+
+            FrostieAnimationManager frostieAnimationManager = GetComponent<FrostieAnimationManager>();
+            frostieAnimationManager.animateDeath(deathKind);
         }
         else
         {
@@ -42,7 +49,7 @@ public class HealthScript : MonoBehaviour {
 
     public void Die()
     {
-        FrostieScript frostie = GetComponent<FrostieScript>();
+        FrostiePartManager frostie = GetComponent<FrostiePartManager>();
         if (frostie != null)
         {
             frostie.pleaseJustKillYourself();

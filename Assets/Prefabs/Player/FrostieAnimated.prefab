@@ -109,7 +109,7 @@ GameObject:
   - 114: {fileID: 11401476}
   - 114: {fileID: 11401474}
   - 114: {fileID: 11401472}
-  - 114: {fileID: 11401470}
+  - 114: {fileID: 11413322}
   m_Layer: 0
   m_Name: FrostieSide
   m_TagString: Player
@@ -1281,7 +1281,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 101530}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -25.8999996, y: -7.9000001, z: 0}
+  m_LocalPosition: {x: -8.89999962, y: -1.70000005, z: 0}
   m_LocalScale: {x: .300000012, y: .300000012, z: 1}
   m_Children:
   - {fileID: 401482}
@@ -1707,37 +1707,6 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11404868
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 104872}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db49ccca86bdb084789e6855d5a9ef82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationPerFrame: 3
-  sizeChangePerFrame: .0199999996
-  throwingObject: {fileID: 173654}
-  throwForce: 18
-  Dummy: {fileID: 125168, guid: 73b0225d7437fd84d9c803a85f585ea9, type: 2}
---- !u!114 &11413322
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 101482}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c33d3792b226cfb4193966ecbb1d2a05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  guiSkin: {fileID: 11400000, guid: 9f33556ed15707342b6b9407570ebf8e, type: 2}
-  speech: hello
-  OffsetXStart: -43
-  OffsetYStart: 67
 --- !u!114 &11401472
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1837,7 +1806,7 @@ MonoBehaviour:
   rotationPerFrame: 3
   sizeChangePerFrame: .0199999996
   throwingObject: {fileID: 101484}
-  throwForce: 900
+  throwForce: 19
   Dummy: {fileID: 125168, guid: 73b0225d7437fd84d9c803a85f585ea9, type: 2}
 --- !u!114 &11401488
 MonoBehaviour:
@@ -1890,6 +1859,37 @@ MonoBehaviour:
   KeyToTakeWater: 118
   KeyToSpawnIceCube: 99
   waterReserveLimit: 4
+--- !u!114 &11404868
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db49ccca86bdb084789e6855d5a9ef82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationPerFrame: 3
+  sizeChangePerFrame: .0199999996
+  throwingObject: {fileID: 173654}
+  throwForce: 18
+  Dummy: {fileID: 125168, guid: 73b0225d7437fd84d9c803a85f585ea9, type: 2}
+--- !u!114 &11413322
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 101482}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c33d3792b226cfb4193966ecbb1d2a05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guiSkin: {fileID: 11400000, guid: 9f33556ed15707342b6b9407570ebf8e, type: 2}
+  speech: hello
+  OffsetXStart: -43
+  OffsetYStart: 67
 --- !u!212 &21201470
 SpriteRenderer:
   m_ObjectHideFlags: 1
