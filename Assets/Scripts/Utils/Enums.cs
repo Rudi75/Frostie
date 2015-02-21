@@ -13,5 +13,14 @@ namespace Assets.Scripts.Utils
             InFire,
             Squeezed
         }
+
+        public enum Edges
+        {
+            LEFT,
+            RIGHT,
+            TOP,
+            BOTTOM,
+            NONE
+        };
     }
 }

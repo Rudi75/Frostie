@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using AssemblyCSharp;
+using Assets.Scripts.Utils;
 
 public class FreezeGroundSkript : MonoBehaviour 
 {
@@ -20,7 +21,7 @@ public class FreezeGroundSkript : MonoBehaviour
         if (Input.GetKeyDown(KeyToFreeze))
         {
             Debug.Log("grgr");
-            var ground = CollisionHelper.getCollidingObject(bottomCollider, Edges.BOTTOM, 0.1f);
+            var ground = CollisionHelper.getCollidingObject(bottomCollider, Enums.Edges.BOTTOM, 0.1f);
             var freezableGround = ground.GetComponent<FreezableGround>();
             if (freezableGround == null) freezableGround = ground.transform.parent.GetComponent<FreezableGround>();
 

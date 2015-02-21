@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using AssemblyCSharp;
+using Assets.Scripts.Utils;
 
 public class MoveableScript : MonoBehaviour {
 
@@ -18,19 +19,19 @@ public class MoveableScript : MonoBehaviour {
                 string otherObject = collision.gameObject.tag;
                 if (otherObject == "Player") 
                 {
-                    Edges edge = CollisionHelper.getCollisionEdge (collision);
+                    Enums.Edges edge = CollisionHelper.getCollisionEdge (collision);
 
                     FrostieScript frostieScript = collision.gameObject.GetComponent<FrostieScript>();
                     if (frostieScript != null)
                     {
                         float speed = frostieScript.speed;
 
-                        if (Edges.RIGHT.Equals(edge) && frostieScript.isGrounded())
+                        if (Enums.Edges.RIGHT.Equals(edge) && frostieScript.isGrounded())
                         {
                             movement = -1 * speed;
                         }
 
-                        if (Edges.LEFT.Equals(edge) && frostieScript.isGrounded())
+                        if (Enums.Edges.LEFT.Equals(edge) && frostieScript.isGrounded())
                         {
                             movement = speed;
                         }
@@ -62,8 +63,8 @@ public class MoveableScript : MonoBehaviour {
                 {
                     
                     Vector3 movement = Vector3.zero;
-                     playerLeft = CollisionHelper.getCollidingObject(collider2D, Edges.LEFT, 0.5f);
-                     playerRight = CollisionHelper.getCollidingObject(collider2D, Edges.RIGHT, 0.5f);
+                     playerLeft = CollisionHelper.getCollidingObject(collider2D, Enums.Edges.LEFT, 0.5f);
+                     playerRight = CollisionHelper.getCollidingObject(collider2D, Enums.Edges.RIGHT, 0.5f);
 
                     if ((playerLeft == null || playerLeft.tag != "Player") && (playerRight == null || playerRight.tag != "Player"))
                     {

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using AssemblyCSharp;
+using Assets.Scripts.Utils;
 
 public class ButtonScript : MonoBehaviour {
 
@@ -9,7 +10,7 @@ public class ButtonScript : MonoBehaviour {
 	public bool isPressed;
 	public bool withRelease = true;
     private TargetActionScript target;
-    private Edges buttonEdge;
+    private Enums.Edges  buttonEdge;
 
 	void Awake()
 	{
@@ -20,19 +21,19 @@ public class ButtonScript : MonoBehaviour {
 
         if (rotation >= 225 && rotation < 315)
         {
-            buttonEdge = Edges.RIGHT;
+            buttonEdge = Enums.Edges.RIGHT;
         }
         else if (rotation >= 45 && rotation < 135)
         {
-            buttonEdge = Edges.LEFT;
+            buttonEdge = Enums.Edges.LEFT;
         }
         else if (rotation >= 135 && rotation < 225)
         {
-            buttonEdge = Edges.BOTTOM;
+            buttonEdge = Enums.Edges.BOTTOM;
         }
         else
         {
-            buttonEdge = Edges.TOP;
+            buttonEdge = Enums.Edges.TOP;
         }
 	}
     
@@ -42,7 +43,7 @@ public class ButtonScript : MonoBehaviour {
 
 
 
-		    Edges collisionEdge = CollisionHelper.getCollisionEdge(collision);
+        Enums.Edges collisionEdge = CollisionHelper.getCollisionEdge(collision);
 
             GameObject other = collision.collider.gameObject;
 

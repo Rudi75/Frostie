@@ -73,14 +73,16 @@ public class FrostieScript : MonoBehaviour {
 	{
 		MoveableScript pushScript = collision.gameObject.GetComponent<MoveableScript> ();
 
-        if (!isMelted && (pushScript == null || (pushScript != null && CollisionHelper.getCollidingObject(basePart.collider2D, Edges.BOTTOM, 0.1f) == null)))
+        if (!isMelted && (pushScript == null || (pushScript != null && CollisionHelper.getCollidingObject(basePart.collider2D, Enums.Edges.BOTTOM, 0.1f) == null)))
 		{
-			Edges edge = CollisionHelper.getCollisionEdge (collision);
-			if (Edges.RIGHT.Equals(edge)) {
+            Enums.Edges edge = CollisionHelper.getCollisionEdge(collision);
+            if (Enums.Edges.RIGHT.Equals(edge))
+            {
 				letGoRight = false;
 			}
 
-			if (Edges.LEFT.Equals(edge)) {
+            if (Enums.Edges.LEFT.Equals(edge))
+            {
 				letGoLeft = false;
 			}
 		}
@@ -110,12 +112,12 @@ public class FrostieScript : MonoBehaviour {
 
 		if(!letGoLeft)
 		{
-            letGoLeft = CollisionHelper.getCollidingObject(basePart.collider2D, Edges.LEFT, 0.1f) == null;
+            letGoLeft = CollisionHelper.getCollidingObject(basePart.collider2D, Enums.Edges.LEFT, 0.1f) == null;
 		}
 
 		if(!letGoRight)
 		{
-            letGoRight = CollisionHelper.getCollidingObject(basePart.collider2D, Edges.RIGHT, 0.1f) == null;
+            letGoRight = CollisionHelper.getCollidingObject(basePart.collider2D, Enums.Edges.RIGHT, 0.1f) == null;
 		}
 
 
@@ -175,7 +177,7 @@ public class FrostieScript : MonoBehaviour {
 
     public bool isGrounded()
     {
-        return CollisionHelper.getCollidingObject(basePart.collider2D, Edges.BOTTOM, 0.1f) != null;
+        return CollisionHelper.getCollidingObject(basePart.collider2D, Enums.Edges.BOTTOM, 0.1f) != null;
     }
 
     public void ChangeMeltedState()

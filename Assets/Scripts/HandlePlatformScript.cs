@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using AssemblyCSharp;
+using Assets.Scripts.Utils;
 
 public class HandlePlatformScript : MonoBehaviour {
 
@@ -19,7 +20,7 @@ public class HandlePlatformScript : MonoBehaviour {
         Collider2D bottomCollider = CollisionHelper.getBotomCollider(colliders);
 
         Vector3 movement = Vector3.zero;
-        GameObject platform = CollisionHelper.getCollidingObject(bottomCollider, Edges.BOTTOM, 0.1f);
+        GameObject platform = CollisionHelper.getCollidingObject(bottomCollider, Enums.Edges.BOTTOM, 0.1f);
 
         if (platform == null || platform.tag != "Platform")
         {

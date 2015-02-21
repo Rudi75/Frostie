@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using AssemblyCSharp;
+using Assets.Scripts.Utils;
 
 public class EnemyMoveScript : MonoBehaviour
 {
@@ -66,7 +67,7 @@ public class EnemyMoveScript : MonoBehaviour
 
     private bool canJumpNow()
     {
-        if (CollisionHelper.getCollidingObject(this.transform.collider2D, Edges.BOTTOM, 0.1f) != null 
+        if (CollisionHelper.getCollidingObject(this.transform.collider2D, Enums.Edges.BOTTOM, 0.1f) != null 
             && jumpCooldown <= 0
             && canJump == true)
         {
@@ -137,8 +138,8 @@ public class EnemyMoveScript : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if ((CollisionHelper.getCollidingObject(this.transform.collider2D, Edges.RIGHT, 0.1f) != null 
-                || CollisionHelper.getCollidingObject(this.transform.collider2D, Edges.LEFT, 0.1f) != null)
+        if ((CollisionHelper.getCollidingObject(this.transform.collider2D,Enums.Edges.RIGHT, 0.1f) != null 
+                || CollisionHelper.getCollidingObject(this.transform.collider2D, Enums.Edges.LEFT, 0.1f) != null)
             && turnAroundOnCollison)
         {
             performTurnAround();
