@@ -71,6 +71,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: {x: 11, y: 5}
   direction: {x: -1, y: 0}
+  jumpHight: 5
+  canJump: 0
+  jumpingRate: .25
+  turnAroundOnCollison: 0
+  turnAroundOnPlatformEnd: 0
 --- !u!114 &11456266
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -84,6 +89,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   isEnemyShot: 1
+  destroyShotAtCollision: 1
 --- !u!212 &21289328
 SpriteRenderer:
   m_ObjectHideFlags: 1

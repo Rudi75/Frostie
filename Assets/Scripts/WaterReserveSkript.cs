@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using AssemblyCSharp;
+using Assets.Scripts.Utils;
 
 public class WaterReserveSkript : MonoBehaviour 
 {
@@ -38,9 +39,10 @@ public class WaterReserveSkript : MonoBehaviour
     {
         if (reserve.canTakeMoreWater())
         {
-            var ground = CollisionHelper.getCollidingObject(bottomCollider, Edges.BOTTOM, 0.1f);
+            var ground = CollisionHelper.getCollidingObject(bottomCollider, Enums.Edges.BOTTOM, 0.1f);
             var groundCollider = CustomCollisionHelper.getBiggestCollider(ground.GetComponentsInChildren<Collider2D>());
-            Edges direction = transform.parent.localScale.x > 0 ? Edges.RIGHT : (transform.parent.localScale.x < 0 ? Edges.LEFT : Edges.NONE);
+            Enums.Edges direction = transform.parent.localScale.x > 0 ? Enums.Edges.RIGHT : (transform.parent.localScale.x < 0 ? Enums.Edges.LEFT : Enums.Edges.NONE);
+
             var left = CollisionHelper.getCollidingObject(groundCollider, direction, 0.3f);
             var water = left.GetComponent<RemovableWaterScript>();
             if (water != null && water.CanRemove())

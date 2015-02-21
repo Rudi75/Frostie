@@ -14,7 +14,7 @@ public class ThrowHeadScript : MonoBehaviour {
     public float sizeChangePerFrame = 0.05f;
     public GameObject throwingObject;
 
-    public int throwForce = 800;
+    public int throwForce = 19;
     public GameObject Dummy;
     FrostieScript frostie;
 
