@@ -7,8 +7,6 @@ public class WaterReserveSkript : MonoBehaviour
 {
     public WaterReserveDisplaySkript reserveDisplay;
     public Transform iceCubePrefab;
-    public KeyCode KeyToTakeWater = KeyCode.V;
-    public KeyCode KeyToSpawnIceCube = KeyCode.C;
     public int waterReserveLimit = 4;
 
     private WaterReserve reserve;
@@ -22,20 +20,8 @@ public class WaterReserveSkript : MonoBehaviour
         bottomCollider = CollisionHelper.getBotomCollider(colliders);
 	}
 	
-	// Update is called once per frame
-	void Update () 
-    {
-        if (Input.GetKeyDown(KeyToTakeWater))
-        {
-            takeWater();
-        }
-        if (Input.GetKeyDown(KeyToSpawnIceCube))
-        {
-            spawnIceCube();
-        }
-	}
 
-    private void takeWater()
+    public void takeWater()
     {
         if (reserve.canTakeMoreWater())
         {
@@ -53,7 +39,7 @@ public class WaterReserveSkript : MonoBehaviour
         }
     }
 
-    private void spawnIceCube()
+    public void spawnIceCube()
     {
         if (reserve.canSpendMoreWater())
         {

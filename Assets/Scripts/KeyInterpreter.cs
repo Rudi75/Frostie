@@ -10,6 +10,11 @@ public class KeyInterpreter : MonoBehaviour {
     public KeyCode throwHeadKey = KeyCode.LeftShift;
     public KeyCode escapeKey = KeyCode.Escape;
     public KeyCode recallPartsKey = KeyCode.Y;
+    public KeyCode shootButtonKey = KeyCode.F;
+    public KeyCode freezeKey = KeyCode.G;
+    public KeyCode takeWaterKey = KeyCode.V;
+    public KeyCode spawnIceCubeKey = KeyCode.C;
+
 
     public GameObject Player;
 
@@ -18,6 +23,9 @@ public class KeyInterpreter : MonoBehaviour {
     private FrostieAnimationManager frostieAnimationManager;
     private ThrowHeadScript throwHeadScript;
     private FrostiePartManager frostiePartManager;
+    private ButtonShotSkript buttonShootScript;
+    private FreezeGroundSkript freezeGroundSkript;
+    private WaterReserveSkript waterReserveSkript;
 
 	// Use this for initialization
 	void Start () {
@@ -26,6 +34,9 @@ public class KeyInterpreter : MonoBehaviour {
         frostieAnimationManager = Player.GetComponentInChildren<FrostieAnimationManager>();
         throwHeadScript = Player.GetComponentInChildren<ThrowHeadScript>();
         frostiePartManager = Player.GetComponentInChildren<FrostiePartManager>();
+        buttonShootScript = Player.GetComponentInChildren<ButtonShotSkript>();
+        freezeGroundSkript = Player.GetComponentInChildren<FreezeGroundSkript>();
+        waterReserveSkript = Player.GetComponentInChildren<WaterReserveSkript>();
 	}
 	
 	// Update is called once per frame
@@ -65,6 +76,25 @@ public class KeyInterpreter : MonoBehaviour {
         {
             frostiePartManager.recallParts();
         }
+
+        if(Input.GetKeyDown(shootButtonKey))
+        {
+            buttonShootScript.shootButton();
+        }
 	
+         if (Input.GetKeyDown(freezeKey))
+         {
+             freezeGroundSkript.freeze();
+         }
+
+        if(Input.GetKeyDown(takeWaterKey))
+        {
+            waterReserveSkript.takeWater();
+        }
+
+        if(Input.GetKeyDown(spawnIceCubeKey))
+        {
+            waterReserveSkript.spawnIceCube();
+        }
 	}
 }

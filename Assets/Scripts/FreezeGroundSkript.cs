@@ -15,39 +15,36 @@ public class FreezeGroundSkript : MonoBehaviour
         bottomCollider = CollisionHelper.getBotomCollider(colliders);
 	}
 	
-	// Update is called once per frame
-	void Update () 
+    public void freeze()
     {
-        if (Input.GetKeyDown(KeyToFreeze))
+        var ground = CollisionHelper.getCollidingObject(bottomCollider, Enums.Edges.BOTTOM, 0.1f);
+        FreezableGround freezableGround = null;
+        if (ground != null) freezableGround = ground.GetComponent<FreezableGround>();
+        if (ground != null && freezableGround == null) freezableGround = ground.transform.parent.GetComponent<FreezableGround>();
+
+        if (freezableGround != null)
         {
-            var ground = CollisionHelper.getCollidingObject(bottomCollider, Enums.Edges.BOTTOM, 0.1f);
-            FreezableGround freezableGround = null;
-            if (ground != null) freezableGround = ground.GetComponent<FreezableGround>();
-            if (ground != null && freezableGround == null) freezableGround = ground.transform.parent.GetComponent<FreezableGround>();
-
-            if (freezableGround != null)
-            {
-                freezableGround.Freeze();
-            }
-
-            var groundCollider = CustomCollisionHelper.getBiggestCollider(ground.GetComponentsInChildren<Collider2D>());
-            var left = CollisionHelper.getCollidingObject(groundCollider, Enums.Edges.LEFT, 0.3f);
-            if (left != null) freezableGround = left.GetComponent<FreezableGround>();
-            if (left != null && freezableGround == null) freezableGround = left.transform.parent.GetComponent<FreezableGround>();
-
-            if (freezableGround != null)
-            {
-                freezableGround.Freeze();
-            }
-
-            var rigth = CollisionHelper.getCollidingObject(groundCollider, Enums.Edges.RIGHT, 0.3f);
-            if (rigth != null) freezableGround = rigth.GetComponent<FreezableGround>();
-            if (rigth != null && freezableGround == null) freezableGround = rigth.transform.parent.GetComponent<FreezableGround>();
-
-            if (freezableGround != null)
-            {
-                freezableGround.Freeze();
-            }
+            freezableGround.Freeze();
         }
-	}
+
+        var groundCollider = CustomCollisionHelper.getBiggestCollider(ground.GetComponentsInChildren<Collider2D>());
+        var left = CollisionHelper.getCollidingObject(groundCollider, Enums.Edges.LEFT, 0.3f);
+        if (left != null) freezableGround = left.GetComponent<FreezableGround>();
+        if (left != null && freezableGround == null) freezableGround = left.transform.parent.GetComponent<FreezableGround>();
+
+        if (freezableGround != null)
+        {
+            freezableGround.Freeze();
+        }
+
+        var rigth = CollisionHelper.getCollidingObject(groundCollider, Enums.Edges.RIGHT, 0.3f);
+        if (rigth != null) freezableGround = rigth.GetComponent<FreezableGround>();
+        if (rigth != null && freezableGround == null) freezableGround = rigth.transform.parent.GetComponent<FreezableGround>();
+
+        if (freezableGround != null)
+        {
+            freezableGround.Freeze();
+        }
+    }
+	
 }

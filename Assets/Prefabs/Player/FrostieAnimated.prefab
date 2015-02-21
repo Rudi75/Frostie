@@ -1841,7 +1841,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShotPrefab: {fileID: 468398, guid: 298d5ecf80b609f4989cadb0757cd90a, type: 2}
   ShotForce: {x: 8, y: 4}
-  KeyToActivate: 102
 --- !u!114 &11401494
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1855,8 +1854,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reserveDisplay: {fileID: 0}
   iceCubePrefab: {fileID: 496540, guid: 02ad297576fa8a744b58a607795c0450, type: 2}
-  KeyToTakeWater: 118
-  KeyToSpawnIceCube: 99
   waterReserveLimit: 4
 --- !u!114 &11404868
 MonoBehaviour:
@@ -1945,6 +1942,10 @@ MonoBehaviour:
   throwHeadKey: 304
   escapeKey: 27
   recallPartsKey: 121
+  shootButtonKey: 102
+  freezeKey: 103
+  takeWaterKey: 118
+  spawnIceCubeKey: 99
   Player: {fileID: 101530}
 --- !u!212 &21201470
 SpriteRenderer:
