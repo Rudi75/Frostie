@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+using Assets.Scripts.Utils;
+using KindsOfDeath = Assets.Scripts.Utils.Enums.KindsOfDeath;
+
 public class HealthScript : MonoBehaviour {
 
     /// <summary>
@@ -20,31 +23,59 @@ public class HealthScript : MonoBehaviour {
         if (hp <= 0)
         {
             // Dead!
-            FollowChild parent = GetComponentInParent<FollowChild>();
-            if(parent != null)
-            {
-                Destroy(parent.gameObject);
-            }
-            Destroy(gameObject);
+            DieAndStartAnimation(KindsOfDeath.Normal);
+        }
+    }
+
+
+    public void DieAndStartAnimation(KindsOfDeath deathKind)
+    {
+        FrostieStatus frostieStatus = GetComponent<FrostieStatus>();
+        if (frostieStatus != null)
+        {
+            if (frostieStatus.isDying)
+                return;
+            frostieStatus.isDying = true;
+            frostieStatus.isFixated = true;
+
+            FrostieAnimationManager frostieAnimationManager = GetComponent<FrostieAnimationManager>();
+            frostieAnimationManager.animateDeath(deathKind);
+        }
+        else
+        {
+            Die();
         }
     }
 
     public void Die()
     {
-        Damage(hp);
+        FrostiePartManager frostie = GetComponent<FrostiePartManager>();
+        if (frostie != null)
+        {
+            frostie.pleaseJustKillYourself();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+       
     }
+
     public void OnTriggerEnter2D(Collider2D other)
     {
         // Is this a shot?
         ShotScript shot = other.gameObject.GetComponent<ShotScript>();
         if ((shot != null) && (shot.isEnemyShot == isEnemy))
         {
-            Debug.Log("jop");
             return;
         }
         if (other.tag.Contains("Lethal"))
         {
-            Die();
+            DieAndStartAnimation(KindsOfDeath.Normal);
+        }
+        if (other.tag.Contains("LethalHot"))
+        {
+            DieAndStartAnimation(KindsOfDeath.InFire);
         }
     }
 
@@ -54,7 +85,12 @@ public class HealthScript : MonoBehaviour {
         if (collision.collider.tag.Contains("Lethal") && healthScript == null
             || collision.collider.tag.Contains("Lethal") && healthScript.isEnemy != isEnemy)
         {
-            Die();
+            DieAndStartAnimation(KindsOfDeath.Normal);
+        }
+        if (collision.collider.tag.Contains("LethalHot") && healthScript == null
+        || collision.collider.tag.Contains("LethalHot") && healthScript.isEnemy != isEnemy)
+        {
+            DieAndStartAnimation(KindsOfDeath.InFire);
         }
     }
 }
