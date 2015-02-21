@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class StunningShotSkript : ShotScript
+public class StunningShotSkript : MonoBehaviour
 {
     public float StunningForce = 1;
     public float timeOfExistance = 20;

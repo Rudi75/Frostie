@@ -10,6 +10,10 @@ public class KeyInterpreter : MonoBehaviour {
     public KeyCode throwHeadKey = KeyCode.LeftShift;
     public KeyCode escapeKey = KeyCode.Escape;
     public KeyCode recallPartsKey = KeyCode.Y;
+    public KeyCode ShootButtonKey = KeyCode.F;
+    public KeyCode FreezeGroundKey = KeyCode.G;
+    public KeyCode TakeWaterKey = KeyCode.V;
+    public KeyCode SpawnIceCubeKey = KeyCode.C;
 
     public GameObject Player;
 
@@ -18,6 +22,9 @@ public class KeyInterpreter : MonoBehaviour {
     private FrostieAnimationManager frostieAnimationManager;
     private ThrowHeadScript throwHeadScript;
     private FrostiePartManager frostiePartManager;
+    private ButtonShotSkript buttonShotSkript;
+    private WaterReserveSkript waterReserveSkript;
+    private FreezeGroundSkript freezeGroundSkript;
 
 	// Use this for initialization
 	void Start () {
@@ -26,6 +33,9 @@ public class KeyInterpreter : MonoBehaviour {
         frostieAnimationManager = Player.GetComponentInChildren<FrostieAnimationManager>();
         throwHeadScript = Player.GetComponentInChildren<ThrowHeadScript>();
         frostiePartManager = Player.GetComponentInChildren<FrostiePartManager>();
+        buttonShotSkript = Player.GetComponentInChildren<ButtonShotSkript>();
+        waterReserveSkript = Player.GetComponentInChildren<WaterReserveSkript>();
+        freezeGroundSkript = Player.GetComponentInChildren<FreezeGroundSkript>();
 	}
 	
 	// Update is called once per frame
@@ -65,6 +75,24 @@ public class KeyInterpreter : MonoBehaviour {
         {
             frostiePartManager.recallParts();
         }
-	
+
+        if (Input.GetKeyDown(ShootButtonKey))
+        {
+            buttonShotSkript.Shoot();
+        }
+
+        if (Input.GetKeyDown(FreezeGroundKey))
+        {
+            freezeGroundSkript.FreezeGround();
+        }
+
+        if (Input.GetKeyDown(TakeWaterKey))
+        {
+            waterReserveSkript.TakeWater();
+        }
+        if (Input.GetKeyDown(SpawnIceCubeKey))
+        {
+            waterReserveSkript.SpawnIceCube();
+        }
 	}
 }
