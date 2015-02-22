@@ -88,13 +88,13 @@ public class HealthScript : MonoBehaviour {
     public void OnCollisionEnter2D(Collision2D collision)
     {        
         HealthScript healthScript = collision.gameObject.GetComponent<HealthScript>();
-
+        Debug.Log("Collision "+isEnemy + collision.gameObject.name);
         if (collision.collider.tag.Contains("LethalHot") && healthScript == null
         || collision.collider.tag.Contains("LethalHot") && healthScript.isEnemy != isEnemy)
         {
             DieAndStartAnimation(KindsOfDeath.InFire);
-        }else if (collision.collider.tag.Contains("Lethal") && healthScript == null
-        || collision.collider.tag.Contains("Lethal") && healthScript.isEnemy != isEnemy)
+        }else if ((collision.collider.tag.Contains("Lethal") && healthScript == null)
+        || (collision.collider.tag.Contains("Lethal") && healthScript.isEnemy != isEnemy))
         {
             DieAndStartAnimation(KindsOfDeath.Normal);
         }
