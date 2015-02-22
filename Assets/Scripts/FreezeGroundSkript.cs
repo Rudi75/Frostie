@@ -10,7 +10,7 @@ public class FreezeGroundSkript : MonoBehaviour
 	void Start () 
     {
         Collider2D[] colliders = GetComponentsInChildren<Collider2D>();
-        bottomCollider = CollisionHelper.getBotomCollider(colliders);
+        bottomCollider = CollisionHelper.getBottomCollider(colliders);
 	}
 	
 

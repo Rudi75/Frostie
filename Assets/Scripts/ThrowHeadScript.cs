@@ -14,12 +14,14 @@ public class ThrowHeadScript : MonoBehaviour {
 
     public float rotationPerFrame = 3;
     public float sizeChangePerFrame = 0.05f;
-    public GameObject throwingObject;
 
     public int throwForce = 19;
-    public GameObject Dummy;
+   
 
-    bool isThrown = false;
+    private FrostiePartManager partManager;
+    private FrostieStatus frostieStatus;
+
+
 	// Use this for initialization
 	void Start () {
         state = 0;
@@ -38,6 +40,16 @@ public class ThrowHeadScript : MonoBehaviour {
         arrow.GetComponent<SpriteRenderer>().enabled = false;
         halfCircle.GetComponent<SpriteRenderer>().enabled = false;
         scale = arrow.localScale;
+
+        Transform frostieAnimated = transform;
+        while(frostieAnimated.parent != null && !frostieAnimated.name.Contains("Animated"))
+        {
+            frostieAnimated = frostieAnimated.parent;
+        }
+
+        partManager = frostieAnimated.GetComponentInChildren<FrostiePartManager>();
+        frostieStatus = frostieAnimated.GetComponentInChildren<FrostieStatus>();
+        
 	}
 	
 	// Update is called once per frame
@@ -53,7 +65,7 @@ public class ThrowHeadScript : MonoBehaviour {
                 arrow.GetComponent<SpriteRenderer>().enabled = false;
                 halfCircle.GetComponent<SpriteRenderer>().enabled = false;
 
-               if(forward && !isThrown)
+               if(forward && partManager.getHeadClone() == null)
                {
                    state = 1;
                }
@@ -66,14 +78,14 @@ public class ThrowHeadScript : MonoBehaviour {
                 arrow.localScale = new Vector3(1, 1, 1);
                 angle += direction * rotationPerFrame;
                 arrow.localEulerAngles = new Vector3(0, 0, angle);
-                if(angle > 90 || angle < -90)
+                if(angle > 70 || angle < -70)
                 {
                     direction *= -1;
                 }
                 if (forward)
                 {
-                    FrostieMoveScript frostie = throwingObject.GetComponentInParent<FrostieMoveScript>();
-                    if(frostie != null && frostie.viewDirection < 0)
+                   FrostieMoveScript moveScript = partManager.getActivePart().GetComponent<FrostieMoveScript>();
+                    if(moveScript.viewDirection < 0)
                     {
                         angle *= -1;
                     }
@@ -94,27 +106,15 @@ public class ThrowHeadScript : MonoBehaviour {
                 if (forward)
                 {
 
-                    Vector3 dummyPosition = throwingObject.transform.position - throwingObject.transform.localPosition;
-                    GameObject dummyObject = Instantiate(Dummy,dummyPosition , Quaternion.identity) as GameObject;
+                    GameObject headClone = partManager.decoupleHead();
 
-                    dummyObject.transform.parent = throwingObject.transform.parent.parent.parent.parent;
-                    throwingObject.transform.parent = dummyObject.transform;
-
-                    dummyObject.AddComponent<Rigidbody2D>();
-                    dummyObject.rigidbody2D.fixedAngle = true;
                     float xValue = angle / -90;
                     float yValue =  1 - Mathf.Abs(angle / 90);
 
                     Vector2 throwVector = new Vector2(xValue / Mathf.Max(xValue, yValue), yValue / Mathf.Max(xValue, yValue));
 
-                   dummyObject.rigidbody2D.AddForce(throwVector * throwForce * scale.x,ForceMode2D.Impulse);
-                    isThrown = true;
-
-                    FrostieStatus frostieStatus = throwingObject.GetComponentInParent<FrostieStatus>();
-                    if (frostieStatus != null)
-                    {
-                        frostieStatus.isPartMising = true;
-                    }
+                    headClone.rigidbody2D.AddForce(throwVector * throwForce * scale.x, ForceMode2D.Impulse);
+                
                     state = 0;
                 }
                 scale += new Vector3(sizeChangePerFrame * direction, sizeChangePerFrame * direction,0);
@@ -129,10 +129,6 @@ public class ThrowHeadScript : MonoBehaviour {
     forward = false;
     backward = false;
 	}
-    public void reset()
-    {
-        isThrown = false;
-    }
     public void setForward()
     {
         forward = true;

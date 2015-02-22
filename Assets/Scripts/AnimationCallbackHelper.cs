@@ -17,7 +17,7 @@ public class AnimationCallbackHelper : MonoBehaviour
     public void Jump()
     {
         
-        FrostieMoveScript frostie = GetComponentInChildren<FrostieMoveScript>();
+        FrostieMoveScript frostie = GetComponentInChildren<FrostiePartManager>().getActivePart().GetComponent<FrostieMoveScript>();
         if (frostie != null)
         {
             frostie.Jump();

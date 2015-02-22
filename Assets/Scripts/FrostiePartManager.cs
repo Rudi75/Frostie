@@ -9,12 +9,17 @@ public class FrostiePartManager : MonoBehaviour {
     private Transform middlePart;
     private Transform basePart;
     private Transform frotieParent;
-    
+    private GameObject headClone;
+    private GameObject middlePartClone;
+    private GameObject headAndMiddleClone;
 
-    private Vector3 headLocalPosition;
-    private Vector3 middleLocalPosition;
-    private Vector3 baseLocalPosition;
-    private Vector3 distToBase;
+    private GameObject activePart;
+
+    public GameObject HeadClonePrefab;
+    public GameObject MiddleClonePrefab;
+    public GameObject HeadAndMiddleClonePrefab;
+    public GameObject camera;
+
 
     private FrostieStatus frostieStatus;
 
@@ -34,55 +39,143 @@ public class FrostiePartManager : MonoBehaviour {
             }
 
         }
-        middleLocalPosition = middlePart.localPosition;
-        baseLocalPosition = basePart.localPosition;
-        headLocalPosition = head.localPosition;
-        frotieParent = head.parent;
-        distToBase = basePart.position - transform.position;
-        frostieStatus.isPartMising = false;
+        frotieParent = head.parent.parent;
+        activePart = frotieParent.gameObject;
+        camera.GetComponent<CameraControler>().Player = activePart.transform;
     }
 
-    public void recallParts()
+    public GameObject decoupleHead()
     {
-
-
-        getRidOfDummies(head);
-        head.localScale = new Vector3(1, 1, 1);
-
-        getRidOfDummies(basePart);
-        basePart.localScale = new Vector3(1, 1, 1);
-
-        getRidOfDummies(middlePart);
-        middlePart.localScale = new Vector3(1, 1, 1);
-
-
-        ThrowHeadScript headAim = head.GetComponentInChildren<ThrowHeadScript>();
-        if (headAim != null)
+        if (headClone == null)
         {
-            headAim.reset();
+
+            if (headAndMiddleClone == null)
+            {
+                headClone = Instantiate(HeadClonePrefab, head.position, Quaternion.identity) as GameObject;
+
+                head.gameObject.SetActive(false);
+
+                Vector3 scale = headClone.transform.localScale;
+                scale.x *= frotieParent.GetComponent<FrostieMoveScript>().viewDirection;
+                headClone.transform.localScale = scale;
+
+                headClone.transform.parent = head.parent.parent.parent;
+
+                headClone.transform.parent = head.parent.parent.parent;
+            }
+            else
+            {
+                foreach (Transform childTransform in headAndMiddleClone.transform)
+                {
+                    if(childTransform.name.Contains("Head"))
+                    {
+                        headClone = Instantiate(HeadClonePrefab, childTransform.position, Quaternion.identity) as GameObject;
+
+                        Vector3 scale = headClone.transform.localScale;
+                        scale.x *= headAndMiddleClone.GetComponent<FrostieMoveScript>().viewDirection;
+                        headClone.transform.localScale = scale;
+                        
+                        headClone.transform.parent = head.parent.parent.parent;
+                    }
+                    else
+                    {
+                        middlePartClone = Instantiate(MiddleClonePrefab, childTransform.position, Quaternion.identity) as GameObject;
+
+                        Vector3 scale = middlePartClone.transform.localScale;
+                        scale.x *= headAndMiddleClone.GetComponent<FrostieMoveScript>().viewDirection;
+                        middlePartClone.transform.localScale = scale;
+
+                        middlePartClone.transform.parent = middlePart.parent.parent.parent;
+                    }
+                }
+                if(activePart == headAndMiddleClone)
+                {
+                    activePart = middlePartClone;
+                    activePart.GetComponent<FrostieMoveScript>().enabled = true;
+                }
+                Destroy(headAndMiddleClone);
+            }
+
+            return headClone;
+        }
+        return null;
+    }
+
+    public GameObject decoupleMiddlePart()
+    {
+        if (middlePartClone == null && headAndMiddleClone == null)
+        {
+            if (headClone != null)
+            {
+                middlePartClone = Instantiate(MiddleClonePrefab, middlePart.position, Quaternion.identity) as GameObject;
+                middlePart.gameObject.SetActive(false);
+
+                middlePartClone.transform.parent = middlePart.parent.parent.parent;
+                return middlePartClone;
+            }
+            else
+            {
+                headAndMiddleClone = Instantiate(HeadAndMiddleClonePrefab, middlePart.position, Quaternion.identity) as GameObject;
+                middlePart.gameObject.SetActive(false);
+                head.gameObject.SetActive(false);
+
+                headAndMiddleClone.transform.parent = middlePart.parent.parent.parent;
+                return headAndMiddleClone;
+
+            }
+            
+        }
+        return null;
+    }
+
+    public void recallMiddlePart()
+    {
+        if (middlePartClone != null)
+        {
+            Destroy(middlePartClone);
+        }
+        if (headAndMiddleClone != null)
+        {
+            Destroy(headAndMiddleClone);
+            head.gameObject.SetActive(true);
         }
 
-        transform.position = basePart.position - distToBase;
+        middlePart.gameObject.SetActive(true);
 
-        head.localPosition = headLocalPosition;
-        middlePart.localPosition = middleLocalPosition;
-        basePart.localPosition = baseLocalPosition;
-        frostieStatus.isPartMising = false;
+        activePart = frotieParent.gameObject;
+        activePart.GetComponent<FrostieMoveScript>().enabled = true;
     }
 
-    private void getRidOfDummies(Transform part)
+
+
+    public void recallHead()
     {
-        if (part.parent == null)
-            return;
-
-        getRidOfDummies(part.parent);
-
-
-        if (part.parent.name.Contains("Dummy"))
+        if(middlePartClone != null)
         {
-            Transform dummy = part.parent;
-            part.parent = frotieParent;
-            Destroy(dummy.gameObject);
+            headAndMiddleClone = Instantiate(HeadAndMiddleClonePrefab, middlePartClone.transform.position, Quaternion.identity) as GameObject;
+            middlePart.gameObject.SetActive(false);
+            head.gameObject.SetActive(false);
+
+            Vector3 scale = headAndMiddleClone.transform.localScale;
+            scale.x *= middlePartClone.GetComponent<FrostieMoveScript>().viewDirection;
+            headAndMiddleClone.transform.localScale = scale;
+
+            headAndMiddleClone.transform.parent = middlePart.parent.parent.parent;
+            if (activePart.Equals(middlePartClone))
+            {
+                activePart = headAndMiddleClone;
+                activePart.GetComponent<FrostieMoveScript>().enabled = true;
+            }
+
+            Destroy(middlePartClone);
+            Destroy(headClone);
+        }else if(headAndMiddleClone == null)
+        {
+            if (headClone != null)
+            {
+                Destroy(headClone);
+            }
+            head.gameObject.SetActive(true);
         }
     }
 
@@ -111,5 +204,50 @@ public class FrostiePartManager : MonoBehaviour {
         return middlePart;
     }
 
-    
+    public GameObject getHeadClone()
+    {
+        return headClone;
+    }
+
+    public GameObject getMiddlePartClone()
+    {
+        return middlePartClone;
+    }
+
+    public GameObject getHeadAndMiddleClone()
+    {
+        return headAndMiddleClone;
+    }
+
+    public GameObject getActivePart()
+    {
+        return activePart;
+    }
+
+    public void setActivePart(int part)
+    {
+        activePart.GetComponent<FrostieMoveScript>().enabled = false;
+        if(part == 1)
+        {
+            activePart = frotieParent.gameObject;
+            
+            
+        }else if(part == 2)
+        {
+            if(middlePartClone != null)
+            {
+                activePart = middlePartClone;
+            }
+
+            if(headAndMiddleClone != null)
+            {
+                activePart = headAndMiddleClone;
+            }
+        }
+        activePart.GetComponent<FrostieMoveScript>().enabled = true;
+    }
+    public void FixedUpdate()
+    {
+        camera.GetComponent<CameraControler>().Player = activePart.transform;
+    }
 }

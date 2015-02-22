@@ -17,7 +17,7 @@ public class WaterReserveSkript : MonoBehaviour
     {
         reserve = new WaterReserve(reserveDisplay, waterReserveLimit);
         Collider2D[] colliders = GetComponentsInChildren<Collider2D>();
-        bottomCollider = CollisionHelper.getBotomCollider(colliders);
+        bottomCollider = CollisionHelper.getBottomCollider(colliders);
 	}
 
     public void TakeWater()

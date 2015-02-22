@@ -10,7 +10,7 @@ public class MoveableHeavyScript : MoveableScript
     void Start()
     {
         Collider2D[] colliders = GetComponentsInChildren<Collider2D>();
-        bottomCollider = CollisionHelper.getBotomCollider(colliders);
+        bottomCollider = CollisionHelper.getBottomCollider(colliders);
     }
 
     override protected void OnCollisionStay2D(Collision2D collision)

@@ -88,7 +88,7 @@ public class EnemyMoveScript : MonoBehaviour
 
     private bool canJumpNow()
     {
-        var bottomCollider = CollisionHelper.getBotomCollider(Colliders.ToArray());
+        var bottomCollider = CollisionHelper.getBottomCollider(Colliders.ToArray());
         if (CollisionHelper.getCollidingObject(bottomCollider, Enums.Edges.BOTTOM, 0.1f) != null 
             && jumpCooldown <= 0
             && canJump == true)
