@@ -49,7 +49,7 @@ public class GetSqeezedScript : MonoBehaviour {
             transform.localScale = myScale;
             if (myScale.y <= 0.4 * startScale.y)
             {
-                HealthScript healthScript = GetComponent<HealthScript>();
+                HealthScript healthScript = transform.parent.GetComponentInChildren<HealthScript>();
                 if(healthScript != null)
                 {
                     healthScript.Die();

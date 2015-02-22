@@ -18,6 +18,7 @@ public class FrostiePartManager : MonoBehaviour {
     public GameObject HeadClonePrefab;
     public GameObject MiddleClonePrefab;
     public GameObject HeadAndMiddleClonePrefab;
+    public GameObject camera;
 
 
     private FrostieStatus frostieStatus;
@@ -40,6 +41,7 @@ public class FrostiePartManager : MonoBehaviour {
         }
         frotieParent = head.parent.parent;
         activePart = frotieParent.gameObject;
+        camera.GetComponent<CameraControler>().Player = activePart.transform;
     }
 
     public GameObject decoupleHead()
@@ -195,6 +197,7 @@ public class FrostiePartManager : MonoBehaviour {
         {
             activePart = frotieParent.gameObject;
             
+            
         }else if(part == 2)
         {
             if(middlePartClone != null)
@@ -208,5 +211,6 @@ public class FrostiePartManager : MonoBehaviour {
             }
         }
         activePart.GetComponent<FrostieMoveScript>().enabled = true;
+        camera.GetComponent<CameraControler>().Player = activePart.transform;
     }
 }

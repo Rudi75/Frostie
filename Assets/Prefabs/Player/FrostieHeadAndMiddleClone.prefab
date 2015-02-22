@@ -485,6 +485,9 @@ GameObject:
   - 4: {fileID: 410810}
   - 50: {fileID: 5010810}
   - 114: {fileID: 11402938}
+  - 114: {fileID: 11427254}
+  - 114: {fileID: 11449694}
+  - 114: {fileID: 11406948}
   m_Layer: 0
   m_Name: FrostieHeadAndMiddleClone
   m_TagString: Untagged
@@ -948,6 +951,18 @@ MonoBehaviour:
   letGoLeft: 1
   viewDirection: 1
   inputXAxis: 0
+--- !u!114 &11406948
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 110810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aad7d75645c55b49bf25476b8843b2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnemy: 0
 --- !u!114 &11410806
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -982,6 +997,28 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c9eaf19feecbbe48beaf48d1909c8c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11427254
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 110810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd0e7ec1cac22db49bf85125f2d80e6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11449694
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 110810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 296734c85604e604d9e5b4f1ac3054c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &21210772

@@ -200,6 +200,9 @@ GameObject:
   - 4: {fileID: 451660}
   - 58: {fileID: 5851630}
   - 50: {fileID: 5051630}
+  - 114: {fileID: 11479796}
+  - 114: {fileID: 11489822}
+  - 114: {fileID: 11455682}
   m_Layer: 0
   m_Name: FrostieHeadClone
   m_TagString: Player
@@ -430,6 +433,40 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_Radius: 1.91631949
   m_Center: {x: 0, y: 0}
+--- !u!114 &11455682
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 151660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aad7d75645c55b49bf25476b8843b2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnemy: 0
+--- !u!114 &11479796
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 151660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd0e7ec1cac22db49bf85125f2d80e6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11489822
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 151660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 296734c85604e604d9e5b4f1ac3054c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21251634
 SpriteRenderer:
   m_ObjectHideFlags: 1
