@@ -14,6 +14,7 @@ public class KeyInterpreter : MonoBehaviour {
     public KeyCode FreezeGroundKey = KeyCode.G;
     public KeyCode TakeWaterKey = KeyCode.V;
     public KeyCode SpawnIceCubeKey = KeyCode.C;
+    public KeyCode decoupleMiddleKey = KeyCode.X;
 
     public GameObject Player;
 
@@ -25,6 +26,7 @@ public class KeyInterpreter : MonoBehaviour {
     private ButtonShotSkript buttonShotSkript;
     private WaterReserveSkript waterReserveSkript;
     private FreezeGroundSkript freezeGroundSkript;
+    private DecoupleMiddleScript decoupleScript;
 
 	// Use this for initialization
 	void Start () {
@@ -36,6 +38,8 @@ public class KeyInterpreter : MonoBehaviour {
         buttonShotSkript = Player.GetComponentInChildren<ButtonShotSkript>();
         waterReserveSkript = Player.GetComponentInChildren<WaterReserveSkript>();
         freezeGroundSkript = Player.GetComponentInChildren<FreezeGroundSkript>();
+        decoupleScript = Player.GetComponentInChildren<DecoupleMiddleScript>();
+        
 	}
 	
 	// Update is called once per frame
@@ -93,6 +97,11 @@ public class KeyInterpreter : MonoBehaviour {
         if (Input.GetKeyDown(SpawnIceCubeKey))
         {
             waterReserveSkript.SpawnIceCube();
+        }
+
+        if(Input.GetKeyDown(decoupleMiddleKey))
+        {
+            decoupleScript.decouple();
         }
 	}
 }

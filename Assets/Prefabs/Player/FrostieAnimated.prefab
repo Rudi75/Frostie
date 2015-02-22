@@ -861,6 +861,7 @@ GameObject:
   - 114: {fileID: 11470060}
   - 114: {fileID: 11470062}
   - 114: {fileID: 11470064}
+  - 114: {fileID: 11452104}
   m_Layer: 0
   m_Name: FrostieSide
   m_TagString: Player
@@ -1712,6 +1713,18 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11452104
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ec04a2fd154bff4199e11caef711bd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  throwForce: 10
 --- !u!114 &11470056
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1745,6 +1758,7 @@ MonoBehaviour:
   FreezeGroundKey: 103
   TakeWaterKey: 118
   SpawnIceCubeKey: 99
+  decoupleMiddleKey: 120
   Player: {fileID: 170164}
 --- !u!114 &11470060
 MonoBehaviour:
@@ -1774,6 +1788,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HeadClonePrefab: {fileID: 151660, guid: 1211c3508982c8145a7132ab74f80f06, type: 2}
+  MiddleClonePrefab: {fileID: 122796, guid: 6e06b02b2e0fe5e408dc6f854181e94f, type: 2}
+  HeadAndMiddleClonePrefab: {fileID: 110810, guid: 42a5547bf2b84834fbbf7a40f40a0a43,
+    type: 2}
 --- !u!114 &11470064
 MonoBehaviour:
   m_ObjectHideFlags: 1
