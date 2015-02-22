@@ -110,7 +110,7 @@ public class EnemyMoveScript : MonoBehaviour
     private bool checkTurnAroundNow()
     {
 
-        if(!turnAroundOnPlatformEnd || canJump)
+        if(!turnAroundOnPlatformEnd)
         {
             return false;
         }
@@ -124,7 +124,7 @@ public class EnemyMoveScript : MonoBehaviour
 
         RaycastHit2D hit = new RaycastHit2D();
         
-        hit = Physics2D.Raycast(bottomCenter + new Vector3(1.2f * direction.x, 0, 0), Vector3.down, 2.25f, layer);
+        hit = Physics2D.Raycast(bottomCenter + new Vector3(1.2f * direction.x, 0, 0), Vector3.down, 5.25f, layer);
 
  /*       if (hit.collider == null 
             || !hit.collider.gameObject.name.Contains("Squeezer") 
