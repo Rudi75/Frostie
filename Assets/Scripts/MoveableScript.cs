@@ -13,6 +13,14 @@ public class MoveableScript : MonoBehaviour
     public GameObject playerLeft;
     public GameObject playerRight;
 
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.name.Contains("Death"))
+        {
+            Destroy(gameObject);
+        }
+    }
+
     virtual protected void OnCollisionStay2D(Collision2D collision)
     {
   
