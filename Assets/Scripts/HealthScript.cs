@@ -41,6 +41,11 @@ public class HealthScript : MonoBehaviour {
             FrostieAnimationManager frostieAnimationManager = GetComponent<FrostieAnimationManager>();
             frostieAnimationManager.animateDeath(deathKind);
         }
+        var deathAnim = GetComponent<DeathAnimation>();
+        if (deathAnim != null)
+        {
+            deathAnim.Kill();
+        }
         else
         {
             Die();

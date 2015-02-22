@@ -28,12 +28,15 @@ public class MoveableHeavyScript : MoveableScript
     override protected void FixedUpdate()
     {
         var ground = CollisionHelper.getCollidingObject(bottomCollider, Enums.Edges.BOTTOM, 0.1f);
-        var freezableGround = ground.GetComponent<FreezableGround>();
-        if (freezableGround == null) freezableGround = ground.transform.parent.GetComponent<FreezableGround>();
-
-        if (freezableGround != null && freezableGround.IsFrozen)
+        if (ground != null)
         {
-            base.FixedUpdate();
+            var freezableGround = ground.GetComponent<FreezableGround>();
+            if (freezableGround == null) freezableGround = ground.transform.parent.GetComponent<FreezableGround>();
+
+            if (freezableGround != null && freezableGround.IsFrozen)
+            {
+                base.FixedUpdate();
+            }
         }
     }
 }

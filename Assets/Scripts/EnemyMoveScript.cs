@@ -13,19 +13,25 @@ public class EnemyMoveScript : MonoBehaviour
     public Vector2 direction = new Vector2(-1, 0);
     public float jumpHight = 5;
     public bool canJump = false;    
-    public float jumpingRate = 0.25f;
+    public float jumpingRateFrom = 0.25f;
+    public float jumpingRateTo = 0.5f;
     public bool turnAroundOnCollison = true;
     public bool turnAroundOnPlatformEnd = true;
 
-    protected float jumpCooldown;
+    private float jumpCooldown;
     private Vector3 currentPos;
-    private Vector2 movement;
+    protected Vector2 movement;
 
 
     float lastX = 0;
     float lastY = 0;
 
-    void Start()
+    public void Start()
+    {
+        Init();
+    }
+
+    protected virtual void Init()
     {
         jumpCooldown = 0;
         currentPos = this.transform.position;
@@ -41,15 +47,25 @@ public class EnemyMoveScript : MonoBehaviour
         //Jump and/or Movement        
         if(canJumpNow())
         {
-            jumpCooldown = jumpingRate;
-            rigidbody2D.AddForce(new Vector2(0, jumpHight), ForceMode2D.Impulse);
+            Jump();
         }
         else
         {
-            movement = new Vector2(
-                speed.x * direction.x,
-                speed.y * direction.y);
+            ApplayMovement();
         }        
+    }
+
+    protected virtual void ApplayMovement()
+    {
+        movement = new Vector2(
+            speed.x * direction.x,
+            speed.y * direction.y);
+    }
+
+    protected virtual void Jump()
+    {
+        jumpCooldown = Random.Range(jumpingRateFrom, jumpingRateTo);
+        rigidbody2D.AddForce(new Vector2(0, jumpHight), ForceMode2D.Impulse);
     }
 
     void FixedUpdate()
