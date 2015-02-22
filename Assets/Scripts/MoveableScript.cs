@@ -13,6 +13,14 @@ public class MoveableScript : MonoBehaviour
     public GameObject playerLeft;
     public GameObject playerRight;
 
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.name.Contains("Death"))
+        {
+            Destroy(gameObject);
+        }
+    }
+
     virtual protected void OnCollisionStay2D(Collision2D collision)
     {
   
@@ -20,7 +28,8 @@ public class MoveableScript : MonoBehaviour
         if (otherObject == "Player")
         {
             FrostieStatus status = collision.gameObject.GetComponent<FrostieStatus>();
-            if (!status.isPulling)
+            
+            if (!status.isPulling && status.canPushOrPull())
             { 
                 Enums.Edges edge = CollisionHelper.getCollisionEdge(collision);
 
@@ -78,7 +87,7 @@ public class MoveableScript : MonoBehaviour
             player = playerLeft;
 
         FrostieStatus status = player.GetComponentInParent<FrostieStatus>();
-        if (status.isPulling)
+        if (status != null && status.canPushOrPull() && status.isPulling)
         {
             Vector3 playerPosition = player.transform.position;
 
