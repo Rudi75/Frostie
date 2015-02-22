@@ -25,6 +25,7 @@ GameObject:
   - 4: {fileID: 498634}
   - 212: {fileID: 21298632}
   - 61: {fileID: 6198632}
+  - 114: {fileID: 11457256}
   m_Layer: 0
   m_Name: EarthMirrored
   m_TagString: Block
@@ -42,6 +43,7 @@ GameObject:
   - 4: {fileID: 498636}
   - 212: {fileID: 21298634}
   - 61: {fileID: 6198634}
+  - 114: {fileID: 11457254}
   m_Layer: 0
   m_Name: Earth
   m_TagString: Block
@@ -109,6 +111,32 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_Size: {x: 2.25, y: 2.25}
   m_Center: {x: 0, y: 0}
+--- !u!114 &11457254
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 198636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa60a9b6df60c584c905abab966b5e5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FrozenOverlayPrefab: {fileID: 464482, guid: 89a86cf500cc08b4aa890ab99cbeea64, type: 2}
+  TimeToDefrost: 12
+--- !u!114 &11457256
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 198634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa60a9b6df60c584c905abab966b5e5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FrozenOverlayPrefab: {fileID: 464482, guid: 89a86cf500cc08b4aa890ab99cbeea64, type: 2}
+  TimeToDefrost: 12
 --- !u!212 &21298632
 SpriteRenderer:
   m_ObjectHideFlags: 1

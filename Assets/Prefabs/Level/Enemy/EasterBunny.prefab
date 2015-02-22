@@ -385,6 +385,7 @@ GameObject:
   - 114: {fileID: 11431452}
   - 114: {fileID: 11431444}
   - 114: {fileID: 11431442}
+  - 114: {fileID: 11433716}
   m_Layer: 0
   m_Name: EasterBunny
   m_TagString: Lethal
@@ -1005,7 +1006,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ae6de94f6c657a4ab9c2893e1302718, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 1
+  hp: 10
   isEnemy: 1
 --- !u!114 &11431448
 MonoBehaviour:
@@ -1048,6 +1049,18 @@ MonoBehaviour:
   jumpingRateTo: .5
   turnAroundOnCollison: 1
   turnAroundOnPlatformEnd: 1
+--- !u!114 &11433716
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e761c5e8a6010a478189f446ce1cd2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 10
 --- !u!212 &21231426
 SpriteRenderer:
   m_ObjectHideFlags: 1

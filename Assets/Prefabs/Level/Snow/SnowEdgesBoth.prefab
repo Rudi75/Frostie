@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 430760}
   - 212: {fileID: 21230760}
   - 61: {fileID: 6130760}
+  - 114: {fileID: 11402874}
   m_Layer: 0
   m_Name: SnowEdgesBoth
   m_TagString: Block
@@ -40,6 +41,19 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_Size: {x: 2.25, y: 2.25}
   m_Center: {x: 0, y: 0}
+--- !u!114 &11402874
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa60a9b6df60c584c905abab966b5e5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FrozenOverlayPrefab: {fileID: 450606, guid: 34e5b93a2107cff45bd81a037a78e80f, type: 2}
+  TimeToDefrost: 12
 --- !u!212 &21230760
 SpriteRenderer:
   m_ObjectHideFlags: 1

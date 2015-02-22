@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 464510}
   - 212: {fileID: 21264510}
   - 61: {fileID: 6164510}
-  - 114: {fileID: 11444914}
+  - 114: {fileID: 11407030}
   m_Layer: 0
   m_Name: Earth
   m_TagString: Block
@@ -41,7 +41,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_Size: {x: 2.25, y: 2.25}
   m_Center: {x: 0, y: 0}
---- !u!114 &11444914
+--- !u!114 &11407030
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -52,8 +52,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa60a9b6df60c584c905abab966b5e5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OverlayWrapper: {fileID: 0}
-  TimeToDefrost: 4
+  FrozenOverlayPrefab: {fileID: 464482, guid: 89a86cf500cc08b4aa890ab99cbeea64, type: 2}
+  TimeToDefrost: 12
 --- !u!212 &21264510
 SpriteRenderer:
   m_ObjectHideFlags: 1
