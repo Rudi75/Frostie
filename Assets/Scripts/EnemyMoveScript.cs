@@ -1,10 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using AssemblyCSharp;
 using Assets.Scripts.Utils;
 
 public class EnemyMoveScript : MonoBehaviour
 {
+    private IEnumerable<Collider2D> Colliders;
+
     public Vector2 speed = new Vector2(5, 5);
     public Vector2 direction = new Vector2(-1, 0);
     public float jumpHight = 5;
@@ -12,8 +16,8 @@ public class EnemyMoveScript : MonoBehaviour
     public float jumpingRate = 0.25f;
     public bool turnAroundOnCollison = true;
     public bool turnAroundOnPlatformEnd = true;
-    
-    private float jumpCooldown;
+
+    protected float jumpCooldown;
     private Vector3 currentPos;
     private Vector2 movement;
 
@@ -24,7 +28,8 @@ public class EnemyMoveScript : MonoBehaviour
     void Start()
     {
         jumpCooldown = 0;
-        currentPos = this.transform.position;        
+        currentPos = this.transform.position;
+        Colliders = transform.GetComponentsInChildren<Collider2D>();
     }
 
     void Update()
@@ -67,7 +72,8 @@ public class EnemyMoveScript : MonoBehaviour
 
     private bool canJumpNow()
     {
-        if (CollisionHelper.getCollidingObject(this.transform.collider2D, Enums.Edges.BOTTOM, 0.1f) != null 
+        var bottomCollider = CollisionHelper.getBotomCollider(Colliders.ToArray());
+        if (CollisionHelper.getCollidingObject(bottomCollider, Enums.Edges.BOTTOM, 0.1f) != null 
             && jumpCooldown <= 0
             && canJump == true)
         {
@@ -138,15 +144,17 @@ public class EnemyMoveScript : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if ((CollisionHelper.getCollidingObject(this.transform.collider2D,Enums.Edges.RIGHT, 0.1f) != null 
-                || CollisionHelper.getCollidingObject(this.transform.collider2D, Enums.Edges.LEFT, 0.1f) != null)
+        var leftCollider = CustomCollisionHelper.getLeftCollider(Colliders.ToArray());
+        var rightCollider = CustomCollisionHelper.getRigthCollider(Colliders.ToArray());
+        if ((CollisionHelper.getCollidingObject(rightCollider, Enums.Edges.RIGHT, 0.1f) != null
+                || CollisionHelper.getCollidingObject(leftCollider, Enums.Edges.LEFT, 0.1f) != null)
             && turnAroundOnCollison)
         {
             performTurnAround();
         }
     }
 
-    private void performTurnAround()
+    protected void performTurnAround()
     {
         direction *= -1;
 
