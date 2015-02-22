@@ -107,13 +107,11 @@ public class KeyInterpreter : MonoBehaviour {
 
         if(Input.GetKeyDown(basePartKey))
         {
-            Debug.Log("1");
             frostiePartManager.setActivePart(1);
         }
 
         if (Input.GetKeyDown(middlePartKey))
         {
-            Debug.Log("2");
             frostiePartManager.setActivePart(2);
         }
 

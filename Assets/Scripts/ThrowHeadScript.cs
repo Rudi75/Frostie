@@ -19,7 +19,6 @@ public class ThrowHeadScript : MonoBehaviour {
    
 
     private FrostiePartManager partManager;
-    private FrostieStatus frostieStatus;
 
 
 	// Use this for initialization
@@ -48,7 +47,6 @@ public class ThrowHeadScript : MonoBehaviour {
         }
 
         partManager = frostieAnimated.GetComponentInChildren<FrostiePartManager>();
-        frostieStatus = frostieAnimated.GetComponentInChildren<FrostieStatus>();
         
 	}
 	

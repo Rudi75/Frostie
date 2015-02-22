@@ -21,11 +21,8 @@ public class FrostiePartManager : MonoBehaviour {
     public GameObject camera;
 
 
-    private FrostieStatus frostieStatus;
-
     void Start()
     {
-        frostieStatus = GetComponent<FrostieStatus>();
         foreach (Transform childTransform in transform)
         {
             foreach (Transform child in childTransform)

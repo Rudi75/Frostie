@@ -93,7 +93,6 @@ public class FrostieMoveScript : MonoBehaviour {
 
     public void Jump()
     {
-        Debug.Log("Jump " + partManager.getActivePart().name);
         frostieStatus.isFixated = false;
         rigidbody2D.AddForce(new Vector2(0, jumpHight), ForceMode2D.Impulse);
         
