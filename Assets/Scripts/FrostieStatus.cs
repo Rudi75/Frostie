@@ -55,7 +55,10 @@ public class FrostieStatus : MonoBehaviour {
 
     public bool isGrounded()
     {
-        return CollisionHelper.getCollidingObject(frostiePartManager.getBasePart().collider2D, Enums.Edges.BOTTOM, 0.1f) != null;
+  
+        Collider2D[] colliders = frostiePartManager.getActivePart().GetComponentsInChildren<Collider2D>();
+        Collider2D bottomCollider = CollisionHelper.getBottomCollider(colliders);
+        return CollisionHelper.getCollidingObject(bottomCollider, Enums.Edges.BOTTOM, 0.1f) != null;
     }
 
     public bool canJump()

@@ -108,7 +108,7 @@ namespace AssemblyCSharp
 			
 			
 		}
-        public static Collider2D getBotomCollider(Collider2D[] colliders)
+        public static Collider2D getBottomCollider(Collider2D[] colliders)
         {
                 if (colliders.Length < 1)
                 {

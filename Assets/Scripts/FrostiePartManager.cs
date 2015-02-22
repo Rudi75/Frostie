@@ -13,15 +13,12 @@ public class FrostiePartManager : MonoBehaviour {
     private GameObject middlePartClone;
     private GameObject headAndMiddleClone;
 
+    private GameObject activePart;
+
     public GameObject HeadClonePrefab;
     public GameObject MiddleClonePrefab;
     public GameObject HeadAndMiddleClonePrefab;
 
-
-    private Vector3 headLocalPosition;
-    private Vector3 middleLocalPosition;
-    private Vector3 baseLocalPosition;
-    private Vector3 distToBase;
 
     private FrostieStatus frostieStatus;
 
@@ -41,11 +38,8 @@ public class FrostiePartManager : MonoBehaviour {
             }
 
         }
-        middleLocalPosition = middlePart.localPosition;
-        baseLocalPosition = basePart.localPosition;
-        headLocalPosition = head.localPosition;
-        frotieParent = head.parent;
-        distToBase = basePart.position - transform.position;
+        frotieParent = head.parent.parent;
+        activePart = frotieParent.gameObject;
     }
 
     public GameObject decoupleHead()
@@ -75,8 +69,12 @@ public class FrostiePartManager : MonoBehaviour {
                         middlePartClone = Instantiate(MiddleClonePrefab, childTransform.position, Quaternion.identity) as GameObject;
                         middlePartClone.transform.parent = middlePart.parent.parent.parent;
                     }
-                    Destroy(headAndMiddleClone);
                 }
+                if(activePart == headAndMiddleClone)
+                {
+                    activePart = middlePartClone;
+                }
+                Destroy(headAndMiddleClone);
             }
 
             return headClone;
@@ -86,24 +84,28 @@ public class FrostiePartManager : MonoBehaviour {
 
     public GameObject decoupleMiddlePart()
     {
-        if(headClone != null)
+        if (middlePartClone == null && headAndMiddleClone == null)
         {
-            middlePartClone = Instantiate(MiddleClonePrefab, middlePart.position, Quaternion.identity) as GameObject;
-            middlePart.gameObject.SetActive(false);
+            if (headClone != null)
+            {
+                middlePartClone = Instantiate(MiddleClonePrefab, middlePart.position, Quaternion.identity) as GameObject;
+                middlePart.gameObject.SetActive(false);
 
-            middlePartClone.transform.parent = middlePart.parent.parent.parent;
-            return middlePartClone;
+                middlePartClone.transform.parent = middlePart.parent.parent.parent;
+                return middlePartClone;
+            }
+            else
+            {
+                headAndMiddleClone = Instantiate(HeadAndMiddleClonePrefab, middlePart.position, Quaternion.identity) as GameObject;
+                middlePart.gameObject.SetActive(false);
+                head.gameObject.SetActive(false);
+
+                headAndMiddleClone.transform.parent = middlePart.parent.parent.parent;
+                return headAndMiddleClone;
+
+            }
         }
-        else
-        {
-            headAndMiddleClone = Instantiate(HeadAndMiddleClonePrefab, middlePart.position, Quaternion.identity) as GameObject;
-            middlePart.gameObject.SetActive(false);
-            head.gameObject.SetActive(false);
-
-            headAndMiddleClone.transform.parent = middlePart.parent.parent.parent;
-            return headAndMiddleClone;
-
-        }
+        return null;
     }
 
     public void recallParts()
@@ -126,6 +128,7 @@ public class FrostiePartManager : MonoBehaviour {
 
         head.gameObject.SetActive(true);
         middlePart.gameObject.SetActive(true);
+        activePart = frotieParent.gameObject;
     }
 
 
@@ -166,5 +169,29 @@ public class FrostiePartManager : MonoBehaviour {
     public GameObject getHeadAndMiddleClone()
     {
         return headAndMiddleClone;
+    }
+
+    public GameObject getActivePart()
+    {
+        return activePart;
+    }
+
+    public void setActivePart(int part)
+    {
+        if(part == 1)
+        {
+            activePart = frotieParent.gameObject;
+        }else if(part == 2)
+        {
+            if(middlePartClone != null)
+            {
+                activePart = middlePartClone;
+            }
+
+            if(headAndMiddleClone != null)
+            {
+                activePart = headAndMiddleClone;
+            }
+        }
     }
 }

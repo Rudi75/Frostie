@@ -22,8 +22,8 @@ public class FrostieMoveScript : MonoBehaviour {
 
     public void Start()
     {
-       partManager = GetComponent<FrostiePartManager>();
-       frostieStatus = GetComponent<FrostieStatus>();
+       partManager = GetComponentInChildren<FrostiePartManager>();
+       frostieStatus = GetComponentInChildren<FrostieStatus>();
     }
 
 
@@ -34,6 +34,7 @@ public class FrostieMoveScript : MonoBehaviour {
 
         if (!frostieStatus.IsMelted && (pushScript == null || (pushScript != null && !frostieStatus.isGrounded())))
         {
+            Debug.Log("----" + collision.gameObject.name);
             Enums.Edges edge = CollisionHelper.getCollisionEdge(collision);
             if (Enums.Edges.RIGHT.Equals(edge))
             {
@@ -49,24 +50,31 @@ public class FrostieMoveScript : MonoBehaviour {
 
     void Update()
     {
+        viewDirection = partManager.getActivePart().transform.localScale.x / Mathf.Abs(partManager.getActivePart().transform.localScale.x);
         float inputX = frostieStatus.isFixated ? 0 : Input.GetAxis("Horizontal");
 
         if (viewDirection * inputX < 0 && !frostieStatus.isPulling)
         {
-            Vector3 scale = transform.localScale;
+            Vector3 scale = partManager.getActivePart().transform.localScale;
             scale.x *= -1;
-            transform.localScale = scale;
+            partManager.getActivePart().transform.localScale = scale;
             viewDirection = inputX;
         }
 
+
+        Collider2D[] colliders = partManager.getActivePart().GetComponentsInChildren<Collider2D>();
+        Collider2D bottomCollider = CollisionHelper.getBottomCollider(colliders);
+
+
+
         if (!letGoLeft)
         {
-            letGoLeft = CollisionHelper.getCollidingObject(partManager.getBasePart().collider2D, Enums.Edges.LEFT, 0.1f) == null;
+            letGoLeft = CollisionHelper.getCollidingObject(bottomCollider, Enums.Edges.LEFT, 0.1f) == null;
         }
 
         if (!letGoRight)
         {
-            letGoRight = CollisionHelper.getCollidingObject(partManager.getBasePart().collider2D, Enums.Edges.RIGHT, 0.1f) == null;
+            letGoRight = CollisionHelper.getCollidingObject(bottomCollider, Enums.Edges.RIGHT, 0.1f) == null;
         }
 
         if ((inputX < 0 && !letGoLeft) || (inputX > 0 && !letGoRight) || (viewDirection * inputX > 0 && frostieStatus.isPulling))
@@ -108,16 +116,17 @@ public class FrostieMoveScript : MonoBehaviour {
 
     public void Jump()
     {
-        Debug.Log("Jump");
+        Debug.Log("Jump " + partManager.getActivePart().name);
         frostieStatus.isFixated = false;
-        rigidbody2D.AddForce(new Vector2(0, jumpHight), ForceMode2D.Impulse);
+        partManager.getActivePart().rigidbody2D.AddForce(new Vector2(0, jumpHight), ForceMode2D.Impulse);
+        
     }
 
     void FixedUpdate()
     {
         float speedX = movement;
-        float speedY = rigidbody2D.velocity.y;
-        rigidbody2D.velocity = new Vector2(speedX, speedY);
+        float speedY = partManager.getActivePart().rigidbody2D.velocity.y;
+        partManager.getActivePart().rigidbody2D.velocity = new Vector2(speedX, speedY);
     }
 
 

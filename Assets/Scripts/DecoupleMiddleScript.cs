@@ -13,8 +13,11 @@ public class DecoupleMiddleScript : MonoBehaviour {
 
     public void decouple()
     {
-        GameObject middlePart = partManager.decoupleMiddlePart();
+        if (partManager.getHeadAndMiddleClone() == null && partManager.getMiddlePartClone() == null)
+        {
+            GameObject middlePart = partManager.decoupleMiddlePart();
 
-        middlePart.rigidbody2D.AddForce(new Vector2(1,1) * throwForce, ForceMode2D.Impulse);
+            middlePart.rigidbody2D.AddForce(new Vector2(1, 1) * throwForce, ForceMode2D.Impulse);
+        }
     }
 }

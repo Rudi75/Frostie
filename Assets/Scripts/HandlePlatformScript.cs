@@ -17,7 +17,7 @@ public class HandlePlatformScript : MonoBehaviour {
     {
         Collider2D[] colliders =  GetComponentsInChildren<Collider2D>();
 
-        Collider2D bottomCollider = CollisionHelper.getBotomCollider(colliders);
+        Collider2D bottomCollider = CollisionHelper.getBottomCollider(colliders);
 
         Vector3 movement = Vector3.zero;
         GameObject platform = CollisionHelper.getCollidingObject(bottomCollider, Enums.Edges.BOTTOM, 0.1f);

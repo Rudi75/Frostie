@@ -858,10 +858,10 @@ GameObject:
   - 114: {fileID: 11470086}
   - 114: {fileID: 11470088}
   - 114: {fileID: 11470090}
-  - 114: {fileID: 11470060}
   - 114: {fileID: 11470062}
   - 114: {fileID: 11470064}
   - 114: {fileID: 11452104}
+  - 114: {fileID: 11418596}
   m_Layer: 0
   m_Name: FrostieSide
   m_TagString: Player
@@ -1713,6 +1713,22 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11418596
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c615afa5f2abd9745a07a84f9f7cb14a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  jumpHight: 40
+  letGoRight: 1
+  letGoLeft: 1
+  viewDirection: 1
 --- !u!114 &11452104
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1759,23 +1775,9 @@ MonoBehaviour:
   TakeWaterKey: 118
   SpawnIceCubeKey: 99
   decoupleMiddleKey: 120
+  basePartKey: 49
+  middlePartKey: 50
   Player: {fileID: 170164}
---- !u!114 &11470060
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 170162}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c615afa5f2abd9745a07a84f9f7cb14a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  jumpHight: 40
-  letGoRight: 1
-  letGoLeft: 1
-  viewDirection: 1
 --- !u!114 &11470062
 MonoBehaviour:
   m_ObjectHideFlags: 1

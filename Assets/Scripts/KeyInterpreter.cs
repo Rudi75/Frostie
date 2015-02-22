@@ -15,6 +15,8 @@ public class KeyInterpreter : MonoBehaviour {
     public KeyCode TakeWaterKey = KeyCode.V;
     public KeyCode SpawnIceCubeKey = KeyCode.C;
     public KeyCode decoupleMiddleKey = KeyCode.X;
+    public KeyCode basePartKey = KeyCode.Alpha1;
+    public KeyCode middlePartKey = KeyCode.Alpha2;
 
     public GameObject Player;
 	
@@ -42,7 +44,7 @@ public class KeyInterpreter : MonoBehaviour {
             frostieAnimationManager.animateJump();
         }
 
-        if(Input.GetKeyDown(throwHeadKey))
+        if (Input.GetKeyDown(throwHeadKey) && !frostieStatus.IsMelted)
         {
             throwHeadScript.setForward();
         }
@@ -85,9 +87,21 @@ public class KeyInterpreter : MonoBehaviour {
             waterReserveSkript.SpawnIceCube();
         }
 
-        if(Input.GetKeyDown(decoupleMiddleKey))
+        if(Input.GetKeyDown(decoupleMiddleKey) && !frostieStatus.IsMelted)
         {
             decoupleScript.decouple();
+        }
+
+        if(Input.GetKeyDown(basePartKey))
+        {
+            Debug.Log("1");
+            frostiePartManager.setActivePart(1);
+        }
+
+        if (Input.GetKeyDown(middlePartKey))
+        {
+            Debug.Log("2");
+            frostiePartManager.setActivePart(2);
         }
 	}
 }
