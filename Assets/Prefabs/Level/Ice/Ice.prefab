@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 478366}
   - 212: {fileID: 21278366}
   - 61: {fileID: 6178366}
+  - 114: {fileID: 11488218}
   m_Layer: 0
   m_Name: Ice
   m_TagString: Block
@@ -40,6 +41,19 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_Size: {x: 2.25, y: 2.25}
   m_Center: {x: 0, y: 0}
+--- !u!114 &11488218
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 178366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa60a9b6df60c584c905abab966b5e5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FrozenOverlayPrefab: {fileID: 464482, guid: 89a86cf500cc08b4aa890ab99cbeea64, type: 2}
+  TimeToDefrost: 12
 --- !u!212 &21278366
 SpriteRenderer:
   m_ObjectHideFlags: 1

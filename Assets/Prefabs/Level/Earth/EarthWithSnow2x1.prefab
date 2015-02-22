@@ -74,6 +74,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 469384}
+  - 114: {fileID: 11402838}
   m_Layer: 0
   m_Name: EarthWithSnowMirrored
   m_TagString: Untagged
@@ -89,6 +90,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 469386}
+  - 114: {fileID: 11402836}
   m_Layer: 0
   m_Name: EarthWithSnow
   m_TagString: Untagged
@@ -194,7 +196,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 169388}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.6800003, y: -6.90999985, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 469386}
@@ -223,6 +225,32 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_Size: {x: 2.25, y: 2.25}
   m_Center: {x: 0, y: 0}
+--- !u!114 &11402836
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 169386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa60a9b6df60c584c905abab966b5e5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FrozenOverlayPrefab: {fileID: 464482, guid: 89a86cf500cc08b4aa890ab99cbeea64, type: 2}
+  TimeToDefrost: 12
+--- !u!114 &11402838
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 169384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa60a9b6df60c584c905abab966b5e5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FrozenOverlayPrefab: {fileID: 464482, guid: 89a86cf500cc08b4aa890ab99cbeea64, type: 2}
+  TimeToDefrost: 12
 --- !u!212 &21269376
 SpriteRenderer:
   m_ObjectHideFlags: 1

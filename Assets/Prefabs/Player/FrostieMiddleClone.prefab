@@ -1,5 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &117500
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 417500}
+  - 95: {fileID: 9517500}
+  m_Layer: 0
+  m_Name: FrostieMiddleAnimation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &122790
 GameObject:
   m_ObjectHideFlags: 1
@@ -19,7 +35,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &122792
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -85,7 +101,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &122800
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -210,6 +226,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &417500
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 117500}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 422800}
+  - {fileID: 422792}
+  m_Father: {fileID: 422796}
+  m_RootOrder: 0
 --- !u!4 &422790
 Transform:
   m_ObjectHideFlags: 1
@@ -235,7 +265,7 @@ Transform:
   - {fileID: 422794}
   - {fileID: 422806}
   - {fileID: 422798}
-  m_Father: {fileID: 422796}
+  m_Father: {fileID: 417500}
   m_RootOrder: 1
 --- !u!4 &422794
 Transform:
@@ -257,11 +287,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 122796}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19.1599998, y: -2.26999998, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: .300000012, y: .300000012, z: 1}
   m_Children:
-  - {fileID: 422800}
-  - {fileID: 422792}
+  - {fileID: 417500}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &422798
@@ -291,7 +320,7 @@ Transform:
   - {fileID: 422812}
   - {fileID: 422808}
   - {fileID: 422804}
-  m_Father: {fileID: 422796}
+  m_Father: {fileID: 417500}
   m_RootOrder: 0
 --- !u!4 &422802
 Transform:
@@ -404,6 +433,21 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_Radius: 2.80306196
   m_Center: {x: 0, y: 0}
+--- !u!95 &9517500
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 117500}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9afa362cee0f01e4c9cef0b0d39749fa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11422790
 MonoBehaviour:
   m_ObjectHideFlags: 1
