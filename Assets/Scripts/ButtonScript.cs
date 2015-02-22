@@ -49,15 +49,32 @@ public class ButtonScript : MonoBehaviour {
 
 		    if(buttonEdge.Equals(collisionEdge) && !other.tag.Contains("Lethal"))//Button pressed by everythin except enemies
 		    {
-			    //FrostiePartScript part = collision.collider.gameObject.GetComponent<FrostiePartScript>();
-			    //TODO restriction ButtonSize and FrostiePart
-
-			    isPressed = true;
-			    animator.SetBool("pressed",isPressed);
-                target.notify(this.transform);
+                if(transform.name.Contains("Small"))
+                {
+                    press();
+                
+                }else if(transform.name.Contains("Medium"))
+                {
+                    if(!other.name.Contains("Head"))
+                    {
+                        press();
+                    }
+                }else
+                {
+                    if(!other.name.Contains("Head") && !other.name.Contains("Middle"))
+                    {
+                        press();
+                    }
+                }
 		    }
 
 	}
+    private void press()
+    {
+        isPressed = true;
+        animator.SetBool("pressed", isPressed);
+        target.notify(this.transform);
+    }
 
     public void setTarget(TargetActionScript target)
     {
