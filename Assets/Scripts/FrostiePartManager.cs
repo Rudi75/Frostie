@@ -9,7 +9,12 @@ public class FrostiePartManager : MonoBehaviour {
     private Transform middlePart;
     private Transform basePart;
     private Transform frotieParent;
-    
+    private GameObject headClone;
+    private GameObject middlePartClone;
+    private GameObject HeadAndMiddleClone;
+
+    public GameObject HeadClonePrefab;
+
 
     private Vector3 headLocalPosition;
     private Vector3 middleLocalPosition;
@@ -39,50 +44,30 @@ public class FrostiePartManager : MonoBehaviour {
         headLocalPosition = head.localPosition;
         frotieParent = head.parent;
         distToBase = basePart.position - transform.position;
-        frostieStatus.isPartMising = false;
+    }
+
+    public GameObject decoupleHead()
+    {
+        if (headClone == null)
+        {
+            headClone = Instantiate(HeadClonePrefab, head.position, Quaternion.identity) as GameObject;
+
+            head.gameObject.SetActive(false);
+
+            headClone.transform.parent = head.parent.parent.parent;
+
+            return headClone;
+        }
+        return null;
     }
 
     public void recallParts()
     {
 
-
-        getRidOfDummies(head);
-        head.localScale = new Vector3(1, 1, 1);
-
-        getRidOfDummies(basePart);
-        basePart.localScale = new Vector3(1, 1, 1);
-
-        getRidOfDummies(middlePart);
-        middlePart.localScale = new Vector3(1, 1, 1);
-
-
-        ThrowHeadScript headAim = head.GetComponentInChildren<ThrowHeadScript>();
-        if (headAim != null)
+        if(headClone != null)
         {
-            headAim.reset();
-        }
-
-        transform.position = basePart.position - distToBase;
-
-        head.localPosition = headLocalPosition;
-        middlePart.localPosition = middleLocalPosition;
-        basePart.localPosition = baseLocalPosition;
-        frostieStatus.isPartMising = false;
-    }
-
-    private void getRidOfDummies(Transform part)
-    {
-        if (part.parent == null)
-            return;
-
-        getRidOfDummies(part.parent);
-
-
-        if (part.parent.name.Contains("Dummy"))
-        {
-            Transform dummy = part.parent;
-            part.parent = frotieParent;
-            Destroy(dummy.gameObject);
+            Destroy(headClone);
+            head.gameObject.SetActive(true);
         }
     }
 
@@ -111,5 +96,18 @@ public class FrostiePartManager : MonoBehaviour {
         return middlePart;
     }
 
-    
+    public GameObject getHeadClone()
+    {
+        return headClone;
+    }
+
+    public GameObject getMiddlePartClone()
+    {
+        return middlePartClone;
+    }
+
+    public GameObject getHeadAndMiddleClone()
+    {
+        return HeadAndMiddleClone;
+    }
 }

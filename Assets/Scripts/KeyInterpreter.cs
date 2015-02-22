@@ -41,7 +41,7 @@ public class KeyInterpreter : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (Input.GetKeyDown(meltKey) && !frostieStatus.isPartMising)
+        if (Input.GetKeyDown(meltKey) && frostieStatus.canMelt())
         {
             frostieStatus.IsMelted = !frostieStatus.IsMelted;
         }

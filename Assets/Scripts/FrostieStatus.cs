@@ -12,7 +12,6 @@ public class FrostieStatus : MonoBehaviour {
     public bool isPulling { get; set; }
 
     public bool isFixated { get; set; }
-    public bool isPartMising { get; set; }
     private bool isMelted;
     public bool IsMelted
     {
@@ -65,5 +64,15 @@ public class FrostieStatus : MonoBehaviour {
             return false;
         else
             return isGrounded();
+    }
+
+    
+
+    public bool canMelt()
+    {
+        GameObject headClone = frostiePartManager.getHeadClone();
+        GameObject middleClone = frostiePartManager.getMiddlePartClone();
+        GameObject headAndMiddleClone = frostiePartManager.getHeadAndMiddleClone();
+        return headClone == null && middleClone == null && headAndMiddleClone == null;
     }
 }
