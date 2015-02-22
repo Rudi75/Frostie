@@ -20,7 +20,8 @@ public class MoveableScript : MonoBehaviour
         if (otherObject == "Player")
         {
             FrostieStatus status = collision.gameObject.GetComponent<FrostieStatus>();
-            if (!status.isPulling)
+            
+            if (!status.isPulling && status.canPushOrPull())
             { 
                 Enums.Edges edge = CollisionHelper.getCollisionEdge(collision);
 
@@ -78,7 +79,7 @@ public class MoveableScript : MonoBehaviour
             player = playerLeft;
 
         FrostieStatus status = player.GetComponentInParent<FrostieStatus>();
-        if (status.isPulling)
+        if (status != null && status.canPushOrPull() && status.isPulling)
         {
             Vector3 playerPosition = player.transform.position;
 

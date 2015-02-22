@@ -25,8 +25,6 @@ public class KeyInterpreter : MonoBehaviour {
 	void Update () {
 
         FrostieStatus frostieStatus = Player.GetComponentInChildren<FrostieStatus>();
-       
-        FrostieAnimationManager frostieAnimationManager = Player.GetComponentInChildren<FrostieAnimationManager>();
         
         FrostiePartManager frostiePartManager = Player.GetComponentInChildren<FrostiePartManager>();
         ThrowHeadScript throwHeadScript = frostiePartManager.getActivePart().GetComponentInChildren<ThrowHeadScript>();
@@ -44,7 +42,14 @@ public class KeyInterpreter : MonoBehaviour {
         if((Input.GetKeyDown(jumpKey) || Input.GetKeyDown(jumpKey2)) && frostieStatus.canJump())
         {
             frostieStatus.isFixated = true;
-            frostieAnimationManager.animateJump();
+            FrostieAnimationManager frostieAnimationManager = frostiePartManager.getActivePart().GetComponent<FrostieAnimationManager>();
+            if (frostieAnimationManager != null)
+            {
+                frostieAnimationManager.animateJump();
+            }else
+            {
+                frostiePartManager.getActivePart().GetComponent<FrostieMoveScript>().Jump();
+            }
         }
 
         if (Input.GetKeyDown(throwHeadKey) && !frostieStatus.IsMelted && throwHeadScript != null)
