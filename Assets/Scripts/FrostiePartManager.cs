@@ -62,17 +62,28 @@ public class FrostiePartManager : MonoBehaviour {
                     if(childTransform.name.Contains("Head"))
                     {
                         headClone = Instantiate(HeadClonePrefab, childTransform.position, Quaternion.identity) as GameObject;
+
+                        Vector3 scale = headClone.transform.localScale;
+                        scale.x *= headAndMiddleClone.GetComponent<FrostieMoveScript>().viewDirection;
+                        headClone.transform.localScale = scale;
+                        
                         headClone.transform.parent = head.parent.parent.parent;
                     }
                     else
                     {
                         middlePartClone = Instantiate(MiddleClonePrefab, childTransform.position, Quaternion.identity) as GameObject;
+
+                        Vector3 scale = middlePartClone.transform.localScale;
+                        scale.x *= headAndMiddleClone.GetComponent<FrostieMoveScript>().viewDirection;
+                        middlePartClone.transform.localScale = scale;
+
                         middlePartClone.transform.parent = middlePart.parent.parent.parent;
                     }
                 }
                 if(activePart == headAndMiddleClone)
                 {
                     activePart = middlePartClone;
+                    activePart.GetComponent<FrostieMoveScript>().enabled = true;
                 }
                 Destroy(headAndMiddleClone);
             }
@@ -129,6 +140,7 @@ public class FrostiePartManager : MonoBehaviour {
         head.gameObject.SetActive(true);
         middlePart.gameObject.SetActive(true);
         activePart = frotieParent.gameObject;
+        activePart.GetComponent<FrostieMoveScript>().enabled = true;
     }
 
 
@@ -178,9 +190,11 @@ public class FrostiePartManager : MonoBehaviour {
 
     public void setActivePart(int part)
     {
+        activePart.GetComponent<FrostieMoveScript>().enabled = false;
         if(part == 1)
         {
             activePart = frotieParent.gameObject;
+            
         }else if(part == 2)
         {
             if(middlePartClone != null)
@@ -193,5 +207,6 @@ public class FrostiePartManager : MonoBehaviour {
                 activePart = headAndMiddleClone;
             }
         }
+        activePart.GetComponent<FrostieMoveScript>().enabled = true;
     }
 }

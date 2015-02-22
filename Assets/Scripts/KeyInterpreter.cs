@@ -24,10 +24,12 @@ public class KeyInterpreter : MonoBehaviour {
 	void Update () {
 
         FrostieStatus frostieStatus = Player.GetComponentInChildren<FrostieStatus>();
-        FrostieMoveScript frostieMoveScript = Player.GetComponentInChildren<FrostieMoveScript>();
+       
         FrostieAnimationManager frostieAnimationManager = Player.GetComponentInChildren<FrostieAnimationManager>();
-        ThrowHeadScript throwHeadScript = Player.GetComponentInChildren<ThrowHeadScript>();
+        
         FrostiePartManager frostiePartManager = Player.GetComponentInChildren<FrostiePartManager>();
+        ThrowHeadScript throwHeadScript = frostiePartManager.getActivePart().GetComponentInChildren<ThrowHeadScript>();
+        FrostieMoveScript frostieMoveScript = frostiePartManager.getActivePart().GetComponent<FrostieMoveScript>();
         ButtonShotSkript buttonShotSkript = Player.GetComponentInChildren<ButtonShotSkript>();
         WaterReserveSkript waterReserveSkript = Player.GetComponentInChildren<WaterReserveSkript>();
         FreezeGroundSkript freezeGroundSkript = Player.GetComponentInChildren<FreezeGroundSkript>();
@@ -44,7 +46,7 @@ public class KeyInterpreter : MonoBehaviour {
             frostieAnimationManager.animateJump();
         }
 
-        if (Input.GetKeyDown(throwHeadKey) && !frostieStatus.IsMelted)
+        if (Input.GetKeyDown(throwHeadKey) && !frostieStatus.IsMelted && throwHeadScript != null)
         {
             throwHeadScript.setForward();
         }
@@ -103,5 +105,7 @@ public class KeyInterpreter : MonoBehaviour {
             Debug.Log("2");
             frostiePartManager.setActivePart(2);
         }
+
+        frostieMoveScript.inputXAxis = Input.GetAxis("Horizontal");
 	}
 }

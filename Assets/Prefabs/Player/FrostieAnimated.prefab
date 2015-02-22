@@ -1729,6 +1729,7 @@ MonoBehaviour:
   letGoRight: 1
   letGoLeft: 1
   viewDirection: 1
+  inputXAxis: 0
 --- !u!114 &11452104
 MonoBehaviour:
   m_ObjectHideFlags: 1

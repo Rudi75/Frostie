@@ -484,6 +484,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 410810}
   - 50: {fileID: 5010810}
+  - 114: {fileID: 11402938}
   m_Layer: 0
   m_Name: FrostieHeadAndMiddleClone
   m_TagString: Untagged
@@ -930,6 +931,23 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_Radius: 2.80306196
   m_Center: {x: 0, y: 0}
+--- !u!114 &11402938
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 110810}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c615afa5f2abd9745a07a84f9f7cb14a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  jumpHight: 40
+  letGoRight: 1
+  letGoLeft: 1
+  viewDirection: 1
+  inputXAxis: 0
 --- !u!114 &11410806
 MonoBehaviour:
   m_ObjectHideFlags: 1

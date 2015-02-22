@@ -19,7 +19,6 @@ public class ThrowHeadScript : MonoBehaviour {
    
 
     private FrostiePartManager partManager;
-    private FrostieMoveScript moveScript;
     private FrostieStatus frostieStatus;
 
 
@@ -50,7 +49,7 @@ public class ThrowHeadScript : MonoBehaviour {
 
         partManager = frostieAnimated.GetComponentInChildren<FrostiePartManager>();
         frostieStatus = frostieAnimated.GetComponentInChildren<FrostieStatus>();
-        moveScript = frostieAnimated.GetComponentInChildren<FrostieMoveScript>();
+        
 	}
 	
 	// Update is called once per frame
@@ -79,13 +78,13 @@ public class ThrowHeadScript : MonoBehaviour {
                 arrow.localScale = new Vector3(1, 1, 1);
                 angle += direction * rotationPerFrame;
                 arrow.localEulerAngles = new Vector3(0, 0, angle);
-                if(angle > 90 || angle < -90)
+                if(angle > 70 || angle < -70)
                 {
                     direction *= -1;
                 }
                 if (forward)
                 {
-                    
+                   FrostieMoveScript moveScript = partManager.getActivePart().GetComponent<FrostieMoveScript>();
                     if(moveScript.viewDirection < 0)
                     {
                         angle *= -1;
