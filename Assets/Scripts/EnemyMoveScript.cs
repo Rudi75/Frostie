@@ -126,15 +126,16 @@ public class EnemyMoveScript : MonoBehaviour
         
         hit = Physics2D.Raycast(bottomCenter + new Vector3(1.2f * direction.x, 0, 0), Vector3.down, 2.25f, layer);
 
-        if (hit.collider == null 
+ /*       if (hit.collider == null 
             || !hit.collider.gameObject.name.Contains("Squeezer") 
                 && hit.collider.gameObject.tag.Contains("Lethal") 
-                && !hit.collider.isTrigger)
+                && !hit.collider.isTrigger)*/
+        if (hit.collider == null || (hit.collider.isTrigger && !hit.collider.name.Contains("Thorn")))
         {
             performTurnAround();
             return true;
         }
-
+/*
         RaycastHit2D[] hits = Physics2D.RaycastAll(bottomCenter + new Vector3(1.2f * direction.x, 0, 0), Vector3.down, 5.5f, layer);
 
         bool hitOnlyTrigger = true;
@@ -153,13 +154,14 @@ public class EnemyMoveScript : MonoBehaviour
                     return true;
                 }
             }
-        }
+        }*/
 
         return false;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        
         var leftCollider = CustomCollisionHelper.getLeftCollider(Colliders.ToArray());
         var rightCollider = CustomCollisionHelper.getRigthCollider(Colliders.ToArray());
         if ((CollisionHelper.getCollidingObject(rightCollider, Enums.Edges.RIGHT, 0.1f) != null
