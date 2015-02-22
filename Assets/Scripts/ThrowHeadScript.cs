@@ -42,9 +42,15 @@ public class ThrowHeadScript : MonoBehaviour {
         halfCircle.GetComponent<SpriteRenderer>().enabled = false;
         scale = arrow.localScale;
 
-        partManager = GetComponentInParent<FrostiePartManager>();
-        frostieStatus = GetComponentInParent<FrostieStatus>();
-        moveScript = GetComponentInParent<FrostieMoveScript>();
+        Transform frostieAnimated = transform;
+        while(frostieAnimated.parent != null && !frostieAnimated.name.Contains("Animated"))
+        {
+            frostieAnimated = frostieAnimated.parent;
+        }
+
+        partManager = frostieAnimated.GetComponentInChildren<FrostiePartManager>();
+        frostieStatus = frostieAnimated.GetComponentInChildren<FrostieStatus>();
+        moveScript = frostieAnimated.GetComponentInChildren<FrostieMoveScript>();
 	}
 	
 	// Update is called once per frame

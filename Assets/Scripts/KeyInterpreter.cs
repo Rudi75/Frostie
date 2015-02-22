@@ -17,33 +17,19 @@ public class KeyInterpreter : MonoBehaviour {
     public KeyCode decoupleMiddleKey = KeyCode.X;
 
     public GameObject Player;
-
-    private FrostieStatus frostieStatus;
-    private FrostieMoveScript frostieMoveScript;
-    private FrostieAnimationManager frostieAnimationManager;
-    private ThrowHeadScript throwHeadScript;
-    private FrostiePartManager frostiePartManager;
-    private ButtonShotSkript buttonShotSkript;
-    private WaterReserveSkript waterReserveSkript;
-    private FreezeGroundSkript freezeGroundSkript;
-    private DecoupleMiddleScript decoupleScript;
-
-	// Use this for initialization
-	void Start () {
-        frostieStatus = Player.GetComponentInChildren<FrostieStatus>();
-        frostieMoveScript = Player.GetComponentInChildren<FrostieMoveScript>();
-        frostieAnimationManager = Player.GetComponentInChildren<FrostieAnimationManager>();
-        throwHeadScript = Player.GetComponentInChildren<ThrowHeadScript>();
-        frostiePartManager = Player.GetComponentInChildren<FrostiePartManager>();
-        buttonShotSkript = Player.GetComponentInChildren<ButtonShotSkript>();
-        waterReserveSkript = Player.GetComponentInChildren<WaterReserveSkript>();
-        freezeGroundSkript = Player.GetComponentInChildren<FreezeGroundSkript>();
-        decoupleScript = Player.GetComponentInChildren<DecoupleMiddleScript>();
-        
-	}
 	
 	// Update is called once per frame
 	void Update () {
+
+        FrostieStatus frostieStatus = Player.GetComponentInChildren<FrostieStatus>();
+        FrostieMoveScript frostieMoveScript = Player.GetComponentInChildren<FrostieMoveScript>();
+        FrostieAnimationManager frostieAnimationManager = Player.GetComponentInChildren<FrostieAnimationManager>();
+        ThrowHeadScript throwHeadScript = Player.GetComponentInChildren<ThrowHeadScript>();
+        FrostiePartManager frostiePartManager = Player.GetComponentInChildren<FrostiePartManager>();
+        ButtonShotSkript buttonShotSkript = Player.GetComponentInChildren<ButtonShotSkript>();
+        WaterReserveSkript waterReserveSkript = Player.GetComponentInChildren<WaterReserveSkript>();
+        FreezeGroundSkript freezeGroundSkript = Player.GetComponentInChildren<FreezeGroundSkript>();
+        DecoupleMiddleScript decoupleScript = Player.GetComponentInChildren<DecoupleMiddleScript>();
 
         if (Input.GetKeyDown(meltKey) && frostieStatus.canMelt())
         {

@@ -73,7 +73,7 @@ public class FrostiePartManager : MonoBehaviour {
                     else
                     {
                         middlePartClone = Instantiate(MiddleClonePrefab, childTransform.position, Quaternion.identity) as GameObject;
-                        middlePartClone.transform.parent = middlePart.parent.parent;
+                        middlePartClone.transform.parent = middlePart.parent.parent.parent;
                     }
                     Destroy(headAndMiddleClone);
                 }
@@ -112,8 +112,20 @@ public class FrostiePartManager : MonoBehaviour {
         if(headClone != null)
         {
             Destroy(headClone);
-            head.gameObject.SetActive(true);
         }
+
+        if (middlePartClone != null)
+        {
+            Destroy(middlePartClone);
+        }
+
+        if (headAndMiddleClone != null)
+        {
+            Destroy(headAndMiddleClone);
+        }
+
+        head.gameObject.SetActive(true);
+        middlePart.gameObject.SetActive(true);
     }
 
 
