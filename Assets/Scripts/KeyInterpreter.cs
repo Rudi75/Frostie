@@ -7,14 +7,15 @@ public class KeyInterpreter : MonoBehaviour {
     public KeyCode jumpKey2 = KeyCode.UpArrow;
     public KeyCode meltKey = KeyCode.LeftAlt;
     public KeyCode pullKey = KeyCode.LeftControl;
-    public KeyCode throwHeadKey = KeyCode.LeftShift;
+    public KeyCode throwHeadKey = KeyCode.A;
     public KeyCode escapeKey = KeyCode.Escape;
-    public KeyCode recallPartsKey = KeyCode.Y;
+    public KeyCode recallHeadKey = KeyCode.S;
+    public KeyCode recallMiddleKey = KeyCode.X;
     public KeyCode ShootButtonKey = KeyCode.F;
     public KeyCode FreezeGroundKey = KeyCode.G;
     public KeyCode TakeWaterKey = KeyCode.V;
     public KeyCode SpawnIceCubeKey = KeyCode.C;
-    public KeyCode decoupleMiddleKey = KeyCode.X;
+    public KeyCode decoupleMiddleKey = KeyCode.Y;
     public KeyCode basePartKey = KeyCode.Alpha1;
     public KeyCode middlePartKey = KeyCode.Alpha2;
 
@@ -65,9 +66,14 @@ public class KeyInterpreter : MonoBehaviour {
             frostieStatus.isPulling = false;
         }
 
-        if(Input.GetKeyDown(recallPartsKey))
+        if(Input.GetKeyDown(recallHeadKey))
         {
-            frostiePartManager.recallParts();
+            frostiePartManager.recallHead();
+        }
+
+        if (Input.GetKeyDown(recallMiddleKey))
+        {
+            frostiePartManager.recallMiddlePart();
         }
 
         if (Input.GetKeyDown(ShootButtonKey))

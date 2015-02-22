@@ -55,6 +55,12 @@ public class FrostiePartManager : MonoBehaviour {
 
                 head.gameObject.SetActive(false);
 
+                Vector3 scale = headClone.transform.localScale;
+                scale.x *= frotieParent.GetComponent<FrostieMoveScript>().viewDirection;
+                headClone.transform.localScale = scale;
+
+                headClone.transform.parent = head.parent.parent.parent;
+
                 headClone.transform.parent = head.parent.parent.parent;
             }
             else
@@ -117,32 +123,60 @@ public class FrostiePartManager : MonoBehaviour {
                 return headAndMiddleClone;
 
             }
+            
         }
         return null;
     }
 
-    public void recallParts()
+    public void recallMiddlePart()
     {
-
-        if(headClone != null)
-        {
-            Destroy(headClone);
-        }
-
         if (middlePartClone != null)
         {
             Destroy(middlePartClone);
         }
-
         if (headAndMiddleClone != null)
         {
             Destroy(headAndMiddleClone);
+            head.gameObject.SetActive(true);
         }
 
-        head.gameObject.SetActive(true);
         middlePart.gameObject.SetActive(true);
+
         activePart = frotieParent.gameObject;
         activePart.GetComponent<FrostieMoveScript>().enabled = true;
+    }
+
+
+
+    public void recallHead()
+    {
+        if(middlePartClone != null)
+        {
+            headAndMiddleClone = Instantiate(HeadAndMiddleClonePrefab, middlePartClone.transform.position, Quaternion.identity) as GameObject;
+            middlePart.gameObject.SetActive(false);
+            head.gameObject.SetActive(false);
+
+            Vector3 scale = headAndMiddleClone.transform.localScale;
+            scale.x *= middlePartClone.GetComponent<FrostieMoveScript>().viewDirection;
+            headAndMiddleClone.transform.localScale = scale;
+
+            headAndMiddleClone.transform.parent = middlePart.parent.parent.parent;
+            if (activePart.Equals(middlePartClone))
+            {
+                activePart = headAndMiddleClone;
+                activePart.GetComponent<FrostieMoveScript>().enabled = true;
+            }
+
+            Destroy(middlePartClone);
+            Destroy(headClone);
+        }else if(headAndMiddleClone == null)
+        {
+            if (headClone != null)
+            {
+                Destroy(headClone);
+            }
+            head.gameObject.SetActive(true);
+        }
     }
 
 
@@ -211,6 +245,9 @@ public class FrostiePartManager : MonoBehaviour {
             }
         }
         activePart.GetComponent<FrostieMoveScript>().enabled = true;
+    }
+    public void FixedUpdate()
+    {
         camera.GetComponent<CameraControler>().Player = activePart.transform;
     }
 }

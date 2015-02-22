@@ -1768,14 +1768,15 @@ MonoBehaviour:
   jumpKey2: 273
   meltKey: 308
   pullKey: 306
-  throwHeadKey: 304
+  throwHeadKey: 97
   escapeKey: 27
-  recallPartsKey: 121
+  recallHeadKey: 115
+  recallMiddleKey: 120
   ShootButtonKey: 102
   FreezeGroundKey: 103
   TakeWaterKey: 118
   SpawnIceCubeKey: 99
-  decoupleMiddleKey: 120
+  decoupleMiddleKey: 121
   basePartKey: 49
   middlePartKey: 50
   Player: {fileID: 170164}
