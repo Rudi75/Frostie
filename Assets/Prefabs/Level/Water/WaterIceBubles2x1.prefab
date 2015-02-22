@@ -1,5 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &130096
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 430096}
+  - 61: {fileID: 6130096}
+  m_Layer: 0
+  m_Name: LeathalCollider
+  m_TagString: Lethal
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &176498
 GameObject:
   m_ObjectHideFlags: 0
@@ -83,6 +99,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &430096
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130096}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 476498}
+  m_RootOrder: 4
 --- !u!4 &476498
 Transform:
   m_ObjectHideFlags: 1
@@ -90,13 +118,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 176498}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .0373728238, y: -7.69999981, z: 0}
+  m_LocalPosition: {x: -6.78905249, y: -29.4533405, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 476500}
   - {fileID: 476502}
   - {fileID: 476504}
   - {fileID: 476506}
+  - {fileID: 430096}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &476500
@@ -147,6 +176,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 476498}
   m_RootOrder: 3
+--- !u!61 &6130096
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130096}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: 4.42358971, y: .106226683}
+  m_Center: {x: 1.10449076, y: -1.0541935}
 --- !u!61 &6176500
 BoxCollider2D:
   m_ObjectHideFlags: 1
