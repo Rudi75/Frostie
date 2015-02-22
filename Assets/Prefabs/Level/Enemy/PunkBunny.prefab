@@ -447,7 +447,7 @@ GameObject:
   - 114: {fileID: 11465030}
   - 114: {fileID: 11465032}
   - 114: {fileID: 11465034}
-  - 114: {fileID: 11465036}
+  - 114: {fileID: 11472414}
   m_Layer: 0
   m_Name: PunkBunny
   m_TagString: Lethal
@@ -1133,7 +1133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c910e19e4713d7e4c98ae3569a80ad85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11465036
+--- !u!114 &11472414
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1141,7 +1141,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 165034}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d476bc84f30cbb1449e556f9d4a7d16c, type: 3}
+  m_Script: {fileID: 11500000, guid: 2f22a85dd642bc84c9524edba03209ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: 5, y: 5}
