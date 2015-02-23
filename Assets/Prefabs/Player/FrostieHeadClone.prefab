@@ -235,6 +235,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 456620}
   - 95: {fileID: 9556620}
+  - 114: {fileID: 11460274}
   m_Layer: 0
   m_Name: FrostieHeadAnimation
   m_TagString: Untagged
@@ -584,7 +585,7 @@ Animator:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 156620}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: b7dce45a91adeab489f5f174175c8f88, type: 2}
   m_CullingMode: 0
@@ -604,6 +605,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnemy: 0
+--- !u!114 &11460274
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 156620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b426e15d59d63e4ba790284c49f750f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11479796
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -15,13 +15,15 @@ public class PartHealthScript : MonoBehaviour {
         }
         if (other.tag.Contains("LethalHot"))
         {
-            //DieAndStartAnimation(KindsOfDeath.InFire);
-            Die();
+            rigidbody2D.gravityScale = 0;
+            DieAndStartAnimation(KindsOfDeath.InFire);
+            //Die();
         }
         else if (other.tag.Contains("Lethal"))
         {
-            //DieAndStartAnimation(KindsOfDeath.Normal);
-            Die();
+            rigidbody2D.gravityScale = 0;
+            DieAndStartAnimation(KindsOfDeath.Normal);
+            //Die();
         }
 
     }
@@ -33,34 +35,38 @@ public class PartHealthScript : MonoBehaviour {
         if (collision.collider.tag.Contains("LethalHot") && healthScript == null
         || collision.collider.tag.Contains("LethalHot") && healthScript.isEnemy != isEnemy)
         {
-            //DieAndStartAnimation(KindsOfDeath.InFire);
-            Die();
+            DieAndStartAnimation(KindsOfDeath.InFire);
+            //Die();
         }
         else if (collision.collider.tag.Contains("Lethal") && healthScript == null
        || collision.collider.tag.Contains("Lethal") && healthScript.isEnemy != isEnemy)
         {
-            //DieAndStartAnimation(KindsOfDeath.Normal);
-            Die();
+            DieAndStartAnimation(KindsOfDeath.Normal);
+           // Die();
         }
     }
 
     public void DieAndStartAnimation(KindsOfDeath deathKind)
     {
         FrostieStatus frostieStatus = transform.parent.GetComponentInChildren<FrostieStatus>();
-        if (frostieStatus != null)
-        {
             if (frostieStatus.isDying)
                 return;
             frostieStatus.isDying = true;
             frostieStatus.isFixated = true;
 
-            FrostieAnimationManager frostieAnimationManager = transform.parent.GetComponentInChildren<FrostieAnimationManager>();
-            frostieAnimationManager.animateDeath(deathKind);
-        }
-        else
-        {
-            Die();
-        }
+            Animator animator = GetComponentInChildren<Animator>();
+            switch (deathKind)
+            {
+                case KindsOfDeath.Normal:
+                    animator.SetTrigger("Death");
+                    break;
+                case KindsOfDeath.InFire:
+                    animator.SetTrigger("DeathInFire");
+                    break;
+                case KindsOfDeath.Squeezed:
+                    break;
+            }
+
     }
 
     public void Die()

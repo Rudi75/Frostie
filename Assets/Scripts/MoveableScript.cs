@@ -29,7 +29,7 @@ public class MoveableScript : MonoBehaviour
         {
             FrostieStatus status = collision.gameObject.GetComponent<FrostieStatus>();
             
-            if (!status.isPulling && status.canPushOrPull())
+            if (status != null && !status.isPulling && status.canPushOrPull())
             { 
                 Enums.Edges edge = CollisionHelper.getCollisionEdge(collision);
 

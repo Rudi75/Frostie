@@ -2958,7 +2958,7 @@ AnimationClip:
     script: {fileID: 0}
   m_Events:
   - time: .13333334
-    functionName: 
+    functionName: Jump
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
