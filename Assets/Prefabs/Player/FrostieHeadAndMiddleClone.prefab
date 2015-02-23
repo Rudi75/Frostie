@@ -488,6 +488,7 @@ GameObject:
   - 114: {fileID: 11427254}
   - 114: {fileID: 11449694}
   - 114: {fileID: 11406948}
+  - 114: {fileID: 11470124}
   m_Layer: 0
   m_Name: FrostieHeadAndMiddleClone
   m_TagString: Untagged
@@ -1221,6 +1222,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 296734c85604e604d9e5b4f1ac3054c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11470124
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 110810}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c33d3792b226cfb4193966ecbb1d2a05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guiSkin: {fileID: 11400000, guid: 9f33556ed15707342b6b9407570ebf8e, type: 2}
+  speech: hello
+  OffsetXStart: -50
+  OffsetYStart: 100
 --- !u!212 &21210772
 SpriteRenderer:
   m_ObjectHideFlags: 1

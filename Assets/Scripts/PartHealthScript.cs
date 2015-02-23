@@ -6,8 +6,6 @@ public class PartHealthScript : MonoBehaviour {
     public bool isEnemy = false;
     public void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("health: " + other.tag);
-        // Is this a shot?
         ShotScript shot = other.gameObject.GetComponent<ShotScript>();
         if ((shot != null) && (shot.isEnemyShot == isEnemy))
         {
