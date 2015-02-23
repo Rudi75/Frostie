@@ -28,7 +28,7 @@ public class RabbitMoveScript : EnemyMoveScript
 
     protected override void Jump()
     {
-        if (animator != null) animator.SetTrigger("Jump");
         base.Jump();
+        if (animator != null) animator.SetTrigger("Jump");
     }
 }
