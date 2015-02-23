@@ -281,7 +281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 449c96d072ec4224a8fa348202a8164c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: Level_Ice_Mountain
+  level: LevelMenu
 --- !u!61 &1128998731
 BoxCollider2D:
   m_ObjectHideFlags: 0

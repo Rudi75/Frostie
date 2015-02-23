@@ -19,6 +19,11 @@ public class start : MonoBehaviour {
 
   void OnMouseDown()
   {
+    LoadLevel();
+  }
+
+  public void LoadLevel()
+  {
     Application.LoadLevel(level);
   }
 }
