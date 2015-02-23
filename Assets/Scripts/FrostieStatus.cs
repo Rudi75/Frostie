@@ -12,7 +12,6 @@ public class FrostieStatus : MonoBehaviour {
     public bool isPulling { get; set; }
 
     public bool isFixated { get; set; }
-    public bool isPartMising { get; set; }
     private bool isMelted;
     public bool IsMelted
     {
@@ -56,7 +55,10 @@ public class FrostieStatus : MonoBehaviour {
 
     public bool isGrounded()
     {
-        return CollisionHelper.getCollidingObject(frostiePartManager.getBasePart().collider2D, Enums.Edges.BOTTOM, 0.1f) != null;
+  
+        Collider2D[] colliders = frostiePartManager.getActivePart().GetComponentsInChildren<Collider2D>();
+        Collider2D bottomCollider = CollisionHelper.getBottomCollider(colliders);
+        return CollisionHelper.getCollidingObject(bottomCollider, Enums.Edges.BOTTOM, 0.1f) != null;
     }
 
     public bool canJump()
@@ -65,5 +67,23 @@ public class FrostieStatus : MonoBehaviour {
             return false;
         else
             return isGrounded();
+    }
+
+    
+
+    public bool canMelt()
+    {
+        GameObject headClone = frostiePartManager.getHeadClone();
+        GameObject middleClone = frostiePartManager.getMiddlePartClone();
+        GameObject headAndMiddleClone = frostiePartManager.getHeadAndMiddleClone();
+        return headClone == null && middleClone == null && headAndMiddleClone == null;
+    }
+
+    public bool canPushOrPull()
+    {
+        GameObject headClone = frostiePartManager.getHeadClone();
+        GameObject middleClone = frostiePartManager.getMiddlePartClone();
+        GameObject headAndMiddleClone = frostiePartManager.getHeadAndMiddleClone();
+        return headClone == null && middleClone == null && headAndMiddleClone == null;
     }
 }

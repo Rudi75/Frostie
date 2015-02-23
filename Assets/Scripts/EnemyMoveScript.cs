@@ -1,30 +1,41 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using AssemblyCSharp;
 using Assets.Scripts.Utils;
 
 public class EnemyMoveScript : MonoBehaviour
 {
+    private IEnumerable<Collider2D> Colliders;
+
     public Vector2 speed = new Vector2(5, 5);
     public Vector2 direction = new Vector2(-1, 0);
     public float jumpHight = 5;
     public bool canJump = false;    
-    public float jumpingRate = 0.25f;
+    public float jumpingRateFrom = 0.25f;
+    public float jumpingRateTo = 0.5f;
     public bool turnAroundOnCollison = true;
     public bool turnAroundOnPlatformEnd = true;
-    
+
     private float jumpCooldown;
     private Vector3 currentPos;
-    private Vector2 movement;
+    protected Vector2 movement;
 
 
     float lastX = 0;
     float lastY = 0;
 
-    void Start()
+    public void Start()
+    {
+        Init();
+    }
+
+    protected virtual void Init()
     {
         jumpCooldown = 0;
-        currentPos = this.transform.position;        
+        currentPos = this.transform.position;
+        Colliders = transform.GetComponentsInChildren<Collider2D>();
     }
 
     void Update()
@@ -36,15 +47,25 @@ public class EnemyMoveScript : MonoBehaviour
         //Jump and/or Movement        
         if(canJumpNow())
         {
-            jumpCooldown = jumpingRate;
-            rigidbody2D.AddForce(new Vector2(0, jumpHight), ForceMode2D.Impulse);
+            Jump();
         }
         else
         {
-            movement = new Vector2(
-                speed.x * direction.x,
-                speed.y * direction.y);
+            ApplayMovement();
         }        
+    }
+
+    protected virtual void ApplayMovement()
+    {
+        movement = new Vector2(
+            speed.x * direction.x,
+            speed.y * direction.y);
+    }
+
+    protected virtual void Jump()
+    {
+        jumpCooldown = Random.Range(jumpingRateFrom, jumpingRateTo);
+        rigidbody2D.AddForce(new Vector2(0, jumpHight), ForceMode2D.Impulse);
     }
 
     void FixedUpdate()
@@ -67,7 +88,8 @@ public class EnemyMoveScript : MonoBehaviour
 
     private bool canJumpNow()
     {
-        if (CollisionHelper.getCollidingObject(this.transform.collider2D, Enums.Edges.BOTTOM, 0.1f) != null 
+        var bottomCollider = CollisionHelper.getBottomCollider(Colliders.ToArray());
+        if (CollisionHelper.getCollidingObject(bottomCollider, Enums.Edges.BOTTOM, 0.1f) != null 
             && jumpCooldown <= 0
             && canJump == true)
         {
@@ -88,7 +110,7 @@ public class EnemyMoveScript : MonoBehaviour
     private bool checkTurnAroundNow()
     {
 
-        if(!turnAroundOnPlatformEnd || canJump)
+        if(!turnAroundOnPlatformEnd)
         {
             return false;
         }
@@ -102,17 +124,18 @@ public class EnemyMoveScript : MonoBehaviour
 
         RaycastHit2D hit = new RaycastHit2D();
         
-        hit = Physics2D.Raycast(bottomCenter + new Vector3(1.2f * direction.x, 0, 0), Vector3.down, 2.25f, layer);
+        hit = Physics2D.Raycast(bottomCenter + new Vector3(1.2f * direction.x, 0, 0), Vector3.down, 5.25f, layer);
 
-        if (hit.collider == null 
+ /*       if (hit.collider == null 
             || !hit.collider.gameObject.name.Contains("Squeezer") 
                 && hit.collider.gameObject.tag.Contains("Lethal") 
-                && !hit.collider.isTrigger)
+                && !hit.collider.isTrigger)*/
+        if (hit.collider == null || (hit.collider.isTrigger && !hit.collider.name.Contains("Thorn")))
         {
             performTurnAround();
             return true;
         }
-
+/*
         RaycastHit2D[] hits = Physics2D.RaycastAll(bottomCenter + new Vector3(1.2f * direction.x, 0, 0), Vector3.down, 5.5f, layer);
 
         bool hitOnlyTrigger = true;
@@ -131,22 +154,25 @@ public class EnemyMoveScript : MonoBehaviour
                     return true;
                 }
             }
-        }
+        }*/
 
         return false;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if ((CollisionHelper.getCollidingObject(this.transform.collider2D,Enums.Edges.RIGHT, 0.1f) != null 
-                || CollisionHelper.getCollidingObject(this.transform.collider2D, Enums.Edges.LEFT, 0.1f) != null)
+        
+        var leftCollider = CustomCollisionHelper.getLeftCollider(Colliders.ToArray());
+        var rightCollider = CustomCollisionHelper.getRigthCollider(Colliders.ToArray());
+        if ((CollisionHelper.getCollidingObject(rightCollider, Enums.Edges.RIGHT, 0.1f) != null
+                || CollisionHelper.getCollidingObject(leftCollider, Enums.Edges.LEFT, 0.1f) != null)
             && turnAroundOnCollison)
         {
             performTurnAround();
         }
     }
 
-    private void performTurnAround()
+    protected void performTurnAround()
     {
         direction *= -1;
 

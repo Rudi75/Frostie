@@ -23,7 +23,7 @@ public class GetSqeezedScript : MonoBehaviour {
         {
             Collider2D[] colliders = GetComponentsInChildren<Collider2D>();
             Collider2D topCollider = CollisionHelper.getTopCollider(colliders);
-            Collider2D bottomCollider = CollisionHelper.getBotomCollider(colliders);
+            Collider2D bottomCollider = CollisionHelper.getBottomCollider(colliders);
 
             GameObject ground = CollisionHelper.getCollidingObject(bottomCollider, Enums.Edges.BOTTOM, 0.1f);
             GameObject squeezer = CollisionHelper.getCollidingObject(topCollider, Enums.Edges.TOP, 0.1f);
@@ -49,7 +49,7 @@ public class GetSqeezedScript : MonoBehaviour {
             transform.localScale = myScale;
             if (myScale.y <= 0.4 * startScale.y)
             {
-                HealthScript healthScript = GetComponent<HealthScript>();
+                HealthScript healthScript = transform.parent.GetComponentInChildren<HealthScript>();
                 if(healthScript != null)
                 {
                     healthScript.Die();

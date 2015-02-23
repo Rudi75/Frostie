@@ -41,6 +41,11 @@ public class HealthScript : MonoBehaviour {
             FrostieAnimationManager frostieAnimationManager = GetComponent<FrostieAnimationManager>();
             frostieAnimationManager.animateDeath(deathKind);
         }
+        var deathAnim = GetComponent<DeathAnimation>();
+        if (deathAnim != null)
+        {
+            deathAnim.Kill();
+        }
         else
         {
             Die();
@@ -63,34 +68,35 @@ public class HealthScript : MonoBehaviour {
 
     public void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("health: " + other.tag);
         // Is this a shot?
         ShotScript shot = other.gameObject.GetComponent<ShotScript>();
         if ((shot != null) && (shot.isEnemyShot == isEnemy))
         {
             return;
         }
-        if (other.tag.Contains("Lethal"))
-        {
-            DieAndStartAnimation(KindsOfDeath.Normal);
-        }
         if (other.tag.Contains("LethalHot"))
         {
             DieAndStartAnimation(KindsOfDeath.InFire);
+        }else if (other.tag.Contains("Lethal"))
+        {
+            DieAndStartAnimation(KindsOfDeath.Normal);
         }
+        
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
     {        
         HealthScript healthScript = collision.gameObject.GetComponent<HealthScript>();
-        if (collision.collider.tag.Contains("Lethal") && healthScript == null
-            || collision.collider.tag.Contains("Lethal") && healthScript.isEnemy != isEnemy)
-        {
-            DieAndStartAnimation(KindsOfDeath.Normal);
-        }
+        Debug.Log("Collision "+isEnemy + collision.gameObject.name);
         if (collision.collider.tag.Contains("LethalHot") && healthScript == null
         || collision.collider.tag.Contains("LethalHot") && healthScript.isEnemy != isEnemy)
         {
             DieAndStartAnimation(KindsOfDeath.InFire);
+        }else if ((collision.collider.tag.Contains("Lethal") && healthScript == null)
+        || (collision.collider.tag.Contains("Lethal") && healthScript.isEnemy != isEnemy))
+        {
+            DieAndStartAnimation(KindsOfDeath.Normal);
         }
     }
 }

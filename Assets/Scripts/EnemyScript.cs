@@ -1,10 +1,14 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
+using System.Linq;
 
 public class EnemyScript : MonoBehaviour
 {
     private bool hasSpawn;
     private EnemyMoveScript moveScript;
     private WeaponScript[] weapons;
+
+    private IEnumerable<SpriteRenderer> renderers;
 
     void Awake()
     {
@@ -13,6 +17,8 @@ public class EnemyScript : MonoBehaviour
 
         // Retrieve scripts to disable when not spawn
         moveScript = GetComponent<EnemyMoveScript>();
+
+        renderers = GetComponentsInChildren<SpriteRenderer>();
     }
 
     // 1 - Disable everything
@@ -35,7 +41,7 @@ public class EnemyScript : MonoBehaviour
         // 2 - Check if the enemy has spawned.
         if (hasSpawn == false)
         {
-            if (renderer.IsVisibleFrom(Camera.main))
+            if (IsVisibleFromCamera())
             {
                 Spawn();
             }
@@ -52,11 +58,21 @@ public class EnemyScript : MonoBehaviour
             }
 
             // 4 - Out of the camera ? Destroy the game object.
-            if (renderer.IsVisibleFrom(Camera.main) == false)
+            if (!IsVisibleFromCamera())
             {
              //   Destroy(gameObject);
             }
         }
+    }
+
+    private bool IsVisibleFromCamera()
+    {
+        var query = from obj in renderers where obj.IsVisibleFrom(Camera.main) select obj;
+        if (query.Any())
+        {
+            return true;
+        }
+        return false;
     }
 
     // 3 - Activate itself.
