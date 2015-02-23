@@ -70,7 +70,6 @@ public class FrostiePartManager : MonoBehaviour {
 
                         if (childTransform.name.Contains("Head"))
                         {
-                            Debug.Log("HEAD");
                             headClone = Instantiate(HeadClonePrefab, childTransform.position, Quaternion.identity) as GameObject;
 
                             Vector3 scale = headClone.transform.localScale;
@@ -81,7 +80,6 @@ public class FrostiePartManager : MonoBehaviour {
                         }
                         else if (childTransform.name.Contains("Middle"))
                         {
-                            Debug.Log("MIDDLE");
                             middlePartClone = Instantiate(MiddleClonePrefab, childTransform.position, Quaternion.identity) as GameObject;
 
                             Vector3 scale = middlePartClone.transform.localScale;
