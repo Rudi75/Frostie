@@ -48,7 +48,7 @@ public class KeyInterpreter : MonoBehaviour {
                 frostieAnimationManager.animateJump();
             }else
             {
-                frostiePartManager.getActivePart().GetComponent<FrostieMoveScript>().Jump();
+                frostiePartManager.getActivePart().GetComponentInChildren<Animator>().SetTrigger("Jump");
             }
         }
 

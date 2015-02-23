@@ -29,20 +29,6 @@ public class FrostieStatus : MonoBehaviour {
             return isMelted;
         }
     }
-
-    private bool isWalking;
-    public bool IsWalking
-    {
-        set
-        {
-            if (isWalking != value)
-            {
-                isWalking = value;
-                // Debug.Log("i running");
-                frostieAnimationManager.animateWalking(isWalking);
-            }
-        }
-    }
     public bool isDying { get; set; }
 
     public void Start()

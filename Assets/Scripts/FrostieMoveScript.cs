@@ -14,6 +14,11 @@ public class FrostieMoveScript : MonoBehaviour {
 
     private FrostiePartManager partManager;
     private FrostieStatus frostieStatus;
+
+    private bool isWalking = false;
+
+
+ 
     
 
 
@@ -86,7 +91,23 @@ public class FrostieMoveScript : MonoBehaviour {
 
 
 
-        frostieStatus.IsWalking = (movement != 0.0f);
+       bool value = (movement != 0.0f);
+
+        if (isWalking != value)
+        {
+            isWalking = value;
+
+            FrostieAnimationManager frostieAnimationManager = GetComponent<FrostieAnimationManager>();
+            if (frostieAnimationManager != null)
+            {
+                frostieAnimationManager.animateWalking(isWalking);
+            }
+            else
+            {
+                Animator animator = GetComponentInChildren<Animator>();
+                animator.SetBool("IsWalking", isWalking);
+            }
+        }
 
         
     }

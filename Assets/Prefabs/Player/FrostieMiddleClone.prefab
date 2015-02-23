@@ -88,6 +88,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 417500}
   - 95: {fileID: 9517500}
+  - 114: {fileID: 11462302}
   m_Layer: 0
   m_Name: FrostieMiddleAnimation
   m_TagString: Untagged
@@ -626,6 +627,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnemy: 0
+--- !u!114 &11462302
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 117500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b426e15d59d63e4ba790284c49f750f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11463104
 MonoBehaviour:
   m_ObjectHideFlags: 1

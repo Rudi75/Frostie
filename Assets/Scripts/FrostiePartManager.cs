@@ -62,27 +62,32 @@ public class FrostiePartManager : MonoBehaviour {
             }
             else
             {
-                foreach (Transform childTransform in headAndMiddleClone.transform)
+                foreach (Transform child in headAndMiddleClone.transform)
                 {
-                    if(childTransform.name.Contains("Head"))
+                    foreach (Transform childTransform in child)
                     {
-                        headClone = Instantiate(HeadClonePrefab, childTransform.position, Quaternion.identity) as GameObject;
 
-                        Vector3 scale = headClone.transform.localScale;
-                        scale.x *= headAndMiddleClone.GetComponent<FrostieMoveScript>().viewDirection;
-                        headClone.transform.localScale = scale;
-                        
-                        headClone.transform.parent = head.parent.parent.parent;
-                    }
-                    else
-                    {
-                        middlePartClone = Instantiate(MiddleClonePrefab, childTransform.position, Quaternion.identity) as GameObject;
 
-                        Vector3 scale = middlePartClone.transform.localScale;
-                        scale.x *= headAndMiddleClone.GetComponent<FrostieMoveScript>().viewDirection;
-                        middlePartClone.transform.localScale = scale;
+                        if (childTransform.name.Contains("Head"))
+                        {
+                            headClone = Instantiate(HeadClonePrefab, childTransform.position, Quaternion.identity) as GameObject;
 
-                        middlePartClone.transform.parent = middlePart.parent.parent.parent;
+                            Vector3 scale = headClone.transform.localScale;
+                            scale.x *= headAndMiddleClone.GetComponent<FrostieMoveScript>().viewDirection;
+                            headClone.transform.localScale = scale;
+
+                            headClone.transform.parent = head.parent.parent.parent;
+                        }
+                        else if (childTransform.name.Contains("Middle"))
+                        {
+                            middlePartClone = Instantiate(MiddleClonePrefab, childTransform.position, Quaternion.identity) as GameObject;
+
+                            Vector3 scale = middlePartClone.transform.localScale;
+                            scale.x *= headAndMiddleClone.GetComponent<FrostieMoveScript>().viewDirection;
+                            middlePartClone.transform.localScale = scale;
+
+                            middlePartClone.transform.parent = middlePart.parent.parent.parent;
+                        }
                     }
                 }
                 if(activePart == headAndMiddleClone)
