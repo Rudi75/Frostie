@@ -19,11 +19,15 @@ public class start : MonoBehaviour {
 
   void OnMouseDown()
   {
-    LoadLevel();
+    if (renderer.enabled)
+    {
+      LoadLevel();
+    }
   }
 
   public void LoadLevel()
   {
+    Time.timeScale = 1;
     Application.LoadLevel(level);
   }
 }
