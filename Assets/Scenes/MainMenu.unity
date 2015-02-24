@@ -425,6 +425,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 442284, guid: cafc35c12f971024db206865d32e8499, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 442284, guid: cafc35c12f971024db206865d32e8499, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cafc35c12f971024db206865d32e8499, type: 2}
   m_RootGameObject: {fileID: 1128998727}
@@ -524,6 +532,7 @@ GameObject:
   - 4: {fileID: 2044377525}
   - 212: {fileID: 2044377524}
   - 114: {fileID: 2044377526}
+  - 61: {fileID: 2044377527}
   m_Layer: 0
   m_Name: MainMenuBtnQuit
   m_TagString: Untagged
@@ -578,3 +587,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e10a6d5d505dc3b47b5c80fce39bd1c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!61 &2044377527
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6150076, guid: e75e3a154c6cf044b8cbc8d80a96aebe,
+    type: 2}
+  m_PrefabInternal: {fileID: 241393528}
+  m_GameObject: {fileID: 2044377523}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: 4, y: 2}
+  m_Center: {x: 0, y: 0}
