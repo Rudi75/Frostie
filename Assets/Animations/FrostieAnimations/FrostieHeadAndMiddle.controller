@@ -60,7 +60,7 @@ Transition:
     m_ConditionEvent: 
     m_EventTreshold: 0
     m_ExitTime: .400000006
-  m_Atomic: 1
+  m_Atomic: 0
   m_Solo: 0
   m_Mute: 0
   m_CanTransitionToSelf: 0
@@ -73,14 +73,14 @@ Transition:
   m_Name: 
   m_SrcState: {fileID: 110209712}
   m_DstState: {fileID: 110238670}
-  m_TransitionDuration: .25
-  m_TransitionOffset: 0
+  m_TransitionDuration: .00700000022
+  m_TransitionOffset: .00999999978
   m_Conditions:
   - m_ConditionMode: 1
     m_ConditionEvent: Jump
     m_EventTreshold: 0
     m_ExitTime: .75
-  m_Atomic: 1
+  m_Atomic: 0
   m_Solo: 0
   m_Mute: 0
   m_CanTransitionToSelf: 0
@@ -100,7 +100,7 @@ Transition:
     m_ConditionEvent: IsWalking
     m_EventTreshold: 0
     m_ExitTime: .75
-  m_Atomic: 1
+  m_Atomic: 0
   m_Solo: 0
   m_Mute: 0
   m_CanTransitionToSelf: 0
@@ -120,7 +120,7 @@ Transition:
     m_ConditionEvent: Jump
     m_EventTreshold: 0
     m_ExitTime: .75
-  m_Atomic: 1
+  m_Atomic: 0
   m_Solo: 0
   m_Mute: 0
   m_CanTransitionToSelf: 0
@@ -160,7 +160,7 @@ Transition:
     m_ConditionEvent: IsWalking
     m_EventTreshold: 0
     m_ExitTime: .833333313
-  m_Atomic: 1
+  m_Atomic: 0
   m_Solo: 0
   m_Mute: 0
   m_CanTransitionToSelf: 0
@@ -282,9 +282,10 @@ StateMachine:
       - {fileID: 110197636}
       - {fileID: 110171632}
     data:
-      first: {fileID: 110238670}
+      first: {fileID: 110200524}
       second:
-      - {fileID: 110132378}
+      - {fileID: 110157334}
+      - {fileID: 110162104}
     data:
       first: {fileID: 110270770}
       second: []
@@ -292,10 +293,9 @@ StateMachine:
       first: {fileID: 110266110}
       second: []
     data:
-      first: {fileID: 110200524}
+      first: {fileID: 110238670}
       second:
-      - {fileID: 110157334}
-      - {fileID: 110162104}
+      - {fileID: 110132378}
     data:
       first: {fileID: 110209712}
       second:
