@@ -12,15 +12,26 @@ public class AnimationCallbackHelper : MonoBehaviour
         {
             livingBeeing.Die();
         }
+        else
+        {
+            PartHealthScript part = GetComponentInParent<PartHealthScript>();
+            part.Die();
+
+        }
     }
 
     public void Jump()
     {
-        
-        FrostieMoveScript frostie = GetComponentInChildren<FrostiePartManager>().getActivePart().GetComponent<FrostieMoveScript>();
-        if (frostie != null)
+        FrostiePartManager partManager = transform.parent.GetComponentInChildren<FrostiePartManager>();
+        if(partManager == null)
         {
-            frostie.Jump();
+            partManager = transform.parent.parent.GetComponentInChildren<FrostiePartManager>();
+        }
+        GameObject frostie = partManager.getActivePart();
+        FrostieMoveScript frostieMoveScript = frostie.GetComponent<FrostieMoveScript>();
+        if (frostieMoveScript != null)
+        {
+            frostieMoveScript.Jump();
         }
     }
 }

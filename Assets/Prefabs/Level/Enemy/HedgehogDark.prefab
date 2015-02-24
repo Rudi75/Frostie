@@ -1,5 +1,22 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &153736
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 453736}
+  - 212: {fileID: 21253736}
+  - 95: {fileID: 9553736}
+  m_Layer: 0
+  m_Name: HedgehogDarkAnimated
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &166524
 GameObject:
   m_ObjectHideFlags: 0
@@ -24,14 +41,13 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 466526}
-  - 212: {fileID: 21266524}
-  - 61: {fileID: 6166524}
   - 50: {fileID: 5066524}
   - 114: {fileID: 11466534}
   - 114: {fileID: 11466532}
   - 114: {fileID: 11466530}
   - 114: {fileID: 11466528}
   - 114: {fileID: 11466524}
+  - 61: {fileID: 6153736}
   m_Layer: 0
   m_Name: HedgehogDark
   m_TagString: Lethal
@@ -39,6 +55,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &453736
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153736}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: .300000012, y: .300000012, z: 1}
+  m_Children: []
+  m_Father: {fileID: 466526}
+  m_RootOrder: 1
 --- !u!4 &466524
 Transform:
   m_ObjectHideFlags: 1
@@ -47,7 +75,7 @@ Transform:
   m_GameObject: {fileID: 166524}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: .300000012, y: .300000012, z: 1}
   m_Children: []
   m_Father: {fileID: 466526}
   m_RootOrder: 0
@@ -59,9 +87,10 @@ Transform:
   m_GameObject: {fileID: 166526}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .300000012, y: .300000012, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 466524}
+  - {fileID: 453736}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!50 &5066524
@@ -79,7 +108,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
---- !u!61 &6166524
+--- !u!61 &6153736
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -88,8 +117,23 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: 7.69999981, y: 3.6400001}
-  m_Center: {x: 0, y: 0}
+  m_Size: {x: 2.29999995, y: 1.10000002}
+  m_Center: {x: 0, y: -0}
+--- !u!95 &9553736
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153736}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8a8eb97235b166147bc9ef161994fc68, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11466524
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -132,7 +176,8 @@ MonoBehaviour:
   direction: {x: -1, y: 0}
   jumpHight: 5
   canJump: 0
-  jumpingRate: .25
+  jumpingRateFrom: .25
+  jumpingRateTo: .5
   turnAroundOnCollison: 1
   turnAroundOnPlatformEnd: 1
 --- !u!114 &11466530
@@ -170,12 +215,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 1
   isEnemy: 1
---- !u!212 &21266524
+--- !u!212 &21253736
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 166526}
+  m_GameObject: {fileID: 153736}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0

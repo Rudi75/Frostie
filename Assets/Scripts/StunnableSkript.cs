@@ -7,10 +7,11 @@ public class StunnableSkript : MonoBehaviour
 
     private float StunnTime = 0;
     private bool isStunned = false;
-    private Transform stunned;
+    private Animator animator;
 
     void Start()
-    { 
+    {
+        animator = GetComponentInChildren<Animator>();
     }
 
 	// Use this for initialization
@@ -20,15 +21,24 @@ public class StunnableSkript : MonoBehaviour
         if (!isStunned)
         {
             isStunned = true;
-            transform.Rotate(new Vector3(0f, 0f, 1f), 180, Space.Self);
+            if (animator)
+            {
+                animator.SetBool("IsStunned", true);
+            }
+            else
+            {
+                transform.Rotate(new Vector3(0f, 0f, 1f), 180, Space.Self);
+            }
             foreach (var item in GetComponentsInChildren<MonoBehaviour>())
             {
                 if (item == this) continue;
+                if (item == animator) continue;
                 item.enabled = false;
             }
             foreach (var item in GetComponents<MonoBehaviour>())
             {
                 if (item == this) continue;
+                if (item == animator) continue;
                 item.enabled = false;
             }
         }
@@ -43,7 +53,14 @@ public class StunnableSkript : MonoBehaviour
         if (StunnTime <= 0 && isStunned)
         {
             isStunned = false;
-            transform.Rotate(new Vector3(0f, 0f, 1f), 180, Space.Self);
+            if (animator)
+            {
+                animator.SetBool("IsStunned", false);
+            }
+            else
+            {
+                transform.Rotate(new Vector3(0f, 0f, 1f), 180, Space.Self);
+            }
             foreach (var item in GetComponentsInChildren<MonoBehaviour>())
             {
                 item.enabled = true;

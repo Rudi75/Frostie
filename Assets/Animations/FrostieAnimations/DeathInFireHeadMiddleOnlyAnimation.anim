@@ -6427,4 +6427,11 @@ AnimationClip:
     path: FrostieMiddleOnlySide/FrostieMiddelOverlaySide/RigthArmRotation
     classID: 4
     script: {fileID: 0}
-  m_Events: []
+  m_Events:
+  - time: 2.58333325
+    functionName: Kill
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

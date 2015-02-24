@@ -41,14 +41,17 @@ public class HealthScript : MonoBehaviour {
             FrostieAnimationManager frostieAnimationManager = GetComponent<FrostieAnimationManager>();
             frostieAnimationManager.animateDeath(deathKind);
         }
-        var deathAnim = GetComponent<DeathAnimation>();
-        if (deathAnim != null)
-        {
-            deathAnim.Kill();
-        }
         else
         {
-            Die();
+            var deathAnim = GetComponent<DeathAnimation>();
+            if (deathAnim != null)
+            {
+                deathAnim.Kill();
+            }
+            else
+            {
+                Die();
+            }
         }
     }
 
@@ -68,8 +71,6 @@ public class HealthScript : MonoBehaviour {
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("health: " + other.tag);
-        // Is this a shot?
         ShotScript shot = other.gameObject.GetComponent<ShotScript>();
         if ((shot != null) && (shot.isEnemyShot == isEnemy))
         {
@@ -88,7 +89,6 @@ public class HealthScript : MonoBehaviour {
     public void OnCollisionEnter2D(Collision2D collision)
     {        
         HealthScript healthScript = collision.gameObject.GetComponent<HealthScript>();
-        Debug.Log("Collision "+isEnemy + collision.gameObject.name);
         if (collision.collider.tag.Contains("LethalHot") && healthScript == null
         || collision.collider.tag.Contains("LethalHot") && healthScript.isEnemy != isEnemy)
         {
