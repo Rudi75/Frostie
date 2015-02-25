@@ -2,6 +2,7 @@
 using System.Collections;
 using AssemblyCSharp;
 using Assets.Scripts.Utils;
+using System.Collections.Generic;
 
 public class HandlePlatformScript : MonoBehaviour {
 
@@ -20,7 +21,13 @@ public class HandlePlatformScript : MonoBehaviour {
         Collider2D bottomCollider = CollisionHelper.getBottomCollider(colliders);
 
         Vector3 movement = Vector3.zero;
-        GameObject platform = CollisionHelper.getCollidingObject(bottomCollider, Enums.Edges.BOTTOM, 0.1f);
+        GameObject platform = null;
+        List<GameObject> hits = CollisionHelper.getCollidingObject(bottomCollider, Enums.Edges.BOTTOM, 0.1f);
+        foreach (GameObject hit in hits)
+        {
+            if (hit != null)
+                platform = hit;
+        }
 
         if (platform == null || platform.tag != "Platform")
         {

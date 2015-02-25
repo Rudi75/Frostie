@@ -2,6 +2,7 @@
 using System.Collections;
 using AssemblyCSharp;
 using Assets.Scripts.Utils;
+using System.Collections.Generic;
 
 public class GetSqeezedScript : MonoBehaviour {
 
@@ -25,8 +26,21 @@ public class GetSqeezedScript : MonoBehaviour {
             Collider2D topCollider = CollisionHelper.getTopCollider(colliders);
             Collider2D bottomCollider = CollisionHelper.getBottomCollider(colliders);
 
-            GameObject ground = CollisionHelper.getCollidingObject(bottomCollider, Enums.Edges.BOTTOM, 0.1f);
-            GameObject squeezer = CollisionHelper.getCollidingObject(topCollider, Enums.Edges.TOP, 0.1f);
+            GameObject ground = null;
+            List<GameObject> groundHits =  CollisionHelper.getCollidingObject(bottomCollider, Enums.Edges.BOTTOM, 0.1f);
+            foreach (GameObject hit in groundHits)
+            {
+                if (hit != null)
+                    ground = hit;
+            }
+            
+            GameObject squeezer = null;
+            List<GameObject> sqeezerHits = CollisionHelper.getCollidingObject(topCollider, Enums.Edges.TOP, 0.1f);
+            foreach (GameObject hit in sqeezerHits)
+            {
+                if (hit != null)
+                    squeezer = hit;
+            }
 
             if (ground != null && squeezer != null)
             {

@@ -22,5 +22,15 @@ namespace Assets.Scripts.Utils
             BOTTOM,
             NONE
         };
+
+        public enum Features
+        {
+            MELTING,
+            THROW_HEAD,
+            SHOOT_BUTTON,
+            FREEZE_GROUND,
+            TAKE_WATER,
+            DECOUPLE_MID
+        };
     }
 }

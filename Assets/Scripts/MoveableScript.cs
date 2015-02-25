@@ -2,6 +2,7 @@
 using System.Collections;
 using AssemblyCSharp;
 using Assets.Scripts.Utils;
+using System.Collections.Generic;
 
 public class MoveableScript : MonoBehaviour
 {
@@ -72,8 +73,21 @@ public class MoveableScript : MonoBehaviour
         
 
         Vector3 movement = Vector3.zero;
-        playerLeft = CollisionHelper.getCollidingObject(collider2D, Enums.Edges.LEFT, 0.5f);
-        playerRight = CollisionHelper.getCollidingObject(collider2D, Enums.Edges.RIGHT, 0.5f);
+        playerLeft = null;
+        List<GameObject> hits = CollisionHelper.getCollidingObject(collider2D, Enums.Edges.LEFT, 0.5f);
+        foreach (GameObject hit in hits)
+        {
+            if (hit != null)
+                playerLeft = hit;
+        }
+
+        playerRight = null;
+        hits = CollisionHelper.getCollidingObject(collider2D, Enums.Edges.RIGHT, 0.5f);
+        foreach (GameObject hit in hits)
+        {
+            if (hit != null)
+                playerRight = hit;
+        }
 
         if ((playerLeft == null || playerLeft.tag != "Player") && (playerRight == null || playerRight.tag != "Player"))
         {

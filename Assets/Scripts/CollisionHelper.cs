@@ -10,6 +10,7 @@
 using System;
 using UnityEngine;
 using Assets.Scripts.Utils;
+using System.Collections.Generic;
 namespace AssemblyCSharp
 {
 		public class CollisionHelper
@@ -47,7 +48,7 @@ namespace AssemblyCSharp
 
 			}
 
-		public static GameObject getCollidingObject(Collider2D collider, Enums.Edges side, float distance)
+		public static List<GameObject> getCollidingObject(Collider2D collider, Enums.Edges side, float distance)
 		{
 			float distToGround = collider.bounds.extents.y ;
 			float distToFront = collider.bounds.extents.x ;
@@ -87,27 +88,30 @@ namespace AssemblyCSharp
                 hit2 = Physics2D.Raycast(bottomCenter + new Vector3(-(distToFront + 0.1f), -(distToGround - 0.1f), 0), -Vector2.right, distance, layer);
                 hit3 = Physics2D.Raycast(bottomCenter + new Vector3(-(distToFront + 0.1f), distToGround - 0.1f, 0), -Vector2.right, distance, layer);
 			}
-			
-			
-			if (hit1.collider != null)
-			{
-				return hit1.collider.gameObject;
-			}
-			else if(hit2.collider != null)
-			{
-                return hit2.collider.gameObject;
-			}
-            else if (hit3.collider != null)
-            {
-                return hit3.collider.gameObject;
-            }
-            else
-            {
-                return null;
-            }
+
+            List<GameObject> hits = new List<GameObject>();
+            if(hit1.collider != null)
+                hits.Add(hit1.collider.gameObject);
+            if(hit2.collider != null)
+                hits.Add(hit2.collider.gameObject);
+            if(hit3.collider != null)
+                hits.Add(hit3.collider.gameObject);
+            return hits;
 			
 			
 		}
+
+        public static bool isCollision(Collider2D collider, Enums.Edges side, float distance)
+        {
+            List<GameObject> hits = getCollidingObject(collider, side, distance);
+            bool iscollision = false;
+            foreach (GameObject hit in hits)
+            {
+                if (hit != null)
+                    iscollision |= true;
+            }
+            return iscollision;
+        }
         public static Collider2D getBottomCollider(Collider2D[] colliders)
         {
                 if (colliders.Length < 1)

@@ -2,6 +2,7 @@
 using System.Collections;
 using AssemblyCSharp;
 using Assets.Scripts.Utils;
+using System.Collections.Generic;
 
 public class WaterReserveSkript : MonoBehaviour 
 {
@@ -24,11 +25,25 @@ public class WaterReserveSkript : MonoBehaviour
     {
         if (reserve.canTakeMoreWater())
         {
-            var ground = CollisionHelper.getCollidingObject(bottomCollider, Enums.Edges.BOTTOM, 0.1f);
+            GameObject ground = null;
+            List<GameObject> hits = CollisionHelper.getCollidingObject(bottomCollider, Enums.Edges.BOTTOM, 0.1f);
+            foreach (GameObject hit in hits)
+            {
+                if (hit != null)
+                    ground = hit;
+            }
+
             var groundCollider = CustomCollisionHelper.getBiggestCollider(ground.GetComponentsInChildren<Collider2D>());
             Enums.Edges direction = transform.parent.localScale.x > 0 ? Enums.Edges.RIGHT : (transform.parent.localScale.x < 0 ? Enums.Edges.LEFT : Enums.Edges.NONE);
 
-            var left = CollisionHelper.getCollidingObject(groundCollider, direction, 0.3f);
+            GameObject left = null;
+            hits = CollisionHelper.getCollidingObject(groundCollider, direction, 0.3f);
+            foreach (GameObject hit in hits)
+            {
+                if (hit != null)
+                    left = hit;
+            }
+
             var water = left.GetComponent<RemovableWaterScript>();
             if (water != null && water.CanRemove())
             {

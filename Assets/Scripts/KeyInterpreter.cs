@@ -8,7 +8,7 @@ public class KeyInterpreter : MonoBehaviour {
     public KeyCode meltKey = KeyCode.LeftAlt;
     public KeyCode pullKey = KeyCode.LeftControl;
     public KeyCode throwHeadKey = KeyCode.A;
-    public KeyCode escapeKey = KeyCode.Escape;
+    public KeyCode escapeKey = KeyCode.Tab;
     public KeyCode recallHeadKey = KeyCode.S;
     public KeyCode recallMiddleKey = KeyCode.X;
     public KeyCode ShootButtonKey = KeyCode.F;
@@ -18,6 +18,13 @@ public class KeyInterpreter : MonoBehaviour {
     public KeyCode decoupleMiddleKey = KeyCode.Y;
     public KeyCode basePartKey = KeyCode.Alpha1;
     public KeyCode middlePartKey = KeyCode.Alpha2;
+
+    public bool meltingEnabed = false;
+    public bool throwingHeadEnabled = false;
+    public bool shootButtonEnabled = false;
+    public bool freezeGroundEnabled = false;
+    public bool takeWaterEnabled = false;
+    public bool decoupleMiddleEnabled = false;
 
     public GameObject Player;
 	
@@ -34,7 +41,7 @@ public class KeyInterpreter : MonoBehaviour {
         FreezeGroundSkript freezeGroundSkript = Player.GetComponentInChildren<FreezeGroundSkript>();
         DecoupleMiddleScript decoupleScript = Player.GetComponentInChildren<DecoupleMiddleScript>();
 
-        if (Input.GetKeyDown(meltKey) && frostieStatus.canMelt())
+        if (Input.GetKeyDown(meltKey) && frostieStatus.canMelt() && meltingEnabed)
         {
             frostieStatus.IsMelted = !frostieStatus.IsMelted;
         }
@@ -52,7 +59,7 @@ public class KeyInterpreter : MonoBehaviour {
             }
         }
 
-        if (Input.GetKeyDown(throwHeadKey) && !frostieStatus.IsMelted && throwHeadScript != null)
+        if (Input.GetKeyDown(throwHeadKey) && !frostieStatus.IsMelted && throwHeadScript != null && throwingHeadEnabled)
         {
             throwHeadScript.setForward();
         }
@@ -81,17 +88,17 @@ public class KeyInterpreter : MonoBehaviour {
             frostiePartManager.recallMiddlePart();
         }
 
-        if (Input.GetKeyDown(ShootButtonKey))
+        if (Input.GetKeyDown(ShootButtonKey) && shootButtonEnabled)
         {
             buttonShotSkript.Shoot();
         }
 
-        if (Input.GetKeyDown(FreezeGroundKey))
+        if (Input.GetKeyDown(FreezeGroundKey) && freezeGroundEnabled)
         {
             freezeGroundSkript.FreezeGround();
         }
 
-        if (Input.GetKeyDown(TakeWaterKey))
+        if (Input.GetKeyDown(TakeWaterKey) && takeWaterEnabled)
         {
             waterReserveSkript.TakeWater();
         }
@@ -100,7 +107,7 @@ public class KeyInterpreter : MonoBehaviour {
             waterReserveSkript.SpawnIceCube();
         }
 
-        if(Input.GetKeyDown(decoupleMiddleKey) && !frostieStatus.IsMelted)
+        if(Input.GetKeyDown(decoupleMiddleKey) && !frostieStatus.IsMelted && decoupleMiddleEnabled)
         {
             decoupleScript.decouple();
         }

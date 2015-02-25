@@ -89,7 +89,7 @@ public class EnemyMoveScript : MonoBehaviour
     private bool canJumpNow()
     {
         var bottomCollider = CollisionHelper.getBottomCollider(Colliders.ToArray());
-        if (CollisionHelper.getCollidingObject(bottomCollider, Enums.Edges.BOTTOM, 0.1f) != null 
+        if (CollisionHelper.isCollision(bottomCollider, Enums.Edges.BOTTOM, 0.1f) 
             && jumpCooldown <= 0
             && canJump == true)
         {
@@ -164,8 +164,8 @@ public class EnemyMoveScript : MonoBehaviour
         
         var leftCollider = CustomCollisionHelper.getLeftCollider(Colliders.ToArray());
         var rightCollider = CustomCollisionHelper.getRigthCollider(Colliders.ToArray());
-        if ((CollisionHelper.getCollidingObject(rightCollider, Enums.Edges.RIGHT, 0.1f) != null
-                || CollisionHelper.getCollidingObject(leftCollider, Enums.Edges.LEFT, 0.1f) != null)
+        if ((CollisionHelper.isCollision(rightCollider, Enums.Edges.RIGHT, 0.1f)
+                || CollisionHelper.isCollision(leftCollider, Enums.Edges.LEFT, 0.1f))
             && turnAroundOnCollison)
         {
             performTurnAround();

@@ -2,6 +2,7 @@
 using System.Collections;
 using AssemblyCSharp;
 using Assets.Scripts.Utils;
+using System.Collections.Generic;
 
 public class MoveableHeavyScript : MoveableScript
 {
@@ -15,9 +16,7 @@ public class MoveableHeavyScript : MoveableScript
 
     override protected void OnCollisionStay2D(Collision2D collision)
     {
-        var ground = CollisionHelper.getCollidingObject(bottomCollider, Enums.Edges.BOTTOM, 0.1f);
-        var freezableGround = ground.GetComponent<FreezableGround>();
-        if (freezableGround == null) freezableGround = ground.transform.parent.GetComponent<FreezableGround>();
+        FreezableGround freezableGround = getFreezableGround();
 
         if (freezableGround != null && freezableGround.IsFrozen)
         {
@@ -27,16 +26,39 @@ public class MoveableHeavyScript : MoveableScript
 
     override protected void FixedUpdate()
     {
-        var ground = CollisionHelper.getCollidingObject(bottomCollider, Enums.Edges.BOTTOM, 0.1f);
-        if (ground != null)
+        FreezableGround freezableGround = getFreezableGround();
+        if (freezableGround != null && freezableGround.IsFrozen)
         {
-            var freezableGround = ground.GetComponent<FreezableGround>();
-            if (freezableGround == null) freezableGround = ground.transform.parent.GetComponent<FreezableGround>();
+            base.FixedUpdate();
+        }
+    }
 
-            if (freezableGround != null && freezableGround.IsFrozen)
+    private FreezableGround getFreezableGround()
+    {
+        FreezableGround freezableGround = null;
+        List<GameObject> hits = CollisionHelper.getCollidingObject(bottomCollider, Enums.Edges.BOTTOM, 0.1f);
+        foreach (GameObject hit in hits)
+        {
+            if (hit != null)
             {
-                base.FixedUpdate();
+                var temp = hit.GetComponent<FreezableGround>();
+                if (temp != null)
+                    freezableGround = temp;
             }
         }
+
+        if (freezableGround == null)
+        {
+            foreach (GameObject hit in hits)
+            {
+                if (hit != null)
+                {
+                    var temp = hit.transform.parent.GetComponent<FreezableGround>();
+                    if (temp != null)
+                        freezableGround = temp;
+                }
+            }
+        }
+        return freezableGround;
     }
 }

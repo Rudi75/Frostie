@@ -3,6 +3,7 @@ using System.Collections;
 using Assets.Scripts.Utils;
 using KindsOfDeath = Assets.Scripts.Utils.Enums.KindsOfDeath;
 using AssemblyCSharp;
+using System.Collections.Generic;
 
 public class FrostieMoveScript : MonoBehaviour {
     public float speed = 10;
@@ -74,12 +75,26 @@ public class FrostieMoveScript : MonoBehaviour {
 
         if (!letGoLeft)
         {
-            letGoLeft = CollisionHelper.getCollidingObject(bottomCollider, Enums.Edges.LEFT, 0.1f) == null;
+            GameObject hitLeft = null;
+            List<GameObject> hitsLeft = CollisionHelper.getCollidingObject(bottomCollider, Enums.Edges.LEFT, 0.1f);
+            foreach (GameObject hit in hitsLeft)
+            {
+                if (hit != null)
+                    hitLeft = hit;
+            }
+            letGoLeft = hitLeft == null;
         }
 
         if (!letGoRight)
         {
-            letGoRight = CollisionHelper.getCollidingObject(bottomCollider, Enums.Edges.RIGHT, 0.1f) == null;
+            GameObject hitRight = null;
+            List<GameObject> hitsRight = CollisionHelper.getCollidingObject(bottomCollider, Enums.Edges.BOTTOM, 0.1f);
+            foreach (GameObject hit in hitsRight)
+            {
+                if (hit != null)
+                    hitRight = hit;
+            }
+            letGoRight = hitRight == null;
         }
 
         if ((inputX < 0 && !letGoLeft) || (inputX > 0 && !letGoRight) || (viewDirection * inputX > 0 && frostieStatus.isPulling))
