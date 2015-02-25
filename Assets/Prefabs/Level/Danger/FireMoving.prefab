@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 445876}
   - 95: {fileID: 9545878}
+  - 114: {fileID: 11439964}
   m_Layer: 0
   m_Name: Layers
   m_TagString: Untagged
@@ -88,12 +89,11 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 445886}
-  - 114: {fileID: 11445878}
   - 61: {fileID: 6145876}
   - 95: {fileID: 9545876}
   m_Layer: 0
   m_Name: FireAnim
-  m_TagString: Untagged
+  m_TagString: LethalHot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,10 +106,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 445888}
-  - 114: {fileID: 11445876}
   m_Layer: 0
   m_Name: FireMoving
-  m_TagString: Untagged
+  m_TagString: LethalHot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -198,7 +197,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 145888}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.6899996, y: -8.94999981, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 445876}
@@ -245,33 +244,19 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11445876
+--- !u!114 &11439964
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 145888}
+  m_GameObject: {fileID: 145876}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fbde4685c28e604a9cf55247c6b4927, type: 3}
+  m_Script: {fileID: 11500000, guid: 3b714f5281a73a24ebe12cad0fcb0c50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animators: []
-  TimeOfInvisibility: 2
-  TimeOfVisibility: 5
-  deltaTime: 0
---- !u!114 &11445878
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 145886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01891bab660b1b24d8afd92469f84933, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Damage: 1
+  TimeOfInvisibility: 6
+  TimeOfVisibility: 3
 --- !u!212 &21245876
 SpriteRenderer:
   m_ObjectHideFlags: 1

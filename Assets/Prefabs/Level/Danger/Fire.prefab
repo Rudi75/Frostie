@@ -8,9 +8,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 430238}
-  - 114: {fileID: 11430246}
   - 61: {fileID: 6130246}
   - 114: {fileID: 11455362}
+  - 114: {fileID: 11430246}
   m_Layer: 0
   m_Name: Fire
   m_TagString: Untagged
@@ -159,7 +159,7 @@ BoxCollider2D:
   m_Center: {x: 0, y: -.0870511532}
 --- !u!114 &11430246
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 130238}

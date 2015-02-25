@@ -2,6 +2,8 @@
 using System.Collections;
 using AssemblyCSharp;
 using Assets.Scripts.Utils;
+using System.Collections.Generic;
+using System.Linq;
 
 public class WaterReserveSkript : MonoBehaviour 
 {
@@ -11,6 +13,7 @@ public class WaterReserveSkript : MonoBehaviour
 
     private WaterReserve reserve;
     private Collider2D bottomCollider;
+    private Collider2D topCollider;
 
 	// Use this for initialization
 	void Start () 
@@ -18,22 +21,40 @@ public class WaterReserveSkript : MonoBehaviour
         reserve = new WaterReserve(reserveDisplay, waterReserveLimit);
         Collider2D[] colliders = GetComponentsInChildren<Collider2D>();
         bottomCollider = CollisionHelper.getBottomCollider(colliders);
+        topCollider = CollisionHelper.getTopCollider(colliders);
 	}
 
     public void TakeWater()
     {
         if (reserve.canTakeMoreWater())
         {
+            IEnumerable<GameObject> collisions = CustomCollisionHelper.getCollidingObjectsInBetween(topCollider, bottomCollider, Enums.Direction.VERTICAL);
+            var query = from hit in collisions from water in hit.GetComponents<RemovableWaterScript>() where water != null && water.CanRemove() select water;
+            foreach (var water in query)
+            {
+                water.Remove();
+                reserve.increaseWater();
+            }
+
+            if (query.Any())
+            {
+                return;
+            }
+
             var ground = CollisionHelper.getCollidingObject(bottomCollider, Enums.Edges.BOTTOM, 0.1f);
             var groundCollider = CustomCollisionHelper.getBiggestCollider(ground.GetComponentsInChildren<Collider2D>());
             Enums.Edges direction = transform.parent.localScale.x > 0 ? Enums.Edges.RIGHT : (transform.parent.localScale.x < 0 ? Enums.Edges.LEFT : Enums.Edges.NONE);
 
             var left = CollisionHelper.getCollidingObject(groundCollider, direction, 0.3f);
-            var water = left.GetComponent<RemovableWaterScript>();
-            if (water != null && water.CanRemove())
+            if (left != null)
             {
-                water.Remove();
-                reserve.increaseWater();
+                var removableWater = left.GetComponent<RemovableWaterScript>();  
+                if (removableWater != null && removableWater.CanRemove())
+                {
+                    removableWater.Remove();
+                    reserve.increaseWater();
+                    return;
+                }
             }
         }
     }

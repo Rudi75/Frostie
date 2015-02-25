@@ -5,13 +5,18 @@ using System.Linq;
 
 public class RemovableWaterScript : MonoBehaviour 
 {
-    private IEnumerable<SpriteRenderer> waterRenders;
-    private Collider2D waterCollider;
+    public bool IsInfinitWaterSource = false;
+
+    private IEnumerable<SpriteRenderer> waterRenders = null;
+    private Collider2D waterCollider = null;
 
     void Start()
     {
-        waterRenders = GetComponentsInChildren<SpriteRenderer>();
-        waterCollider = GetComponent<Collider2D>();
+        if(!IsInfinitWaterSource)
+        {
+            waterRenders = GetComponentsInChildren<SpriteRenderer>();
+            waterCollider = GetComponent<Collider2D>();
+        }
     }
 
     public bool CanRemove()
@@ -21,7 +26,7 @@ public class RemovableWaterScript : MonoBehaviour
             var query = from water in waterRenders where water.enabled select water;
             if (waterCollider.enabled == true && query.Count() == waterRenders.Count()) return true;
         }
-        return false;
+        return IsInfinitWaterSource;
     }
 
     public bool CanPutBack()
@@ -36,21 +41,27 @@ public class RemovableWaterScript : MonoBehaviour
 
     public void Remove()
     {
-        if(waterRenders != null)
-            foreach (var waterRender in waterRenders)
-            {
-                waterRender.enabled = false;
-            } 
-        if (waterCollider != null) waterCollider.enabled = false;
+        if (!IsInfinitWaterSource)
+        {
+            if (waterRenders != null)
+                foreach (var waterRender in waterRenders)
+                {
+                    waterRender.enabled = false;
+                }
+            if (waterCollider != null) waterCollider.enabled = false;
+        }
     }
 
     public void PutBack()
     {
-        if (waterRenders != null)
-            foreach (var waterRender in waterRenders)
-            {
-                waterRender.enabled = true;
-            } 
-        if (waterCollider != null) waterCollider.enabled = true;
+        if (!IsInfinitWaterSource)
+        {
+            if (waterRenders != null)
+                foreach (var waterRender in waterRenders)
+                {
+                    waterRender.enabled = true;
+                }
+            if (waterCollider != null) waterCollider.enabled = true;
+        }
     }
 }

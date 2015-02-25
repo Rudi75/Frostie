@@ -22,5 +22,11 @@ namespace Assets.Scripts.Utils
             BOTTOM,
             NONE
         };
+
+        public enum Direction
+        {
+            HORIZONTAL,
+            VERTICAL
+        };
     }
 }

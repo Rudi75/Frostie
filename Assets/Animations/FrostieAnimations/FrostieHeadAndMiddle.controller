@@ -44,6 +44,26 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
+--- !u!1101 &110119224
+Transition:
+  serializedVersion: 2
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_SrcState: {fileID: 110209712}
+  m_DstState: {fileID: 110238670}
+  m_TransitionDuration: .00906594563
+  m_TransitionOffset: 0
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: Jump
+    m_EventTreshold: 0
+    m_ExitTime: .833333313
+  m_Atomic: 0
+  m_Solo: 0
+  m_Mute: 0
+  m_CanTransitionToSelf: 0
 --- !u!1101 &110132378
 Transition:
   serializedVersion: 2
@@ -60,27 +80,7 @@ Transition:
     m_ConditionEvent: 
     m_EventTreshold: 0
     m_ExitTime: .400000006
-  m_Atomic: 1
-  m_Solo: 0
-  m_Mute: 0
-  m_CanTransitionToSelf: 0
---- !u!1101 &110151652
-Transition:
-  serializedVersion: 2
-  m_ObjectHideFlags: 3
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_SrcState: {fileID: 110209712}
-  m_DstState: {fileID: 110238670}
-  m_TransitionDuration: .25
-  m_TransitionOffset: 0
-  m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: Jump
-    m_EventTreshold: 0
-    m_ExitTime: .75
-  m_Atomic: 1
+  m_Atomic: 0
   m_Solo: 0
   m_Mute: 0
   m_CanTransitionToSelf: 0
@@ -93,14 +93,14 @@ Transition:
   m_Name: 
   m_SrcState: {fileID: 110200524}
   m_DstState: {fileID: 110209712}
-  m_TransitionDuration: .25
+  m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 1
     m_ConditionEvent: IsWalking
     m_EventTreshold: 0
     m_ExitTime: .75
-  m_Atomic: 1
+  m_Atomic: 0
   m_Solo: 0
   m_Mute: 0
   m_CanTransitionToSelf: 0
@@ -120,7 +120,7 @@ Transition:
     m_ConditionEvent: Jump
     m_EventTreshold: 0
     m_ExitTime: .75
-  m_Atomic: 1
+  m_Atomic: 0
   m_Solo: 0
   m_Mute: 0
   m_CanTransitionToSelf: 0
@@ -153,14 +153,14 @@ Transition:
   m_Name: 
   m_SrcState: {fileID: 110209712}
   m_DstState: {fileID: 110200524}
-  m_TransitionDuration: .166666672
+  m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 2
     m_ConditionEvent: IsWalking
     m_EventTreshold: 0
     m_ExitTime: .833333313
-  m_Atomic: 1
+  m_Atomic: 0
   m_Solo: 0
   m_Mute: 0
   m_CanTransitionToSelf: 0
@@ -282,9 +282,10 @@ StateMachine:
       - {fileID: 110197636}
       - {fileID: 110171632}
     data:
-      first: {fileID: 110238670}
+      first: {fileID: 110200524}
       second:
-      - {fileID: 110132378}
+      - {fileID: 110157334}
+      - {fileID: 110162104}
     data:
       first: {fileID: 110270770}
       second: []
@@ -292,15 +293,14 @@ StateMachine:
       first: {fileID: 110266110}
       second: []
     data:
-      first: {fileID: 110200524}
+      first: {fileID: 110238670}
       second:
-      - {fileID: 110157334}
-      - {fileID: 110162104}
+      - {fileID: 110132378}
     data:
       first: {fileID: 110209712}
       second:
-      - {fileID: 110151652}
       - {fileID: 110177804}
+      - {fileID: 110119224}
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: 50, y: 20, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}

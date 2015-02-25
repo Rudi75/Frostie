@@ -6,17 +6,18 @@ using System.Linq;
 
 public class ActionTiming : MonoBehaviour 
 {
-    private List<Animator> animators;
+    private Animator animator;
 
     public float TimeOfInvisibility;
     public float TimeOfVisibility;
 
     private float deltaTime;
+    private bool actionState = false;
 
     // Use this for initialization
     void Start()
     {
-        animators = new List<Animator>(GetComponentsInChildren<Animator>());
+        animator = GetComponent<Animator>();
     }
 
 	
@@ -26,12 +27,9 @@ public class ActionTiming : MonoBehaviour
         deltaTime -= Time.deltaTime;
         if (deltaTime < 0)
         {
-            foreach (var animator in animators)
-            {
-                bool actionState = !animator.GetBool("Action");
-                deltaTime = actionState ? TimeOfVisibility : TimeOfInvisibility;
-                animator.SetBool("Action", actionState);
-            }
+            actionState = actionState ? false: true;
+            deltaTime = actionState ? TimeOfVisibility : TimeOfInvisibility;
+            animator.SetBool("Action", actionState);
         }
 	}
 }
