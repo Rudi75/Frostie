@@ -40,16 +40,19 @@ public class GetSqeezedScript : MonoBehaviour {
         }
         else
         {
-
-            //squeezed = false;
             float speed = sqeeezerScript.distanceToMovePerFrame * Time.deltaTime;
             float percentageOfSize = speed/mySize;
             Vector3 myScale = transform.localScale;
             myScale.y = myScale.y - (myScale.y * percentageOfSize * 2);
             transform.localScale = myScale;
-            if (myScale.y <= 0.4 * startScale.y)
+            if (myScale.y <= (0.4 * startScale.y))
             {
-                HealthScript healthScript = transform.parent.GetComponentInChildren<HealthScript>();
+                HealthScript healthScript = GetComponent<HealthScript>();
+                if (healthScript == null)
+                {
+                    healthScript = transform.parent.GetComponentInChildren<HealthScript>();
+                }
+
                 if(healthScript != null)
                 {
                     healthScript.Die();
