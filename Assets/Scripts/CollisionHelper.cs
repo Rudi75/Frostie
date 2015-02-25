@@ -79,13 +79,13 @@ namespace AssemblyCSharp
             else if (Enums.Edges.RIGHT.Equals(side))
 			{
                 hit1 = Physics2D.Raycast(bottomCenter + new Vector3(distToFront + 0.1f, 0, 0), Vector2.right, distance, layer);
-                hit2 = Physics2D.Raycast(bottomCenter + new Vector3(distToFront + 0.1f, -(distToGround - 0.1f), 0), Vector2.right, distance, layer);
+                hit2 = Physics2D.Raycast(bottomCenter + new Vector3(distToFront + 0.1f, -(distToGround/2), 0), Vector2.right, distance, layer);
                 hit3 = Physics2D.Raycast(bottomCenter + new Vector3(distToFront + 0.1f, distToGround - 0.1f, 0), Vector2.right, distance, layer);
             }
             else if (Enums.Edges.LEFT.Equals(side))
 			{
                 hit1 = Physics2D.Raycast(bottomCenter + new Vector3(-(distToFront + 0.1f), 0, 0), -Vector2.right, distance, layer);
-                hit2 = Physics2D.Raycast(bottomCenter + new Vector3(-(distToFront + 0.1f), -(distToGround - 0.1f), 0), -Vector2.right, distance, layer);
+                hit2 = Physics2D.Raycast(bottomCenter + new Vector3(-(distToFront + 0.1f), -(distToGround/2), 0), -Vector2.right, distance, layer);
                 hit3 = Physics2D.Raycast(bottomCenter + new Vector3(-(distToFront + 0.1f), distToGround - 0.1f, 0), -Vector2.right, distance, layer);
 			}
 
@@ -143,6 +143,8 @@ namespace AssemblyCSharp
                 }
                 return topCollider;
         }
+
+
 		}
    
 }

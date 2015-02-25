@@ -1595,7 +1595,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 170164}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.5, y: -2.80999994, z: 0}
+  m_LocalPosition: {x: -7.15999985, y: -4.57000017, z: 0}
   m_LocalScale: {x: .300000012, y: .300000012, z: 1}
   m_Children:
   - {fileID: 470150}
@@ -1769,7 +1769,7 @@ MonoBehaviour:
   meltKey: 308
   pullKey: 306
   throwHeadKey: 113
-  escapeKey: 27
+  escapeKey: 9
   recallHeadKey: 119
   recallMiddleKey: 120
   ShootButtonKey: 102
@@ -1779,6 +1779,12 @@ MonoBehaviour:
   decoupleMiddleKey: 121
   basePartKey: 49
   middlePartKey: 50
+  meltingEnabed: 1
+  throwingHeadEnabled: 1
+  shootButtonEnabled: 1
+  freezeGroundEnabled: 1
+  takeWaterEnabled: 1
+  decoupleMiddleEnabled: 1
   Player: {fileID: 170164}
 --- !u!114 &11470062
 MonoBehaviour:
@@ -1949,6 +1955,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd0e7ec1cac22db49bf85125f2d80e6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  squeezed: 0
+  sqeeezerScript: {fileID: 0}
 --- !u!114 &11470090
 MonoBehaviour:
   m_ObjectHideFlags: 1
