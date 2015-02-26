@@ -44,7 +44,7 @@ public class FrostieStatus : MonoBehaviour {
   
         Collider2D[] colliders = frostiePartManager.getActivePart().GetComponentsInChildren<Collider2D>();
         Collider2D bottomCollider = CollisionHelper.getBottomCollider(colliders);
-        return CollisionHelper.getCollidingObject(bottomCollider, Enums.Edges.BOTTOM, 0.1f) != null;
+        return CollisionHelper.isCollision(bottomCollider, Enums.Edges.BOTTOM, 0.1f);
     }
 
     public bool canJump()

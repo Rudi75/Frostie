@@ -1199,6 +1199,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd0e7ec1cac22db49bf85125f2d80e6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  squeezed: 0
+  sqeeezerScript: {fileID: 0}
 --- !u!114 &133496826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2588,8 +2590,8 @@ MonoBehaviour:
   meltKey: 308
   pullKey: 306
   throwHeadKey: 113
-  escapeKey: 27
-  recallHeadKey: 101
+  escapeKey: 9
+  recallHeadKey: 119
   recallMiddleKey: 120
   ShootButtonKey: 102
   FreezeGroundKey: 103
@@ -2598,6 +2600,12 @@ MonoBehaviour:
   decoupleMiddleKey: 121
   basePartKey: 49
   middlePartKey: 50
+  meltingEnabed: 1
+  throwingHeadEnabled: 1
+  shootButtonEnabled: 1
+  freezeGroundEnabled: 1
+  takeWaterEnabled: 1
+  decoupleMiddleEnabled: 1
   Player: {fileID: 272891349}
 --- !u!114 &272891352
 MonoBehaviour:
@@ -5369,6 +5377,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd0e7ec1cac22db49bf85125f2d80e6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  squeezed: 0
+  sqeeezerScript: {fileID: 0}
 --- !u!114 &737604778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9127,6 +9137,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd0e7ec1cac22db49bf85125f2d80e6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  squeezed: 0
+  sqeeezerScript: {fileID: 0}
 --- !u!114 &1219312245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10726,6 +10738,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd0e7ec1cac22db49bf85125f2d80e6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  squeezed: 0
+  sqeeezerScript: {fileID: 0}
 --- !u!114 &1411807826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13012,6 +13026,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd0e7ec1cac22db49bf85125f2d80e6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  squeezed: 0
+  sqeeezerScript: {fileID: 0}
 --- !u!114 &1688506858
 MonoBehaviour:
   m_ObjectHideFlags: 0

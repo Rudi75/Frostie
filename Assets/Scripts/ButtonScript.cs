@@ -86,7 +86,7 @@ public class ButtonScript : MonoBehaviour {
 		if(withRelease && isPressed)
 		{
 
-            if (CollisionHelper.getCollidingObject(getButtonCollider(), buttonEdge, 0.1f) == null)//Button released
+            if (!CollisionHelper.isCollision(getButtonCollider(), buttonEdge, 0.1f))//Button released
 			{
 				
 				isPressed = false;

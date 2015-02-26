@@ -2,6 +2,7 @@
 using System.Collections;
 using AssemblyCSharp;
 using Assets.Scripts.Utils;
+using System.Collections.Generic;
 
 public class FreezeGroundSkript : MonoBehaviour 
 {
@@ -16,7 +17,14 @@ public class FreezeGroundSkript : MonoBehaviour
 
 	public void FreezeGround() 
     {
-        var ground = CollisionHelper.getCollidingObject(bottomCollider, Enums.Edges.BOTTOM, 0.1f);
+        GameObject ground = null;
+        List<GameObject> hits = CollisionHelper.getCollidingObject(bottomCollider, Enums.Edges.BOTTOM, 0.1f);
+        foreach (GameObject hit in hits)
+        {
+            if (hit != null)
+                ground = hit;
+        }
+
         FreezableGround freezableGround = null;
         if (ground != null) freezableGround = ground.GetComponent<FreezableGround>();
         if (ground != null && freezableGround == null) freezableGround = ground.transform.parent.GetComponent<FreezableGround>();
@@ -27,7 +35,14 @@ public class FreezeGroundSkript : MonoBehaviour
         }
 
         var groundCollider = CustomCollisionHelper.getBiggestCollider(ground.GetComponentsInChildren<Collider2D>());
-        var left = CollisionHelper.getCollidingObject(groundCollider, Enums.Edges.LEFT, 0.3f);
+        GameObject left = null;
+        hits = CollisionHelper.getCollidingObject(groundCollider, Enums.Edges.LEFT, 0.3f);
+        foreach (GameObject hit in hits)
+        {
+            if (hit != null)
+                left = hit;
+        }
+
         if (left != null) freezableGround = left.GetComponent<FreezableGround>();
         if (left != null && freezableGround == null) freezableGround = left.transform.parent.GetComponent<FreezableGround>();
 
@@ -36,7 +51,14 @@ public class FreezeGroundSkript : MonoBehaviour
             freezableGround.Freeze();
         }
 
-        var rigth = CollisionHelper.getCollidingObject(groundCollider, Enums.Edges.RIGHT, 0.3f);
+        GameObject rigth = null;
+        hits = CollisionHelper.getCollidingObject(groundCollider, Enums.Edges.RIGHT, 0.3f);
+        foreach (GameObject hit in hits)
+        {
+            if (hit != null)
+                rigth = hit;
+        }
+
         if (rigth != null) freezableGround = rigth.GetComponent<FreezableGround>();
         if (rigth != null && freezableGround == null) freezableGround = rigth.transform.parent.GetComponent<FreezableGround>();
 

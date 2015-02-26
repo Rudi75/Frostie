@@ -87,6 +87,55 @@ public class CustomCollisionHelper
         return collisions;
     }
 
+    public static GameObject getCollidingObject(Collider2D collider, Enums.Edges side, float distance)
+    {
+        float distToGround = collider.bounds.extents.y;
+        float distToFront = collider.bounds.extents.x;
+        Vector3 bottomCenter = collider.transform.position;
+
+        RaycastHit2D hit1 = new RaycastHit2D();
+        RaycastHit2D hit2 = new RaycastHit2D();
+        RaycastHit2D hit3 = new RaycastHit2D();
+
+        int layer = 1 << 6;
+        layer += 1;
+        layer = layer << 2;
+        layer = ~layer;
+
+        if (Enums.Edges.BOTTOM.Equals(side))
+        {
+            hit1 = Physics2D.Raycast(bottomCenter + new Vector3(0, -(distToGround + 0.1f), 0), -Vector2.up, distance, layer);
+            hit2 = Physics2D.Raycast(bottomCenter + new Vector3(-(distToFront - 0.1f), -(distToGround + 0.1f), 0), -Vector2.up, distance, layer);
+            hit3 = Physics2D.Raycast(bottomCenter + new Vector3(distToFront - 0.1f, -(distToGround + 0.1f), 0), -Vector2.up, distance, layer);
+        }
+        else if (Enums.Edges.TOP.Equals(side))
+        {
+            hit1 = Physics2D.Raycast(bottomCenter + new Vector3(0, (distToGround + 0.1f), 0), Vector2.up, distance, layer);
+            hit2 = Physics2D.Raycast(bottomCenter + new Vector3(-(distToFront - 0.1f), (distToGround + 0.1f), 0), Vector2.up, distance, layer);
+            hit3 = Physics2D.Raycast(bottomCenter + new Vector3(distToFront - 0.1f, (distToGround + 0.1f), 0), Vector2.up, distance, layer);
+        }
+        else if (Enums.Edges.RIGHT.Equals(side))
+        {
+            hit1 = Physics2D.Raycast(bottomCenter + new Vector3(distToFront + 0.1f, 0, 0), Vector2.right, distance, layer);
+            hit2 = Physics2D.Raycast(bottomCenter + new Vector3(distToFront + 0.1f, -(distToGround / 2), 0), Vector2.right, distance, layer);
+            hit3 = Physics2D.Raycast(bottomCenter + new Vector3(distToFront + 0.1f, distToGround - 0.1f, 0), Vector2.right, distance, layer);
+        }
+        else if (Enums.Edges.LEFT.Equals(side))
+        {
+            hit1 = Physics2D.Raycast(bottomCenter + new Vector3(-(distToFront + 0.1f), 0, 0), -Vector2.right, distance, layer);
+            hit2 = Physics2D.Raycast(bottomCenter + new Vector3(-(distToFront + 0.1f), -(distToGround / 2), 0), -Vector2.right, distance, layer);
+            hit3 = Physics2D.Raycast(bottomCenter + new Vector3(-(distToFront + 0.1f), distToGround - 0.1f, 0), -Vector2.right, distance, layer);
+        }
+
+        if (hit1.collider != null)
+            return hit1.collider.gameObject;
+        if (hit2.collider != null)
+            return hit2.collider.gameObject;
+        if (hit3.collider != null)
+            return hit3.collider.gameObject;
+        return null;
+    }
+
     public static IEnumerable<GameObject> getCollidingObjects(Collider2D collider, Enums.Edges side, float distance)
     {
         float distToGround = collider.bounds.extents.y;

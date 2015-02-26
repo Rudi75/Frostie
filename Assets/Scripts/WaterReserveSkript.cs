@@ -5,6 +5,7 @@ using Assets.Scripts.Utils;
 using System.Collections.Generic;
 using System.Linq;
 
+
 public class WaterReserveSkript : MonoBehaviour 
 {
     public WaterReserveDisplaySkript reserveDisplay;
@@ -41,11 +42,11 @@ public class WaterReserveSkript : MonoBehaviour
                 return;
             }
 
-            var ground = CollisionHelper.getCollidingObject(bottomCollider, Enums.Edges.BOTTOM, 0.1f);
+            var ground = CustomCollisionHelper.getCollidingObject(bottomCollider, Enums.Edges.BOTTOM, 0.1f);
             var groundCollider = CustomCollisionHelper.getBiggestCollider(ground.GetComponentsInChildren<Collider2D>());
             Enums.Edges direction = transform.parent.localScale.x > 0 ? Enums.Edges.RIGHT : (transform.parent.localScale.x < 0 ? Enums.Edges.LEFT : Enums.Edges.NONE);
 
-            var left = CollisionHelper.getCollidingObject(groundCollider, direction, 0.3f);
+            var left = CustomCollisionHelper.getCollidingObject(groundCollider, direction, 0.3f);
             if (left != null)
             {
                 var removableWater = left.GetComponent<RemovableWaterScript>();  

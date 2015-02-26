@@ -2,15 +2,17 @@
 using System.Collections;
 using AssemblyCSharp;
 using Assets.Scripts.Utils;
+using System.Collections.Generic;
 
 public class GetSqeezedScript : MonoBehaviour {
 
-    private bool squeezed = false;
-    private SqeezerAnimationScript sqeeezerScript;
+    public bool squeezed = false;
+    public SqeezerAnimationScript sqeeezerScript;
     private Vector3 startScale;
     
     private float mySize;
 
+    private bool isYDirection;
     public void Start()
     {
         startScale = transform.localScale;
@@ -25,38 +27,113 @@ public class GetSqeezedScript : MonoBehaviour {
             Collider2D topCollider = CollisionHelper.getTopCollider(colliders);
             Collider2D bottomCollider = CollisionHelper.getBottomCollider(colliders);
 
-            GameObject ground = CollisionHelper.getCollidingObject(bottomCollider, Enums.Edges.BOTTOM, 0.1f);
-            GameObject squeezer = CollisionHelper.getCollidingObject(topCollider, Enums.Edges.TOP, 0.1f);
-
-            if (ground != null && squeezer != null)
+            GameObject bottom = null;
+            List<GameObject> sqeezerHits = CollisionHelper.getCollidingObject(bottomCollider, Enums.Edges.BOTTOM, 0.1f);
+            foreach (GameObject hit in sqeezerHits)
             {
-                sqeeezerScript = squeezer.GetComponentInParent<SqeezerAnimationScript>();
-                if (sqeeezerScript != null && sqeeezerScript.direction == -1)
+                if (hit != null)
+                    bottom = hit;
+            }
+            
+            GameObject top = null;
+            sqeezerHits = CollisionHelper.getCollidingObject(topCollider, Enums.Edges.TOP, 0.1f);
+            foreach (GameObject hit in sqeezerHits)
+            {
+                if (hit != null)
+                    top = hit;
+            }
+            if (bottom != null && top != null)
+            {
+                sqeeezerScript = top.GetComponentInParent<SqeezerAnimationScript>();
+                if (sqeeezerScript == null)
+                    sqeeezerScript = bottom.GetComponentInParent<SqeezerAnimationScript>();
+                if (sqeeezerScript != null && sqeeezerScript.isSqeezing)
                 {
-                    mySize = squeezer.transform.position.y - ground.transform.position.y;
+                    isYDirection = true;
+                    mySize = Mathf.Abs(top.transform.position.y - bottom.transform.position.y);
                     squeezed = true;
+                }
+            }
+            else
+            {
+
+                GameObject left = null;
+                sqeezerHits = CollisionHelper.getCollidingObject(bottomCollider, Enums.Edges.LEFT, 0.1f);
+                foreach (GameObject hit in sqeezerHits)
+                {
+                    if (hit != null)
+                        left = hit;
+                }
+
+                GameObject right = null;
+                sqeezerHits = CollisionHelper.getCollidingObject(bottomCollider, Enums.Edges.RIGHT, 0.1f);
+                foreach (GameObject hit in sqeezerHits)
+                {
+                    if (hit != null)
+                        right = hit;
+                }
+
+                if (left != null && right != null)
+                {
+                    sqeeezerScript = left.GetComponentInParent<SqeezerAnimationScript>();
+                    if (sqeeezerScript == null)
+                        sqeeezerScript = right.GetComponentInParent<SqeezerAnimationScript>();
+                    if (sqeeezerScript != null && sqeeezerScript.isSqeezing)
+                    {
+                        isYDirection = false;
+                        mySize = Mathf.Abs(right.transform.position.x - left.transform.position.x);
+                        squeezed = true;
+                    }
                 }
             }
         }
         else
         {
-
-            //squeezed = false;
             float speed = sqeeezerScript.distanceToMovePerFrame * Time.deltaTime;
             float percentageOfSize = speed/mySize;
             Vector3 myScale = transform.localScale;
-            myScale.y = myScale.y - (myScale.y * percentageOfSize * 2);
-            transform.localScale = myScale;
-            if (myScale.y <= 0.4 * startScale.y)
+            if (isYDirection)
             {
-                HealthScript healthScript = transform.parent.GetComponentInChildren<HealthScript>();
-                if(healthScript != null)
+                myScale.y = myScale.y - (myScale.y * percentageOfSize * 2);
+                transform.localScale = myScale;
+                if (myScale.y <= (0.4 * startScale.y))
                 {
-                    healthScript.Die();
+                    HealthScript healthScript = GetComponent<HealthScript>();
+                    //if (healthScript == null)
+                    //{
+                     //   healthScript = transform.parent.GetComponentInChildren<HealthScript>();
+                    //}
+
+                    if (healthScript != null)
+                    {
+                        healthScript.Die();
+                    }
+                    else
+                    {
+                        Destroy(gameObject);
+                    }
                 }
-                else
+            }else
+            {
+                myScale.x = myScale.x - (myScale.x * percentageOfSize * 2);
+                transform.localScale = myScale;
+                if (myScale.x <= (0.4 * startScale.x))
                 {
-                    Destroy(gameObject);
+                    HealthScript healthScript = GetComponent<HealthScript>();
+                    PartHealthScript partHealthScript = GetComponent<PartHealthScript>();
+
+
+                    if (healthScript != null)
+                    {
+                        healthScript.Die();
+                    }else if(partHealthScript != null )
+                    {
+                        partHealthScript.Die();
+                    }
+                    else
+                    {
+                        Destroy(gameObject);
+                    }
                 }
             }
                 
