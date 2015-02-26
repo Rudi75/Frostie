@@ -23,7 +23,7 @@ public class CameraControler : MonoBehaviour
 	{
 		var x = camera.transform.position.x;
 		var y = camera.transform.position.y;
-
+       
     if (IsFollowing && Player != null)
 		{
 			if (Mathf.Abs (x - Player.position.x) > Margin.x)
@@ -31,13 +31,14 @@ public class CameraControler : MonoBehaviour
 
 			if (Mathf.Abs (y - Player.position.y) > Margin.y)
 				y = Mathf.Lerp (y, Player.position.y, Smoothing.y * Time.deltaTime);
+
+
 		}
 
 		var cameraHalfWidth = camera.orthographicSize * ((float)Screen.width / Screen.height);
 
 		x = Mathf.Clamp(x,minPosition.x +cameraHalfWidth, maxPosition.x - cameraHalfWidth);
 		y = Mathf.Clamp(y,minPosition.y +camera.orthographicSize, maxPosition.y - camera.orthographicSize);
-
 		camera.transform.position = new Vector3 (x, y, transform.position.z);
 	}
 

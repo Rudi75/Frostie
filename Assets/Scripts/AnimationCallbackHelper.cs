@@ -22,7 +22,9 @@ public class AnimationCallbackHelper : MonoBehaviour
 
     public void Jump()
     {
-        FrostiePartManager partManager = transform.parent.GetComponentInChildren<FrostiePartManager>();
+        FrostiePartManager partManager = transform.GetComponentInChildren<FrostiePartManager>();
+        if(partManager == null)
+            partManager = transform.parent.GetComponentInChildren<FrostiePartManager>();
         if(partManager == null)
         {
             partManager = transform.parent.parent.GetComponentInChildren<FrostiePartManager>();
