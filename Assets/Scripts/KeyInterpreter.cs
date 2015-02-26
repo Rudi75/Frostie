@@ -55,7 +55,9 @@ public class KeyInterpreter : MonoBehaviour {
                 frostieAnimationManager.animateJump();
             }else
             {
+                //frostiePartManager.getActivePart().GetComponentInChildren<Animator>().SetBool("IsWalking", false);
                 frostiePartManager.getActivePart().GetComponentInChildren<Animator>().SetTrigger("Jump");
+                Debug.Log("sent jump trigger");
             }
         }
 

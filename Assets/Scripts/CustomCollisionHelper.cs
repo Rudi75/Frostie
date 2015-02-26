@@ -1,5 +1,7 @@
 using System;
 using UnityEngine;
+using Assets.Scripts.Utils;
+using System.Collections.Generic;
 
 public class CustomCollisionHelper
 {
@@ -53,6 +55,142 @@ public class CustomCollisionHelper
                 rightCollider = aCollider;
         }
         return rightCollider;
+    }
+
+    public static IEnumerable<GameObject> getCollidingObjectsInBetween(Collider2D begin, Collider2D end, Enums.Direction side)
+    {
+        Debug.Log("getCollidingObjectsInBetween");
+
+        Vector3 first = begin.transform.position;
+        Vector3 second = end.transform.position;
+
+        if (side == Enums.Direction.HORIZONTAL)
+        {
+            first.x -= begin.bounds.extents.x;
+            second.x += end.bounds.extents.x;
+        }
+        if (side == Enums.Direction.VERTICAL)
+        {
+            first.y += begin.bounds.extents.y;
+            second.y -= end.bounds.extents.y;
+        }
+
+        Vector3 direction = second - first;
+        var collisions = new List<GameObject>();
+
+        RaycastHit2D[] hits = Physics2D.RaycastAll(first, Vector3.Normalize(direction), Vector3.Magnitude(direction));
+        foreach (RaycastHit2D hit in hits)
+        {
+            collisions.Add(hit.collider.gameObject);
+        }
+
+        return collisions;
+    }
+
+    public static GameObject getCollidingObject(Collider2D collider, Enums.Edges side, float distance)
+    {
+        float distToGround = collider.bounds.extents.y;
+        float distToFront = collider.bounds.extents.x;
+        Vector3 bottomCenter = collider.transform.position;
+
+        RaycastHit2D hit1 = new RaycastHit2D();
+        RaycastHit2D hit2 = new RaycastHit2D();
+        RaycastHit2D hit3 = new RaycastHit2D();
+
+        int layer = 1 << 6;
+        layer += 1;
+        layer = layer << 2;
+        layer = ~layer;
+
+        if (Enums.Edges.BOTTOM.Equals(side))
+        {
+            hit1 = Physics2D.Raycast(bottomCenter + new Vector3(0, -(distToGround + 0.1f), 0), -Vector2.up, distance, layer);
+            hit2 = Physics2D.Raycast(bottomCenter + new Vector3(-(distToFront - 0.1f), -(distToGround + 0.1f), 0), -Vector2.up, distance, layer);
+            hit3 = Physics2D.Raycast(bottomCenter + new Vector3(distToFront - 0.1f, -(distToGround + 0.1f), 0), -Vector2.up, distance, layer);
+        }
+        else if (Enums.Edges.TOP.Equals(side))
+        {
+            hit1 = Physics2D.Raycast(bottomCenter + new Vector3(0, (distToGround + 0.1f), 0), Vector2.up, distance, layer);
+            hit2 = Physics2D.Raycast(bottomCenter + new Vector3(-(distToFront - 0.1f), (distToGround + 0.1f), 0), Vector2.up, distance, layer);
+            hit3 = Physics2D.Raycast(bottomCenter + new Vector3(distToFront - 0.1f, (distToGround + 0.1f), 0), Vector2.up, distance, layer);
+        }
+        else if (Enums.Edges.RIGHT.Equals(side))
+        {
+            hit1 = Physics2D.Raycast(bottomCenter + new Vector3(distToFront + 0.1f, 0, 0), Vector2.right, distance, layer);
+            hit2 = Physics2D.Raycast(bottomCenter + new Vector3(distToFront + 0.1f, -(distToGround / 2), 0), Vector2.right, distance, layer);
+            hit3 = Physics2D.Raycast(bottomCenter + new Vector3(distToFront + 0.1f, distToGround - 0.1f, 0), Vector2.right, distance, layer);
+        }
+        else if (Enums.Edges.LEFT.Equals(side))
+        {
+            hit1 = Physics2D.Raycast(bottomCenter + new Vector3(-(distToFront + 0.1f), 0, 0), -Vector2.right, distance, layer);
+            hit2 = Physics2D.Raycast(bottomCenter + new Vector3(-(distToFront + 0.1f), -(distToGround / 2), 0), -Vector2.right, distance, layer);
+            hit3 = Physics2D.Raycast(bottomCenter + new Vector3(-(distToFront + 0.1f), distToGround - 0.1f, 0), -Vector2.right, distance, layer);
+        }
+
+        if (hit1.collider != null)
+            return hit1.collider.gameObject;
+        if (hit2.collider != null)
+            return hit2.collider.gameObject;
+        if (hit3.collider != null)
+            return hit3.collider.gameObject;
+        return null;
+    }
+
+    public static IEnumerable<GameObject> getCollidingObjects(Collider2D collider, Enums.Edges side, float distance)
+    {
+        float distToGround = collider.bounds.extents.y;
+        float distToFront = collider.bounds.extents.x;
+        Vector3 bottomCenter = collider.transform.position;
+
+        RaycastHit2D hit1 = new RaycastHit2D();
+        RaycastHit2D hit2 = new RaycastHit2D();
+        RaycastHit2D hit3 = new RaycastHit2D();
+
+        int layer = 1 << 6;
+        layer += 1;
+        layer = layer << 2;
+        layer = ~layer;
+
+        if (Enums.Edges.BOTTOM.Equals(side))
+        {
+            hit1 = Physics2D.Raycast(bottomCenter + new Vector3(0, -(distToGround + 0.1f), 0), -Vector2.up, distance, layer);
+            hit2 = Physics2D.Raycast(bottomCenter + new Vector3(-(distToFront - 0.1f), -(distToGround + 0.1f), 0), -Vector2.up, distance, layer);
+            hit3 = Physics2D.Raycast(bottomCenter + new Vector3(distToFront - 0.1f, -(distToGround + 0.1f), 0), -Vector2.up, distance, layer);
+        }
+        else if (Enums.Edges.TOP.Equals(side))
+        {
+            hit1 = Physics2D.Raycast(bottomCenter + new Vector3(0, (distToGround + 0.1f), 0), Vector2.up, distance, layer);
+            hit2 = Physics2D.Raycast(bottomCenter + new Vector3(-(distToFront - 0.1f), (distToGround + 0.1f), 0), Vector2.up, distance, layer);
+            hit3 = Physics2D.Raycast(bottomCenter + new Vector3(distToFront - 0.1f, (distToGround + 0.1f), 0), Vector2.up, distance, layer);
+        }
+        else if (Enums.Edges.RIGHT.Equals(side))
+        {
+            hit1 = Physics2D.Raycast(bottomCenter + new Vector3(distToFront + 0.1f, 0, 0), Vector2.right, distance, layer);
+            hit2 = Physics2D.Raycast(bottomCenter + new Vector3(distToFront + 0.1f, -(distToGround - 0.1f), 0), Vector2.right, distance, layer);
+            hit3 = Physics2D.Raycast(bottomCenter + new Vector3(distToFront + 0.1f, distToGround - 0.1f, 0), Vector2.right, distance, layer);
+        }
+        else if (Enums.Edges.LEFT.Equals(side))
+        {
+            hit1 = Physics2D.Raycast(bottomCenter + new Vector3(-(distToFront + 0.1f), 0, 0), -Vector2.right, distance, layer);
+            hit2 = Physics2D.Raycast(bottomCenter + new Vector3(-(distToFront + 0.1f), -(distToGround - 0.1f), 0), -Vector2.right, distance, layer);
+            hit3 = Physics2D.Raycast(bottomCenter + new Vector3(-(distToFront + 0.1f), distToGround - 0.1f, 0), -Vector2.right, distance, layer);
+        }
+
+        var collisions = new List<GameObject>();
+        if (hit1.collider != null)
+        {
+            collisions.Add(hit1.collider.gameObject);
+        }
+        else if (hit2.collider != null)
+        {
+            collisions.Add(hit2.collider.gameObject);
+        }
+        else if (hit3.collider != null)
+        {
+            collisions.Add(hit3.collider.gameObject);
+        }
+
+        return collisions;
     }
 }
 

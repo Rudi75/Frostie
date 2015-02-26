@@ -3,6 +3,8 @@ using System.Collections;
 using AssemblyCSharp;
 using Assets.Scripts.Utils;
 using System.Collections.Generic;
+using System.Linq;
+
 
 public class WaterReserveSkript : MonoBehaviour 
 {
@@ -12,6 +14,7 @@ public class WaterReserveSkript : MonoBehaviour
 
     private WaterReserve reserve;
     private Collider2D bottomCollider;
+    private Collider2D topCollider;
 
 	// Use this for initialization
 	void Start () 
@@ -19,36 +22,40 @@ public class WaterReserveSkript : MonoBehaviour
         reserve = new WaterReserve(reserveDisplay, waterReserveLimit);
         Collider2D[] colliders = GetComponentsInChildren<Collider2D>();
         bottomCollider = CollisionHelper.getBottomCollider(colliders);
+        topCollider = CollisionHelper.getTopCollider(colliders);
 	}
 
     public void TakeWater()
     {
         if (reserve.canTakeMoreWater())
         {
-            GameObject ground = null;
-            List<GameObject> hits = CollisionHelper.getCollidingObject(bottomCollider, Enums.Edges.BOTTOM, 0.1f);
-            foreach (GameObject hit in hits)
-            {
-                if (hit != null)
-                    ground = hit;
-            }
-
-            var groundCollider = CustomCollisionHelper.getBiggestCollider(ground.GetComponentsInChildren<Collider2D>());
-            Enums.Edges direction = transform.parent.localScale.x > 0 ? Enums.Edges.RIGHT : (transform.parent.localScale.x < 0 ? Enums.Edges.LEFT : Enums.Edges.NONE);
-
-            GameObject left = null;
-            hits = CollisionHelper.getCollidingObject(groundCollider, direction, 0.3f);
-            foreach (GameObject hit in hits)
-            {
-                if (hit != null)
-                    left = hit;
-            }
-
-            var water = left.GetComponent<RemovableWaterScript>();
-            if (water != null && water.CanRemove())
+            IEnumerable<GameObject> collisions = CustomCollisionHelper.getCollidingObjectsInBetween(topCollider, bottomCollider, Enums.Direction.VERTICAL);
+            var query = from hit in collisions from water in hit.GetComponents<RemovableWaterScript>() where water != null && water.CanRemove() select water;
+            foreach (var water in query)
             {
                 water.Remove();
                 reserve.increaseWater();
+            }
+
+            if (query.Any())
+            {
+                return;
+            }
+
+            var ground = CustomCollisionHelper.getCollidingObject(bottomCollider, Enums.Edges.BOTTOM, 0.1f);
+            var groundCollider = CustomCollisionHelper.getBiggestCollider(ground.GetComponentsInChildren<Collider2D>());
+            Enums.Edges direction = transform.parent.localScale.x > 0 ? Enums.Edges.RIGHT : (transform.parent.localScale.x < 0 ? Enums.Edges.LEFT : Enums.Edges.NONE);
+
+            var left = CustomCollisionHelper.getCollidingObject(groundCollider, direction, 0.3f);
+            if (left != null)
+            {
+                var removableWater = left.GetComponent<RemovableWaterScript>();  
+                if (removableWater != null && removableWater.CanRemove())
+                {
+                    removableWater.Remove();
+                    reserve.increaseWater();
+                    return;
+                }
             }
         }
     }

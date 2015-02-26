@@ -504,8 +504,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 416646}
-  - 95: {fileID: 9516646}
   - 114: {fileID: 11415394}
+  - 95: {fileID: 9518908}
   m_Layer: 0
   m_Name: FrostieHeadAndMiddleAnimation
   m_TagString: Untagged
@@ -987,7 +987,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 110810}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.17276669, y: -2.37922049, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: .300000012, y: .300000012, z: 1}
   m_Children:
   - {fileID: 416646}
@@ -1109,7 +1109,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_Radius: 2.80306196
   m_Center: {x: 0, y: 0}
---- !u!95 &9516646
+--- !u!95 &9518908
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
@@ -1118,7 +1118,7 @@ Animator:
   m_GameObject: {fileID: 116646}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 622499a418e49204dadfaa15be885554, type: 2}
+  m_Controller: {fileID: 9100000, guid: a16bfdb17455f2342947256bf2570781, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -1211,6 +1211,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd0e7ec1cac22db49bf85125f2d80e6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  squeezed: 0
+  sqeeezerScript: {fileID: 0}
 --- !u!114 &11449694
 MonoBehaviour:
   m_ObjectHideFlags: 1

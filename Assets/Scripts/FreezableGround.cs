@@ -5,13 +5,14 @@ public class FreezableGround : MonoBehaviour
 {
     public Transform FrozenOverlayPrefab;
     public float TimeToDefrost = 12;
+    public bool AlwaysFrozen = false;
 
     private Animator FrozenOverlayAnimator;
     private Transform FrozenOverlay;
     private bool isFrozen = false;
     private float deltaTime = 0;
 
-    public bool IsFrozen { get { return isFrozen; } }
+    public bool IsFrozen { get { return isFrozen || AlwaysFrozen; } }
 
 	// Use this for initialization
 	void Start () 
@@ -20,7 +21,7 @@ public class FreezableGround : MonoBehaviour
 
     public void Freeze()
     {
-        if (!isFrozen)
+        if (!IsFrozen)
         {
             isFrozen = true;
             deltaTime = TimeToDefrost;
@@ -49,7 +50,7 @@ public class FreezableGround : MonoBehaviour
         {
             deltaTime -= Time.deltaTime;
         }
-        if (isFrozen && deltaTime < 0)
+        if (IsFrozen && deltaTime < 0)
         {
             StartCoroutine(UnFreeze());
         }

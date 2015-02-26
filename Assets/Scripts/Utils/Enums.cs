@@ -23,6 +23,12 @@ namespace Assets.Scripts.Utils
             NONE
         };
 
+        public enum Direction
+        {
+            HORIZONTAL,
+            VERTICAL
+        }
+
         public enum Features
         {
             MELTING,

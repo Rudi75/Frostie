@@ -54,6 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FrozenOverlayPrefab: {fileID: 450606, guid: 34e5b93a2107cff45bd81a037a78e80f, type: 2}
   TimeToDefrost: 12
+  AlwaysFrozen: 0
 --- !u!212 &21230760
 SpriteRenderer:
   m_ObjectHideFlags: 1
