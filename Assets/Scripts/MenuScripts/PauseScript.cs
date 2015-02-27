@@ -6,12 +6,12 @@ public class PauseScript : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
   {
-    Vector3 pos = new Vector3();
+    /*Vector3 pos = new Vector3();
     pos.x = Camera.main.transform.position.x;
     pos.y = Camera.main.transform.position.y;
     pos.z = -5;
 
-    transform.position = pos;
+    transform.position = pos;*/
     toggleEnabled();
 	}
 	
@@ -22,10 +22,10 @@ public class PauseScript : MonoBehaviour {
     {
       if (Time.timeScale == 1)
       {
-        Vector3 pos = new Vector3();
+        /*Vector3 pos = new Vector3();
         pos.x = Camera.main.transform.position.x;
         pos.y = Camera.main.transform.position.y;
-        pos.z = -5;
+        pos.z = -5;*/
 
         Time.timeScale = 0;
         toggleEnabled();
@@ -40,7 +40,11 @@ public class PauseScript : MonoBehaviour {
 
   void toggleEnabled()
   {
-    if (renderer.enabled)
+      foreach (Transform child in transform)
+      {
+          child.gameObject.SetActive(!child.gameObject.activeSelf);
+      }
+    /*if (renderer.enabled)
     {
       renderer.enabled = false;
     }
@@ -59,6 +63,6 @@ public class PauseScript : MonoBehaviour {
       {
         transform.GetChild(i).renderer.enabled = true;
       }
-    }
+    }*/
   }
 }

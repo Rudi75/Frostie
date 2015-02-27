@@ -15,7 +15,7 @@ public class QuitScript : MonoBehaviour {
 	
 	}
 
-  void OnMouseDown()
+  public void OnAction()//OnMouseDown
   {
     Application.Quit();
   }
