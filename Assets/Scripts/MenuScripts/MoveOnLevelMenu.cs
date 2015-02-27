@@ -15,7 +15,7 @@ public class MoveOnLevelMenu : MonoBehaviour
   {
     if (LevelButtons.GetChild(currentLevel))
     {
-      Player.position = LevelButtons.GetChild(currentLevel).position + new Vector3(0, 0.3f, 0);
+      Player.position = LevelButtons.GetChild(currentLevel).position + new Vector3(0, 0.3f, -1);
     }
 	}
 	
@@ -48,7 +48,7 @@ public class MoveOnLevelMenu : MonoBehaviour
 
     if (LevelButtons.GetChild(currentLevel))
     {
-      Player.position = LevelButtons.GetChild(currentLevel).position + new Vector3(0, 0.3f, 0);
+      Player.position = LevelButtons.GetChild(currentLevel).position + new Vector3(0, 0.3f, -1);
     }
   }
 
