@@ -12,7 +12,7 @@ public class FrostieAnimationManager : MonoBehaviour {
 
     
 
-    public void Start()
+    public void Awake()
     {
         animator = GetComponentInParent<Animator>();
         frostieStatus = GetComponent<FrostieStatus>();
