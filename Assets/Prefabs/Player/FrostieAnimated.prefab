@@ -3264,7 +3264,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 170164}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -31.75, y: -5.86999989, z: -.100000001}
   m_LocalScale: {x: .300000012, y: .300000012, z: 1}
   m_Children:
   - {fileID: 470150}
@@ -3279,7 +3279,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
-  m_GravityScale: 10
+  m_GravityScale: 11
   m_FixedAngle: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -3591,11 +3591,11 @@ MonoBehaviour:
   basePartKey: 49
   middlePartKey: 50
   meltingEnabed: 1
-  throwingHeadEnabled: 1
+  throwingHeadEnabled: 0
   shootButtonEnabled: 1
-  freezeGroundEnabled: 1
-  takeWaterEnabled: 1
-  decoupleMiddleEnabled: 1
+  freezeGroundEnabled: 0
+  takeWaterEnabled: 0
+  decoupleMiddleEnabled: 0
   Player: {fileID: 170164}
 --- !u!114 &11470062
 MonoBehaviour:
@@ -3630,7 +3630,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 170068}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a7623f09f27188942b1fae0a052d60bd, type: 3}
   m_Name: 

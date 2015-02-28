@@ -79,8 +79,11 @@ public class FrostieMoveScript : MonoBehaviour {
             List<GameObject> hitsLeft = CollisionHelper.getCollidingObject(bottomCollider, Enums.Edges.LEFT, 0.1f);
             foreach (GameObject hit in hitsLeft)
             {
+                
                 if (hit != null)
+                {
                     hitLeft = hit;
+                }
             }
             letGoLeft = hitLeft == null;
         }
@@ -88,11 +91,14 @@ public class FrostieMoveScript : MonoBehaviour {
         if (!letGoRight)
         {
             GameObject hitRight = null;
-            List<GameObject> hitsRight = CollisionHelper.getCollidingObject(bottomCollider, Enums.Edges.BOTTOM, 0.1f);
+            List<GameObject> hitsRight = CollisionHelper.getCollidingObject(bottomCollider, Enums.Edges.RIGHT, 0.1f);
             foreach (GameObject hit in hitsRight)
             {
                 if (hit != null)
+                {
                     hitRight = hit;
+                }
+                    
             }
             letGoRight = hitRight == null;
         }
