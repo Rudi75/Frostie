@@ -38,9 +38,9 @@ public class MoveOnLevelMenu : MonoBehaviour
     {
       if (LevelButtons.GetChild(currentLevel))
       {
-        if (LevelButtons.GetChild(currentLevel).GetComponent<start>())
+          if (LevelButtons.GetChild(currentLevel).GetComponent<StartScript>())
         {
-          LevelButtons.GetChild(currentLevel).GetComponent<start>().LoadLevel();
+            LevelButtons.GetChild(currentLevel).GetComponent<StartScript>().LoadLevel();
         }
       }
     }

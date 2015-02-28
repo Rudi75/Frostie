@@ -2,6 +2,7 @@
 using System.Collections;
 using Assets.Scripts.Utils;
 using KindsOfDeath = Assets.Scripts.Utils.Enums.KindsOfDeath;
+using Faces = Assets.Scripts.Utils.Enums.Faces;
 using AssemblyCSharp;
 
 public class FrostieStatus : MonoBehaviour {
@@ -31,11 +32,26 @@ public class FrostieStatus : MonoBehaviour {
     }
     public bool isDying { get; set; }
 
+    private Faces face;
+    public Faces IsFaceing
+    {
+        get { return face; }
+        set 
+        {
+            if (face != value && !IsMelted && !isDying && !isPulling)
+            {
+                face = value;
+                frostieAnimationManager.animateFacing(face);
+            }
+        } 
+    }
+
     public void Start()
     {
         frostieAnimationManager = GetComponent<FrostieAnimationManager>();
         frostiePartManager = GetComponent<FrostiePartManager>();
         isFixated = false;
+        IsFaceing = Faces.SIDE;
     }
 
 

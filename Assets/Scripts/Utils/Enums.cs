@@ -27,7 +27,7 @@ namespace Assets.Scripts.Utils
         {
             HORIZONTAL,
             VERTICAL
-        }
+        };
 
         public enum Features
         {
@@ -37,6 +37,13 @@ namespace Assets.Scripts.Utils
             FREEZE_GROUND,
             TAKE_WATER,
             DECOUPLE_MID
+        };
+
+        public enum Faces
+        {
+            FRONT,
+            SIDE,
+            BACK,
         };
     }
 }

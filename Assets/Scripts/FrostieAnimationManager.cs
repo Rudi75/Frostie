@@ -2,6 +2,7 @@
 using System.Collections;
 using Assets.Scripts.Utils;
 using KindsOfDeath = Assets.Scripts.Utils.Enums.KindsOfDeath;
+using Faces = Assets.Scripts.Utils.Enums.Faces;
 using AssemblyCSharp;
 
 public class FrostieAnimationManager : MonoBehaviour {
@@ -43,6 +44,22 @@ public class FrostieAnimationManager : MonoBehaviour {
              break;
      }
  }
+
+    public void animateFacing(Faces face)
+    {
+        switch (face)
+        {
+            case Faces.FRONT:
+                animator.SetTrigger("TurnFront");
+                break;
+            case Faces.SIDE:
+                animator.SetTrigger("TurnSide");
+                break;
+            case Faces.BACK:
+                animator.SetTrigger("TurnBack");
+                break;
+        }
+    }
 
     public void animateJump()
     {
