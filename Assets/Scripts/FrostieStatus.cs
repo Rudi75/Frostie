@@ -83,9 +83,9 @@ public class FrostieStatus : MonoBehaviour {
 
     public bool canPushOrPull()
     {
-        GameObject headClone = frostiePartManager.getHeadClone();
+        //GameObject headClone = frostiePartManager.getHeadClone();
         GameObject middleClone = frostiePartManager.getMiddlePartClone();
         GameObject headAndMiddleClone = frostiePartManager.getHeadAndMiddleClone();
-        return headClone == null && middleClone == null && headAndMiddleClone == null;
+        return /*headClone == null &&*/ middleClone == null && headAndMiddleClone == null && !isMelted;
     }
 }

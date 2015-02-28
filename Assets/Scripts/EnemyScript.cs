@@ -61,6 +61,12 @@ public class EnemyScript : MonoBehaviour
             if (!IsVisibleFromCamera())
             {
              //   Destroy(gameObject);
+                // -- Shooting
+                foreach (WeaponScript weapon in weapons)
+                {
+                    weapon.enabled = false;
+                }
+                hasSpawn = false;
             }
         }
     }
