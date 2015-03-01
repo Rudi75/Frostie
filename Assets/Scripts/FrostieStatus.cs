@@ -3,6 +3,7 @@ using System.Collections;
 using Assets.Scripts.Utils;
 using KindsOfDeath = Assets.Scripts.Utils.Enums.KindsOfDeath;
 using Faces = Assets.Scripts.Utils.Enums.Faces;
+using Mood = Assets.Scripts.Utils.Enums.Mood;
 using AssemblyCSharp;
 
 public class FrostieStatus : MonoBehaviour {
@@ -46,12 +47,31 @@ public class FrostieStatus : MonoBehaviour {
         } 
     }
 
+    private Mood mood;
+    public Mood IsInMood
+    {
+        get { return mood; }
+        set
+        {
+            if (mood != value)
+            {
+                mood = value;
+                var heads = GetComponentsInChildren<MoodScript>(true);
+                foreach (var head in heads)
+                {
+                    head.SetMood(mood);
+                }
+            }
+        }
+    }
+
     public void Start()
     {
         frostieAnimationManager = GetComponent<FrostieAnimationManager>();
         frostiePartManager = GetComponent<FrostiePartManager>();
         isFixated = false;
-        IsFaceing = Faces.SIDE;
+        face = Faces.SIDE;
+        mood = Mood.SAD;
     }
 
 

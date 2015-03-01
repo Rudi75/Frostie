@@ -1,19 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Linq;
+using System.Collections.Generic;
 
 public abstract class TargetActionScript : MonoBehaviour {
 
     public Transform[] Buttons;
 
     abstract protected void performAction();
+    public List<SpeechTriggerScript> speechTriggerToActivate;
+    public List<SpeechTriggerScript> speechTriggerToDeactivate;
 
-    void Awake()
+    public void Start()
     {
         foreach (Transform button in Buttons)
         {
              ButtonScript buttonScript = button.GetComponent<ButtonScript>();
-             buttonScript.setTarget(this);
+             buttonScript.addTarget(this);
         }
     }
 
