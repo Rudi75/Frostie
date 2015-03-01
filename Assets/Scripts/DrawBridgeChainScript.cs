@@ -119,6 +119,9 @@ public class DrawBridgeChainScript : MonoBehaviour
             {
                 drawBridgeChainElementTransform.parent = chainElementsContainer;
                 drawBridgeChainElementTransform.localRotation = Quaternion.AngleAxis(0.0f, new Vector3(0.0f, 0.0f, 1f));
+                Vector3 position = drawBridgeChainElementTransform.localPosition;
+                position.z = -0.1f;
+                drawBridgeChainElementTransform.localPosition = position;
             }
         }
 

@@ -8,7 +8,7 @@ public class SpawnerScript : TargetActionScript
     private GameObject thingy;
 	// Use this for initialization
 	void Start () {
-	
+        base.Start();
 	}
 	
 	// Update is called once per frame
