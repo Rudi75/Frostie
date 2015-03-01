@@ -7,7 +7,6 @@ public class SpeechTriggerScript : TargetActionScript {
     public string speech;
     public bool activated = true;
     public bool triggered = false;
-    public List<SpeechTriggerScript> speechTriggerToActivate;
 
     public void OnTriggerEnter2D(Collider2D other)
     {
@@ -21,7 +20,12 @@ public class SpeechTriggerScript : TargetActionScript {
 
                 foreach (SpeechTriggerScript trigger in speechTriggerToActivate)
                 {
-                    trigger.performAction();
+                    trigger.activateTrigger();
+                }
+
+                foreach (SpeechTriggerScript trigger in speechTriggerToDeactivate)
+                {
+                    trigger.deactivateTrigger();
                 }
             }
         }
@@ -43,6 +47,16 @@ public class SpeechTriggerScript : TargetActionScript {
     }
     protected override void performAction()
     {
+        activateTrigger();
+    }
+
+    public void activateTrigger()
+    {
         activated = true;
+    }
+
+    public void deactivateTrigger()
+    {
+        activated = false;
     }
 }

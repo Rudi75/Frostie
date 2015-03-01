@@ -3617,10 +3617,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Buttons:
   - {fileID: 1696127984}
+  speechTriggerToActivate: []
+  speechTriggerToDeactivate:
+  - {fileID: 240360588}
   speech: Hmm seems like both of these buttons have to be pressed at the same time...
   activated: 0
   triggered: 0
-  speechTriggerToActivate: []
 --- !u!61 &66707267
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6418,7 +6420,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 435694, guid: 8c5056ffdbe56fd4887d08112bf4cf13, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 435694, guid: 8c5056ffdbe56fd4887d08112bf4cf13, type: 2}
       propertyPath: m_LocalScale.x
@@ -8574,7 +8576,7 @@ Transform:
   m_PrefabInternal: {fileID: 1837557694}
   m_GameObject: {fileID: 201775054}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 262.540009, y: 24.8600006, z: -.100000001}
+  m_LocalPosition: {x: 216.970001, y: 21.9599991, z: -.100000001}
   m_LocalScale: {x: .300000012, y: .300000012, z: 1}
   m_Children:
   - {fileID: 2126838143}
@@ -9760,6 +9762,67 @@ Prefab:
   m_RootGameObject: {fileID: 1204383612}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &229088190
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 111096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+  m_PrefabInternal: {fileID: 902673771}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 229088191}
+  - 61: {fileID: 229088193}
+  - 114: {fileID: 229088192}
+  m_Layer: 2
+  m_Name: SpeechTriggerGreenMiddle
+  m_TagString: Untagged
+  m_Icon: {fileID: -1203168336, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &229088191
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+  m_PrefabInternal: {fileID: 902673771}
+  m_GameObject: {fileID: 229088190}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 280.059998, y: 35.5499992, z: 0}
+  m_LocalScale: {x: 1.00120735, y: .815348983, z: .911789}
+  m_Children: []
+  m_Father: {fileID: 654494045}
+  m_RootOrder: 24
+--- !u!114 &229088192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11411096, guid: 3e1a134a56b37d24688b8be6fd91ab25,
+    type: 2}
+  m_PrefabInternal: {fileID: 902673771}
+  m_GameObject: {fileID: 229088190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f412b22535ada464eb011e8ba9f383a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Buttons: []
+  speechTriggerToActivate: []
+  speechTriggerToDeactivate: []
+  speech: 'Still nothing... I think the color of the buttons somehow indicates which
+    part of me has to press it. That remindes me: After I split myself up using [Y]
+    I can choose with which part I want to move by pressing [1] resp. [2] . '
+  activated: 0
+  triggered: 0
+--- !u!61 &229088193
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6111096, guid: 3e1a134a56b37d24688b8be6fd91ab25,
+    type: 2}
+  m_PrefabInternal: {fileID: 902673771}
+  m_GameObject: {fileID: 229088190}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Size: {x: 1.12695742, y: .341151088}
+  m_Center: {x: .0634763986, y: -.329425484}
 --- !u!1 &229676918
 GameObject:
   m_ObjectHideFlags: 0
@@ -9824,6 +9887,67 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: e816868c1b4fc4a4b8baeb7b5564c227, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &230148917
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 111096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+  m_PrefabInternal: {fileID: 1614987501}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 230148919}
+  - 61: {fileID: 230148920}
+  - 114: {fileID: 230148918}
+  m_Layer: 2
+  m_Name: SpeechTriggerBlueMiddle
+  m_TagString: Untagged
+  m_Icon: {fileID: -1203168336, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &230148918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11411096, guid: 3e1a134a56b37d24688b8be6fd91ab25,
+    type: 2}
+  m_PrefabInternal: {fileID: 1614987501}
+  m_GameObject: {fileID: 230148917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f412b22535ada464eb011e8ba9f383a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Buttons: []
+  speechTriggerToActivate: []
+  speechTriggerToDeactivate: []
+  speech: 'Still nothing... I think the color of the buttons somehow indicates which
+    part of me has to press it. That remindes me: After I split myself up using [Y]
+    I can choose with which part I want to move by pressing [1] resp. [2] . '
+  activated: 0
+  triggered: 0
+--- !u!4 &230148919
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+  m_PrefabInternal: {fileID: 1614987501}
+  m_GameObject: {fileID: 230148917}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 245.490005, y: 35.4599991, z: 0}
+  m_LocalScale: {x: 1.16082001, y: .815348983, z: .911789}
+  m_Children: []
+  m_Father: {fileID: 654494045}
+  m_RootOrder: 23
+--- !u!61 &230148920
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6111096, guid: 3e1a134a56b37d24688b8be6fd91ab25,
+    type: 2}
+  m_PrefabInternal: {fileID: 1614987501}
+  m_GameObject: {fileID: 230148917}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Size: {x: 1.12695742, y: .341151088}
+  m_Center: {x: .0634763986, y: -.329425484}
 --- !u!1 &231230583
 GameObject:
   m_ObjectHideFlags: 0
@@ -10533,10 +10657,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Buttons:
   - {fileID: 690561134}
+  speechTriggerToActivate: []
+  speechTriggerToDeactivate:
+  - {fileID: 66707266}
   speech: Hmm seems like both of these buttons have to be pressed at the same time...
   activated: 0
   triggered: 0
-  speechTriggerToActivate: []
 --- !u!61 &240360589
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11619,6 +11745,106 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d7aae4b6a190cd048966e3924627367e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1001 &267753933
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 654494045}
+    m_Modifications:
+    - target: {fileID: 11411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: speechTriggerToActivate.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: speechTriggerToDeactivate.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 245.490005
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 35.4599991
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_RootOrder
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalScale.y
+      value: .815348744
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1.16082036
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalScale.z
+      value: .911788583
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_Size.x
+      value: 1.12695742
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_Center.x
+      value: .0634763986
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_Size.y
+      value: .341151088
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_Center.y
+      value: -.329425484
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: speech
+      value: Hmm Nothing to hear. There has to be another Button!
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: activated
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 111096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_Name
+      value: SpeechTriggerBlueStart
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: speechTriggerToDeactivate.Array.data[0]
+      value: 
+      objectReference: {fileID: 2004099181}
+    - target: {fileID: 11411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: speechTriggerToActivate.Array.data[0]
+      value: 
+      objectReference: {fileID: 229088192}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+  m_RootGameObject: {fileID: 1825116124}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1 &267965383
 GameObject:
   m_ObjectHideFlags: 0
@@ -14912,6 +15138,106 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 52a5e68a099af1d4bbbb3d9ff7cdeb31, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1001 &343187172
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 654494045}
+    m_Modifications:
+    - target: {fileID: 11411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: speechTriggerToActivate.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: speechTriggerToDeactivate.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 280.070007
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 35.5600014
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_RootOrder
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalScale.y
+      value: .815348744
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalScale.x
+      value: .986697316
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalScale.z
+      value: .911788583
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_Size.x
+      value: 1.12695742
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_Center.x
+      value: .0634763986
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_Size.y
+      value: .341151088
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_Center.y
+      value: -.329425484
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: speech
+      value: Hmm Nothing to hear. There has to be another Button!
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: activated
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 111096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_Name
+      value: SpeechTriggerGreenStart
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: speechTriggerToDeactivate.Array.data[0]
+      value: 
+      objectReference: {fileID: 1825116125}
+    - target: {fileID: 11411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: speechTriggerToActivate.Array.data[0]
+      value: 
+      objectReference: {fileID: 230148918}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+  m_RootGameObject: {fileID: 2004099179}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1 &344534330
 GameObject:
   m_ObjectHideFlags: 0
@@ -15923,6 +16249,8 @@ MonoBehaviour:
   Buttons:
   - {fileID: 1696127984}
   - {fileID: 690561134}
+  speechTriggerToActivate: []
+  speechTriggerToDeactivate: []
   Type: 0
   Path: {fileID: 116025395}
   Speed: 3
@@ -27959,7 +28287,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 496540, guid: 02ad297576fa8a744b58a607795c0450, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 02ad297576fa8a744b58a607795c0450, type: 2}
@@ -28652,6 +28980,12 @@ Transform:
   - {fileID: 295161635}
   - {fileID: 240360590}
   - {fileID: 66707265}
+  - {fileID: 1470646174}
+  - {fileID: 2050347710}
+  - {fileID: 1825116126}
+  - {fileID: 2004099180}
+  - {fileID: 230148919}
+  - {fileID: 229088191}
   m_Father: {fileID: 18266509}
   m_RootOrder: 9
 --- !u!1 &654913896
@@ -28678,7 +29012,7 @@ Transform:
   m_PrefabInternal: {fileID: 1486732597}
   m_GameObject: {fileID: 654913896}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 279.380005, y: 34.9199982, z: 0}
+  m_LocalPosition: {x: 280.140015, y: 34.9900017, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1183088966}
@@ -31292,6 +31626,90 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 52a5e68a099af1d4bbbb3d9ff7cdeb31, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1001 &708257074
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 654494045}
+    m_Modifications:
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 280.149994
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 35.5400009
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_RootOrder
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalScale.y
+      value: .815348744
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1.16082036
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalScale.z
+      value: .911788583
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_Size.x
+      value: .979434192
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_Center.x
+      value: -.0102792587
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_Size.y
+      value: .341151059
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_Center.y
+      value: -.329425484
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: speech
+      value: Yei! I heard something! I think the wheel is no longer blocked
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: activated
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 111096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_Name
+      value: SpeechTriggerGreenEnd
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+  m_RootGameObject: {fileID: 1470646171}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1 &714934078
 GameObject:
   m_ObjectHideFlags: 0
@@ -36893,6 +37311,8 @@ MonoBehaviour:
   Buttons:
   - {fileID: 1532884120}
   - {fileID: 2131337500}
+  speechTriggerToActivate: []
+  speechTriggerToDeactivate: []
   Type: 0
   Path: {fileID: 162692614}
   Speed: 4
@@ -37563,10 +37983,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Buttons: []
+  speechTriggerToActivate: []
+  speechTriggerToDeactivate: []
   speech: Oh, such a beautiful landscape!
   activated: 1
   triggered: 0
-  speechTriggerToActivate: []
 --- !u!61 &888032288
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -38242,6 +38663,101 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d93fc70fb38647c47a9e64500cc60745, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1001 &902673771
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 654494045}
+    m_Modifications:
+    - target: {fileID: 11411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: speechTriggerToDeactivate.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 280.059998
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 35.5499992
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_RootOrder
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalScale.y
+      value: .815348983
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1.00120735
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalScale.z
+      value: .911789
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_Size.x
+      value: 1.12695742
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_Center.x
+      value: .0634763986
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_Size.y
+      value: .341151088
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_Center.y
+      value: -.329425484
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: speech
+      value: 'Still nothing... I think the color of the buttons somehow indicates
+        which part of me has to press it. That remindes me: After I split myself up
+        using [Y] I can choose with which part I want to move by pressing [1] resp.
+        [2] . '
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: activated
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 111096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_Name
+      value: SpeechTriggerGreenMiddle
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: speechTriggerToDeactivate.Array.data[0]
+      value: 
+      objectReference: {fileID: 2004099181}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+  m_RootGameObject: {fileID: 229088190}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1001 &904194090
 Prefab:
   m_ObjectHideFlags: 0
@@ -40660,7 +41176,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 449598, guid: 5af5fd3f17631b248a73069629bf5a5c, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5af5fd3f17631b248a73069629bf5a5c, type: 2}
@@ -42456,7 +42972,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 435694, guid: 8c5056ffdbe56fd4887d08112bf4cf13, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 435694, guid: 8c5056ffdbe56fd4887d08112bf4cf13, type: 2}
       propertyPath: m_LocalScale.x
@@ -42595,6 +43111,8 @@ MonoBehaviour:
   Buttons:
   - {fileID: 1696127984}
   - {fileID: 690561134}
+  speechTriggerToActivate: []
+  speechTriggerToDeactivate: []
   Type: 0
   Path: {fileID: 623144233}
   Speed: 3
@@ -43326,6 +43844,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Buttons:
   - {fileID: 5246661}
+  speechTriggerToActivate: []
+  speechTriggerToDeactivate: []
   Type: 0
   Path: {fileID: 1697274256}
   Speed: 2
@@ -48546,7 +49066,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 435694, guid: 8c5056ffdbe56fd4887d08112bf4cf13, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 435694, guid: 8c5056ffdbe56fd4887d08112bf4cf13, type: 2}
       propertyPath: m_LocalScale.x
@@ -60375,12 +60895,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Buttons: []
+  speechTriggerToActivate: []
+  speechTriggerToDeactivate: []
   speech: This gap is very narrow! I can't even go throw there without my head. Seems
     like I have to get rid of my ripped chest as well by pressing [Y]. I can call
     it back by pressing [X].
   activated: 1
   triggered: 0
-  speechTriggerToActivate: []
 --- !u!61 &1460693974
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -60405,6 +60926,90 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1049968069}
   m_RootOrder: 81
+--- !u!1001 &1461514129
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 654494045}
+    m_Modifications:
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 245.490005
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 35.4599991
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_RootOrder
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalScale.y
+      value: .815348744
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1.16082036
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalScale.z
+      value: .911788583
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_Size.x
+      value: 1.12695742
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_Center.x
+      value: .0634763986
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_Size.y
+      value: .341151088
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_Center.y
+      value: -.329425484
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: speech
+      value: Yei! I heard something! I think the wheel is no longer blocked
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: activated
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 111096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_Name
+      value: SpeechTriggerBlueEnd
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+  m_RootGameObject: {fileID: 2050347707}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1 &1462717914
 GameObject:
   m_ObjectHideFlags: 0
@@ -61021,6 +61626,65 @@ Prefab:
   m_RootGameObject: {fileID: 1897836803}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &1470646171
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 111096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+  m_PrefabInternal: {fileID: 708257074}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1470646174}
+  - 61: {fileID: 1470646173}
+  - 114: {fileID: 1470646172}
+  m_Layer: 2
+  m_Name: SpeechTriggerGreenEnd
+  m_TagString: Untagged
+  m_Icon: {fileID: -1203168336, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1470646172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11411096, guid: 3e1a134a56b37d24688b8be6fd91ab25,
+    type: 2}
+  m_PrefabInternal: {fileID: 708257074}
+  m_GameObject: {fileID: 1470646171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f412b22535ada464eb011e8ba9f383a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Buttons: []
+  speechTriggerToActivate: []
+  speechTriggerToDeactivate: []
+  speech: Yei! I heard something! I think the wheel is no longer blocked
+  activated: 0
+  triggered: 0
+--- !u!61 &1470646173
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6111096, guid: 3e1a134a56b37d24688b8be6fd91ab25,
+    type: 2}
+  m_PrefabInternal: {fileID: 708257074}
+  m_GameObject: {fileID: 1470646171}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Size: {x: .979434192, y: .341151059}
+  m_Center: {x: -.0102792587, y: -.329425484}
+--- !u!4 &1470646174
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+  m_PrefabInternal: {fileID: 708257074}
+  m_GameObject: {fileID: 1470646171}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 280.149994, y: 35.5400009, z: 0}
+  m_LocalScale: {x: 1.16082036, y: .815348744, z: .911788583}
+  m_Children: []
+  m_Father: {fileID: 654494045}
+  m_RootOrder: 19
 --- !u!1 &1471348518
 GameObject:
   m_ObjectHideFlags: 0
@@ -61633,11 +62297,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 484630, guid: 997939352e8252f43948e4c81d4daa16, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 279.380005
+      value: 280.140015
       objectReference: {fileID: 0}
     - target: {fileID: 484630, guid: 997939352e8252f43948e4c81d4daa16, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 34.9199982
+      value: 34.9900017
       objectReference: {fileID: 0}
     - target: {fileID: 484630, guid: 997939352e8252f43948e4c81d4daa16, type: 2}
       propertyPath: m_LocalPosition.z
@@ -63532,6 +64196,10 @@ Prefab:
       propertyPath: Buttons.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: speechTriggerToDeactivate.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
       propertyPath: m_LocalPosition.x
       value: 235.929993
@@ -63596,6 +64264,10 @@ Prefab:
       propertyPath: activated
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: speechTriggerToDeactivate.Array.data[0]
+      value: 
+      objectReference: {fileID: 240360588}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
   m_RootGameObject: {fileID: 66707264}
@@ -64272,11 +64944,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Buttons: []
+  speechTriggerToActivate: []
+  speechTriggerToDeactivate: []
   speech: Yeii I can see the sun! But apart from that coming up here was rather pointless...
     what was I thinking?!
   activated: 1
   triggered: 0
-  speechTriggerToActivate: []
 --- !u!61 &1548978715
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -65262,11 +65935,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Buttons: []
+  speechTriggerToActivate: []
+  speechTriggerToDeactivate: []
   speech: I can't jump that far. There has to be some kind of mechanism to get that
     platform moving...
   activated: 1
   triggered: 0
-  speechTriggerToActivate: []
 --- !u!61 &1570477346
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -67339,6 +68013,101 @@ MonoBehaviour:
   FrozenOverlayPrefab: {fileID: 464482, guid: 89a86cf500cc08b4aa890ab99cbeea64, type: 2}
   TimeToDefrost: 12
   AlwaysFrozen: 0
+--- !u!1001 &1614987501
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 654494045}
+    m_Modifications:
+    - target: {fileID: 11411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: speechTriggerToDeactivate.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 245.490005
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 35.4599991
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_RootOrder
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalScale.y
+      value: .815348983
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1.16082001
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalScale.z
+      value: .911789
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_Size.x
+      value: 1.12695742
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_Center.x
+      value: .0634763986
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_Size.y
+      value: .341151088
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_Center.y
+      value: -.329425484
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: speech
+      value: 'Still nothing... I think the color of the buttons somehow indicates
+        which part of me has to press it. That remindes me: After I split myself up
+        using [Y] I can choose with which part I want to move by pressing [1] resp.
+        [2] . '
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: activated
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 111096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_Name
+      value: SpeechTriggerBlueMiddle
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: speechTriggerToDeactivate.Array.data[0]
+      value: 
+      objectReference: {fileID: 2004099181}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+  m_RootGameObject: {fileID: 230148917}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1 &1615695915
 GameObject:
   m_ObjectHideFlags: 0
@@ -67704,7 +68473,7 @@ Transform:
   m_PrefabInternal: {fileID: 2033932612}
   m_GameObject: {fileID: 1628850927}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 246.289993, y: 34.9500008, z: 0}
+  m_LocalPosition: {x: 245.570007, y: 34.9199982, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1162382682}
@@ -68363,6 +69132,8 @@ MonoBehaviour:
   Buttons:
   - {fileID: 1696127984}
   - {fileID: 690561134}
+  speechTriggerToActivate: []
+  speechTriggerToDeactivate: []
   Type: 0
   Path: {fileID: 588674841}
   Speed: 3
@@ -75824,6 +76595,67 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: e170bdce8b67cac4ab29527321ecf947, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1825116124
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 111096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+  m_PrefabInternal: {fileID: 267753933}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1825116126}
+  - 61: {fileID: 1825116127}
+  - 114: {fileID: 1825116125}
+  m_Layer: 2
+  m_Name: SpeechTriggerBlueStart
+  m_TagString: Untagged
+  m_Icon: {fileID: -1203168336, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1825116125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11411096, guid: 3e1a134a56b37d24688b8be6fd91ab25,
+    type: 2}
+  m_PrefabInternal: {fileID: 267753933}
+  m_GameObject: {fileID: 1825116124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f412b22535ada464eb011e8ba9f383a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Buttons: []
+  speechTriggerToActivate:
+  - {fileID: 229088192}
+  speechTriggerToDeactivate:
+  - {fileID: 2004099181}
+  speech: Hmm Nothing to hear. There has to be another Button!
+  activated: 1
+  triggered: 0
+--- !u!4 &1825116126
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+  m_PrefabInternal: {fileID: 267753933}
+  m_GameObject: {fileID: 1825116124}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 245.490005, y: 35.4599991, z: 0}
+  m_LocalScale: {x: 1.16082036, y: .815348744, z: .911788583}
+  m_Children: []
+  m_Father: {fileID: 654494045}
+  m_RootOrder: 21
+--- !u!61 &1825116127
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6111096, guid: 3e1a134a56b37d24688b8be6fd91ab25,
+    type: 2}
+  m_PrefabInternal: {fileID: 267753933}
+  m_GameObject: {fileID: 1825116124}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Size: {x: 1.12695742, y: .341151088}
+  m_Center: {x: .0634763986, y: -.329425484}
 --- !u!1 &1827069618
 GameObject:
   m_ObjectHideFlags: 0
@@ -76045,11 +76877,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 470164, guid: cb7430f3753c3604c8a649c80557df0b, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 262.540009
+      value: 216.970001
       objectReference: {fileID: 0}
     - target: {fileID: 470164, guid: cb7430f3753c3604c8a649c80557df0b, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 24.8600006
+      value: 21.9599991
       objectReference: {fileID: 0}
     - target: {fileID: 470164, guid: cb7430f3753c3604c8a649c80557df0b, type: 2}
       propertyPath: m_LocalPosition.z
@@ -81179,11 +82011,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Buttons: []
+  speechTriggerToActivate: []
+  speechTriggerToDeactivate: []
   speech: I Have to press this button but I can't jump that high. Maybe I can throw
     my head using [Q] to press it. I can call my head back with [W]
   activated: 1
   triggered: 0
-  speechTriggerToActivate: []
 --- !u!61 &1959417606
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -82946,6 +83779,67 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: e816868c1b4fc4a4b8baeb7b5564c227, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &2004099179
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 111096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+  m_PrefabInternal: {fileID: 343187172}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2004099180}
+  - 61: {fileID: 2004099182}
+  - 114: {fileID: 2004099181}
+  m_Layer: 2
+  m_Name: SpeechTriggerGreenStart
+  m_TagString: Untagged
+  m_Icon: {fileID: -1203168336, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2004099180
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+  m_PrefabInternal: {fileID: 343187172}
+  m_GameObject: {fileID: 2004099179}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 280.070007, y: 35.5600014, z: 0}
+  m_LocalScale: {x: .986697316, y: .815348744, z: .911788583}
+  m_Children: []
+  m_Father: {fileID: 654494045}
+  m_RootOrder: 22
+--- !u!114 &2004099181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11411096, guid: 3e1a134a56b37d24688b8be6fd91ab25,
+    type: 2}
+  m_PrefabInternal: {fileID: 343187172}
+  m_GameObject: {fileID: 2004099179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f412b22535ada464eb011e8ba9f383a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Buttons: []
+  speechTriggerToActivate:
+  - {fileID: 230148918}
+  speechTriggerToDeactivate:
+  - {fileID: 1825116125}
+  speech: Hmm Nothing to hear. There has to be another Button!
+  activated: 1
+  triggered: 0
+--- !u!61 &2004099182
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6111096, guid: 3e1a134a56b37d24688b8be6fd91ab25,
+    type: 2}
+  m_PrefabInternal: {fileID: 343187172}
+  m_GameObject: {fileID: 2004099179}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Size: {x: 1.12695742, y: .341151088}
+  m_Center: {x: .0634763986, y: -.329425484}
 --- !u!1 &2004102110
 GameObject:
   m_ObjectHideFlags: 0
@@ -83290,7 +84184,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 449598, guid: 5af5fd3f17631b248a73069629bf5a5c, type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5af5fd3f17631b248a73069629bf5a5c, type: 2}
@@ -84521,11 +85415,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 465794, guid: a2fff26649a09d748a37ef02485f73a0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 246.289993
+      value: 245.570007
       objectReference: {fileID: 0}
     - target: {fileID: 465794, guid: a2fff26649a09d748a37ef02485f73a0, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 34.9500008
+      value: 34.9199982
       objectReference: {fileID: 0}
     - target: {fileID: 465794, guid: a2fff26649a09d748a37ef02485f73a0, type: 2}
       propertyPath: m_LocalPosition.z
@@ -85330,6 +86224,65 @@ Transform:
   - {fileID: 1797016828}
   m_Father: {fileID: 233612902}
   m_RootOrder: 19
+--- !u!1 &2050347707
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 111096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+  m_PrefabInternal: {fileID: 1461514129}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2050347710}
+  - 61: {fileID: 2050347709}
+  - 114: {fileID: 2050347708}
+  m_Layer: 2
+  m_Name: SpeechTriggerBlueEnd
+  m_TagString: Untagged
+  m_Icon: {fileID: -1203168336, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2050347708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11411096, guid: 3e1a134a56b37d24688b8be6fd91ab25,
+    type: 2}
+  m_PrefabInternal: {fileID: 1461514129}
+  m_GameObject: {fileID: 2050347707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f412b22535ada464eb011e8ba9f383a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Buttons: []
+  speechTriggerToActivate: []
+  speechTriggerToDeactivate: []
+  speech: Yei! I heard something! I think the wheel is no longer blocked
+  activated: 0
+  triggered: 0
+--- !u!61 &2050347709
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6111096, guid: 3e1a134a56b37d24688b8be6fd91ab25,
+    type: 2}
+  m_PrefabInternal: {fileID: 1461514129}
+  m_GameObject: {fileID: 2050347707}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Size: {x: 1.12695742, y: .341151088}
+  m_Center: {x: .0634763986, y: -.329425484}
+--- !u!4 &2050347710
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+  m_PrefabInternal: {fileID: 1461514129}
+  m_GameObject: {fileID: 2050347707}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 245.490005, y: 35.4599991, z: 0}
+  m_LocalScale: {x: 1.16082036, y: .815348744, z: .911788583}
+  m_Children: []
+  m_Father: {fileID: 654494045}
+  m_RootOrder: 20
 --- !u!1 &2051913963
 GameObject:
   m_ObjectHideFlags: 0
@@ -88314,6 +89267,10 @@ Prefab:
       propertyPath: speechTriggerToActivate.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: speechTriggerToDeactivate.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
       propertyPath: m_LocalPosition.x
       value: 226.679993
@@ -88382,6 +89339,10 @@ Prefab:
       propertyPath: speechTriggerToActivate.Array.data[0]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 11411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: speechTriggerToDeactivate.Array.data[0]
+      value: 
+      objectReference: {fileID: 66707266}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
   m_RootGameObject: {fileID: 240360587}
