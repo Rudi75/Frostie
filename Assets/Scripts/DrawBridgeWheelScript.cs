@@ -3,7 +3,7 @@ using System.Collections;
 
 public class DrawBridgeWheelScript : TargetActionScript {
 
-    private FrostieScript frostie;
+    private FrostieStatus frostie;
     private bool wheelInUse = false;
 
     private DrawBridgePlanksScript PlanksReference;
@@ -29,12 +29,12 @@ public class DrawBridgeWheelScript : TargetActionScript {
             {
                 if (wheelInUse)
                 {                    
-                    frostie.ReleaseFixedPosition();
+                    frostie.isFixated=false;
                     wheelInUse = false;
                 }
                 else
                 {
-                    frostie.FixatePosition();
+                    frostie.isFixated = true;
                     wheelInUse = true;
                 }
             }
@@ -65,7 +65,7 @@ public class DrawBridgeWheelScript : TargetActionScript {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        frostie = other.gameObject.GetComponentInParent<FrostieScript>();
+        frostie = other.gameObject.GetComponentInParent<FrostieStatus>();
     }
 
     protected override void performAction()
