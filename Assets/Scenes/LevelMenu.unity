@@ -2554,6 +2554,10 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: .600000024
       objectReference: {fileID: 0}
+    - target: {fileID: 11457804, guid: 499f22ffea5a3964293915703442b6de, type: 2}
+      propertyPath: Level
+      value: Level_4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 499f22ffea5a3964293915703442b6de, type: 2}
   m_RootGameObject: {fileID: 615549742}
@@ -5742,7 +5746,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 449c96d072ec4224a8fa348202a8164c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Level: 
+  Level: Level_3
 --- !u!58 &584426754
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5946,7 +5950,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 449c96d072ec4224a8fa348202a8164c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Level: 
+  Level: Level_4
 --- !u!58 &615549744
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -7304,6 +7308,10 @@ Prefab:
     - target: {fileID: 457804, guid: 499f22ffea5a3964293915703442b6de, type: 2}
       propertyPath: m_LocalScale.y
       value: .600000024
+      objectReference: {fileID: 0}
+    - target: {fileID: 11457804, guid: 499f22ffea5a3964293915703442b6de, type: 2}
+      propertyPath: Level
+      value: Level_3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 499f22ffea5a3964293915703442b6de, type: 2}
@@ -9426,7 +9434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 449c96d072ec4224a8fa348202a8164c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Level: Level_4
+  Level: Level_0
 --- !u!58 &1007666568
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -10631,7 +10639,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11457804, guid: 499f22ffea5a3964293915703442b6de, type: 2}
       propertyPath: Level
-      value: Level_4
+      value: Level_0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 499f22ffea5a3964293915703442b6de, type: 2}

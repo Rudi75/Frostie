@@ -45,5 +45,12 @@ namespace Assets.Scripts.Utils
             SIDE,
             BACK,
         };
+
+        public enum Mood
+        { 
+            SAD,
+            HAPPY,
+            ANGRY
+        }
     }
 }

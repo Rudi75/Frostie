@@ -100,6 +100,7 @@ MonoBehaviour:
   DelayLoadLevel: 10
   Speech: Oh no! That's a chunk of my carrot... I have to hurry up before he eats
     it all...
+  MoodeToGetIn: 2
 --- !u!212 &21227272
 SpriteRenderer:
   m_ObjectHideFlags: 1
