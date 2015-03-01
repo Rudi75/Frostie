@@ -12,9 +12,7 @@ public class DrawBridgeWheelScript : TargetActionScript {
 
 	// Use this for initialization
 	void Start () {
-
         base.Start();
-
         PlanksReference = plankTransform.GetComponent<DrawBridgePlanksScript>();
 
         if (PlanksReference != null)
