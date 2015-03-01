@@ -2,6 +2,7 @@
 using System.Collections;
 using AssemblyCSharp;
 using Assets.Scripts.Utils;
+using System.Collections.Generic;
 
 public class ButtonScript : MonoBehaviour {
 
@@ -9,11 +10,12 @@ public class ButtonScript : MonoBehaviour {
 
 	public bool isPressed;
 	public bool withRelease = true;
-    private TargetActionScript target;
+    public List<TargetActionScript> targets;
     private Enums.Edges  buttonEdge;
 
 	void Awake()
 	{
+        targets = new List<TargetActionScript>();
 		animator = GetComponentInParent<Animator>();
 		isPressed = false;
 
@@ -73,12 +75,16 @@ public class ButtonScript : MonoBehaviour {
     {
         isPressed = true;
         animator.SetBool("pressed", isPressed);
-        target.notify(this.transform);
+        foreach (TargetActionScript target in targets)
+        {
+            target.notify(this.transform);
+        }
+        
     }
 
-    public void setTarget(TargetActionScript target)
+    public void addTarget(TargetActionScript target)
     {
-        this.target = target;
+       targets.Add(target);
     }
 
 	void FixedUpdate()
@@ -91,7 +97,10 @@ public class ButtonScript : MonoBehaviour {
 				
 				isPressed = false;
 				animator.SetBool("pressed",isPressed);
-                target.notify(this.transform);
+                foreach (TargetActionScript target in targets)
+                {
+                    target.notify(this.transform);
+                }
 			}
 		}
 	}
