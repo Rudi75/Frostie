@@ -8,12 +8,13 @@ public abstract class TargetActionScript : MonoBehaviour {
 
     abstract protected void performAction();
 
-    void Awake()
+    public void Start()
     {
+        Debug.Log("Start");
         foreach (Transform button in Buttons)
         {
              ButtonScript buttonScript = button.GetComponent<ButtonScript>();
-             buttonScript.setTarget(this);
+             buttonScript.addTarget(this);
         }
     }
 

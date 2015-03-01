@@ -20,6 +20,7 @@ public class FollowPath : TargetActionScript
 	
 	public void Start()
 	{
+        base.Start();
 		if (Path == null)
 		{
 			Debug.LogError("Path cannot be null", gameObject);
