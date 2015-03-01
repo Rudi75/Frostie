@@ -355,6 +355,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 415576}
+  - 114: {fileID: 11438794}
   m_Layer: 0
   m_Name: FrostieHeadOverlay
   m_TagString: Untagged
@@ -1509,6 +1510,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 470126}
+  - 114: {fileID: 11438792}
   m_Layer: 0
   m_Name: FrostieHeadOverlaySide
   m_TagString: Untagged
@@ -2241,7 +2243,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 115594}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .00999999978, y: -.959999979, z: 0}
+  m_LocalPosition: {x: .00999999978, y: -.959999979, z: -.100000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 415576}
@@ -2253,7 +2255,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 115596}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .00999999978, y: -.920000017, z: 0}
+  m_LocalPosition: {x: .00999999978, y: -.920000017, z: -.100000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 415576}
@@ -3320,7 +3322,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 170164}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -31.75, y: -5.86999989, z: -.100000001}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: .300000012, y: .300000012, z: 1}
   m_Children:
   - {fileID: 470150}
@@ -3597,6 +3599,40 @@ MonoBehaviour:
   letGoLeft: 1
   viewDirection: 1
   inputXAxis: 0
+--- !u!114 &11438792
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c5a98e312488bf4aa6bc69c6be96f12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Nose: {fileID: 470140}
+  MouthAngry: {fileID: 470074}
+  MouthHappy: {fileID: 470094}
+  MouthSad: {fileID: 470078}
+  EyeBrowLeft: {fileID: 470114}
+  EyeBrowRight: {fileID: 0}
+--- !u!114 &11438794
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 115576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c5a98e312488bf4aa6bc69c6be96f12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Nose: {fileID: 415584}
+  MouthAngry: {fileID: 415594}
+  MouthHappy: {fileID: 415596}
+  MouthSad: {fileID: 415592}
+  EyeBrowLeft: {fileID: 415588}
+  EyeBrowRight: {fileID: 415590}
 --- !u!114 &11452104
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3646,9 +3682,9 @@ MonoBehaviour:
   decoupleMiddleKey: 121
   basePartKey: 49
   middlePartKey: 50
-  meltingEnabed: 1
+  meltingEnabed: 0
   throwingHeadEnabled: 0
-  shootButtonEnabled: 1
+  shootButtonEnabled: 0
   freezeGroundEnabled: 0
   takeWaterEnabled: 0
   decoupleMiddleEnabled: 0
@@ -3686,7 +3722,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 170068}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a7623f09f27188942b1fae0a052d60bd, type: 3}
   m_Name: 

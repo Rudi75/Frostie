@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Faces = Assets.Scripts.Utils.Enums.Faces;
+using Mood = Assets.Scripts.Utils.Enums.Mood;
 
 public class LevelEndTriggerScript : MonoBehaviour
 {
     public string Level = "LevelMenu";
     public float DelayLoadLevel = 5.0f;
     public string Speech;
+    public Mood MoodeToGetIn;
 
     public void OnTriggerEnter2D(Collider2D other)
     {
@@ -30,6 +32,7 @@ public class LevelEndTriggerScript : MonoBehaviour
             {
                 status.isFixated = true;
                 status.IsFaceing = Faces.FRONT;
+                status.IsInMood = MoodeToGetIn;
             }
 
             StartCoroutine(LevelEnd());
