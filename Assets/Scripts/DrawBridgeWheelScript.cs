@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DrawBridgeWheelScript : MonoBehaviour {
+public class DrawBridgeWheelScript : TargetActionScript {
 
     private FrostieScript frostie;
     private bool wheelInUse = false;
 
     private DrawBridgePlanksScript PlanksReference;
     public Transform plankTransform;
+    private bool wheelEnabled = true;
 
 	// Use this for initialization
 	void Start () {
@@ -20,7 +21,9 @@ public class DrawBridgeWheelScript : MonoBehaviour {
 	// Update is called once per frame
     void Update()
     {
-        if (frostie != null)
+        Animator animator = GetComponentInParent<Animator>();
+
+        if (frostie != null && wheelEnabled)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
@@ -28,31 +31,31 @@ public class DrawBridgeWheelScript : MonoBehaviour {
                 {                    
                     frostie.ReleaseFixedPosition();
                     wheelInUse = false;
-                    Debug.Log("Wheel is no more in use!");
                 }
                 else
                 {
                     frostie.FixatePosition();
                     wheelInUse = true;
-                    Debug.Log("Wheel is now in use!");
                 }
             }
 
             if (wheelInUse)
             {
-                //Debug.Log("Wheel is in use!");
-
                 if (PlanksReference != null)
                 {
-                    Debug.Log("Found the planks!");
-
                     if (Input.GetKeyDown(KeyCode.LeftArrow))
                     {
+                        if (!PlanksReference.IsBridgeLockedInDirection(DrawBridgePlanksScript.Directions.left))
+                            animator.Play("DrawingbridgewheeleAnimationLeft");
+
                         PlanksReference.rotateOnce(DrawBridgePlanksScript.Directions.left);
                     }
 
                     if (Input.GetKeyDown(KeyCode.RightArrow))
                     {
+                        if (!PlanksReference.IsBridgeLockedInDirection(DrawBridgePlanksScript.Directions.right))
+                            animator.Play("DrawbridgeWheelAnimationRight");
+
                         PlanksReference.rotateOnce(DrawBridgePlanksScript.Directions.right);
                     }
                 }
@@ -62,8 +65,11 @@ public class DrawBridgeWheelScript : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Reached the wheel!");
         frostie = other.gameObject.GetComponentInParent<FrostieScript>();
-       
+    }
+
+    protected override void performAction()
+    {
+        wheelEnabled = true;
     }
 }
