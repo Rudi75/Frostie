@@ -375,6 +375,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Buttons: []
+  speechTriggerToActivate: []
+  speechTriggerToDeactivate: []
   plankTransform: {fileID: 498040}
 --- !u!212 &21298050
 SpriteRenderer:
