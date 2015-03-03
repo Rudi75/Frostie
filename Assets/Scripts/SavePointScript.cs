@@ -18,7 +18,6 @@ public class SavePointScript : MonoBehaviour {
     }
 public void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("servas");
         if (other.tag.Contains("Player"))
         {
             activated = true;
