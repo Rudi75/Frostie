@@ -7,21 +7,26 @@ public class SpeechTriggerScript : TargetActionScript {
     public string speech;
     public bool activated = true;
     public bool triggered = false;
-    public List<SpeechTriggerScript> speechTriggerToActivate;
 
-    public void OnTriggerEnter2D(Collider2D other)
+    public void OnTriggerStay2D(Collider2D other)
     {
         if (other.tag.Contains("Player") && activated && !triggered)
         {
+            
             SpeechBubble bubble = other.gameObject.GetComponentInParent<SpeechBubble>();
             if(bubble != null)
             {
-                bubble.setSpeech(speech);
-                bubble.enabled = true;
+                bubble.speak(speech);
+               // bubble.enabled = true;
 
                 foreach (SpeechTriggerScript trigger in speechTriggerToActivate)
                 {
-                    trigger.performAction();
+                    trigger.activateTrigger();
+                }
+
+                foreach (SpeechTriggerScript trigger in speechTriggerToDeactivate)
+                {
+                    trigger.deactivateTrigger();
                 }
             }
         }
@@ -34,7 +39,7 @@ public class SpeechTriggerScript : TargetActionScript {
             SpeechBubble bubble = other.gameObject.GetComponentInParent<SpeechBubble>();
             if (bubble != null)
             {
-                bubble.setSpeech(" ");
+                //bubble.setSpeech(" ");
                 bubble.enabled = false;
                 //Destroy(gameObject);
                 this.triggered = true;
@@ -43,6 +48,16 @@ public class SpeechTriggerScript : TargetActionScript {
     }
     protected override void performAction()
     {
+        activateTrigger();
+    }
+
+    public void activateTrigger()
+    {
         activated = true;
+    }
+
+    public void deactivateTrigger()
+    {
+        activated = false;
     }
 }

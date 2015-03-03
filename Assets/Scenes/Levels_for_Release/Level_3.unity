@@ -4179,6 +4179,9 @@ MonoBehaviour:
   decoupleMiddleKey: 121
   basePartKey: 49
   middlePartKey: 50
+  turnDrawBridgeWheelKey: 101
+  drawBridgeRotateLeftKey: 276
+  drawBridgeRotateRightKey: 275
   meltingEnabed: 0
   throwingHeadEnabled: 0
   shootButtonEnabled: 0
@@ -5721,7 +5724,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 481154, guid: 40302586a0bac8c42b328448853dafd1, type: 2}
       propertyPath: m_RootOrder
-      value: 38
+      value: 37
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 40302586a0bac8c42b328448853dafd1, type: 2}
@@ -6838,7 +6841,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 481154, guid: 40302586a0bac8c42b328448853dafd1, type: 2}
       propertyPath: m_RootOrder
-      value: 35
+      value: 34
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 40302586a0bac8c42b328448853dafd1, type: 2}
@@ -9243,7 +9246,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 481154, guid: 40302586a0bac8c42b328448853dafd1, type: 2}
       propertyPath: m_RootOrder
-      value: 37
+      value: 36
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 40302586a0bac8c42b328448853dafd1, type: 2}
@@ -16331,7 +16334,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 481154, guid: 40302586a0bac8c42b328448853dafd1, type: 2}
       propertyPath: m_RootOrder
-      value: 34
+      value: 33
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 40302586a0bac8c42b328448853dafd1, type: 2}
@@ -17176,7 +17179,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 481154, guid: 40302586a0bac8c42b328448853dafd1, type: 2}
       propertyPath: m_RootOrder
-      value: 36
+      value: 35
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 40302586a0bac8c42b328448853dafd1, type: 2}
@@ -22164,7 +22167,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 481154, guid: 40302586a0bac8c42b328448853dafd1, type: 2}
       propertyPath: m_RootOrder
-      value: 33
+      value: 32
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 40302586a0bac8c42b328448853dafd1, type: 2}

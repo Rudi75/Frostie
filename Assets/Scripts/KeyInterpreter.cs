@@ -18,6 +18,10 @@ public class KeyInterpreter : MonoBehaviour {
     public KeyCode decoupleMiddleKey = KeyCode.Y;
     public KeyCode basePartKey = KeyCode.Alpha1;
     public KeyCode middlePartKey = KeyCode.Alpha2;
+    public KeyCode turnDrawBridgeWheelKey = KeyCode.E;
+    public KeyCode drawBridgeRotateLeftKey = KeyCode.LeftArrow;
+    public KeyCode drawBridgeRotateRightKey = KeyCode.RightArrow;
+
 
     public bool meltingEnabed = false;
     public bool throwingHeadEnabled = false;
@@ -27,6 +31,10 @@ public class KeyInterpreter : MonoBehaviour {
     public bool decoupleMiddleEnabled = false;
 
     public GameObject Player;
+
+    private bool turnDrawBridgeWheelKeyPressed;
+    private bool drawBridgeRotateLeftKeyPressed;
+    private bool drawBridgeRotateRightKeyPressed;
 	
 	// Update is called once per frame
 	void Update () {
@@ -57,7 +65,7 @@ public class KeyInterpreter : MonoBehaviour {
             {
                 //frostiePartManager.getActivePart().GetComponentInChildren<Animator>().SetBool("IsWalking", false);
                 frostiePartManager.getActivePart().GetComponentInChildren<Animator>().SetTrigger("Jump");
-                Debug.Log("sent jump trigger");
+                //Debug.Log("sent jump trigger");
             }
         }
 
@@ -125,5 +133,52 @@ public class KeyInterpreter : MonoBehaviour {
         }
 
         frostieMoveScript.inputXAxis = Input.GetAxis("Horizontal");
+
+        if(Input.GetKeyDown(turnDrawBridgeWheelKey))
+        {
+            turnDrawBridgeWheelKeyPressed = true;
+        }
+
+        if (Input.GetKeyDown(drawBridgeRotateRightKey))
+        {
+            drawBridgeRotateRightKeyPressed = true;
+        }
+
+        if (Input.GetKeyDown(drawBridgeRotateLeftKey))
+        {
+            drawBridgeRotateLeftKeyPressed = true;
+        }
 	}
+
+    public bool isTurnWheelKeyPressed()
+    {
+        if(turnDrawBridgeWheelKeyPressed)
+        {
+            turnDrawBridgeWheelKeyPressed = false;
+            drawBridgeRotateLeftKeyPressed = false;
+            drawBridgeRotateRightKeyPressed = false;
+            return true;
+        }
+        return false;
+    }
+
+    public bool isDrawBridgeRotateLeftKeyPressed()
+    {
+        if (drawBridgeRotateLeftKeyPressed)
+        {
+            drawBridgeRotateLeftKeyPressed = false;
+            return true;
+        }
+        return false;
+    }
+
+    public bool isDrawBridgeRotateRightKeyPressed()
+    {
+        if (drawBridgeRotateRightKeyPressed)
+        {
+            drawBridgeRotateRightKeyPressed = false;
+            return true;
+        }
+        return false;
+    }
 }
