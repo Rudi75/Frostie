@@ -14,12 +14,16 @@ public class DrawBridgePlanksScript : MonoBehaviour {
     public DrawBridgeChainScript ChainScript;
     public int planksCount;
 
-    private float startingAngle = 22.5f;
+    public float startingAngle = 22.5f;
     private float currentAngle = 22.5f;
 
 	// Use this for initialization
     void Start()
     {
+
+        startingAngle = (Convert.ToInt32(openingDirection) * startingAngle);
+        
+
         if (planksCount < 3)
             planksCount = 3;
         else
@@ -51,7 +55,9 @@ public class DrawBridgePlanksScript : MonoBehaviour {
         transform.rotation = Quaternion.AngleAxis(currentAngle, new Vector3(0.0f, 0.0f, 1f));
 
         if (ChainScript != null)
-            ChainScript.InitializeObjects(transform.position, child.position.y, openingDirection, currentAngle,  planksCount);    
+            ChainScript.InitializeObjects(transform.position, child.position.y, openingDirection, startingAngle, planksCount);
+
+        currentAngle = startingAngle;
     }  
 	
 	// Update is called once per frame
