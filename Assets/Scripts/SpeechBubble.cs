@@ -35,9 +35,14 @@ public class SpeechBubble : MonoBehaviour
 		}
 	}
 	
-	public void setSpeech(string speech_)
+	public void speak(string speech_)
     {
-        this.speech = speech_;
+        FrostieStatus status = GetComponent<FrostieStatus>();
+        if (status == null ||(status != null && status.canSpeak()))
+        {
+            this.speech = speech_;
+            this.enabled = true;
+        }
     }
 
 	//Called once per frame, after the update

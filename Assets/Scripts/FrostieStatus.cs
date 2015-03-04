@@ -85,7 +85,7 @@ public class FrostieStatus : MonoBehaviour {
 
     public bool canJump()
     {
-        if (isMelted)
+        if (isMelted || isFixated)
             return false;
         else
             return isGrounded();
@@ -107,5 +107,20 @@ public class FrostieStatus : MonoBehaviour {
         GameObject middleClone = frostiePartManager.getMiddlePartClone();
         GameObject headAndMiddleClone = frostiePartManager.getHeadAndMiddleClone();
         return /*headClone == null &&*/ middleClone == null && headAndMiddleClone == null && !isMelted;
+    }
+
+    public bool canSpeak()
+    {
+        GameObject headClone = frostiePartManager.getHeadClone();
+        GameObject headAndMiddleClone = frostiePartManager.getHeadAndMiddleClone();
+        return headClone == null && headAndMiddleClone == null && !isMelted;
+
+    }
+
+    internal bool canTurnWheel()
+    {
+        GameObject middleClone = frostiePartManager.getMiddlePartClone();
+        GameObject headAndMiddleClone = frostiePartManager.getHeadAndMiddleClone();
+        return middleClone == null && headAndMiddleClone == null && !isMelted;
     }
 }

@@ -8,43 +8,53 @@ public class DrawBridgeWheelScript : TargetActionScript {
 
     private DrawBridgePlanksScript PlanksReference;
     public Transform plankTransform;
-    private bool wheelEnabled = true;
+    public bool wheelEnabled = true;
+
+    public KeyInterpreter keyInterpreter;
+
 
 	// Use this for initialization
 	void Start () {
         base.Start();
         PlanksReference = plankTransform.GetComponent<DrawBridgePlanksScript>();
 
-        if (PlanksReference != null)
-            Debug.Log("Found Planks!");
+        if (PlanksReference == null)
+            Debug.Log("No Planks Found!");
 	}
 	
 	// Update is called once per frame
     void Update()
     {
+        if (keyInterpreter == null)
+            Debug.Log("KeyInterpreter in Wheel setzen!!");
+
+        bool turnWheelPressed = keyInterpreter.isTurnWheelKeyPressed();
         Animator animator = GetComponentInParent<Animator>();
 
-        if (frostie != null && wheelEnabled)
+        if (frostie != null && frostie.canTurnWheel())
         {
-            if (Input.GetKeyDown(KeyCode.E))
+
+            if (turnWheelPressed)
             {
                 if (wheelInUse)
                 {                    
                     frostie.isFixated=false;
+                    
                     wheelInUse = false;
                 }
                 else
                 {
                     frostie.isFixated = true;
+                    
                     wheelInUse = true;
                 }
             }
 
-            if (wheelInUse)
+            if (wheelInUse && wheelEnabled)
             {
                 if (PlanksReference != null)
                 {
-                    if (Input.GetKeyDown(KeyCode.LeftArrow))
+                    if (keyInterpreter.isDrawBridgeRotateLeftKeyPressed())
                     {
                         if (!PlanksReference.IsBridgeLockedInDirection(DrawBridgePlanksScript.Directions.left))
                             animator.Play("DrawingbridgewheeleAnimationLeft");
@@ -52,7 +62,7 @@ public class DrawBridgeWheelScript : TargetActionScript {
                         PlanksReference.rotateOnce(DrawBridgePlanksScript.Directions.left);
                     }
 
-                    if (Input.GetKeyDown(KeyCode.RightArrow))
+                    if (keyInterpreter.isDrawBridgeRotateRightKeyPressed())
                     {
                         if (!PlanksReference.IsBridgeLockedInDirection(DrawBridgePlanksScript.Directions.right))
                             animator.Play("DrawbridgeWheelAnimationRight");
@@ -67,6 +77,11 @@ public class DrawBridgeWheelScript : TargetActionScript {
     void OnTriggerEnter2D(Collider2D other)
     {
         frostie = other.gameObject.GetComponentInParent<FrostieStatus>();
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        frostie = null;
     }
 
     protected override void performAction()

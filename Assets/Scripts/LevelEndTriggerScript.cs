@@ -17,8 +17,8 @@ public class LevelEndTriggerScript : MonoBehaviour
             var bubble = other.gameObject.GetComponentInParent<SpeechBubble>();
             if(bubble != null)
             {
-                bubble.setSpeech(Speech);
-                bubble.enabled = true;
+                bubble.speak(Speech);
+                //bubble.enabled = true;
             }
 
             var animator = GetComponentInChildren<Animator>();

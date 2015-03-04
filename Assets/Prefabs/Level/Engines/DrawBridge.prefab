@@ -167,7 +167,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 158950}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.04999995, y: -6.90999985, z: -.00999999978}
+  m_LocalPosition: {x: 2.06999993, y: -6.9000001, z: -.00999999978}
   m_LocalScale: {x: 1.27828431, y: 1.27828467, z: 1.27828467}
   m_Children:
   - {fileID: 458944}
@@ -193,7 +193,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 158940}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -.100000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 458950}
@@ -229,7 +229,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 158952}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 243.877014, y: 12.9980021, z: 0}
+  m_LocalPosition: {x: 276.140015, y: 5.92999983, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 458938}
@@ -257,7 +257,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 158946}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 21.9500008, y: -8.03999996, z: 0}
+  m_LocalPosition: {x: 16.9300003, y: -9.18999958, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 458940}
@@ -292,7 +292,7 @@ BoxCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 158936}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Size: {x: 2.25, y: .300000012}
@@ -353,6 +353,8 @@ MonoBehaviour:
   speechTriggerToActivate: []
   speechTriggerToDeactivate: []
   plankTransform: {fileID: 458952}
+  wheelEnabled: 1
+  keyInterpreter: {fileID: 0}
 --- !u!114 &11458938
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -377,7 +379,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openingDirection: 1
   ChainScript: {fileID: 11458938}
-  planksCount: 3
+  planksCount: 6
 --- !u!212 &21258936
 SpriteRenderer:
   m_ObjectHideFlags: 1

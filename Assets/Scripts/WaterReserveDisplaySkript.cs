@@ -25,7 +25,7 @@ public class WaterReserveDisplaySkript : MonoBehaviour
             var newImage = Instantiate(ImagePrefab, pos, ImagePrefab.rotation) as Transform;
             pos.y += DistanceBetween;
             newImage.SetParent(transform, false);
-            Debug.Log("image pos is: " + newImage.position.ToString());
+            //Debug.Log("image pos is: " + newImage.position.ToString());
 
             WaterReserveImages.Add(new Pair<bool, Transform>(false, newImage));
         }

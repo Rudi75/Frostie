@@ -5,6 +5,9 @@ using KindsOfDeath = Assets.Scripts.Utils.Enums.KindsOfDeath;
 using AssemblyCSharp;
 
 public class FrostiePartManager : MonoBehaviour {
+
+    public static Vector3 spawnPosition = new Vector3(0,0,0);
+
     private Transform head;
     private Transform middlePart;
     private Transform basePart;
@@ -20,6 +23,11 @@ public class FrostiePartManager : MonoBehaviour {
     public GameObject HeadAndMiddleClonePrefab;
     public GameObject camera;
 
+
+    public void Awake()
+    {
+        transform.position = spawnPosition;
+    }
 
     void Start()
     {
@@ -185,10 +193,12 @@ public class FrostiePartManager : MonoBehaviour {
 
     public void pleaseJustKillYourself()
     {
+        /*
         Destroy(head.gameObject);
         Destroy(middlePart.gameObject);
         Destroy(basePart.gameObject);
-        Destroy(transform.parent.gameObject);
+        Destroy(transform.parent.gameObject);*/
+        Application.LoadLevel(Application.loadedLevel);
     }
 
     public Transform getBasePart()
