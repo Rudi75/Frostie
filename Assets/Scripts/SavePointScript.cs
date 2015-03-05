@@ -23,6 +23,16 @@ public void OnTriggerEnter2D(Collider2D other)
             activated = true;
             fire.gameObject.SetActive(true);
             FrostiePartManager.spawnPosition = transform.position;
+
+            KeyInterpreter interpreter = other.GetComponentInParent<KeyInterpreter>();
+
+            KeyInterpreter.decoupleMiddleEnabledSave = interpreter.decoupleMiddleEnabled;
+            KeyInterpreter.meltingEnabedSave = interpreter.meltingEnabed;
+            KeyInterpreter.throwingHeadEnabledSave = interpreter.throwingHeadEnabled;
+            KeyInterpreter.shootButtonEnabledSave = interpreter.shootButtonEnabled;
+            KeyInterpreter.freezeGroundEnabledSave = interpreter.freezeGroundEnabled;
+            KeyInterpreter.takeWaterEnabledSave = interpreter.takeWaterEnabled;
+
         }
     }
 }
