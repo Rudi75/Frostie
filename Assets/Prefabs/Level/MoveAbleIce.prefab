@@ -13,6 +13,7 @@ GameObject:
   - 60: {fileID: 6096542}
   - 114: {fileID: 11455488}
   - 114: {fileID: 11434110}
+  - 114: {fileID: 11497410}
   m_Layer: 0
   m_Name: MoveAbleIce
   m_TagString: iceCube
@@ -147,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FrozenOverlayPrefab: {fileID: 0}
-  TimeToDefrost: 12
+  TimeToDefrost: -1
   AlwaysFrozen: 1
 --- !u!114 &11455488
 MonoBehaviour:
@@ -173,6 +174,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerLeft: {fileID: 0}
   playerRight: {fileID: 0}
+--- !u!114 &11497410
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd0e7ec1cac22db49bf85125f2d80e6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  squeezed: 0
+  sqeeezerScript: {fileID: 0}
 --- !u!212 &21296542
 SpriteRenderer:
   m_ObjectHideFlags: 1

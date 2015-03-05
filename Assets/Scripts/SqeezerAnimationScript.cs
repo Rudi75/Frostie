@@ -113,12 +113,14 @@ public class SqeezerAnimationScript : MonoBehaviour
             {
                 direction = 1;
                 deltaTime = animationTimeUp;
+                distanceToMovePerFrame = distance / animationTimeUp;
                 isSqeezing = false;
             }
             else
             {
                 direction = -1;
                 deltaTime = animationTimeDown;
+                distanceToMovePerFrame = distance / animationTimeDown;
                 isSqeezing = true;
             }
         }
@@ -154,12 +156,14 @@ public class SqeezerAnimationScript : MonoBehaviour
             {
                 direction = 1;
                 deltaTime = animationTimeUp;
+                distanceToMovePerFrame = distance / animationTimeUp;
                 isSqeezing = false;
             }
             else
             {
                 direction = -1;
                 deltaTime = animationTimeDown;
+                distanceToMovePerFrame = distance / animationTimeDown;
                 isSqeezing = true;
             }
         }
@@ -194,12 +198,14 @@ public class SqeezerAnimationScript : MonoBehaviour
             {
                 direction = -1;
                 deltaTime = animationTimeUp;
+                distanceToMovePerFrame = distance / animationTimeUp;
                 isSqeezing = false;
             }
             else
             {
                 direction = 1;
                 deltaTime = animationTimeDown;
+                distanceToMovePerFrame = distance / animationTimeDown;
                 isSqeezing = true;
             }
         }
@@ -234,12 +240,14 @@ public class SqeezerAnimationScript : MonoBehaviour
             {
                 direction = -1;
                 deltaTime = animationTimeUp;
+                distanceToMovePerFrame = distance / animationTimeUp;
                 isSqeezing = false;
             }
             else
             {
                 direction = 1;
                 deltaTime = animationTimeDown;
+                distanceToMovePerFrame = distance / animationTimeDown;
                 isSqeezing = true;
             }
         }
