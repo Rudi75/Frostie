@@ -130,7 +130,7 @@ public class EnemyMoveScript : MonoBehaviour
             || !hit.collider.gameObject.name.Contains("Squeezer") 
                 && hit.collider.gameObject.tag.Contains("Lethal") 
                 && !hit.collider.isTrigger)*/
-        if (hit.collider == null || (hit.collider.isTrigger && !hit.collider.name.Contains("Thorn")))
+        if (hit.collider == null || (hit.collider.isTrigger && !hit.collider.name.Contains("Thorn")) || hit.collider.name.Contains("Frostie"))
         {
             performTurnAround();
             return true;
