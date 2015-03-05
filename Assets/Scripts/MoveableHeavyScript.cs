@@ -36,28 +36,35 @@ public class MoveableHeavyScript : MoveableScript
     private FreezableGround getFreezableGround()
     {
         FreezableGround freezableGround = null;
-        List<GameObject> hits = CollisionHelper.getCollidingObject(bottomCollider, Enums.Edges.BOTTOM, 0.1f);
-        foreach (GameObject hit in hits)
+        try
         {
-            if (hit != null)
-            {
-                var temp = hit.GetComponent<FreezableGround>();
-                if (temp != null)
-                    freezableGround = temp;
-            }
-        }
-
-        if (freezableGround == null)
-        {
+            List<GameObject> hits = CollisionHelper.getCollidingObject(bottomCollider, Enums.Edges.BOTTOM, 0.1f);
             foreach (GameObject hit in hits)
             {
                 if (hit != null)
                 {
-                    var temp = hit.transform.parent.GetComponent<FreezableGround>();
+                    var temp = hit.GetComponent<FreezableGround>();
                     if (temp != null)
                         freezableGround = temp;
                 }
             }
+
+            if (freezableGround == null)
+            {
+                foreach (GameObject hit in hits)
+                {
+                    if (hit != null)
+                    {
+                        var temp = hit.transform.parent.GetComponent<FreezableGround>();
+                        if (temp != null)
+                            freezableGround = temp;
+                    }
+                }
+            }
+        }
+        catch(System.NullReferenceException)
+        {
+            freezableGround = null;
         }
         return freezableGround;
     }

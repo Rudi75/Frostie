@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
+
 public class ParallaxScrollingScript : MonoBehaviour
 {
   public Vector2 speed = new Vector2(1, 1);
@@ -13,6 +14,8 @@ public class ParallaxScrollingScript : MonoBehaviour
 
   public bool isLooping = false;
   private List<Transform> children;
+
+  private float loopX;
 
 
   bool isAChildVisibleFrom(Transform parent)
@@ -57,6 +60,8 @@ public class ParallaxScrollingScript : MonoBehaviour
       }
 
       children = children.OrderBy( t => t.position.x ).ToList();
+
+      loopX = Mathf.Abs(children.ElementAtOrDefault(1).transform.position.x - children.ElementAtOrDefault(0).transform.position.x);
     }
 	}
 	
@@ -91,7 +96,7 @@ public class ParallaxScrollingScript : MonoBehaviour
     if(isLooping)
     {
       bool isVisible = false;
-
+      /*
       if (children.ElementAtOrDefault(1).renderer != null)
       {
         isVisible = children.ElementAtOrDefault(1).renderer.IsVisibleFrom(Camera.main);
@@ -100,26 +105,48 @@ public class ParallaxScrollingScript : MonoBehaviour
       {
         isVisible = isAChildVisibleFrom(children.ElementAtOrDefault(1));
       }
+      */
 
+      float diff = Camera.main.transform.position.x - children.ElementAtOrDefault(1).transform.position.x;
+
+      if (Mathf.Abs(diff) <= loopX)
+      {
+        isVisible = true;
+      }
 
       if (!isVisible)
       {
         Transform child = children.FirstOrDefault();
         Vector3 pos = child.transform.position;
-
+        /*
         if (oldCamX - x > 0)
         {
           child = children.LastOrDefault();
           pos = child.transform.position;
 
-          pos.x -= (70.16f * 3.0f);
+          pos.x -= (loopX * 3.0f);
         }
         else if (oldCamX - x < 0)
         {
           child = children.FirstOrDefault();
           pos = child.transform.position;
 
-          pos.x += 70.16f * 3;
+          pos.x += loopX * 3;
+        }
+        */
+        if (diff > 0)
+        {
+          child = children.FirstOrDefault();
+          pos = child.transform.position;
+
+          pos.x += (loopX * 3.0f);
+        }
+        else if (diff < 0)
+        {
+          child = children.LastOrDefault();
+          pos = child.transform.position;
+
+          pos.x -= loopX * 3;
         }
 
         child.transform.position = pos;
