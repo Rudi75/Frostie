@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 422776}
   - 114: {fileID: 11422754}
   m_Layer: 0
-  m_Name: BtnStartAction
+  m_Name: BtnResumeAction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,7 +78,7 @@ GameObject:
   - 114: {fileID: 11422762}
   - 114: {fileID: 11422764}
   m_Layer: 5
-  m_Name: ButtonStart
+  m_Name: ButtonResume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -158,10 +158,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 122762}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 449c96d072ec4224a8fa348202a8164c, type: 3}
+  m_Script: {fileID: 11500000, guid: 97034c4c2f720a6469d219c946163ca7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Level: 
 --- !u!114 &11422756
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -280,8 +279,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 112890}
-        m_MethodName: 
+      - m_Target: {fileID: 11422754}
+        m_MethodName: OnAction
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -614,23 +613,6 @@ RectTransform:
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 0, y: -60}
   m_SizeDelta: {x: 30, y: 30}
-  m_Pivot: {x: .5, y: .5}
---- !u!224 &22481868
-RectTransform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 181868}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .333333343, y: .333333343, z: 1}
-  m_Children: []
-  m_Father: {fileID: 22412890}
-  m_RootOrder: 1
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: .5, y: .5}
 --- !u!1001 &100100000
 Prefab:
