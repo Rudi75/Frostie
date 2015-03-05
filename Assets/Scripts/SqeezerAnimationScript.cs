@@ -16,6 +16,7 @@ public class SqeezerAnimationScript : MonoBehaviour
     private float distance;
 
     public bool isSqeezing = true;
+    public bool lethal = true;
 
     public float direction = -1;
     public float distanceToMovePerFrame = 1;

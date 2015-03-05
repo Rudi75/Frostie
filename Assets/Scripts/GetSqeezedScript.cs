@@ -47,7 +47,7 @@ public class GetSqeezedScript : MonoBehaviour {
                 sqeeezerScript = top.GetComponentInParent<SqeezerAnimationScript>();
                 if (sqeeezerScript == null)
                     sqeeezerScript = bottom.GetComponentInParent<SqeezerAnimationScript>();
-                if (sqeeezerScript != null && sqeeezerScript.isSqeezing)
+                if (sqeeezerScript != null && sqeeezerScript.isSqeezing && sqeeezerScript.lethal)
                 {
                     isYDirection = true;
                     mySize = Mathf.Abs(top.transform.position.y - bottom.transform.position.y);
@@ -78,7 +78,7 @@ public class GetSqeezedScript : MonoBehaviour {
                     sqeeezerScript = left.GetComponentInParent<SqeezerAnimationScript>();
                     if (sqeeezerScript == null)
                         sqeeezerScript = right.GetComponentInParent<SqeezerAnimationScript>();
-                    if (sqeeezerScript != null && sqeeezerScript.isSqeezing)
+                    if (sqeeezerScript != null && sqeeezerScript.isSqeezing && sqeeezerScript.lethal)
                     {
                         isYDirection = false;
                         mySize = Mathf.Abs(right.transform.position.x - left.transform.position.x);
