@@ -19,7 +19,6 @@ public class CameraActivateFollowPathScript : TargetActionScript
         base.Start();
         var camera = FindObjectOfType<Camera>();
         controller = camera.gameObject.GetComponent<CameraFollowPathScript>();
-        Debug.Log(controller);
 	}
 
     protected override void performAction()

@@ -3704,11 +3704,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d02c474546250a498af0281d5afaa67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Jump: {fileID: 0}
+  Jump: {fileID: 8300000, guid: 31c63c6f08e180a46af0a0cb337c585e, type: 3}
   Walk: {fileID: 8300000, guid: e80da2edb36106e4ebe6a355de9c0ca4, type: 3}
-  Melting: {fileID: 0}
-  Death: {fileID: 0}
-  DeathInFire: {fileID: 8300000, guid: beba747e3d99338439e5aea875e6336d, type: 3}
+  Melting: {fileID: 8300000, guid: 9841f3b403d933449bd00a0df3d1d8b5, type: 3}
+  FreezeGround: {fileID: 8300000, guid: 0177492ad04c87a42a9782379ed9d819, type: 3}
+  Death: {fileID: 8300000, guid: 3851bcce56de95948bb822f82f012b6a, type: 3}
+  DeathInFire: {fileID: 8300000, guid: 0721f491a5001464d92eb17b4983a652, type: 3}
 --- !u!114 &11452104
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3761,9 +3762,9 @@ MonoBehaviour:
   turnDrawBridgeWheelKey: 101
   drawBridgeRotateLeftKey: 276
   drawBridgeRotateRightKey: 275
-  meltingEnabed: 1
+  meltingEnabed: 0
   throwingHeadEnabled: 0
-  shootButtonEnabled: 1
+  shootButtonEnabled: 0
   freezeGroundEnabled: 0
   takeWaterEnabled: 0
   decoupleMiddleEnabled: 0

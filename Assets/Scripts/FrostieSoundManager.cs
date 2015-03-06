@@ -8,6 +8,7 @@ public class FrostieSoundManager : MonoBehaviour
     private bool isWalking;
 
     public AudioClip Melting;
+    public AudioClip FreezeGround;
 
     public AudioClip Death;
     public AudioClip DeathInFire;
@@ -54,6 +55,18 @@ public class FrostieSoundManager : MonoBehaviour
                 audio.Stop();
         }
         audio.PlayOneShot(Melting);
+    }
+
+    public void playFreezingGroundSound()
+    {
+        if (audio.isPlaying)
+        {
+            if (audio.clip.name.Equals(FreezeGround.name))
+                return;
+            else
+                audio.Stop();
+        }
+        audio.PlayOneShot(FreezeGround);
     }
 
     public void playDeathSound()

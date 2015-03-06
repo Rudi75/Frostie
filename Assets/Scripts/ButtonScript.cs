@@ -73,13 +73,16 @@ public class ButtonScript : MonoBehaviour {
 	}
     private void press()
     {
-        isPressed = true;
-        animator.SetBool("pressed", isPressed);
-        foreach (TargetActionScript target in targets)
+        if (!isPressed)
         {
-            target.notify(this.transform);
+            isPressed = true;
+            animator.SetBool("pressed", isPressed);
+            audio.Play();
+            foreach (TargetActionScript target in targets)
+            {
+                target.notify(this.transform);
+            }
         }
-        
     }
 
     public void addTarget(TargetActionScript target)

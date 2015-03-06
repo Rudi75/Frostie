@@ -68,6 +68,7 @@ public class FrostieAnimationManager : MonoBehaviour {
     public void animateJump()
     {
         animator.SetTrigger("Jump");
+        //frostieSound.playJumpSound();
     }
 
 }

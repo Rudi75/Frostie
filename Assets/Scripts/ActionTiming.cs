@@ -8,6 +8,7 @@ public class ActionTiming : MonoBehaviour
 {
     private Animator animator;
 
+    public bool PlaySoundOnVisible = false;
     public float TimeOfInvisibility;
     public float TimeOfVisibility;
 
@@ -30,6 +31,11 @@ public class ActionTiming : MonoBehaviour
             actionState = actionState ? false: true;
             deltaTime = actionState ? TimeOfVisibility : TimeOfInvisibility;
             animator.SetBool("Action", actionState);
+            if (PlaySoundOnVisible)
+            { 
+                var audioSrc = GetComponent<AudioSource>();
+                audioSrc.enabled = actionState;
+            }
         }
 	}
 }

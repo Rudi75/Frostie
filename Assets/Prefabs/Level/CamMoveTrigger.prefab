@@ -16,21 +16,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &159498
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 459498}
-  m_Layer: 0
-  m_Name: CP0
-  m_TagString: Untagged
-  m_Icon: {fileID: 1319202362, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &159500
 GameObject:
   m_ObjectHideFlags: 1
@@ -73,21 +58,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 459498}
   - {fileID: 459500}
   m_Father: {fileID: 459502}
-  m_RootOrder: 0
---- !u!4 &459498
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 159498}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 459496}
   m_RootOrder: 0
 --- !u!4 &459500
 Transform:
@@ -96,11 +68,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 159500}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2, z: 0}
+  m_LocalPosition: {x: 0, y: -13.8999996, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 459496}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!4 &459502
 Transform:
   m_ObjectHideFlags: 1
@@ -137,7 +109,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Points:
-  - {fileID: 459498}
   - {fileID: 459500}
 --- !u!114 &11459502
 MonoBehaviour:
@@ -150,13 +121,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf706f7205d10d34f82127bc310d5415, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Buttons: []
+  Buttons:
+  - {fileID: 0}
   speechTriggerToActivate: []
   speechTriggerToDeactivate: []
   Type: 1
   Path: {fileID: 11459500}
   Speed: 1
-  Presicion: .300000012
+  Presicion: .5
+  consumed: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

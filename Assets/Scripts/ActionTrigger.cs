@@ -5,6 +5,7 @@ using System.Linq;
 
 public class ActionTrigger : MonoBehaviour 
 {
+    public bool PlaySoundOnTriggered = false;
     private Animator animator;
 	// Use this for initialization
 	void Start () 
@@ -23,6 +24,11 @@ public class ActionTrigger : MonoBehaviour
         if (frostie != null)
         {
             animator.SetBool("Action", true);
+            if (PlaySoundOnTriggered)
+            {
+                var audioSrc = GetComponent<AudioSource>();
+                audioSrc.enabled = true;
+            }
         }
     }
 

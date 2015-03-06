@@ -1,0 +1,328 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!74 &7400000
+AnimationClip:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: LavaAnimation
+  serializedVersion: 4
+  m_AnimationType: 2
+  m_Compressed: 0
+  m_UseHighQualityCurve: 1
+  m_RotationCurves: []
+  m_CompressedRotationCurves: []
+  m_PositionCurves: []
+  m_ScaleCurves: []
+  m_FloatCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 1
+        inSlope: -.147058845
+        outSlope: -.147058845
+        tangentMode: 10
+      - time: 1
+        value: .852941155
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 2
+        value: 1
+        inSlope: .0441176519
+        outSlope: .0441176519
+        tangentMode: 10
+      - time: 3.5
+        value: .911764681
+        inSlope: .0147058871
+        outSlope: .0147058871
+        tangentMode: 10
+      - time: 4.5
+        value: 1
+        inSlope: -.0318627283
+        outSlope: -.0318627283
+        tangentMode: 10
+      - time: 6
+        value: .772058845
+        inSlope: .0379901901
+        outSlope: .0379901901
+        tangentMode: 10
+      - time: 7
+        value: 1
+        inSlope: .227941155
+        outSlope: .227941155
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_Color.r
+    path: 
+    classID: 212
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 1
+        inSlope: -.264965415
+        outSlope: -.264965415
+        tangentMode: 10
+      - time: 1
+        value: .735034585
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 2
+        value: 1
+        inSlope: .0867960304
+        outSlope: .0867960304
+        tangentMode: 10
+      - time: 3.5
+        value: .862939954
+        inSlope: .0228433423
+        outSlope: .0228433423
+        tangentMode: 10
+      - time: 4.5
+        value: 1
+        inSlope: -.0566762835
+        outSlope: -.0566762835
+        tangentMode: 10
+      - time: 6
+        value: .624381065
+        inSlope: .0626031607
+        outSlope: .0626031607
+        tangentMode: 10
+      - time: 7
+        value: 1
+        inSlope: .375618935
+        outSlope: .375618935
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_Color.g
+    path: 
+    classID: 212
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 1
+        inSlope: -.441825271
+        outSlope: -.441825271
+        tangentMode: 10
+      - time: 1
+        value: .558174729
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 2
+        value: 1
+        inSlope: .0842344314
+        outSlope: .0842344314
+        tangentMode: 10
+      - time: 3.5
+        value: .589965403
+        inSlope: .0683390945
+        outSlope: .0683390945
+        tangentMode: 10
+      - time: 4.5
+        value: 1
+        inSlope: .0419910699
+        outSlope: .0419910699
+        tangentMode: 10
+      - time: 6
+        value: .510921299
+        inSlope: .0815131217
+        outSlope: .0815131217
+        tangentMode: 10
+      - time: 7
+        value: 1
+        inSlope: .489078701
+        outSlope: .489078701
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_Color.b
+    path: 
+    classID: 212
+    script: {fileID: 0}
+  m_PPtrCurves: []
+  m_SampleRate: 60
+  m_WrapMode: 0
+  m_Bounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  m_ClipBindingConstant:
+    genericBindings:
+    - path: 0
+      attribute: 2526845255
+      script: {fileID: 0}
+      classID: 212
+      customType: 0
+      isPPtrCurve: 0
+    - path: 0
+      attribute: 4215373228
+      script: {fileID: 0}
+      classID: 212
+      customType: 0
+      isPPtrCurve: 0
+    - path: 0
+      attribute: 2334886179
+      script: {fileID: 0}
+      classID: 212
+      customType: 0
+      isPPtrCurve: 0
+    pptrCurveMapping: []
+  m_AnimationClipSettings:
+    serializedVersion: 2
+    m_StartTime: 0
+    m_StopTime: 7
+    m_OrientationOffsetY: 0
+    m_Level: 0
+    m_CycleOffset: 0
+    m_LoopTime: 1
+    m_LoopBlend: 0
+    m_LoopBlendOrientation: 0
+    m_LoopBlendPositionY: 0
+    m_LoopBlendPositionXZ: 0
+    m_KeepOriginalOrientation: 0
+    m_KeepOriginalPositionY: 1
+    m_KeepOriginalPositionXZ: 0
+    m_HeightFromFeet: 0
+    m_Mirror: 0
+  m_EditorCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 1
+        inSlope: -.147058845
+        outSlope: -.147058845
+        tangentMode: 10
+      - time: 1
+        value: .852941155
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 2
+        value: 1
+        inSlope: .0441176519
+        outSlope: .0441176519
+        tangentMode: 10
+      - time: 3.5
+        value: .911764681
+        inSlope: .0147058871
+        outSlope: .0147058871
+        tangentMode: 10
+      - time: 4.5
+        value: 1
+        inSlope: -.0318627283
+        outSlope: -.0318627283
+        tangentMode: 10
+      - time: 6
+        value: .772058845
+        inSlope: .0379901901
+        outSlope: .0379901901
+        tangentMode: 10
+      - time: 7
+        value: 1
+        inSlope: .227941155
+        outSlope: .227941155
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_Color.r
+    path: 
+    classID: 212
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 1
+        inSlope: -.264965415
+        outSlope: -.264965415
+        tangentMode: 10
+      - time: 1
+        value: .735034585
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 2
+        value: 1
+        inSlope: .0867960304
+        outSlope: .0867960304
+        tangentMode: 10
+      - time: 3.5
+        value: .862939954
+        inSlope: .0228433423
+        outSlope: .0228433423
+        tangentMode: 10
+      - time: 4.5
+        value: 1
+        inSlope: -.0566762835
+        outSlope: -.0566762835
+        tangentMode: 10
+      - time: 6
+        value: .624381065
+        inSlope: .0626031607
+        outSlope: .0626031607
+        tangentMode: 10
+      - time: 7
+        value: 1
+        inSlope: .375618935
+        outSlope: .375618935
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_Color.g
+    path: 
+    classID: 212
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 1
+        inSlope: -.441825271
+        outSlope: -.441825271
+        tangentMode: 10
+      - time: 1
+        value: .558174729
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 2
+        value: 1
+        inSlope: .0842344314
+        outSlope: .0842344314
+        tangentMode: 10
+      - time: 3.5
+        value: .589965403
+        inSlope: .0683390945
+        outSlope: .0683390945
+        tangentMode: 10
+      - time: 4.5
+        value: 1
+        inSlope: .0419910699
+        outSlope: .0419910699
+        tangentMode: 10
+      - time: 6
+        value: .510921299
+        inSlope: .0815131217
+        outSlope: .0815131217
+        tangentMode: 10
+      - time: 7
+        value: 1
+        inSlope: .489078701
+        outSlope: .489078701
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_Color.b
+    path: 
+    classID: 212
+    script: {fileID: 0}
+  m_EulerEditorCurves: []
+  m_Events: []
