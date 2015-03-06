@@ -52,5 +52,11 @@ namespace Assets.Scripts.Utils
             HAPPY,
             ANGRY
         }
+
+        public enum FollowType
+        {
+            MoveTowards,
+            Lerp
+        }
     }
 }

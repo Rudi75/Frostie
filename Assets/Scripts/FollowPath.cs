@@ -1,19 +1,14 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using System.Collections;
+using FollowType = Assets.Scripts.Utils.Enums.FollowType;
 
 public class FollowPath : TargetActionScript
 {
-	public enum FollowType
-	{
-		MoveTowards,
-		Lerp
-	}
-	
 	public FollowType Type = FollowType.MoveTowards;
 	public PathDefinition Path;
 	public float Speed = 1;
-	public float MaxDistanceToGoal = .1f;
+	public float MaxDistanceToGoal = 0.1f;
 	
 	private IEnumerator<Transform> currentPoint;
     public bool started = false;
