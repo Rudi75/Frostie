@@ -9,6 +9,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 435992}
   - 61: {fileID: 6135992}
+  - 82: {fileID: 8282980}
+  - 114: {fileID: 11482980}
   m_Layer: 0
   m_Name: Spikes
   m_TagString: Lethal
@@ -26,7 +28,6 @@ GameObject:
   - 4: {fileID: 496604}
   - 212: {fileID: 21296604}
   - 61: {fileID: 6196604}
-  - 114: {fileID: 11496604}
   m_Layer: 0
   m_Name: SpikesBack
   m_TagString: Lethal
@@ -44,7 +45,6 @@ GameObject:
   - 4: {fileID: 496606}
   - 212: {fileID: 21296606}
   - 61: {fileID: 6196606}
-  - 114: {fileID: 11496606}
   m_Layer: 0
   m_Name: SpikesFront
   m_TagString: Lethal
@@ -123,30 +123,75 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_Size: {x: 2.25, y: 1.60000002}
   m_Center: {x: 0, y: -.330000013}
---- !u!114 &11496604
+--- !u!82 &8282980
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 135992}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: f96fb90d3ecd20b4d9e54151b250fbb8, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+--- !u!114 &11482980
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 196604}
+  m_GameObject: {fileID: 135992}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e761c5e8a6010a478189f446ce1cd2b, type: 3}
+  m_Script: {fileID: 11500000, guid: ecbe0b49a24bff045a8d962e8a1acc98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 1
---- !u!114 &11496606
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 196606}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e761c5e8a6010a478189f446ce1cd2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Damage: 1
 --- !u!212 &21296604
 SpriteRenderer:
   m_ObjectHideFlags: 1

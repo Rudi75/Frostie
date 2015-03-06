@@ -19,7 +19,7 @@ public class ResumeScript : MonoBehaviour
     public void OnAction()
     {
         Time.timeScale = 1;
-
-        transform.parent.parent.gameObject.SetActive(false);
+        var pauseScript = GetComponentInParent<PauseScript>();
+        pauseScript.toggleEnabled();
     }
 }

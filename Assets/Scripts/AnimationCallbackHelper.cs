@@ -34,6 +34,10 @@ public class AnimationCallbackHelper : MonoBehaviour
         if (frostieMoveScript != null)
         {
             frostieMoveScript.Jump();
+            FrostieSoundManager soundManager = transform.GetComponentInChildren<FrostieSoundManager>();
+            if (soundManager == null) soundManager = transform.parent.GetComponentInChildren<FrostieSoundManager>();
+            if (soundManager == null) soundManager = transform.parent.parent.GetComponentInChildren<FrostieSoundManager>();
+            if (soundManager != null) soundManager.playJumpSound();
         }
     }
 }

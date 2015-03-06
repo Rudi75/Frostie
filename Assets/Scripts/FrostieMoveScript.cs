@@ -130,7 +130,11 @@ public class FrostieMoveScript : MonoBehaviour {
             }
         }
 
-        
+        FrostieSoundManager frostieSoundManager = GetComponent<FrostieSoundManager>();
+        if (frostieSoundManager != null)
+        {
+            frostieSoundManager.playWalkingSound(movement);
+        }
     }
 
     public void Jump()

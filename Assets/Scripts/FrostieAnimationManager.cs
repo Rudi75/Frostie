@@ -9,13 +9,14 @@ public class FrostieAnimationManager : MonoBehaviour {
 
     private Animator animator;
     private FrostieStatus frostieStatus;
-
+    private FrostieSoundManager frostieSound;
     
 
     public void Awake()
     {
         animator = GetComponentInParent<Animator>();
         frostieStatus = GetComponent<FrostieStatus>();
+        frostieSound = GetComponent<FrostieSoundManager>();
         frostieStatus.IsMelted = false;
     }
 
@@ -28,6 +29,7 @@ public class FrostieAnimationManager : MonoBehaviour {
     public void animateMelting(bool isMelted)
     {
         animator.SetBool("isMelted", isMelted);
+        frostieSound.playMeltingSound();
     }
 
    public void animateDeath(KindsOfDeath deathKind)
@@ -36,9 +38,11 @@ public class FrostieAnimationManager : MonoBehaviour {
      {
          case KindsOfDeath.Normal:
              animator.SetTrigger("Death");
+             frostieSound.playDeathSound();
              break;
          case KindsOfDeath.InFire:
              animator.SetTrigger("DeathInFire");
+             frostieSound.playDeathInFireSound();
              break;
          case KindsOfDeath.Squeezed:
              break;

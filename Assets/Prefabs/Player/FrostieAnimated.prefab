@@ -1809,6 +1809,8 @@ GameObject:
   - 114: {fileID: 11470064}
   - 114: {fileID: 11452104}
   - 114: {fileID: 11418596}
+  - 114: {fileID: 11451984}
+  - 82: {fileID: 8251984}
   m_Layer: 0
   m_Name: FrostieSide
   m_TagString: Player
@@ -3567,6 +3569,64 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_Size: {x: 8.94999981, y: .670000017}
   m_Center: {x: 0, y: 2.52999997}
+--- !u!82 &8251984
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170162}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!95 &9570056
 Animator:
   serializedVersion: 3
@@ -3633,6 +3693,22 @@ MonoBehaviour:
   MouthSad: {fileID: 415592}
   EyeBrowLeft: {fileID: 415588}
   EyeBrowRight: {fileID: 415590}
+--- !u!114 &11451984
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d02c474546250a498af0281d5afaa67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Jump: {fileID: 0}
+  Walk: {fileID: 8300000, guid: e80da2edb36106e4ebe6a355de9c0ca4, type: 3}
+  Melting: {fileID: 0}
+  Death: {fileID: 0}
+  DeathInFire: {fileID: 8300000, guid: beba747e3d99338439e5aea875e6336d, type: 3}
 --- !u!114 &11452104
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3682,9 +3758,12 @@ MonoBehaviour:
   decoupleMiddleKey: 121
   basePartKey: 49
   middlePartKey: 50
-  meltingEnabed: 0
+  turnDrawBridgeWheelKey: 101
+  drawBridgeRotateLeftKey: 276
+  drawBridgeRotateRightKey: 275
+  meltingEnabed: 1
   throwingHeadEnabled: 0
-  shootButtonEnabled: 0
+  shootButtonEnabled: 1
   freezeGroundEnabled: 0
   takeWaterEnabled: 0
   decoupleMiddleEnabled: 0

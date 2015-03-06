@@ -5,13 +5,12 @@ using Assets.Scripts.Utils;
 
 public class SqeezerAnimationScript : MonoBehaviour
 {
-
-
     private Transform top;
     private Transform bottom;
     private Transform arm;
     private Transform squeezer;
     private Vector3 startPosition;
+    private float deltaTimeSound = 0;
     private float deltaTime = 0;
     private float distance;
 
@@ -24,6 +23,8 @@ public class SqeezerAnimationScript : MonoBehaviour
     public float animationTimeDown = 1;
     public float animationTimeUp = 1;
     public float animationTimePause = 1;
+
+    public float startPlayAudioOnDown = 1;
 
     private Enums.Edges sqeezerTop;
 	// Use this for initialization
@@ -73,6 +74,7 @@ public class SqeezerAnimationScript : MonoBehaviour
         
         distanceToMovePerFrame = distance / animationTimeDown;
         deltaTime = animationTimeDown;
+        deltaTimeSound = startPlayAudioOnDown;
 	}
 
 	
@@ -80,6 +82,7 @@ public class SqeezerAnimationScript : MonoBehaviour
 	void FixedUpdate () 
     {
         deltaTime -= Time.deltaTime;
+        deltaTimeSound -= Time.deltaTime;
         switch (sqeezerTop)
         {
             case Enums.Edges.LEFT:
@@ -107,6 +110,11 @@ public class SqeezerAnimationScript : MonoBehaviour
 
     void animateTopDown()
     {
+        if (deltaTimeSound <= 0 && direction == -1)
+        {
+            audio.Play();
+        }
+
         if (deltaTime <= 0 && direction == 0)
         {
             if (squeezer.position.y <= bottom.position.y)

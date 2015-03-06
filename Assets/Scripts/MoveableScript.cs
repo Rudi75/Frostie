@@ -57,21 +57,19 @@ public class MoveableScript : MonoBehaviour
     virtual protected void FixedUpdate()
     {
         bool isPull = handlePull();
+
         if (!isPull)
-        {
+        { 
+            PlayDragSound(movement, 0.1f);
             float speedX = movement;
             float speedY = rigidbody2D.velocity.y;
-            rigidbody2D.velocity = new Vector2(speedX, speedY);
+            rigidbody2D.velocity = new Vector2(speedX, speedY);  
         }
         movement *= speedReduction;
-
-
     }
 
     private bool handlePull()
     {
-        
-
         Vector3 movement = Vector3.zero;
         playerLeft = null;
         List<GameObject> hits = CollisionHelper.getCollidingObject(collider2D, Enums.Edges.LEFT, 0.5f);
@@ -117,6 +115,7 @@ public class MoveableScript : MonoBehaviour
                 || (playerLeft != null && movement.x < 0))
             {
                 transform.Translate(movement, Space.World);
+                PlayDragSound(movement.x, 0.01f);
                 return true;
             }
             else
@@ -126,4 +125,19 @@ public class MoveableScript : MonoBehaviour
         return false;
     }
 
+
+    private void PlayDragSound(float move, float limit)
+    {
+
+        if (Mathf.Abs(move) >= limit)
+        {
+             if (!audio.isPlaying) 
+                 audio.Play();
+        }
+        else 
+        {
+            if (audio.isPlaying)
+                audio.Stop();
+        }
+    }
 }
