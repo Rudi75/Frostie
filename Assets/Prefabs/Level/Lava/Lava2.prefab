@@ -92,11 +92,11 @@ AudioSource:
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: 9073943fc907607408398a743a9536a1, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: .699999988
+  m_Volume: .600000024
   m_Pitch: 2
   Loop: 1
   Mute: 0
-  Priority: 60
+  Priority: 140
   DopplerLevel: 1
   MinDistance: .800000012
   MaxDistance: 20
@@ -112,6 +112,11 @@ AudioSource:
       value: 1
       inSlope: 0
       outSlope: 0
+      tangentMode: 0
+    - time: .250015825
+      value: .708735108
+      inSlope: -2.94309878
+      outSlope: -2.94309878
       tangentMode: 0
     - time: 1
       value: 0
