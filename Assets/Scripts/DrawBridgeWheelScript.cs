@@ -11,6 +11,7 @@ public class DrawBridgeWheelScript : TargetActionScript {
     public bool wheelEnabled = true;
 
     public KeyInterpreter keyInterpreter;
+    public Camera drawBridgeWheelPopupCamera;
 
 
 	// Use this for initialization
@@ -44,6 +45,9 @@ public class DrawBridgeWheelScript : TargetActionScript {
                 }
                 else
                 {
+                    if (drawBridgeWheelPopupCamera != null)
+                        drawBridgeWheelPopupCamera.enabled = true;
+
                     frostie.isFixated = true;
                     
                     wheelInUse = true;
@@ -56,6 +60,7 @@ public class DrawBridgeWheelScript : TargetActionScript {
                 {
                     if (keyInterpreter.isDrawBridgeRotateLeftKeyPressed())
                     {
+                        Debug.Log("Key to the left!!");
                         if (!PlanksReference.IsBridgeLockedInDirection(DrawBridgePlanksScript.Directions.left))
                             animator.Play("DrawingbridgewheeleAnimationLeft");
 
