@@ -204,6 +204,7 @@ GameObject:
   - 114: {fileID: 11489822}
   - 114: {fileID: 11455682}
   - 114: {fileID: 11461792}
+  - 114: {fileID: 11452992}
   m_Layer: 0
   m_Name: FrostieHeadClone
   m_TagString: Player
@@ -594,6 +595,17 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11452992
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 151660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78c764c08d9b3424cb23f47044358b5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11455682
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -643,6 +655,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd0e7ec1cac22db49bf85125f2d80e6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  squeezed: 0
+  sqeeezerScript: {fileID: 0}
 --- !u!114 &11489822
 MonoBehaviour:
   m_ObjectHideFlags: 1

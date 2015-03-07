@@ -105,8 +105,7 @@ public class FrostiePartManager : MonoBehaviour {
                 }
                 Destroy(headAndMiddleClone);
             }
-            //camera.GetComponent<CameraControler>().Player = headClone.transform;
-            setActivePart(3);
+            camera.GetComponent<CameraControler>().Player = headClone.transform;
             return headClone;
         }
         return null;
@@ -180,7 +179,6 @@ public class FrostiePartManager : MonoBehaviour {
 
             Destroy(middlePartClone);
             Destroy(headClone);
-            setActivePart(2);
         }else if(headAndMiddleClone == null)
         {
             if (headClone != null)
@@ -188,7 +186,6 @@ public class FrostiePartManager : MonoBehaviour {
                 Destroy(headClone);
             }
             head.gameObject.SetActive(true);
-            setActivePart(1);
         }
     }
 
@@ -274,7 +271,7 @@ public class FrostiePartManager : MonoBehaviour {
     }
     public void FixedUpdate()
     {
-       // if(headClone == null)
+        if(headClone == null)
             camera.GetComponent<CameraControler>().Player = activePart.transform;
     }
 }
