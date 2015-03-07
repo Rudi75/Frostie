@@ -51,6 +51,6 @@ public class FollowPath : TargetActionScript
 
     protected override void performAction()
     {
-        started = true;
+        started = !started;
     }
 }﻿
