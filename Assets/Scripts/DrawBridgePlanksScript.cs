@@ -72,16 +72,16 @@ public class DrawBridgePlanksScript : MonoBehaviour {
 
         if (openingDirection == Directions.left)
         {
-            if (tempAngle <= startingAngle)
-                tempAngle = startingAngle;
+            if (tempAngle <= 22.5f)
+                tempAngle = 22.5f;
 
             if (tempAngle >= 90)
                 tempAngle = 90;
         }
         else
         {
-            if (tempAngle >= startingAngle)
-                tempAngle = startingAngle;
+            if (tempAngle >= -22.5f)
+                tempAngle = -22.5f;
 
             if (tempAngle <= -90)
                 tempAngle = -90;
@@ -96,20 +96,28 @@ public class DrawBridgePlanksScript : MonoBehaviour {
     }
 
     public bool IsBridgeLockedInDirection(Directions direction)
-    {      
+    {
         float tempAngle = currentAngle + (Convert.ToInt32(direction) * 22.5f);
+        Debug.Log("tempAngle: " + tempAngle);
+        Debug.Log("startingAngle: " + startingAngle);
+        Debug.Log("currentAngle: " + currentAngle);
+
 
         if (openingDirection == Directions.left)
         {
-            if (tempAngle < startingAngle || tempAngle > 90)
+            if (tempAngle  < 22.5f || tempAngle> 90)
+            {
+                Debug.Log("Iam locked! Cause " + Math.Abs(tempAngle) + " < 22.5 || " + Math.Abs(tempAngle)+" > 90");
                 return true;
+            }
         }
         else
         {
-            if (tempAngle > startingAngle || tempAngle < -90)
+            if (tempAngle > -22.5f || tempAngle < -90 )
                 return true;
         }
 
+        Debug.Log("I am not locked!");
         return false;
     }
 }

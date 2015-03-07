@@ -13,11 +13,14 @@ public class DrawBridgeChainScript : MonoBehaviour
     float degreeChangePerIteration;
 
     DrawBridgePlanksScript.Directions openingDirection;
+    public Sprite iceBlockTexture;
+    private GameObject iceBlockPrefab;
 
     // Use this for initialization
     void Start()
     {
         chainElementsContainer = transform.GetChild(0);
+        iceBlockPrefab = transform.GetChild(1).gameObject;
     }
 
     // Update is called once per frame
@@ -53,10 +56,13 @@ public class DrawBridgeChainScript : MonoBehaviour
     private void InitializeChainBase(Vector3 planksParentPosition, float lastPlankYPosition)
     {
         var drawBridgeChainBasePrefab = Instantiate(Resources.LoadAssetAtPath("Assets/Prefabs/Level/Engines/DrawbridgeChainBase.prefab", typeof(GameObject))) as GameObject;
-        var iceBlockPrefab = Instantiate(Resources.LoadAssetAtPath("Assets/Prefabs/Level/Ice/IceEdgesAll.prefab", typeof(GameObject))) as GameObject;
+        //var iceBlockPrefab = Instantiate(Resources.LoadAssetAtPath("Assets/Prefabs/Level/Ice/IceEdgesAll.prefab", typeof(GameObject))) as GameObject;
 
         if (drawBridgeChainBasePrefab != null && iceBlockPrefab != null)
         {
+            drawBridgeChainBasePrefab.GetComponent<SpriteRenderer>().sortingOrder = 2;
+            iceBlockPrefab.GetComponent<SpriteRenderer>().sprite = iceBlockTexture;
+
             Transform drawBridgeChainBaseTransform = drawBridgeChainBasePrefab.transform;
             Transform iceBlockTransform = iceBlockPrefab.transform;
 
@@ -64,7 +70,7 @@ public class DrawBridgeChainScript : MonoBehaviour
             {
                 float drawBridgeChainBaseXPositionOffset = openingDirection == DrawBridgePlanksScript.Directions.left ? 0.8f : 1.61f;
                 drawBridgeChainBaseTransform.position = new Vector3(planksParentPosition.x - 1.0f, lastPlankYPosition +drawBridgeChainBaseXPositionOffset, planksParentPosition.z);
-                drawBridgeChainBaseTransform.parent = iceBlockTransform.parent = transform;
+                drawBridgeChainBaseTransform.parent  = transform;
 
                 float iceBlockYPositionOffset = openingDirection == DrawBridgePlanksScript.Directions.left ? 1.3f : -1.47f;
 
@@ -97,9 +103,8 @@ public class DrawBridgeChainScript : MonoBehaviour
             }
 
             currentChainAngle = currentChainAngle + degreeChangePerIteration * Convert.ToInt32(direction);
-            Debug.Log("currentChainAngle: " + currentChainAngle);
-
-            chainElementsContainer.rotation = Quaternion.AngleAxis(currentChainAngle, new Vector3(0.0f, 0.0f, 1f));
+            if (chainElementsContainer != null)
+                chainElementsContainer.rotation = Quaternion.AngleAxis(currentChainAngle, new Vector3(0.0f, 0.0f, 1f));
         }
         else
         {
@@ -115,8 +120,8 @@ public class DrawBridgeChainScript : MonoBehaviour
                 }
             }
 
-            currentChainAngle -= degreeChangePerIteration;
-            chainElementsContainer.rotation = Quaternion.AngleAxis(currentChainAngle*(Convert.ToInt32(openingDirection)), new Vector3(0.0f, 0.0f, 1f));
+            currentChainAngle -= degreeChangePerIteration * Convert.ToInt32(openingDirection);
+            chainElementsContainer.rotation = Quaternion.AngleAxis(currentChainAngle, new Vector3(0.0f, 0.0f, 1f));
         }
     }
 
