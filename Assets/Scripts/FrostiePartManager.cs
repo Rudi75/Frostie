@@ -6,7 +6,7 @@ using AssemblyCSharp;
 
 public class FrostiePartManager : MonoBehaviour {
 
-    public static Vector3 spawnPosition = new Vector3(0,0,0);
+    public static Vector3 spawnPosition = new Vector3(0, 0, 0);//Vector3(150,26,0);
 
     private Transform head;
     private Transform middlePart;
@@ -105,7 +105,8 @@ public class FrostiePartManager : MonoBehaviour {
                 }
                 Destroy(headAndMiddleClone);
             }
-
+            //camera.GetComponent<CameraControler>().Player = headClone.transform;
+            setActivePart(3);
             return headClone;
         }
         return null;
@@ -179,6 +180,7 @@ public class FrostiePartManager : MonoBehaviour {
 
             Destroy(middlePartClone);
             Destroy(headClone);
+            setActivePart(2);
         }else if(headAndMiddleClone == null)
         {
             if (headClone != null)
@@ -186,6 +188,7 @@ public class FrostiePartManager : MonoBehaviour {
                 Destroy(headClone);
             }
             head.gameObject.SetActive(true);
+            setActivePart(1);
         }
     }
 
@@ -238,7 +241,10 @@ public class FrostiePartManager : MonoBehaviour {
 
     public void setActivePart(int part)
     {
-        activePart.GetComponent<FrostieMoveScript>().enabled = false;
+        FrostieMoveScript moveScript = activePart.GetComponent<FrostieMoveScript>();
+        if(moveScript != null)
+            moveScript.enabled = false;
+
         if(part == 1)
         {
             activePart = frotieParent.gameObject;
@@ -255,11 +261,20 @@ public class FrostiePartManager : MonoBehaviour {
             {
                 activePart = headAndMiddleClone;
             }
+        }else if(part == 3)
+        {
+            if(headClone != null)
+            {
+                activePart = headClone;
+            }
         }
-        activePart.GetComponent<FrostieMoveScript>().enabled = true;
+        moveScript = activePart.GetComponent<FrostieMoveScript>();
+        if (moveScript != null)
+            moveScript.enabled = true;
     }
     public void FixedUpdate()
     {
-        camera.GetComponent<CameraControler>().Player = activePart.transform;
+       // if(headClone == null)
+            camera.GetComponent<CameraControler>().Player = activePart.transform;
     }
 }
