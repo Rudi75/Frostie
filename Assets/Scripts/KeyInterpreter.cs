@@ -18,6 +18,7 @@ public class KeyInterpreter : MonoBehaviour {
     public KeyCode decoupleMiddleKey = KeyCode.Y;
     public KeyCode basePartKey = KeyCode.Alpha1;
     public KeyCode middlePartKey = KeyCode.Alpha2;
+    public KeyCode HeadKey = KeyCode.Alpha3;
     public KeyCode turnDrawBridgeWheelKey = KeyCode.E;
     public KeyCode drawBridgeRotateLeftKey = KeyCode.LeftArrow;
     public KeyCode drawBridgeRotateRightKey = KeyCode.RightArrow;
@@ -148,7 +149,16 @@ public class KeyInterpreter : MonoBehaviour {
             frostiePartManager.setActivePart(2);
         }
 
-        frostieMoveScript.inputXAxis = Input.GetAxis("Horizontal");
+        if (Input.GetKeyDown(HeadKey))
+        {
+            frostiePartManager.setActivePart(3);
+        }
+
+        if (frostieMoveScript != null)
+        {
+            frostieMoveScript.inputXAxis = Input.GetAxis("Horizontal");
+        }
+            
 
         if(Input.GetKeyDown(turnDrawBridgeWheelKey))
         {
