@@ -7,6 +7,9 @@ public abstract class TargetActionScript : MonoBehaviour {
 
     public Transform[] Buttons;
 
+    public bool onlyActiveWhenPressed = false;
+    private bool activated_ = false;
+
     abstract protected void performAction();
     public List<SpeechTriggerScript> speechTriggerToActivate;
     public List<SpeechTriggerScript> speechTriggerToDeactivate;
@@ -25,14 +28,24 @@ public abstract class TargetActionScript : MonoBehaviour {
         if (!Buttons.Contains(_button))
             Debug.LogWarning("Warning: Button not in Array of target!");
 
-
+        bool allButtonspressed = true;
         foreach (Transform button in Buttons)// all buttons pressed?
 	    { 
             ButtonScript buttonScript = button.GetComponent<ButtonScript>();
             if (!buttonScript.isPressed)
-                return;
+                allButtonspressed = false;
 	    }
+        if(allButtonspressed)
+        {
+            performAction();
+            activated_ = true;
+        }
+        else if (onlyActiveWhenPressed && activated_)
+        {
+            performAction();
+            activated_ = false;
+        }
 
-        performAction();
+        
     }
 }

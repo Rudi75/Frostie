@@ -17,7 +17,8 @@ public class SqeezerAnimationScript : MonoBehaviour
     public bool isSqeezing = true;
     public bool lethal = true;
 
-    public float direction = -1;
+    public float currentMovingDirection = -1;
+    public Enums.Direction sqeezingDirection;
     public float distanceToMovePerFrame = 1;
 
     public float animationTimeDown = 1;
@@ -48,25 +49,29 @@ public class SqeezerAnimationScript : MonoBehaviour
         {
             sqeezerTop = Enums.Edges.RIGHT;
             distance = Math.Abs(squeezer.position.x - bottom.position.x);
-            direction = -1;
+            currentMovingDirection = -1;
+            sqeezingDirection = Enums.Direction.HORIZONTAL;
         }
         else if (rotation >= 45 && rotation < 135)
         {
             sqeezerTop = Enums.Edges.LEFT;
             distance = Math.Abs(squeezer.position.x - bottom.position.x);
-            direction = 1;
+            currentMovingDirection = 1;
+            sqeezingDirection = Enums.Direction.HORIZONTAL;
         }
         else if (rotation >= 135 && rotation < 225)
         {
             sqeezerTop = Enums.Edges.BOTTOM;
             distance = Math.Abs(squeezer.position.y - bottom.position.y);
-            direction = 1;
+            currentMovingDirection = 1;
+            sqeezingDirection = Enums.Direction.VERTICAL;
         }
         else
         {
             sqeezerTop = Enums.Edges.TOP;
-            direction = -1;
+            currentMovingDirection = -1;
             distance = Math.Abs(squeezer.position.y - bottom.position.y);
+            sqeezingDirection = Enums.Direction.VERTICAL;
         }
 
         startPosition = squeezer.position;
@@ -110,176 +115,176 @@ public class SqeezerAnimationScript : MonoBehaviour
 
     void animateTopDown()
     {
-        if (deltaTimeSound <= 0 && direction == -1)
+        if (deltaTimeSound <= 0 && currentMovingDirection == -1)
         {
             audio.Play();
         }
 
-        if (deltaTime <= 0 && direction == 0)
+        if (deltaTime <= 0 && currentMovingDirection == 0)
         {
             if (squeezer.position.y <= bottom.position.y)
             {
-                direction = 1;
+                currentMovingDirection = 1;
                 deltaTime = animationTimeUp;
                 distanceToMovePerFrame = distance / animationTimeUp;
                 isSqeezing = false;
             }
             else
             {
-                direction = -1;
+                currentMovingDirection = -1;
                 deltaTime = animationTimeDown;
                 distanceToMovePerFrame = distance / animationTimeDown;
                 isSqeezing = true;
             }
         }
 
-        if (squeezer.position.y >= startPosition.y && direction > 0)
+        if (squeezer.position.y >= startPosition.y && currentMovingDirection > 0)
         {
-            direction = 0;
+            currentMovingDirection = 0;
             deltaTime = animationTimePause;
             arm.localScale = new Vector3(1, 1, 1);
         }
 
-        if (squeezer.position.y <= bottom.position.y && direction < 0)
+        if (squeezer.position.y <= bottom.position.y && currentMovingDirection < 0)
         {
-            direction = 0;
+            currentMovingDirection = 0;
             deltaTime = animationTimePause;
         }
 
-        squeezer.Translate(new Vector3(0, direction * distanceToMovePerFrame * Time.deltaTime, 0), Space.World);
+        squeezer.Translate(new Vector3(0, currentMovingDirection * distanceToMovePerFrame * Time.deltaTime, 0), Space.World);
         squeezer.position = new Vector3(squeezer.position.x,
                                         Mathf.Clamp(squeezer.position.y, bottom.position.y, startPosition.y),
                                         squeezer.position.z);
         Vector3 armScale = arm.localScale;
-        armScale.y = armScale.y - (2 * direction * distanceToMovePerFrame * Time.deltaTime);
+        armScale.y = armScale.y - (2 * currentMovingDirection * distanceToMovePerFrame * Time.deltaTime);
         arm.localScale = armScale;
     }
 
 
     void animateRightToLeft()
     {
-        if (deltaTime <= 0 && direction == 0)
+        if (deltaTime <= 0 && currentMovingDirection == 0)
         {
             if (squeezer.position.x <= bottom.position.x)
             {
-                direction = 1;
+                currentMovingDirection = 1;
                 deltaTime = animationTimeUp;
                 distanceToMovePerFrame = distance / animationTimeUp;
                 isSqeezing = false;
             }
             else
             {
-                direction = -1;
+                currentMovingDirection = -1;
                 deltaTime = animationTimeDown;
                 distanceToMovePerFrame = distance / animationTimeDown;
                 isSqeezing = true;
             }
         }
 
-        if (squeezer.position.x >= startPosition.x && direction > 0)
+        if (squeezer.position.x >= startPosition.x && currentMovingDirection > 0)
         {
-            direction = 0;
+            currentMovingDirection = 0;
             deltaTime = animationTimePause;
             arm.localScale = new Vector3(1, 1, 1);
         }
 
-        if (squeezer.position.x <= bottom.position.x && direction < 0)
+        if (squeezer.position.x <= bottom.position.x && currentMovingDirection < 0)
         {
-            direction = 0;
+            currentMovingDirection = 0;
             deltaTime = animationTimePause;
         }
 
-        squeezer.Translate(new Vector3(direction * distanceToMovePerFrame * Time.deltaTime, 0, 0), Space.World);
+        squeezer.Translate(new Vector3(currentMovingDirection * distanceToMovePerFrame * Time.deltaTime, 0, 0), Space.World);
         squeezer.position = new Vector3( Mathf.Clamp(squeezer.position.x, bottom.position.x, startPosition.x),
                                        squeezer.position.y,
                                         squeezer.position.z);
         Vector3 armScale = arm.localScale;
-        armScale.y = armScale.y - (2 * direction * distanceToMovePerFrame * Time.deltaTime);
+        armScale.y = armScale.y - (2 * currentMovingDirection * distanceToMovePerFrame * Time.deltaTime);
         arm.localScale = armScale;
     }
 
     void animateBottomUp()
     {
-        if (deltaTime <= 0 && direction == 0)
+        if (deltaTime <= 0 && currentMovingDirection == 0)
         {
             if (squeezer.position.y >= bottom.position.y)
             {
-                direction = -1;
+                currentMovingDirection = -1;
                 deltaTime = animationTimeUp;
                 distanceToMovePerFrame = distance / animationTimeUp;
                 isSqeezing = false;
             }
             else
             {
-                direction = 1;
+                currentMovingDirection = 1;
                 deltaTime = animationTimeDown;
                 distanceToMovePerFrame = distance / animationTimeDown;
                 isSqeezing = true;
             }
         }
 
-        if (squeezer.position.y <= startPosition.y && direction < 0)
+        if (squeezer.position.y <= startPosition.y && currentMovingDirection < 0)
         {
-            direction = 0;
+            currentMovingDirection = 0;
             deltaTime = animationTimePause;
             arm.localScale = new Vector3(1, 1, 1);
         }
 
-        if (squeezer.position.y >= bottom.position.y && direction > 0)
+        if (squeezer.position.y >= bottom.position.y && currentMovingDirection > 0)
         {
-            direction = 0;
+            currentMovingDirection = 0;
             deltaTime = animationTimePause;
         }
 
-        squeezer.Translate(new Vector3(0, direction * distanceToMovePerFrame * Time.deltaTime, 0), Space.World);
+        squeezer.Translate(new Vector3(0, currentMovingDirection * distanceToMovePerFrame * Time.deltaTime, 0), Space.World);
         squeezer.position = new Vector3(squeezer.position.x,
                                         Mathf.Clamp(squeezer.position.y, startPosition.y, bottom.position.y),
                                         squeezer.position.z);
         Vector3 armScale = arm.localScale;
-        armScale.y = armScale.y - (2 * -direction * distanceToMovePerFrame * Time.deltaTime);
+        armScale.y = armScale.y - (2 * -currentMovingDirection * distanceToMovePerFrame * Time.deltaTime);
         arm.localScale = armScale;
     }
 
     void animateLeftToRight()
     {
-        if (deltaTime <= 0 && direction == 0)
+        if (deltaTime <= 0 && currentMovingDirection == 0)
         {
             if (squeezer.position.x >= bottom.position.x)
             {
-                direction = -1;
+                currentMovingDirection = -1;
                 deltaTime = animationTimeUp;
                 distanceToMovePerFrame = distance / animationTimeUp;
                 isSqeezing = false;
             }
             else
             {
-                direction = 1;
+                currentMovingDirection = 1;
                 deltaTime = animationTimeDown;
                 distanceToMovePerFrame = distance / animationTimeDown;
                 isSqeezing = true;
             }
         }
 
-        if (squeezer.position.x <= startPosition.x && direction < 0)
+        if (squeezer.position.x <= startPosition.x && currentMovingDirection < 0)
         {
-            direction = 0;
+            currentMovingDirection = 0;
             deltaTime = animationTimePause;
             arm.localScale = new Vector3(1, 1, 1);
         }
 
-        if (squeezer.position.x >= bottom.position.x && direction > 0)
+        if (squeezer.position.x >= bottom.position.x && currentMovingDirection > 0)
         {
-            direction = 0;
+            currentMovingDirection = 0;
             deltaTime = animationTimePause;
         }
 
-        squeezer.Translate(new Vector3(direction * distanceToMovePerFrame * Time.deltaTime, 0, 0), Space.World);
+        squeezer.Translate(new Vector3(currentMovingDirection * distanceToMovePerFrame * Time.deltaTime, 0, 0), Space.World);
         squeezer.position = new Vector3(
             Mathf.Clamp(squeezer.position.x, startPosition.x, bottom.position.x)
                                         ,squeezer.position.y,
                                         squeezer.position.z);
         Vector3 armScale = arm.localScale;
-        armScale.y = armScale.y - (2 * -direction * distanceToMovePerFrame * Time.deltaTime);
+        armScale.y = armScale.y - (2 * -currentMovingDirection * distanceToMovePerFrame * Time.deltaTime);
         arm.localScale = armScale;
     }
 }
