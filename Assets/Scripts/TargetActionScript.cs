@@ -8,7 +8,7 @@ public abstract class TargetActionScript : MonoBehaviour {
     public Transform[] Buttons;
 
     public bool onlyActiveWhenPressed = false;
-    private bool activated = false;
+    private bool activated_ = false;
 
     abstract protected void performAction();
     public List<SpeechTriggerScript> speechTriggerToActivate;
@@ -38,11 +38,12 @@ public abstract class TargetActionScript : MonoBehaviour {
         if(allButtonspressed)
         {
             performAction();
-            activated = true;
-        }else if(onlyActiveWhenPressed && activated)
+            activated_ = true;
+        }
+        else if (onlyActiveWhenPressed && activated_)
         {
             performAction();
-            activated = false;
+            activated_ = false;
         }
 
         
