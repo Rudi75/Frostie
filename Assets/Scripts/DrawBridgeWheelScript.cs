@@ -3,7 +3,8 @@ using System.Collections;
 
 public class DrawBridgeWheelScript : TargetActionScript {
 
-    private FrostieStatus frostie;
+    private FrostieStatus frostieState;
+    private SpeechBubble frostieSpeechBubble;
     private bool wheelInUse = false;
 
     private DrawBridgePlanksScript PlanksReference;
@@ -32,48 +33,57 @@ public class DrawBridgeWheelScript : TargetActionScript {
         bool turnWheelPressed = keyInterpreter.isTurnWheelKeyPressed();
         Animator animator = GetComponentInParent<Animator>();
 
-        if (frostie != null && frostie.canTurnWheel())
-        {
-
+        if (frostieState != null && frostieSpeechBubble!=null && frostieState.canTurnWheel())
+        {           
             if (turnWheelPressed)
             {
                 if (wheelInUse)
-                {                    
-                    frostie.isFixated=false;
-                    
+                {
+                    if (drawBridgeWheelPopupCamera != null)
+                        drawBridgeWheelPopupCamera.enabled = false;
+                    frostieState.isFixated=false;                    
                     wheelInUse = false;
+                    frostieSpeechBubble.enabled = false;
                 }
                 else
                 {
                     if (drawBridgeWheelPopupCamera != null)
                         drawBridgeWheelPopupCamera.enabled = true;
 
-                    frostie.isFixated = true;
+                    frostieState.isFixated = true;
                     
                     wheelInUse = true;
                 }
             }
 
-            if (wheelInUse && wheelEnabled)
+            if (wheelInUse)
             {
-                if (PlanksReference != null)
+                if (wheelEnabled)
                 {
-                    if (keyInterpreter.isDrawBridgeRotateLeftKeyPressed())
+                    if (PlanksReference != null)
                     {
-                        Debug.Log("Key to the left!!");
-                        if (!PlanksReference.IsBridgeLockedInDirection(DrawBridgePlanksScript.Directions.left))
-                            animator.Play("DrawingbridgewheeleAnimationLeft");
+                        if (keyInterpreter.isDrawBridgeRotateLeftKeyPressed())
+                        {
+                            Debug.Log("Key to the left!!");
+                            if (!PlanksReference.IsBridgeLockedInDirection(DrawBridgePlanksScript.Directions.left))
+                                animator.Play("DrawingbridgewheeleAnimationLeft");
 
-                        PlanksReference.rotateOnce(DrawBridgePlanksScript.Directions.left);
+                            PlanksReference.rotateOnce(DrawBridgePlanksScript.Directions.left);
+                        }
+
+                        if (keyInterpreter.isDrawBridgeRotateRightKeyPressed())
+                        {
+                            if (!PlanksReference.IsBridgeLockedInDirection(DrawBridgePlanksScript.Directions.right))
+                                animator.Play("DrawbridgeWheelAnimationRight");
+
+                            PlanksReference.rotateOnce(DrawBridgePlanksScript.Directions.right);
+                        }
                     }
-
-                    if (keyInterpreter.isDrawBridgeRotateRightKeyPressed())
-                    {
-                        if (!PlanksReference.IsBridgeLockedInDirection(DrawBridgePlanksScript.Directions.right))
-                            animator.Play("DrawbridgeWheelAnimationRight");
-
-                        PlanksReference.rotateOnce(DrawBridgePlanksScript.Directions.right);
-                    }
+                }
+                else
+                {
+                    frostieSpeechBubble.speech = "Hm.. looks like it is locked. Maybe I can enable it with a button or something like that.";
+                    frostieSpeechBubble.speak(frostieSpeechBubble.speech);
                 }
             }
         }
@@ -81,12 +91,13 @@ public class DrawBridgeWheelScript : TargetActionScript {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        frostie = other.gameObject.GetComponentInParent<FrostieStatus>();
+        frostieState = other.gameObject.GetComponentInParent<FrostieStatus>();
+        frostieSpeechBubble = other.gameObject.GetComponentInParent<SpeechBubble>();
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        frostie = null;
+        frostieState = null;
     }
 
     protected override void performAction()

@@ -103,7 +103,8 @@ public class DrawBridgeChainScript : MonoBehaviour
             }
 
             currentChainAngle = currentChainAngle + degreeChangePerIteration * Convert.ToInt32(direction);
-            chainElementsContainer.rotation = Quaternion.AngleAxis(currentChainAngle, new Vector3(0.0f, 0.0f, 1f));
+            if (chainElementsContainer != null)
+                chainElementsContainer.rotation = Quaternion.AngleAxis(currentChainAngle, new Vector3(0.0f, 0.0f, 1f));
         }
         else
         {
@@ -119,7 +120,7 @@ public class DrawBridgeChainScript : MonoBehaviour
                 }
             }
 
-            currentChainAngle -= degreeChangePerIteration*Convert.ToInt32(openingDirection);
+            currentChainAngle -= degreeChangePerIteration * Convert.ToInt32(openingDirection);
             chainElementsContainer.rotation = Quaternion.AngleAxis(currentChainAngle, new Vector3(0.0f, 0.0f, 1f));
         }
     }
