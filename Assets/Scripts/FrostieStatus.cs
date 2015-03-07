@@ -113,7 +113,7 @@ public class FrostieStatus : MonoBehaviour {
     {
         GameObject headClone = frostiePartManager.getHeadClone();
         GameObject headAndMiddleClone = frostiePartManager.getHeadAndMiddleClone();
-        return headClone == null && headAndMiddleClone == null && !isMelted;
+        return headClone == null && headAndMiddleClone == null;
 
     }
 

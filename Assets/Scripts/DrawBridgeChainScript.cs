@@ -15,18 +15,35 @@ public class DrawBridgeChainScript : MonoBehaviour
     DrawBridgePlanksScript.Directions openingDirection;
     public Sprite iceBlockTexture;
     private GameObject iceBlockPrefab;
+    private GameObject drawBridgeChainBasePrefab;
+
+    private int planksCount;
 
     // Use this for initialization
     void Start()
     {
         chainElementsContainer = transform.GetChild(0);
         iceBlockPrefab = transform.GetChild(1).gameObject;
+        drawBridgeChainBasePrefab = transform.GetChild(2).gameObject;
     }
 
     // Update is called once per frame
     void Update()
     {
        
+    }
+
+    void OnDestroy()
+    {
+        //for (int i = chainElementsContainer.childCount - 1; i >= 0; i--)
+        //{
+        //    DestroyPrefab(chainElementsContainer.GetChild(i).gameObject);
+        //}
+
+        //chainElementsContainer = null;
+        //iceBlockPrefab = null;
+        //drawBridgeChainBasePrefab = null;
+        //chainElementsContainer = null;
     }
 
     public void InitializeObjects(Vector3 planksParentPosition, float lastPlankYPosition, DrawBridgePlanksScript.Directions openingDirection, float currentAngle, int planksCount)
@@ -38,7 +55,7 @@ public class DrawBridgeChainScript : MonoBehaviour
         Debug.Log("currentChainAngle: " + currentChainAngle);
         Debug.Log("currentAngle: " + currentAngle);
 
-
+        this.planksCount = planksCount;
         chainElementCountPerIteration = (planksCount + 1) / 3;
 
         this.openingDirection = openingDirection;
@@ -55,13 +72,13 @@ public class DrawBridgeChainScript : MonoBehaviour
 
     private void InitializeChainBase(Vector3 planksParentPosition, float lastPlankYPosition)
     {
-        var drawBridgeChainBasePrefab = Instantiate(Resources.LoadAssetAtPath("Assets/Prefabs/Level/Engines/DrawbridgeChainBase.prefab", typeof(GameObject))) as GameObject;
+        //var drawBridgeChainBasePrefab = Instantiate(Resources.LoadAssetAtPath("Assets/Prefabs/Level/Engines/DrawbridgeChainBase.prefab", typeof(GameObject))) as GameObject;
         //var iceBlockPrefab = Instantiate(Resources.LoadAssetAtPath("Assets/Prefabs/Level/Ice/IceEdgesAll.prefab", typeof(GameObject))) as GameObject;
 
         if (drawBridgeChainBasePrefab != null && iceBlockPrefab != null)
         {
-            drawBridgeChainBasePrefab.GetComponent<SpriteRenderer>().sortingOrder = 2;
             iceBlockPrefab.GetComponent<SpriteRenderer>().sprite = iceBlockTexture;
+            drawBridgeChainBasePrefab.GetComponent<SpriteRenderer>().sortingOrder = 2;
 
             Transform drawBridgeChainBaseTransform = drawBridgeChainBasePrefab.transform;
             Transform iceBlockTransform = iceBlockPrefab.transform;
@@ -70,7 +87,7 @@ public class DrawBridgeChainScript : MonoBehaviour
             {
                 float drawBridgeChainBaseXPositionOffset = openingDirection == DrawBridgePlanksScript.Directions.left ? 0.8f : 1.61f;
                 drawBridgeChainBaseTransform.position = new Vector3(planksParentPosition.x - 1.0f, lastPlankYPosition +drawBridgeChainBaseXPositionOffset, planksParentPosition.z);
-                drawBridgeChainBaseTransform.parent  = transform;
+                //drawBridgeChainBaseTransform.parent  = transform;
 
                 float iceBlockYPositionOffset = openingDirection == DrawBridgePlanksScript.Directions.left ? 1.3f : -1.47f;
 
@@ -89,6 +106,11 @@ public class DrawBridgeChainScript : MonoBehaviour
     {
         if (addChain)
         {
+            //if (insertedChainElementCount == 1)
+            //    chainElementCountPerIteration -= 1;
+            //else
+            //    chainElementCountPerIteration = (planksCount + 1) / 3;
+
             for (int i = 0; i < chainElementCountPerIteration; i++)
             {
                 var drawBridgeChainElementTransform = InstantiateNewChainPrefab();
@@ -127,6 +149,7 @@ public class DrawBridgeChainScript : MonoBehaviour
 
     private Transform InstantiateNewChainPrefab()
     {
+
         string chainPrefabName = insertedChainElementCount != 0 ? "ChainMiddle" : "ChainFront";
         var drawBridgeChainElement = Instantiate(Resources.LoadAssetAtPath("Assets/Prefabs/Level/Engines/"+chainPrefabName+".prefab", typeof(GameObject))) as GameObject;
        
@@ -139,7 +162,7 @@ public class DrawBridgeChainScript : MonoBehaviour
 
             if (drawBridgeChainElementTransform != null)
             {
-                drawBridgeChainElementTransform.parent = chainElementsContainer;
+                drawBridgeChainElementTransform.SetParent(chainElementsContainer);
                 drawBridgeChainElementTransform.localRotation = Quaternion.AngleAxis(0.0f, new Vector3(0.0f, 0.0f, 1f));
                 Vector3 position = drawBridgeChainElementTransform.localPosition;
                 position.z = -0.1f;

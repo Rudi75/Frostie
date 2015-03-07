@@ -9,9 +9,9 @@ public class DrawBridgeWheelScript : TargetActionScript {
 
     private DrawBridgePlanksScript PlanksReference;
     public Transform plankTransform;
-    public bool wheelEnabled = true;
+    private bool wheelEnabled = false;
 
-    public KeyInterpreter keyInterpreter;
+    private KeyInterpreter keyInterpreter;
     public Camera drawBridgeWheelPopupCamera;
 
 
@@ -22,6 +22,12 @@ public class DrawBridgeWheelScript : TargetActionScript {
 
         if (PlanksReference == null)
             Debug.Log("No Planks Found!");
+
+        if (Buttons.Length == 0)
+        {
+            Debug.Log("Wheel is enabled cause there are no buttons!");
+            wheelEnabled = true;
+        }
 	}
 	
 	// Update is called once per frame
@@ -30,13 +36,16 @@ public class DrawBridgeWheelScript : TargetActionScript {
         if (keyInterpreter == null)
             Debug.Log("KeyInterpreter in Wheel setzen!!");
 
-        bool turnWheelPressed = keyInterpreter.isTurnWheelKeyPressed();
         Animator animator = GetComponentInParent<Animator>();
+        if (frostieState != null && frostieSpeechBubble!=null && frostieState.canTurnWheel() && keyInterpreter!=null)
+        {
+            bool turnWheelPressed = keyInterpreter.isTurnWheelKeyPressed();
 
-        if (frostieState != null && frostieSpeechBubble!=null && frostieState.canTurnWheel())
-        {           
+            Debug.Log("Everything initialized!");
             if (turnWheelPressed)
             {
+                Debug.Log("turnWheelPressed pressed!");
+
                 if (wheelInUse)
                 {
                     if (drawBridgeWheelPopupCamera != null)
@@ -91,13 +100,17 @@ public class DrawBridgeWheelScript : TargetActionScript {
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("Collider Reached!!");
         frostieState = other.gameObject.GetComponentInParent<FrostieStatus>();
         frostieSpeechBubble = other.gameObject.GetComponentInParent<SpeechBubble>();
+        keyInterpreter = other.transform.parent.gameObject.GetComponentInParent<KeyInterpreter>();
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
         frostieState = null;
+        frostieSpeechBubble = null;
+        keyInterpreter = null;
     }
 
     protected override void performAction()
