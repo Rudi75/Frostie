@@ -55,7 +55,7 @@ public class DrawBridgePlanksScript : MonoBehaviour {
         transform.rotation = Quaternion.AngleAxis(currentAngle, new Vector3(0.0f, 0.0f, 1f));
 
         if (ChainScript != null)
-            ChainScript.InitializeObjects(transform.position, child.position.y, openingDirection, startingAngle, planksCount);
+            ChainScript.InitializeObjects(transform.position, child.localPosition.y, openingDirection, startingAngle, planksCount);
 
         currentAngle = startingAngle;
     }  

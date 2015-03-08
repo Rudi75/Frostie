@@ -18,13 +18,12 @@ public class DrawBridgeChainScript : MonoBehaviour
     private GameObject drawBridgeChainBasePrefab;
 
     private int planksCount;
+    Transform lastChainElement;
 
     // Use this for initialization
     void Start()
     {
-        chainElementsContainer = transform.GetChild(0);
-        iceBlockPrefab = transform.GetChild(1).gameObject;
-        drawBridgeChainBasePrefab = transform.GetChild(2).gameObject;
+        
     }
 
     // Update is called once per frame
@@ -48,80 +47,140 @@ public class DrawBridgeChainScript : MonoBehaviour
 
     public void InitializeObjects(Vector3 planksParentPosition, float lastPlankYPosition, DrawBridgePlanksScript.Directions openingDirection, float currentAngle, int planksCount)
     {
+        chainElementsContainer = transform.GetChild(0);
+        iceBlockPrefab = transform.GetChild(1).gameObject;
+        drawBridgeChainBasePrefab = transform.GetChild(2).gameObject;
+
+        this.planksCount = planksCount;
+        this.openingDirection = openingDirection;
+
+        if (InitializeChainBase(lastPlankYPosition))
+        {
+            InitializeAngleValues();
+            InitializeChains(currentAngle);
+            
+        }
+        else
+            Debug.LogError("Could not initialize ChainBase!");
+    }
+
+    private bool InitializeChains(float currentAngle)
+    {
+        if (chainElementsContainer != null)
+        {
+            chainElementsContainer.localPosition = new Vector3(0.0f, drawBridgeChainBasePrefab.transform.localPosition.y, 0.0f);
+            lastChainElement = chainElementsContainer.GetChild(0);
+
+            if (lastChainElement != null)
+            {
+                currentlyXChainPosition = openingDirection == DrawBridgePlanksScript.Directions.right ? 1.2f : -1.2f;
+                lastChainElement.localPosition = new Vector3(currentlyXChainPosition, 0.0f, -2.0f);
+
+                Debug.Log("planksCount: " + planksCount);
+                chainElementCountPerIteration = (planksCount + 1) / 3;
+                insertedChainElementCount = 1;
+                //chainElementCountPerIteration -= 1;
+
+                for (int i = 1; (i * 22.5f) <= Math.Abs(currentAngle); i++)
+                {
+                    if(i==1)
+                        chainElementCountPerIteration -= 1;
+                    else
+                        chainElementCountPerIteration = (planksCount + 1) / 3;
+
+                    Debug.Log("current temp angle: " + (i * 22.5f));
+                    Debug.Log("Math.Abs(currentAngle): " + Math.Abs(currentAngle));
+                    UpdateChainObjects(true, openingDirection);
+                }
+
+                chainElementCountPerIteration = (planksCount + 1) / 3;
+
+                return true;
+            }
+            Debug.LogError("lastChain Element is null!");
+        }
+        else
+            Debug.LogError("chainElementsContainer is null!");
+
+        return false;
+    }
+
+    private void InitializeAngleValues()
+    {
         float iterationCount = (90f / 22.5f) - 1;
         float differenceToQuarterDegree = 45f - 22.5f;
         degreeChangePerIteration = differenceToQuarterDegree / iterationCount;
         currentChainAngle = ((Convert.ToInt32(openingDirection)) * 22.5f) - ((Convert.ToInt32(openingDirection)) * degreeChangePerIteration);
         Debug.Log("currentChainAngle: " + currentChainAngle);
-        Debug.Log("currentAngle: " + currentAngle);
-
-        this.planksCount = planksCount;
-        chainElementCountPerIteration = (planksCount + 1) / 3;
-
-        this.openingDirection = openingDirection;
-        InitializeChainBase(planksParentPosition, lastPlankYPosition);
-        currentlyXChainPosition = openingDirection == DrawBridgePlanksScript.Directions.left ? -0.5f : 1.5f;
-
-        for (int i = 1; (i * 22.5f) <= Math.Abs(currentAngle); i++)
-        {
-            Debug.Log("i: " + i);
-            Debug.Log("Math.Abs(currentAngle): " + Math.Abs(currentAngle));
-            UpdateChainObjects(true, openingDirection);
-        }
     }
 
-    private void InitializeChainBase(Vector3 planksParentPosition, float lastPlankYPosition)
+
+    private bool InitializeChainBase(float lastPlankYPosition)
     {
-        //var drawBridgeChainBasePrefab = Instantiate(Resources.LoadAssetAtPath("Assets/Prefabs/Level/Engines/DrawbridgeChainBase.prefab", typeof(GameObject))) as GameObject;
-        //var iceBlockPrefab = Instantiate(Resources.LoadAssetAtPath("Assets/Prefabs/Level/Ice/IceEdgesAll.prefab", typeof(GameObject))) as GameObject;
-
-        if (drawBridgeChainBasePrefab != null && iceBlockPrefab != null)
+        if (drawBridgeChainBasePrefab != null)
         {
-            iceBlockPrefab.GetComponent<SpriteRenderer>().sprite = iceBlockTexture;
-            drawBridgeChainBasePrefab.GetComponent<SpriteRenderer>().sortingOrder = 2;
-
             Transform drawBridgeChainBaseTransform = drawBridgeChainBasePrefab.transform;
+
+            if (drawBridgeChainBaseTransform != null)
+            {
+                Debug.Log("lastPlankYPosition: " + lastPlankYPosition);
+                drawBridgeChainBaseTransform.localPosition = new Vector3(-1.0f, lastPlankYPosition + 0.5f, 2.0f);
+                return InitializeIceBlockPrefab(drawBridgeChainBaseTransform);
+            }
+            Debug.LogError("drawBridgeChainBaseTransform is null!");
+        }
+        Debug.LogError("drawBridgeChainBasePrefab is null!");
+        return false;
+    }
+
+    private bool InitializeIceBlockPrefab(Transform drawBridgeChainBaseTransform)
+    {
+        if (drawBridgeChainBaseTransform != null && ChangeTextureOfPrefab(iceBlockPrefab, iceBlockTexture))
+        {
             Transform iceBlockTransform = iceBlockPrefab.transform;
 
-            if (drawBridgeChainBaseTransform != null && iceBlockTransform != null)
+            if (iceBlockTransform != null)
             {
-                float drawBridgeChainBaseXPositionOffset = openingDirection == DrawBridgePlanksScript.Directions.left ? 0.8f : 1.61f;
-                drawBridgeChainBaseTransform.position = new Vector3(planksParentPosition.x - 1.0f, lastPlankYPosition +drawBridgeChainBaseXPositionOffset, planksParentPosition.z);
-                //drawBridgeChainBaseTransform.parent  = transform;
-
-                float iceBlockYPositionOffset = openingDirection == DrawBridgePlanksScript.Directions.left ? 1.3f : -1.47f;
-
-                iceBlockTransform.position = new Vector3(planksParentPosition.x + iceBlockYPositionOffset, drawBridgeChainBaseTransform.position.y + 0.1f, drawBridgeChainBaseTransform.position.z);
-                iceBlockTransform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-
-                if (chainElementsContainer != null)
-                {
-                    chainElementsContainer.position = new Vector3(drawBridgeChainBaseTransform.position.x+0.5f, (drawBridgeChainBaseTransform.position.y), drawBridgeChainBaseTransform.position.z);
-                }
+                float iceBlockXPositionOffset = openingDirection == DrawBridgePlanksScript.Directions.right ? -0.5f : +2.25f;
+                iceBlockTransform.localPosition = new Vector3(drawBridgeChainBaseTransform.localPosition.x + iceBlockXPositionOffset, drawBridgeChainBaseTransform.localPosition.y, drawBridgeChainBaseTransform.localPosition.z);
+                return true;
             }
-        } 
+            else
+                Debug.LogError("iceBlockTransorm is null!");
+        }
+        return false;
+    }
+
+    private bool ChangeTextureOfPrefab(GameObject sourceGameObject, Sprite newTexture)
+    {
+        if (sourceGameObject != null && newTexture != null)
+        {
+            SpriteRenderer renderer = sourceGameObject.GetComponent<SpriteRenderer>();
+            if (renderer != null)
+            {
+                renderer.sprite = newTexture;
+                return true;
+            }
+            else
+                Debug.LogError("Could not find SpriteRenderer for Gameobject: " + sourceGameObject.name);
+        }
+        else
+            Debug.LogError("Could not change Sprite for GameObject!");
+
+        return false;
     }
 
     public void UpdateChainObjects(bool addChain, DrawBridgePlanksScript.Directions direction)
     {
+        Debug.Log("In Function UpdateChainObjects!");
+        Debug.Log("chainElementCountPerIteration: " + chainElementCountPerIteration);
+
         if (addChain)
         {
-            //if (insertedChainElementCount == 1)
-            //    chainElementCountPerIteration -= 1;
-            //else
-            //    chainElementCountPerIteration = (planksCount + 1) / 3;
-
             for (int i = 0; i < chainElementCountPerIteration; i++)
             {
-                var drawBridgeChainElementTransform = InstantiateNewChainPrefab();
-                if (drawBridgeChainElementTransform != null)
-                {
-                    drawBridgeChainElementTransform.name = insertedChainElementCount.ToString();
-                    drawBridgeChainElementTransform.localPosition = new Vector3(currentlyXChainPosition, 0.0f, 0.0f);
-
-                    currentlyXChainPosition = openingDirection == DrawBridgePlanksScript.Directions.left ? currentlyXChainPosition - 2.2f : currentlyXChainPosition + 2.2f;
+                if (InstantiateNewChainPrefab())
                     insertedChainElementCount++;
-                }
             }
 
             currentChainAngle = currentChainAngle + degreeChangePerIteration * Convert.ToInt32(direction);
@@ -130,16 +189,17 @@ public class DrawBridgeChainScript : MonoBehaviour
         }
         else
         {
+            Debug.Log("chainElementCountPerIteration: " + chainElementCountPerIteration);
             for (int i = 1; i <= chainElementCountPerIteration; i++)
             {
-                Transform lastElement = chainElementsContainer.GetChild(insertedChainElementCount - 1);
-
-                if (lastElement != null)
+                if (lastChainElement != null)
                 {
-                    DestroyPrefab(lastElement.gameObject);
+                    DestroyPrefab(lastChainElement.gameObject);
                     currentlyXChainPosition = openingDirection == DrawBridgePlanksScript.Directions.left ? currentlyXChainPosition + 2.2f : currentlyXChainPosition - 2.2f;
                     insertedChainElementCount--;
                 }
+
+                lastChainElement = chainElementsContainer.GetChild(insertedChainElementCount - 1);
             }
 
             currentChainAngle -= degreeChangePerIteration * Convert.ToInt32(openingDirection);
@@ -147,30 +207,55 @@ public class DrawBridgeChainScript : MonoBehaviour
         }
     }
 
-    private Transform InstantiateNewChainPrefab()
+    private bool InstantiateNewChainPrefab()
     {
+        string chainPrefabName = insertedChainElementCount != 0 ? " drawbridge_chain_middle" : " drawbridge_chain_front";
+       // var drawBridgeChainElement = Instantiate(Resources.LoadAssetAtPath("Assets/Prefabs/Level/Engines/"+chainPrefabName+".prefab", typeof(GameObject))) as GameObject;
 
-        string chainPrefabName = insertedChainElementCount != 0 ? "ChainMiddle" : "ChainFront";
-        var drawBridgeChainElement = Instantiate(Resources.LoadAssetAtPath("Assets/Prefabs/Level/Engines/"+chainPrefabName+".prefab", typeof(GameObject))) as GameObject;
-       
-        Transform drawBridgeChainElementTransform = null;
-
-        if (drawBridgeChainElement != null)
+        if (lastChainElement != null)
         {
-            drawBridgeChainElement.renderer.sortingOrder = 0;
-            drawBridgeChainElementTransform = drawBridgeChainElement.transform;
+            var newItem = Instantiate(lastChainElement) as Transform;
 
-            if (drawBridgeChainElementTransform != null)
+            if (newItem != null)
             {
-                drawBridgeChainElementTransform.SetParent(chainElementsContainer);
-                drawBridgeChainElementTransform.localRotation = Quaternion.AngleAxis(0.0f, new Vector3(0.0f, 0.0f, 1f));
-                Vector3 position = drawBridgeChainElementTransform.localPosition;
-                position.z = -0.1f;
-                drawBridgeChainElementTransform.localPosition = position;
+                Sprite chainSprite = Resources.LoadAssetAtPath("Assets/Textures/Buttons & Engines & More/" + chainPrefabName + ".png", typeof(Sprite)) as Sprite;
+
+                if (chainSprite != null)
+                {
+                    if (ChangeTextureOfPrefab(newItem.gameObject, chainSprite))
+                    {
+                        newItem.parent = lastChainElement.parent;
+                        newItem.localPosition = new Vector3(lastChainElement.localPosition.x + (2.25f * Convert.ToInt32(openingDirection)*-1.0f), 0.0f, 0.0f);
+                        newItem.localRotation = Quaternion.AngleAxis(currentChainAngle, new Vector3(0.0f, 0.0f, 0.0f));
+                        lastChainElement = newItem;
+
+                        return true;
+                    }
+                }
+                Debug.LogError("Could no load sprite: " + chainPrefabName);
             }
         }
+        Debug.LogError("Could not create new ChainElement cause lastChainElement is null!");
+        return false;
 
-        return drawBridgeChainElementTransform;
+        //Transform drawBridgeChainElementTransform = null;
+
+        //if (drawBridgeChainElement != null)
+        //{
+        //    drawBridgeChainElement.renderer.sortingOrder = 0;
+        //    drawBridgeChainElementTransform = drawBridgeChainElement.transform;
+
+        //    if (drawBridgeChainElementTransform != null)
+        //    {
+        //        drawBridgeChainElementTransform.SetParent(chainElementsContainer);
+        //        drawBridgeChainElementTransform.localRotation = Quaternion.AngleAxis(0.0f, new Vector3(0.0f, 0.0f, 1f));
+        //        Vector3 position = drawBridgeChainElementTransform.localPosition;
+        //        position.z = -0.1f;
+        //        drawBridgeChainElementTransform.localPosition = position;
+        //    }
+        //}
+
+        //return drawBridgeChainElementTransform;
     }
 
     private void DestroyPrefab(GameObject prefab)
