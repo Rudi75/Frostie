@@ -643,6 +643,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd0e7ec1cac22db49bf85125f2d80e6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  squeezed: 0
+  sqeeezerScript: {fileID: 0}
 --- !u!114 &11489822
 MonoBehaviour:
   m_ObjectHideFlags: 1
