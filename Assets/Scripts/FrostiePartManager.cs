@@ -179,6 +179,7 @@ public class FrostiePartManager : MonoBehaviour {
 
             Destroy(middlePartClone);
             Destroy(headClone);
+            setActivePart(2);
         }else if(headAndMiddleClone == null)
         {
             if (headClone != null)
@@ -186,6 +187,7 @@ public class FrostiePartManager : MonoBehaviour {
                 Destroy(headClone);
             }
             head.gameObject.SetActive(true);
+            setActivePart(1);
         }
     }
 

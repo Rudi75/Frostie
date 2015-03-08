@@ -35,7 +35,7 @@ public abstract class TargetActionScript : MonoBehaviour {
             if (!buttonScript.isPressed)
                 allButtonspressed = false;
 	    }
-        if(allButtonspressed)
+        if (allButtonspressed && !activated_)
         {
             performAction();
             activated_ = true;
