@@ -64725,7 +64725,7 @@ MonoBehaviour:
   Jump: {fileID: 8300000, guid: dcd6e5285976ecd4e9eb556a3a02fcb4, type: 3}
   Walk: {fileID: 8300000, guid: 68f1b7c8d463c914db1eb10e920f3bb9, type: 3}
   Melting: {fileID: 8300000, guid: 9841f3b403d933449bd00a0df3d1d8b5, type: 3}
-  FreezeGround: {fileID: 8300000, guid: 42f79b1e61f461147894d229ab0242e1, type: 3}
+  FreezeGround: {fileID: 8300000, guid: 0177492ad04c87a42a9782379ed9d819, type: 3}
   Death: {fileID: 8300000, guid: 746976f80c1dd8c4eba2df64b0d3d3f4, type: 3}
   DeathInFire: {fileID: 8300000, guid: 0721f491a5001464d92eb17b4983a652, type: 3}
 --- !u!1 &1093672552
@@ -84174,7 +84174,7 @@ Prefab:
     - target: {fileID: 11451984, guid: cb7430f3753c3604c8a649c80557df0b, type: 2}
       propertyPath: FreezeGround
       value: 
-      objectReference: {fileID: 8300000, guid: 42f79b1e61f461147894d229ab0242e1, type: 3}
+      objectReference: {fileID: 8300000, guid: 0177492ad04c87a42a9782379ed9d819, type: 3}
     - target: {fileID: 11451984, guid: cb7430f3753c3604c8a649c80557df0b, type: 2}
       propertyPath: Walk
       value: 
