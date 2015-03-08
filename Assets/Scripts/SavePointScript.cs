@@ -26,7 +26,8 @@ public class SavePointScript : SaveableScript
             fire.gameObject.SetActive(true);
 
             var savedData = FindObjectOfType<SavedDataManager>();
-            if (savedData != null) savedData.SaveCurrentState();
+           // if (savedData != null) 
+            savedData.SaveCurrentState();
 
             FrostiePartManager.spawnPosition = transform.position;
 
