@@ -85,7 +85,7 @@ public class FrostieStatus : MonoBehaviour {
 
     public bool canJump()
     {
-        if (isMelted || isFixated)
+        if (isMelted || isFixated || frostiePartManager.getActivePart().Equals(frostiePartManager.getHeadClone()))
             return false;
         else
             return isGrounded();

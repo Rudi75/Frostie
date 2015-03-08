@@ -46,7 +46,7 @@ public class ParallaxScrollingScript : MonoBehaviour
   {
     x = Camera.main.transform.position.x;
     y = Camera.main.transform.position.y;
-    skipScrolling = 2;
+    skipScrolling = 0;
 
     if(isLooping)
     {
