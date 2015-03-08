@@ -295,6 +295,8 @@ public class SqeezerAnimationScript : TargetActionScript
     protected override void performAction()
     {
         active = !active;
+        squeezer.position = startPosition;
+        arm.localScale = new Vector3(1, 1, 1);
     }
 
     public override void saveData(SavedDataContainer dataContainer)
