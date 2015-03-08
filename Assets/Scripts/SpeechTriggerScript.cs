@@ -17,6 +17,7 @@ public class SpeechTriggerScript : TargetActionScript {
             if(bubble != null)
             {
                 bubble.speak(speech);
+                this.triggered = true;
                // bubble.enabled = true;
 
                 foreach (SpeechTriggerScript trigger in speechTriggerToActivate)
@@ -42,7 +43,7 @@ public class SpeechTriggerScript : TargetActionScript {
                 //bubble.setSpeech(" ");
                 bubble.enabled = false;
                 //Destroy(gameObject);
-                this.triggered = true;
+                
             }
         }
     }
