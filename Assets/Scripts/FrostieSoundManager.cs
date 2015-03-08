@@ -37,11 +37,11 @@ public class FrostieSoundManager : MonoBehaviour
         }
         else
         {
-            isWalking = false;
             if (isWalking && audio.clip.name.Equals(Walk.name))
             {
                 audio.Stop();
             }
+            isWalking = false;
         } 
     }
 

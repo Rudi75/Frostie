@@ -64722,11 +64722,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d02c474546250a498af0281d5afaa67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Jump: {fileID: 8300000, guid: 31c63c6f08e180a46af0a0cb337c585e, type: 3}
-  Walk: {fileID: 8300000, guid: e80da2edb36106e4ebe6a355de9c0ca4, type: 3}
+  Jump: {fileID: 8300000, guid: dcd6e5285976ecd4e9eb556a3a02fcb4, type: 3}
+  Walk: {fileID: 8300000, guid: 68f1b7c8d463c914db1eb10e920f3bb9, type: 3}
   Melting: {fileID: 8300000, guid: 9841f3b403d933449bd00a0df3d1d8b5, type: 3}
   FreezeGround: {fileID: 8300000, guid: 42f79b1e61f461147894d229ab0242e1, type: 3}
-  Death: {fileID: 8300000, guid: 3851bcce56de95948bb822f82f012b6a, type: 3}
+  Death: {fileID: 8300000, guid: 746976f80c1dd8c4eba2df64b0d3d3f4, type: 3}
   DeathInFire: {fileID: 8300000, guid: 0721f491a5001464d92eb17b4983a652, type: 3}
 --- !u!1 &1093672552
 GameObject:
@@ -84175,6 +84175,18 @@ Prefab:
       propertyPath: FreezeGround
       value: 
       objectReference: {fileID: 8300000, guid: 42f79b1e61f461147894d229ab0242e1, type: 3}
+    - target: {fileID: 11451984, guid: cb7430f3753c3604c8a649c80557df0b, type: 2}
+      propertyPath: Walk
+      value: 
+      objectReference: {fileID: 8300000, guid: 68f1b7c8d463c914db1eb10e920f3bb9, type: 3}
+    - target: {fileID: 11451984, guid: cb7430f3753c3604c8a649c80557df0b, type: 2}
+      propertyPath: Jump
+      value: 
+      objectReference: {fileID: 8300000, guid: dcd6e5285976ecd4e9eb556a3a02fcb4, type: 3}
+    - target: {fileID: 11451984, guid: cb7430f3753c3604c8a649c80557df0b, type: 2}
+      propertyPath: Death
+      value: 
+      objectReference: {fileID: 8300000, guid: 746976f80c1dd8c4eba2df64b0d3d3f4, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cb7430f3753c3604c8a649c80557df0b, type: 2}
   m_RootGameObject: {fileID: 1150730763}
