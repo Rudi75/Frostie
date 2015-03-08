@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using Assets.Scripts.Utils;
 
-public class DrawBridgePlanksScript : MonoBehaviour {
+public class DrawBridgePlanksScript : SaveableScript {
 
     public enum Directions
     {
@@ -119,5 +120,18 @@ public class DrawBridgePlanksScript : MonoBehaviour {
 
         Debug.Log("I am not locked!");
         return false;
+    }
+
+    public override void saveData(SavedDataContainer dataContainer)
+    {
+        dataContainer.AddData("currentAngle", currentAngle);
+        Debug.Log("save " + currentAngle);
+    }
+
+    public override void loadData(SavedDataContainer dataContainer)
+    {
+        currentAngle = (float)dataContainer.retrieveData("currentAngle");
+        Debug.Log("load " + currentAngle);
+        //Start();
     }
 }
