@@ -6,7 +6,7 @@ using AssemblyCSharp;
 
 public class FrostiePartManager : MonoBehaviour {
 
-    public static Vector3 spawnPosition = new Vector3(150,26,0);
+    public static Vector3 spawnPosition = new Vector3(0,0,0);
 
     private Transform head;
     private Transform middlePart;
