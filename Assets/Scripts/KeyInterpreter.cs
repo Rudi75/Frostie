@@ -151,7 +151,7 @@ public class KeyInterpreter : MonoBehaviour {
 
         if (Input.GetKeyDown(HeadKey))
         {
-            frostiePartManager.setActivePart(3);
+           // frostiePartManager.setActivePart(3);
         }
 
         if (frostieMoveScript != null)
