@@ -9,7 +9,7 @@ public class DrawBridgeWheelScript : TargetActionScript {
 
     private DrawBridgePlanksScript PlanksReference;
     public Transform plankTransform;
-    private bool wheelEnabled = false;
+    public bool wheelEnabled = false;
 
     private KeyInterpreter keyInterpreter;
     public Camera drawBridgeWheelPopupCamera;
@@ -39,7 +39,7 @@ public class DrawBridgeWheelScript : TargetActionScript {
         {
             bool turnWheelPressed = keyInterpreter.isTurnWheelKeyPressed();
 
-            Debug.Log("Everything initialized!");
+           // Debug.Log("Everything initialized!");
             if (turnWheelPressed)
             {
                 Debug.Log("turnWheelPressed pressed!");
