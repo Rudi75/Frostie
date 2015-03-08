@@ -3427,7 +3427,6 @@ GameObject:
   - 212: {fileID: 99993471}
   - 61: {fileID: 99993470}
   - 61: {fileID: 99993469}
-  - 82: {fileID: 99993468}
   - 95: {fileID: 99993467}
   m_Layer: 0
   m_Name: Lava
@@ -3464,70 +3463,6 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!82 &99993468
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8292676, guid: 0ca41fc8d31948b46b2acae77edd4d0e,
-    type: 2}
-  m_PrefabInternal: {fileID: 601010749}
-  m_GameObject: {fileID: 99993465}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 9073943fc907607408398a743a9536a1, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: .600000024
-  m_Pitch: 2
-  Loop: 1
-  Mute: 0
-  Priority: 140
-  DopplerLevel: 1
-  MinDistance: .800000012
-  MaxDistance: 20
-  Pan2D: 0
-  rolloffMode: 2
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: .250015825
-      value: .708735108
-      inSlope: -2.94309878
-      outSlope: -2.94309878
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!61 &99993469
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5773,7 +5708,6 @@ GameObject:
   - 212: {fileID: 175718810}
   - 61: {fileID: 175718809}
   - 61: {fileID: 175718808}
-  - 82: {fileID: 175718807}
   - 95: {fileID: 175718806}
   m_Layer: 0
   m_Name: Lava
@@ -5810,70 +5744,6 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!82 &175718807
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8292674, guid: 0ca41fc8d31948b46b2acae77edd4d0e,
-    type: 2}
-  m_PrefabInternal: {fileID: 376084938}
-  m_GameObject: {fileID: 175718804}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 9073943fc907607408398a743a9536a1, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: .600000024
-  m_Pitch: 2
-  Loop: 1
-  Mute: 0
-  Priority: 140
-  DopplerLevel: 1
-  MinDistance: .800000012
-  MaxDistance: 20
-  Pan2D: 0
-  rolloffMode: 2
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: .250015825
-      value: .708735108
-      inSlope: -2.94309878
-      outSlope: -2.94309878
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!61 &175718808
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6400,6 +6270,51 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b2bd48048d320684fbe3f2c17e68649d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &186521616
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 149596, guid: 5af5fd3f17631b248a73069629bf5a5c, type: 2}
+  m_PrefabInternal: {fileID: 1626360012}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 186521617}
+  - 114: {fileID: 186521618}
+  m_Layer: 0
+  m_Name: EarthWithGrassMirrored
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &186521617
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 449596, guid: 5af5fd3f17631b248a73069629bf5a5c, type: 2}
+  m_PrefabInternal: {fileID: 1626360012}
+  m_GameObject: {fileID: 186521616}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.25, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 226321166}
+  - {fileID: 2011466843}
+  m_Father: {fileID: 722973807}
+  m_RootOrder: 1
+--- !u!114 &186521618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11427210, guid: 5af5fd3f17631b248a73069629bf5a5c,
+    type: 2}
+  m_PrefabInternal: {fileID: 1626360012}
+  m_GameObject: {fileID: 186521616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa60a9b6df60c584c905abab966b5e5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FrozenOverlayPrefab: {fileID: 464482, guid: 89a86cf500cc08b4aa890ab99cbeea64, type: 2}
+  TimeToDefrost: 12
+  AlwaysFrozen: 0
 --- !u!1 &189346040
 GameObject:
   m_ObjectHideFlags: 0
@@ -7982,6 +7897,57 @@ Prefab:
   m_RootGameObject: {fileID: 1268049969}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &226321165
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 149594, guid: 5af5fd3f17631b248a73069629bf5a5c, type: 2}
+  m_PrefabInternal: {fileID: 1626360012}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 226321166}
+  - 212: {fileID: 226321167}
+  m_Layer: 0
+  m_Name: grass
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &226321166
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 449594, guid: 5af5fd3f17631b248a73069629bf5a5c, type: 2}
+  m_PrefabInternal: {fileID: 1626360012}
+  m_GameObject: {fileID: 226321165}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 186521617}
+  m_RootOrder: 0
+--- !u!212 &226321167
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 21249594, guid: 5af5fd3f17631b248a73069629bf5a5c,
+    type: 2}
+  m_PrefabInternal: {fileID: 1626360012}
+  m_GameObject: {fileID: 226321165}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: d93fc70fb38647c47a9e64500cc60745, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &230794371
 GameObject:
   m_ObjectHideFlags: 0
@@ -9537,7 +9503,7 @@ Transform:
   m_PrefabInternal: {fileID: 297458874}
   m_GameObject: {fileID: 277153465}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 80.4000015, y: 11.7299995, z: 0}
+  m_LocalPosition: {x: 83.3499985, y: 12.54, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1901219702}
@@ -9747,7 +9713,6 @@ GameObject:
   - 212: {fileID: 286449930}
   - 61: {fileID: 286449929}
   - 61: {fileID: 286449928}
-  - 82: {fileID: 286449927}
   - 95: {fileID: 286449926}
   m_Layer: 0
   m_Name: Lava
@@ -9784,70 +9749,6 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!82 &286449927
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8292676, guid: 0ca41fc8d31948b46b2acae77edd4d0e,
-    type: 2}
-  m_PrefabInternal: {fileID: 1071949646}
-  m_GameObject: {fileID: 286449924}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 9073943fc907607408398a743a9536a1, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: .600000024
-  m_Pitch: 2
-  Loop: 1
-  Mute: 0
-  Priority: 140
-  DopplerLevel: 1
-  MinDistance: .800000012
-  MaxDistance: 20
-  Pan2D: 0
-  rolloffMode: 2
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: .250015825
-      value: .708735108
-      inSlope: -2.94309878
-      outSlope: -2.94309878
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!61 &286449928
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10231,7 +10132,6 @@ GameObject:
   - 212: {fileID: 294210203}
   - 61: {fileID: 294210202}
   - 61: {fileID: 294210201}
-  - 82: {fileID: 294210200}
   - 95: {fileID: 294210199}
   m_Layer: 0
   m_Name: Lava
@@ -10268,70 +10168,6 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!82 &294210200
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8292674, guid: 0ca41fc8d31948b46b2acae77edd4d0e,
-    type: 2}
-  m_PrefabInternal: {fileID: 337572294}
-  m_GameObject: {fileID: 294210197}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 9073943fc907607408398a743a9536a1, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: .600000024
-  m_Pitch: 2
-  Loop: 1
-  Mute: 0
-  Priority: 140
-  DopplerLevel: 1
-  MinDistance: .800000012
-  MaxDistance: 20
-  Pan2D: 0
-  rolloffMode: 2
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: .250015825
-      value: .708735108
-      inSlope: -2.94309878
-      outSlope: -2.94309878
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!61 &294210201
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10437,11 +10273,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 430908, guid: d526baedf0df4ca4092c483162a4cbdd, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 80.4000015
+      value: 83.3499985
       objectReference: {fileID: 0}
     - target: {fileID: 430908, guid: d526baedf0df4ca4092c483162a4cbdd, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 11.7299995
+      value: 12.54
       objectReference: {fileID: 0}
     - target: {fileID: 430908, guid: d526baedf0df4ca4092c483162a4cbdd, type: 2}
       propertyPath: m_LocalPosition.z
@@ -12411,7 +12247,6 @@ GameObject:
   - 212: {fileID: 343179801}
   - 61: {fileID: 343179800}
   - 61: {fileID: 343179799}
-  - 82: {fileID: 343179798}
   - 95: {fileID: 343179797}
   m_Layer: 0
   m_Name: Lava
@@ -12448,70 +12283,6 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!82 &343179798
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8292676, guid: 0ca41fc8d31948b46b2acae77edd4d0e,
-    type: 2}
-  m_PrefabInternal: {fileID: 1495197563}
-  m_GameObject: {fileID: 343179795}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 9073943fc907607408398a743a9536a1, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: .600000024
-  m_Pitch: 2
-  Loop: 1
-  Mute: 0
-  Priority: 140
-  DopplerLevel: 1
-  MinDistance: .800000012
-  MaxDistance: 20
-  Pan2D: 0
-  rolloffMode: 2
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: .250015825
-      value: .708735108
-      inSlope: -2.94309878
-      outSlope: -2.94309878
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!61 &343179799
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12727,7 +12498,6 @@ GameObject:
   - 212: {fileID: 350797496}
   - 61: {fileID: 350797495}
   - 61: {fileID: 350797494}
-  - 82: {fileID: 350797493}
   - 95: {fileID: 350797492}
   m_Layer: 0
   m_Name: Lava
@@ -12764,70 +12534,6 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!82 &350797493
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8292674, guid: 0ca41fc8d31948b46b2acae77edd4d0e,
-    type: 2}
-  m_PrefabInternal: {fileID: 249232092}
-  m_GameObject: {fileID: 350797490}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 9073943fc907607408398a743a9536a1, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: .600000024
-  m_Pitch: 2
-  Loop: 1
-  Mute: 0
-  Priority: 140
-  DopplerLevel: 1
-  MinDistance: .800000012
-  MaxDistance: 20
-  Pan2D: 0
-  rolloffMode: 2
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: .250015825
-      value: .708735108
-      inSlope: -2.94309878
-      outSlope: -2.94309878
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!61 &350797494
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15969,7 +15675,6 @@ GameObject:
   - 212: {fileID: 444407534}
   - 61: {fileID: 444407533}
   - 61: {fileID: 444407532}
-  - 82: {fileID: 444407531}
   - 95: {fileID: 444407530}
   m_Layer: 0
   m_Name: Lava
@@ -16006,70 +15711,6 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!82 &444407531
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8292676, guid: 0ca41fc8d31948b46b2acae77edd4d0e,
-    type: 2}
-  m_PrefabInternal: {fileID: 1964624384}
-  m_GameObject: {fileID: 444407528}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 9073943fc907607408398a743a9536a1, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: .600000024
-  m_Pitch: 2
-  Loop: 1
-  Mute: 0
-  Priority: 140
-  DopplerLevel: 1
-  MinDistance: .800000012
-  MaxDistance: 20
-  Pan2D: 0
-  rolloffMode: 2
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: .250015825
-      value: .708735108
-      inSlope: -2.94309878
-      outSlope: -2.94309878
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!61 &444407532
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16142,7 +15783,7 @@ Transform:
   m_PrefabInternal: {fileID: 1645187745}
   m_GameObject: {fileID: 445566410}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 75.5500031, y: 11.4799995, z: 0}
+  m_LocalPosition: {x: 83.25, y: 15.9399996, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1083526522}
@@ -17307,7 +16948,6 @@ GameObject:
   - 212: {fileID: 477464693}
   - 61: {fileID: 477464692}
   - 61: {fileID: 477464691}
-  - 82: {fileID: 477464690}
   - 95: {fileID: 477464689}
   m_Layer: 0
   m_Name: Lava
@@ -17344,70 +16984,6 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!82 &477464690
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8292676, guid: 0ca41fc8d31948b46b2acae77edd4d0e,
-    type: 2}
-  m_PrefabInternal: {fileID: 1795896776}
-  m_GameObject: {fileID: 477464687}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 9073943fc907607408398a743a9536a1, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: .600000024
-  m_Pitch: 2
-  Loop: 1
-  Mute: 0
-  Priority: 140
-  DopplerLevel: 1
-  MinDistance: .800000012
-  MaxDistance: 20
-  Pan2D: 0
-  rolloffMode: 2
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: .250015825
-      value: .708735108
-      inSlope: -2.94309878
-      outSlope: -2.94309878
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!61 &477464691
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18017,7 +17593,6 @@ GameObject:
   - 212: {fileID: 493813321}
   - 61: {fileID: 493813320}
   - 61: {fileID: 493813319}
-  - 82: {fileID: 493813318}
   - 95: {fileID: 493813317}
   m_Layer: 0
   m_Name: Lava
@@ -18054,70 +17629,6 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!82 &493813318
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8292676, guid: 0ca41fc8d31948b46b2acae77edd4d0e,
-    type: 2}
-  m_PrefabInternal: {fileID: 329815923}
-  m_GameObject: {fileID: 493813315}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 9073943fc907607408398a743a9536a1, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: .600000024
-  m_Pitch: 2
-  Loop: 1
-  Mute: 0
-  Priority: 140
-  DopplerLevel: 1
-  MinDistance: .800000012
-  MaxDistance: 20
-  Pan2D: 0
-  rolloffMode: 2
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: .250015825
-      value: .708735108
-      inSlope: -2.94309878
-      outSlope: -2.94309878
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!61 &493813319
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20466,7 +19977,6 @@ GameObject:
   - 212: {fileID: 555520435}
   - 61: {fileID: 555520434}
   - 61: {fileID: 555520433}
-  - 82: {fileID: 555520432}
   - 95: {fileID: 555520431}
   m_Layer: 0
   m_Name: Lava
@@ -20503,70 +20013,6 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!82 &555520432
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8292674, guid: 0ca41fc8d31948b46b2acae77edd4d0e,
-    type: 2}
-  m_PrefabInternal: {fileID: 751616613}
-  m_GameObject: {fileID: 555520429}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 9073943fc907607408398a743a9536a1, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: .600000024
-  m_Pitch: 2
-  Loop: 1
-  Mute: 0
-  Priority: 140
-  DopplerLevel: 1
-  MinDistance: .800000012
-  MaxDistance: 20
-  Pan2D: 0
-  rolloffMode: 2
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: .250015825
-      value: .708735108
-      inSlope: -2.94309878
-      outSlope: -2.94309878
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!61 &555520433
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20833,7 +20279,6 @@ GameObject:
   - 212: {fileID: 560386073}
   - 61: {fileID: 560386072}
   - 61: {fileID: 560386071}
-  - 82: {fileID: 560386070}
   - 95: {fileID: 560386069}
   m_Layer: 0
   m_Name: Lava
@@ -20870,70 +20315,6 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!82 &560386070
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8292674, guid: 0ca41fc8d31948b46b2acae77edd4d0e,
-    type: 2}
-  m_PrefabInternal: {fileID: 1795896776}
-  m_GameObject: {fileID: 560386067}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 9073943fc907607408398a743a9536a1, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: .600000024
-  m_Pitch: 2
-  Loop: 1
-  Mute: 0
-  Priority: 140
-  DopplerLevel: 1
-  MinDistance: .800000012
-  MaxDistance: 20
-  Pan2D: 0
-  rolloffMode: 2
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: .250015825
-      value: .708735108
-      inSlope: -2.94309878
-      outSlope: -2.94309878
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!61 &560386071
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -24052,7 +23433,6 @@ GameObject:
   - 212: {fileID: 629786554}
   - 61: {fileID: 629786553}
   - 61: {fileID: 629786552}
-  - 82: {fileID: 629786551}
   - 95: {fileID: 629786550}
   m_Layer: 0
   m_Name: Lava
@@ -24089,70 +23469,6 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!82 &629786551
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8292676, guid: 0ca41fc8d31948b46b2acae77edd4d0e,
-    type: 2}
-  m_PrefabInternal: {fileID: 1776930869}
-  m_GameObject: {fileID: 629786548}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 9073943fc907607408398a743a9536a1, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: .600000024
-  m_Pitch: 2
-  Loop: 1
-  Mute: 0
-  Priority: 140
-  DopplerLevel: 1
-  MinDistance: .800000012
-  MaxDistance: 20
-  Pan2D: 0
-  rolloffMode: 2
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: .250015825
-      value: .708735108
-      inSlope: -2.94309878
-      outSlope: -2.94309878
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!61 &629786552
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -25060,7 +24376,6 @@ GameObject:
   - 212: {fileID: 661101235}
   - 61: {fileID: 661101234}
   - 61: {fileID: 661101233}
-  - 82: {fileID: 661101232}
   - 95: {fileID: 661101231}
   m_Layer: 0
   m_Name: Lava
@@ -25097,70 +24412,6 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!82 &661101232
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8292674, guid: 0ca41fc8d31948b46b2acae77edd4d0e,
-    type: 2}
-  m_PrefabInternal: {fileID: 1495197563}
-  m_GameObject: {fileID: 661101229}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 9073943fc907607408398a743a9536a1, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: .600000024
-  m_Pitch: 2
-  Loop: 1
-  Mute: 0
-  Priority: 140
-  DopplerLevel: 1
-  MinDistance: .800000012
-  MaxDistance: 20
-  Pan2D: 0
-  rolloffMode: 2
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: .250015825
-      value: .708735108
-      inSlope: -2.94309878
-      outSlope: -2.94309878
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!61 &661101233
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -26667,7 +25918,6 @@ GameObject:
   - 212: {fileID: 706484387}
   - 61: {fileID: 706484386}
   - 61: {fileID: 706484385}
-  - 82: {fileID: 706484384}
   - 95: {fileID: 706484383}
   m_Layer: 0
   m_Name: Lava
@@ -26704,70 +25954,6 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!82 &706484384
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8292674, guid: 0ca41fc8d31948b46b2acae77edd4d0e,
-    type: 2}
-  m_PrefabInternal: {fileID: 105106921}
-  m_GameObject: {fileID: 706484381}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 9073943fc907607408398a743a9536a1, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: .600000024
-  m_Pitch: 2
-  Loop: 1
-  Mute: 0
-  Priority: 140
-  DopplerLevel: 1
-  MinDistance: .800000012
-  MaxDistance: 20
-  Pan2D: 0
-  rolloffMode: 2
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: .250015825
-      value: .708735108
-      inSlope: -2.94309878
-      outSlope: -2.94309878
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!61 &706484385
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -27290,6 +26476,35 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d93fc70fb38647c47a9e64500cc60745, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &722973806
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 149598, guid: 5af5fd3f17631b248a73069629bf5a5c, type: 2}
+  m_PrefabInternal: {fileID: 1626360012}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 722973807}
+  m_Layer: 0
+  m_Name: EarthWithGrass2x1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &722973807
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 449598, guid: 5af5fd3f17631b248a73069629bf5a5c, type: 2}
+  m_PrefabInternal: {fileID: 1626360012}
+  m_GameObject: {fileID: 722973806}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 82.1800003, y: 14.3900003, z: .200000003}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1873403933}
+  - {fileID: 186521617}
+  m_Father: {fileID: 1901219702}
+  m_RootOrder: 76
 --- !u!1 &725090859
 GameObject:
   m_ObjectHideFlags: 0
@@ -39460,7 +38675,6 @@ GameObject:
   - 212: {fileID: 1034707421}
   - 61: {fileID: 1034707420}
   - 61: {fileID: 1034707419}
-  - 82: {fileID: 1034707418}
   - 95: {fileID: 1034707417}
   m_Layer: 0
   m_Name: Lava
@@ -39497,70 +38711,6 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!82 &1034707418
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8292674, guid: 0ca41fc8d31948b46b2acae77edd4d0e,
-    type: 2}
-  m_PrefabInternal: {fileID: 1071949646}
-  m_GameObject: {fileID: 1034707415}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 9073943fc907607408398a743a9536a1, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: .600000024
-  m_Pitch: 2
-  Loop: 1
-  Mute: 0
-  Priority: 140
-  DopplerLevel: 1
-  MinDistance: .800000012
-  MaxDistance: 20
-  Pan2D: 0
-  rolloffMode: 2
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: .250015825
-      value: .708735108
-      inSlope: -2.94309878
-      outSlope: -2.94309878
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!61 &1034707419
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -39785,7 +38935,6 @@ GameObject:
   - 212: {fileID: 1037501077}
   - 61: {fileID: 1037501076}
   - 61: {fileID: 1037501075}
-  - 82: {fileID: 1037501074}
   - 95: {fileID: 1037501073}
   m_Layer: 0
   m_Name: Lava
@@ -39822,70 +38971,6 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!82 &1037501074
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8292674, guid: 0ca41fc8d31948b46b2acae77edd4d0e,
-    type: 2}
-  m_PrefabInternal: {fileID: 1776930869}
-  m_GameObject: {fileID: 1037501071}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 9073943fc907607408398a743a9536a1, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: .600000024
-  m_Pitch: 2
-  Loop: 1
-  Mute: 0
-  Priority: 140
-  DopplerLevel: 1
-  MinDistance: .800000012
-  MaxDistance: 20
-  Pan2D: 0
-  rolloffMode: 2
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: .250015825
-      value: .708735108
-      inSlope: -2.94309878
-      outSlope: -2.94309878
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!61 &1037501075
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -40626,7 +39711,6 @@ GameObject:
   - 212: {fileID: 1062789705}
   - 61: {fileID: 1062789704}
   - 61: {fileID: 1062789703}
-  - 82: {fileID: 1062789702}
   - 95: {fileID: 1062789701}
   m_Layer: 0
   m_Name: Lava
@@ -40663,70 +39747,6 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!82 &1062789702
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8292674, guid: 0ca41fc8d31948b46b2acae77edd4d0e,
-    type: 2}
-  m_PrefabInternal: {fileID: 1876453142}
-  m_GameObject: {fileID: 1062789699}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 9073943fc907607408398a743a9536a1, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: .600000024
-  m_Pitch: 2
-  Loop: 1
-  Mute: 0
-  Priority: 140
-  DopplerLevel: 1
-  MinDistance: .800000012
-  MaxDistance: 20
-  Pan2D: 0
-  rolloffMode: 2
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: .250015825
-      value: .708735108
-      inSlope: -2.94309878
-      outSlope: -2.94309878
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!61 &1062789703
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -41084,7 +40104,6 @@ GameObject:
   - 212: {fileID: 1070154587}
   - 61: {fileID: 1070154586}
   - 61: {fileID: 1070154585}
-  - 82: {fileID: 1070154584}
   - 95: {fileID: 1070154583}
   m_Layer: 0
   m_Name: Lava
@@ -41121,70 +40140,6 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!82 &1070154584
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8292674, guid: 0ca41fc8d31948b46b2acae77edd4d0e,
-    type: 2}
-  m_PrefabInternal: {fileID: 1964624384}
-  m_GameObject: {fileID: 1070154581}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 9073943fc907607408398a743a9536a1, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: .600000024
-  m_Pitch: 2
-  Loop: 1
-  Mute: 0
-  Priority: 140
-  DopplerLevel: 1
-  MinDistance: .800000012
-  MaxDistance: 20
-  Pan2D: 0
-  rolloffMode: 2
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: .250015825
-      value: .708735108
-      inSlope: -2.94309878
-      outSlope: -2.94309878
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!61 &1070154585
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -42370,7 +41325,6 @@ GameObject:
   - 212: {fileID: 1099700889}
   - 61: {fileID: 1099700888}
   - 61: {fileID: 1099700887}
-  - 82: {fileID: 1099700886}
   - 95: {fileID: 1099700885}
   m_Layer: 0
   m_Name: Lava
@@ -42407,70 +41361,6 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!82 &1099700886
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8292676, guid: 0ca41fc8d31948b46b2acae77edd4d0e,
-    type: 2}
-  m_PrefabInternal: {fileID: 894840887}
-  m_GameObject: {fileID: 1099700883}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 9073943fc907607408398a743a9536a1, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: .600000024
-  m_Pitch: 2
-  Loop: 1
-  Mute: 0
-  Priority: 140
-  DopplerLevel: 1
-  MinDistance: .800000012
-  MaxDistance: 20
-  Pan2D: 0
-  rolloffMode: 2
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: .250015825
-      value: .708735108
-      inSlope: -2.94309878
-      outSlope: -2.94309878
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!61 &1099700887
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -43122,6 +42012,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c19927d56b906b84480b33975493c868, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
 --- !u!1001 &1116126345
 Prefab:
   m_ObjectHideFlags: 0
@@ -43427,7 +42318,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10.8781567
+  orthographic size: 11.4758053
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -43658,7 +42549,7 @@ MonoBehaviour:
   onlyActiveWhenPressed: 0
   speechTriggerToActivate: []
   speechTriggerToDeactivate: []
-  speech: If I press this button the Stone gets resettet to this oint
+  speech: If I press this button the Stone gets resettet to this point
   activated: 0
   triggered: 0
 --- !u!61 &1139494722
@@ -43680,8 +42571,8 @@ Transform:
   m_PrefabInternal: {fileID: 1293964929}
   m_GameObject: {fileID: 1139494720}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 75.5999985, y: 12.6800003, z: 0}
-  m_LocalScale: {x: 2.43879175, y: 8.11394691, z: .26818347}
+  m_LocalPosition: {x: 83.3000031, y: 17.3600006, z: 0}
+  m_LocalScale: {x: 4.5422492, y: 8.11394691, z: .26818347}
   m_Children: []
   m_Father: {fileID: 1901219702}
   m_RootOrder: 39
@@ -44093,7 +42984,6 @@ GameObject:
   - 212: {fileID: 1151703742}
   - 61: {fileID: 1151703741}
   - 61: {fileID: 1151703740}
-  - 82: {fileID: 1151703739}
   - 95: {fileID: 1151703738}
   m_Layer: 0
   m_Name: Lava
@@ -44130,70 +43020,6 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!82 &1151703739
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8292674, guid: 0ca41fc8d31948b46b2acae77edd4d0e,
-    type: 2}
-  m_PrefabInternal: {fileID: 225670749}
-  m_GameObject: {fileID: 1151703736}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 9073943fc907607408398a743a9536a1, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: .600000024
-  m_Pitch: 2
-  Loop: 1
-  Mute: 0
-  Priority: 140
-  DopplerLevel: 1
-  MinDistance: .800000012
-  MaxDistance: 20
-  Pan2D: 0
-  rolloffMode: 2
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: .250015825
-      value: .708735108
-      inSlope: -2.94309878
-      outSlope: -2.94309878
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!61 &1151703740
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -45024,6 +43850,57 @@ MonoBehaviour:
   FrozenOverlayPrefab: {fileID: 464482, guid: 89a86cf500cc08b4aa890ab99cbeea64, type: 2}
   TimeToDefrost: 12
   AlwaysFrozen: 0
+--- !u!1 &1170608523
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 149600, guid: 5af5fd3f17631b248a73069629bf5a5c, type: 2}
+  m_PrefabInternal: {fileID: 1626360012}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1170608524}
+  - 212: {fileID: 1170608525}
+  m_Layer: 0
+  m_Name: grass
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1170608524
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 449600, guid: 5af5fd3f17631b248a73069629bf5a5c, type: 2}
+  m_PrefabInternal: {fileID: 1626360012}
+  m_GameObject: {fileID: 1170608523}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1873403933}
+  m_RootOrder: 1
+--- !u!212 &1170608525
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 21249596, guid: 5af5fd3f17631b248a73069629bf5a5c,
+    type: 2}
+  m_PrefabInternal: {fileID: 1626360012}
+  m_GameObject: {fileID: 1170608523}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: d93fc70fb38647c47a9e64500cc60745, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1170698473
 GameObject:
   m_ObjectHideFlags: 0
@@ -46507,7 +45384,6 @@ GameObject:
   - 212: {fileID: 1211315476}
   - 61: {fileID: 1211315475}
   - 61: {fileID: 1211315474}
-  - 82: {fileID: 1211315473}
   - 95: {fileID: 1211315472}
   m_Layer: 0
   m_Name: Lava
@@ -46544,70 +45420,6 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!82 &1211315473
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8292676, guid: 0ca41fc8d31948b46b2acae77edd4d0e,
-    type: 2}
-  m_PrefabInternal: {fileID: 1876453142}
-  m_GameObject: {fileID: 1211315470}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 9073943fc907607408398a743a9536a1, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: .600000024
-  m_Pitch: 2
-  Loop: 1
-  Mute: 0
-  Priority: 140
-  DopplerLevel: 1
-  MinDistance: .800000012
-  MaxDistance: 20
-  Pan2D: 0
-  rolloffMode: 2
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: .250015825
-      value: .708735108
-      inSlope: -2.94309878
-      outSlope: -2.94309878
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!61 &1211315474
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -47712,7 +46524,6 @@ GameObject:
   - 212: {fileID: 1251268391}
   - 61: {fileID: 1251268390}
   - 61: {fileID: 1251268389}
-  - 82: {fileID: 1251268388}
   - 95: {fileID: 1251268387}
   m_Layer: 0
   m_Name: Lava
@@ -47749,70 +46560,6 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!82 &1251268388
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8292676, guid: 0ca41fc8d31948b46b2acae77edd4d0e,
-    type: 2}
-  m_PrefabInternal: {fileID: 337572294}
-  m_GameObject: {fileID: 1251268385}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 9073943fc907607408398a743a9536a1, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: .600000024
-  m_Pitch: 2
-  Loop: 1
-  Mute: 0
-  Priority: 140
-  DopplerLevel: 1
-  MinDistance: .800000012
-  MaxDistance: 20
-  Pan2D: 0
-  rolloffMode: 2
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: .250015825
-      value: .708735108
-      inSlope: -2.94309878
-      outSlope: -2.94309878
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!61 &1251268389
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -48104,7 +46851,6 @@ GameObject:
   - 212: {fileID: 1256201265}
   - 61: {fileID: 1256201264}
   - 61: {fileID: 1256201263}
-  - 82: {fileID: 1256201262}
   - 95: {fileID: 1256201261}
   m_Layer: 0
   m_Name: Lava
@@ -48141,70 +46887,6 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!82 &1256201262
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8292674, guid: 0ca41fc8d31948b46b2acae77edd4d0e,
-    type: 2}
-  m_PrefabInternal: {fileID: 601010749}
-  m_GameObject: {fileID: 1256201259}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 9073943fc907607408398a743a9536a1, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: .600000024
-  m_Pitch: 2
-  Loop: 1
-  Mute: 0
-  Priority: 140
-  DopplerLevel: 1
-  MinDistance: .800000012
-  MaxDistance: 20
-  Pan2D: 0
-  rolloffMode: 2
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: .250015825
-      value: .708735108
-      inSlope: -2.94309878
-      outSlope: -2.94309878
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!61 &1256201263
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -48724,7 +47406,6 @@ GameObject:
   - 212: {fileID: 1270340059}
   - 61: {fileID: 1270340058}
   - 61: {fileID: 1270340057}
-  - 82: {fileID: 1270340056}
   - 95: {fileID: 1270340055}
   m_Layer: 0
   m_Name: Lava
@@ -48761,70 +47442,6 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!82 &1270340056
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8292676, guid: 0ca41fc8d31948b46b2acae77edd4d0e,
-    type: 2}
-  m_PrefabInternal: {fileID: 2012005249}
-  m_GameObject: {fileID: 1270340053}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 9073943fc907607408398a743a9536a1, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: .600000024
-  m_Pitch: 2
-  Loop: 1
-  Mute: 0
-  Priority: 140
-  DopplerLevel: 1
-  MinDistance: .800000012
-  MaxDistance: 20
-  Pan2D: 0
-  rolloffMode: 2
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: .250015825
-      value: .708735108
-      inSlope: -2.94309878
-      outSlope: -2.94309878
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!61 &1270340057
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -49939,7 +48556,6 @@ GameObject:
   - 212: {fileID: 1293209246}
   - 61: {fileID: 1293209245}
   - 61: {fileID: 1293209244}
-  - 82: {fileID: 1293209243}
   - 95: {fileID: 1293209242}
   m_Layer: 0
   m_Name: Lava
@@ -49976,70 +48592,6 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!82 &1293209243
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8292676, guid: 0ca41fc8d31948b46b2acae77edd4d0e,
-    type: 2}
-  m_PrefabInternal: {fileID: 38387276}
-  m_GameObject: {fileID: 1293209240}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 9073943fc907607408398a743a9536a1, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: .600000024
-  m_Pitch: 2
-  Loop: 1
-  Mute: 0
-  Priority: 140
-  DopplerLevel: 1
-  MinDistance: .800000012
-  MaxDistance: 20
-  Pan2D: 0
-  rolloffMode: 2
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: .250015825
-      value: .708735108
-      inSlope: -2.94309878
-      outSlope: -2.94309878
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!61 &1293209244
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -50157,11 +48709,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 75.5999985
+      value: 83.3000031
       objectReference: {fileID: 0}
     - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 12.6800003
+      value: 17.3600006
       objectReference: {fileID: 0}
     - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
       propertyPath: m_LocalPosition.z
@@ -50189,7 +48741,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
       propertyPath: m_LocalScale.x
-      value: 2.43879175
+      value: 4.5422492
       objectReference: {fileID: 0}
     - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
       propertyPath: m_LocalScale.y
@@ -50213,7 +48765,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
       propertyPath: speech
-      value: If I press this button the Stone gets resettet to this oint
+      value: If I press this button the Stone gets resettet to this point
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
@@ -50340,7 +48892,6 @@ GameObject:
   - 212: {fileID: 1301411050}
   - 61: {fileID: 1301411049}
   - 61: {fileID: 1301411048}
-  - 82: {fileID: 1301411047}
   - 95: {fileID: 1301411046}
   m_Layer: 0
   m_Name: Lava
@@ -50377,70 +48928,6 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!82 &1301411047
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8292674, guid: 0ca41fc8d31948b46b2acae77edd4d0e,
-    type: 2}
-  m_PrefabInternal: {fileID: 329815923}
-  m_GameObject: {fileID: 1301411044}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 9073943fc907607408398a743a9536a1, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: .600000024
-  m_Pitch: 2
-  Loop: 1
-  Mute: 0
-  Priority: 140
-  DopplerLevel: 1
-  MinDistance: .800000012
-  MaxDistance: 20
-  Pan2D: 0
-  rolloffMode: 2
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: .250015825
-      value: .708735108
-      inSlope: -2.94309878
-      outSlope: -2.94309878
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!61 &1301411048
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -53640,7 +52127,6 @@ GameObject:
   - 212: {fileID: 1384406635}
   - 61: {fileID: 1384406634}
   - 61: {fileID: 1384406633}
-  - 82: {fileID: 1384406632}
   - 95: {fileID: 1384406631}
   m_Layer: 0
   m_Name: Lava
@@ -53677,70 +52163,6 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!82 &1384406632
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8292676, guid: 0ca41fc8d31948b46b2acae77edd4d0e,
-    type: 2}
-  m_PrefabInternal: {fileID: 225670749}
-  m_GameObject: {fileID: 1384406629}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 9073943fc907607408398a743a9536a1, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: .600000024
-  m_Pitch: 2
-  Loop: 1
-  Mute: 0
-  Priority: 140
-  DopplerLevel: 1
-  MinDistance: .800000012
-  MaxDistance: 20
-  Pan2D: 0
-  rolloffMode: 2
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: .250015825
-      value: .708735108
-      inSlope: -2.94309878
-      outSlope: -2.94309878
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!61 &1384406633
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -54095,7 +52517,6 @@ GameObject:
   - 212: {fileID: 1390207813}
   - 61: {fileID: 1390207812}
   - 61: {fileID: 1390207811}
-  - 82: {fileID: 1390207810}
   - 95: {fileID: 1390207809}
   m_Layer: 0
   m_Name: Lava
@@ -54132,70 +52553,6 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!82 &1390207810
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8292676, guid: 0ca41fc8d31948b46b2acae77edd4d0e,
-    type: 2}
-  m_PrefabInternal: {fileID: 105106921}
-  m_GameObject: {fileID: 1390207807}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 9073943fc907607408398a743a9536a1, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: .600000024
-  m_Pitch: 2
-  Loop: 1
-  Mute: 0
-  Priority: 140
-  DopplerLevel: 1
-  MinDistance: .800000012
-  MaxDistance: 20
-  Pan2D: 0
-  rolloffMode: 2
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: .250015825
-      value: .708735108
-      inSlope: -2.94309878
-      outSlope: -2.94309878
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!61 &1390207811
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -58350,7 +56707,6 @@ GameObject:
   - 212: {fileID: 1520112355}
   - 61: {fileID: 1520112354}
   - 61: {fileID: 1520112353}
-  - 82: {fileID: 1520112352}
   - 95: {fileID: 1520112351}
   m_Layer: 0
   m_Name: Lava
@@ -58387,70 +56743,6 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!82 &1520112352
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8292674, guid: 0ca41fc8d31948b46b2acae77edd4d0e,
-    type: 2}
-  m_PrefabInternal: {fileID: 894840887}
-  m_GameObject: {fileID: 1520112349}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 9073943fc907607408398a743a9536a1, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: .600000024
-  m_Pitch: 2
-  Loop: 1
-  Mute: 0
-  Priority: 140
-  DopplerLevel: 1
-  MinDistance: .800000012
-  MaxDistance: 20
-  Pan2D: 0
-  rolloffMode: 2
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: .250015825
-      value: .708735108
-      inSlope: -2.94309878
-      outSlope: -2.94309878
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!61 &1520112353
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -58538,7 +56830,6 @@ GameObject:
   - 212: {fileID: 1522096697}
   - 61: {fileID: 1522096696}
   - 61: {fileID: 1522096695}
-  - 82: {fileID: 1522096694}
   - 95: {fileID: 1522096693}
   m_Layer: 0
   m_Name: Lava
@@ -58575,70 +56866,6 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!82 &1522096694
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8292676, guid: 0ca41fc8d31948b46b2acae77edd4d0e,
-    type: 2}
-  m_PrefabInternal: {fileID: 376084938}
-  m_GameObject: {fileID: 1522096691}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 9073943fc907607408398a743a9536a1, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: .600000024
-  m_Pitch: 2
-  Loop: 1
-  Mute: 0
-  Priority: 140
-  DopplerLevel: 1
-  MinDistance: .800000012
-  MaxDistance: 20
-  Pan2D: 0
-  rolloffMode: 2
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: .250015825
-      value: .708735108
-      inSlope: -2.94309878
-      outSlope: -2.94309878
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!61 &1522096695
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -61379,6 +59606,50 @@ Prefab:
   m_RootGameObject: {fileID: 671225606}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1001 &1626360012
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1901219702}
+    m_Modifications:
+    - target: {fileID: 449598, guid: 5af5fd3f17631b248a73069629bf5a5c, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 82.1800003
+      objectReference: {fileID: 0}
+    - target: {fileID: 449598, guid: 5af5fd3f17631b248a73069629bf5a5c, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 14.3900003
+      objectReference: {fileID: 0}
+    - target: {fileID: 449598, guid: 5af5fd3f17631b248a73069629bf5a5c, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: .200000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 449598, guid: 5af5fd3f17631b248a73069629bf5a5c, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 449598, guid: 5af5fd3f17631b248a73069629bf5a5c, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 449598, guid: 5af5fd3f17631b248a73069629bf5a5c, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 449598, guid: 5af5fd3f17631b248a73069629bf5a5c, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 449598, guid: 5af5fd3f17631b248a73069629bf5a5c, type: 2}
+      propertyPath: m_RootOrder
+      value: 76
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 5af5fd3f17631b248a73069629bf5a5c, type: 2}
+  m_RootGameObject: {fileID: 722973806}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1 &1626493720
 GameObject:
   m_ObjectHideFlags: 0
@@ -62161,11 +60432,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 465794, guid: a2fff26649a09d748a37ef02485f73a0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 75.5500031
+      value: 83.25
       objectReference: {fileID: 0}
     - target: {fileID: 465794, guid: a2fff26649a09d748a37ef02485f73a0, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 11.4799995
+      value: 15.9399996
       objectReference: {fileID: 0}
     - target: {fileID: 465794, guid: a2fff26649a09d748a37ef02485f73a0, type: 2}
       propertyPath: m_LocalPosition.z
@@ -67276,7 +65547,6 @@ GameObject:
   - 212: {fileID: 1791827125}
   - 61: {fileID: 1791827124}
   - 61: {fileID: 1791827123}
-  - 82: {fileID: 1791827122}
   - 95: {fileID: 1791827121}
   m_Layer: 0
   m_Name: Lava
@@ -67313,70 +65583,6 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!82 &1791827122
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8292676, guid: 0ca41fc8d31948b46b2acae77edd4d0e,
-    type: 2}
-  m_PrefabInternal: {fileID: 249232092}
-  m_GameObject: {fileID: 1791827119}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 9073943fc907607408398a743a9536a1, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: .600000024
-  m_Pitch: 2
-  Loop: 1
-  Mute: 0
-  Priority: 140
-  DopplerLevel: 1
-  MinDistance: .800000012
-  MaxDistance: 20
-  Pan2D: 0
-  rolloffMode: 2
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: .250015825
-      value: .708735108
-      inSlope: -2.94309878
-      outSlope: -2.94309878
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!61 &1791827123
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -69528,7 +67734,6 @@ GameObject:
   - 4: {fileID: 1847624365}
   - 114: {fileID: 1847624367}
   - 61: {fileID: 1847624366}
-  - 82: {fileID: 1847624368}
   m_Layer: 0
   m_Name: WaterBubbles
   m_TagString: Untagged
@@ -69575,65 +67780,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsInfinitWaterSource: 0
---- !u!82 &1847624368
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8212464, guid: a3d560ecfd00dbf4fbfbaa5b6e080706,
-    type: 2}
-  m_PrefabInternal: {fileID: 431580303}
-  m_GameObject: {fileID: 1847624364}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 01ff2a1813928c344a52d111300bbcfb, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: .5
-  Loop: 1
-  Mute: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: .800000012
-  MaxDistance: 100
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!1 &1849795700
 GameObject:
   m_ObjectHideFlags: 0
@@ -70618,6 +68764,51 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: e6d06dcbac0306649b9e692d2f9d76f9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1873403932
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 149604, guid: 5af5fd3f17631b248a73069629bf5a5c, type: 2}
+  m_PrefabInternal: {fileID: 1626360012}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1873403933}
+  - 114: {fileID: 1873403934}
+  m_Layer: 0
+  m_Name: EarthWithGrass
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1873403933
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 449604, guid: 5af5fd3f17631b248a73069629bf5a5c, type: 2}
+  m_PrefabInternal: {fileID: 1626360012}
+  m_GameObject: {fileID: 1873403932}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2017620321}
+  - {fileID: 1170608524}
+  m_Father: {fileID: 722973807}
+  m_RootOrder: 0
+--- !u!114 &1873403934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11427208, guid: 5af5fd3f17631b248a73069629bf5a5c,
+    type: 2}
+  m_PrefabInternal: {fileID: 1626360012}
+  m_GameObject: {fileID: 1873403932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa60a9b6df60c584c905abab966b5e5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FrozenOverlayPrefab: {fileID: 464482, guid: 89a86cf500cc08b4aa890ab99cbeea64, type: 2}
+  TimeToDefrost: 12
+  AlwaysFrozen: 0
 --- !u!1 &1873454956
 GameObject:
   m_ObjectHideFlags: 0
@@ -71617,6 +69808,7 @@ Transform:
   - {fileID: 1307199414}
   - {fileID: 861973770}
   - {fileID: 818369508}
+  - {fileID: 722973807}
   m_Father: {fileID: 1175969722}
   m_RootOrder: 2
 --- !u!1 &1901607069
@@ -73972,7 +72164,6 @@ GameObject:
   - 212: {fileID: 1954339980}
   - 61: {fileID: 1954339979}
   - 61: {fileID: 1954339978}
-  - 82: {fileID: 1954339977}
   - 95: {fileID: 1954339976}
   m_Layer: 0
   m_Name: Lava
@@ -74009,70 +72200,6 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!82 &1954339977
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8292674, guid: 0ca41fc8d31948b46b2acae77edd4d0e,
-    type: 2}
-  m_PrefabInternal: {fileID: 38387276}
-  m_GameObject: {fileID: 1954339974}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 9073943fc907607408398a743a9536a1, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: .600000024
-  m_Pitch: 2
-  Loop: 1
-  Mute: 0
-  Priority: 140
-  DopplerLevel: 1
-  MinDistance: .800000012
-  MaxDistance: 20
-  Pan2D: 0
-  rolloffMode: 2
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: .250015825
-      value: .708735108
-      inSlope: -2.94309878
-      outSlope: -2.94309878
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!61 &1954339978
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -76217,6 +74344,70 @@ Transform:
   - {fileID: 1282377670}
   m_Father: {fileID: 106798043}
   m_RootOrder: 68
+--- !u!1 &2011466842
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 149592, guid: 5af5fd3f17631b248a73069629bf5a5c, type: 2}
+  m_PrefabInternal: {fileID: 1626360012}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2011466843}
+  - 212: {fileID: 2011466845}
+  - 61: {fileID: 2011466844}
+  m_Layer: 0
+  m_Name: EarthMirrowed
+  m_TagString: Block
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2011466843
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 449592, guid: 5af5fd3f17631b248a73069629bf5a5c, type: 2}
+  m_PrefabInternal: {fileID: 1626360012}
+  m_GameObject: {fileID: 2011466842}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: .100000001}
+  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 186521617}
+  m_RootOrder: 1
+--- !u!61 &2011466844
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6149592, guid: 5af5fd3f17631b248a73069629bf5a5c,
+    type: 2}
+  m_PrefabInternal: {fileID: 1626360012}
+  m_GameObject: {fileID: 2011466842}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: 2.25, y: 2.25}
+  m_Center: {x: 0, y: 0}
+--- !u!212 &2011466845
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 21249592, guid: 5af5fd3f17631b248a73069629bf5a5c,
+    type: 2}
+  m_PrefabInternal: {fileID: 1626360012}
+  m_GameObject: {fileID: 2011466842}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: e816868c1b4fc4a4b8baeb7b5564c227, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &2012005249
 Prefab:
   m_ObjectHideFlags: 0
@@ -76509,6 +74700,70 @@ Prefab:
   m_RootGameObject: {fileID: 852109430}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &2017620320
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 149602, guid: 5af5fd3f17631b248a73069629bf5a5c, type: 2}
+  m_PrefabInternal: {fileID: 1626360012}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2017620321}
+  - 212: {fileID: 2017620323}
+  - 61: {fileID: 2017620322}
+  m_Layer: 0
+  m_Name: Earth
+  m_TagString: Block
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2017620321
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 449602, guid: 5af5fd3f17631b248a73069629bf5a5c, type: 2}
+  m_PrefabInternal: {fileID: 1626360012}
+  m_GameObject: {fileID: 2017620320}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: .100000001}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1873403933}
+  m_RootOrder: 0
+--- !u!61 &2017620322
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6149594, guid: 5af5fd3f17631b248a73069629bf5a5c,
+    type: 2}
+  m_PrefabInternal: {fileID: 1626360012}
+  m_GameObject: {fileID: 2017620320}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: 2.25, y: 2.25}
+  m_Center: {x: 0, y: 0}
+--- !u!212 &2017620323
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 21249598, guid: 5af5fd3f17631b248a73069629bf5a5c,
+    type: 2}
+  m_PrefabInternal: {fileID: 1626360012}
+  m_GameObject: {fileID: 2017620320}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: e816868c1b4fc4a4b8baeb7b5564c227, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &2022407900
 GameObject:
   m_ObjectHideFlags: 0
@@ -78261,7 +76516,6 @@ GameObject:
   - 212: {fileID: 2067828560}
   - 61: {fileID: 2067828559}
   - 61: {fileID: 2067828558}
-  - 82: {fileID: 2067828557}
   - 95: {fileID: 2067828556}
   m_Layer: 0
   m_Name: Lava
@@ -78298,70 +76552,6 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!82 &2067828557
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8292674, guid: 0ca41fc8d31948b46b2acae77edd4d0e,
-    type: 2}
-  m_PrefabInternal: {fileID: 2012005249}
-  m_GameObject: {fileID: 2067828554}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 9073943fc907607408398a743a9536a1, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: .600000024
-  m_Pitch: 2
-  Loop: 1
-  Mute: 0
-  Priority: 140
-  DopplerLevel: 1
-  MinDistance: .800000012
-  MaxDistance: 20
-  Pan2D: 0
-  rolloffMode: 2
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: .250015825
-      value: .708735108
-      inSlope: -2.94309878
-      outSlope: -2.94309878
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!61 &2067828558
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -80381,7 +78571,6 @@ GameObject:
   - 212: {fileID: 2132221258}
   - 61: {fileID: 2132221257}
   - 61: {fileID: 2132221256}
-  - 82: {fileID: 2132221255}
   - 95: {fileID: 2132221254}
   m_Layer: 0
   m_Name: Lava
@@ -80418,70 +78607,6 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!82 &2132221255
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8292676, guid: 0ca41fc8d31948b46b2acae77edd4d0e,
-    type: 2}
-  m_PrefabInternal: {fileID: 751616613}
-  m_GameObject: {fileID: 2132221252}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 9073943fc907607408398a743a9536a1, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: .600000024
-  m_Pitch: 2
-  Loop: 1
-  Mute: 0
-  Priority: 140
-  DopplerLevel: 1
-  MinDistance: .800000012
-  MaxDistance: 20
-  Pan2D: 0
-  rolloffMode: 2
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: .250015825
-      value: .708735108
-      inSlope: -2.94309878
-      outSlope: -2.94309878
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!61 &2132221256
 BoxCollider2D:
   m_ObjectHideFlags: 0
