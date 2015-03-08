@@ -2,8 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Assets.Scripts.Utils;
 
-public class PlayerFollowingScript : MonoBehaviour 
+public class PlayerFollowingScript : SaveableScript 
 {
     public Transform Player;
     public List<string> PartNames;
@@ -43,5 +44,21 @@ public class PlayerFollowingScript : MonoBehaviour
     public void AnimationEndCallback()
     {
         isPlaying = false;
+    }
+
+    public override void saveData(SavedDataContainer dataContainer)
+    {
+        dataContainer.AddData("Pos", transform.position);
+        dataContainer.AddData("Names", PartNames);
+        dataContainer.AddData("Dis", DistanceToTrigger);
+        dataContainer.AddData("isP", isPlaying);
+    }
+
+    public override void loadData(SavedDataContainer dataContainer)
+    {
+        transform.position = (Vector3)dataContainer.retrieveData("Pos");
+        PartNames = dataContainer.retrieveData("Names") as List<string>;
+        DistanceToTrigger = dataContainer.retrieveData("Dis") as List<float>;
+        isPlaying = (bool)dataContainer.retrieveData("isP");
     }
 }

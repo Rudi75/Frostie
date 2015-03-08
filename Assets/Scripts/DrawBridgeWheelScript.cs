@@ -33,8 +33,6 @@ public class DrawBridgeWheelScript : TargetActionScript {
 	// Update is called once per frame
     void Update()
     {
-        if (keyInterpreter == null)
-            Debug.Log("KeyInterpreter in Wheel setzen!!");
 
         Animator animator = GetComponentInParent<Animator>();
         if (frostieState != null && frostieSpeechBubble!=null && frostieState.canTurnWheel() && keyInterpreter!=null)
