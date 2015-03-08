@@ -296,4 +296,14 @@ public class SqeezerAnimationScript : TargetActionScript
     {
         active = !active;
     }
+
+    public override void saveData(SavedDataContainer dataContainer)
+    {
+        dataContainer.AddData("active", active);
+    }
+
+    public override void loadData(SavedDataContainer dataContainer)
+    {
+        active = (bool)dataContainer.retrieveData("active");
+    }
 }

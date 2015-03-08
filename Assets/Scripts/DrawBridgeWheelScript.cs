@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Assets.Scripts.Utils;
 
 public class DrawBridgeWheelScript : TargetActionScript {
 
@@ -115,4 +116,15 @@ public class DrawBridgeWheelScript : TargetActionScript {
     {
         wheelEnabled = true;
     }
+
+    public override void saveData(SavedDataContainer dataContainer)
+    {
+        dataContainer.AddData("wheelEnabled", wheelEnabled);
+    }
+
+    public override void loadData(SavedDataContainer dataContainer)
+    {
+        wheelEnabled = (bool)dataContainer.retrieveData("wheelEnabled");
+    }
+
 }

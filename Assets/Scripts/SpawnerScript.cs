@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Assets.Scripts.Utils;
 
 public class SpawnerScript : TargetActionScript 
 {
@@ -24,5 +25,14 @@ public class SpawnerScript : TargetActionScript
 
         if (thingy == null && OnAction)
             thingy = Instantiate(objectToSpawnPrefab, transform.position, Quaternion.identity) as GameObject;
+    }
+
+    public override void saveData(SavedDataContainer dataContainer)
+    {
+       
+    }
+
+    public override void loadData(SavedDataContainer dataContainer)
+    {
     }
 }

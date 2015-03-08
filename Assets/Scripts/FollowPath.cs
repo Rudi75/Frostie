@@ -2,6 +2,7 @@
 using UnityEngine;
 using System.Collections;
 using FollowType = Assets.Scripts.Utils.Enums.FollowType;
+using Assets.Scripts.Utils;
 
 public class FollowPath : TargetActionScript
 {
@@ -52,5 +53,15 @@ public class FollowPath : TargetActionScript
     protected override void performAction()
     {
         started = !started;
+    }
+
+    public override void saveData(SavedDataContainer dataContainer)
+    {
+        dataContainer.AddData("started", started);
+    }
+
+    public override void loadData(SavedDataContainer dataContainer)
+    {
+        started = (bool)dataContainer.retrieveData("started");
     }
 }﻿
