@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Assets.Scripts.Utils;
 
-public class SavePointScript : MonoBehaviour {
-   
+public class SavePointScript : SaveableScript 
+{
     private bool activated = false;
     private Transform fire;
 
@@ -19,10 +20,14 @@ public class SavePointScript : MonoBehaviour {
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag.Contains("Player"))
+        if (other.tag.Contains("Player") && !activated)
         {
             activated = true;
             fire.gameObject.SetActive(true);
+
+            var savedData = FindObjectOfType<SavedDataManager>();
+            if (savedData != null) savedData.SaveCurrentState();
+
             FrostiePartManager.spawnPosition = transform.position;
 
             KeyInterpreter interpreter = other.GetComponentInParent<KeyInterpreter>();
@@ -35,5 +40,16 @@ public class SavePointScript : MonoBehaviour {
             KeyInterpreter.takeWaterEnabledSave = interpreter.takeWaterEnabled;
 
         }
+    }
+
+    public override void saveData(SavedDataContainer dataContainer)
+    {
+        dataContainer.AddData("active", activated);
+    }
+
+    public override void loadData(SavedDataContainer dataContainer)
+    {
+        activated = (bool)dataContainer.retrieveData("active");
+        fire.gameObject.SetActive(activated);
     }
 }

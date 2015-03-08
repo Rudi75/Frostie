@@ -2393,6 +2393,7 @@ MonoBehaviour:
   - {fileID: 1332608962}
   - {fileID: 1228274082}
   - {fileID: 119816844}
+  onlyActiveWhenPressed: 0
   speechTriggerToActivate: []
   speechTriggerToDeactivate: []
   Type: 0
@@ -3805,6 +3806,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Buttons:
   - {fileID: 119816844}
+  onlyActiveWhenPressed: 0
   speechTriggerToActivate: []
   speechTriggerToDeactivate: []
   Type: 0
@@ -16896,6 +16898,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Buttons:
   - {fileID: 1228274082}
+  onlyActiveWhenPressed: 0
   speechTriggerToActivate: []
   speechTriggerToDeactivate: []
   Type: 1
@@ -20747,6 +20750,46 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 290d2e130b475ce42b7da4b635e80fc3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &384107680
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 119800, guid: aca700e854b69b34c874f9e6be554f6b, type: 2}
+  m_PrefabInternal: {fileID: 1903010459}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 384107682}
+  - 114: {fileID: 384107681}
+  m_Layer: 0
+  m_Name: SaveManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &384107681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11419800, guid: aca700e854b69b34c874f9e6be554f6b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1903010459}
+  m_GameObject: {fileID: 384107680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd24b8de05fa2314d9a6e53636cf5d27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &384107682
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 419800, guid: aca700e854b69b34c874f9e6be554f6b, type: 2}
+  m_PrefabInternal: {fileID: 1903010459}
+  m_GameObject: {fileID: 384107680}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
 --- !u!1 &384814689
 GameObject:
   m_ObjectHideFlags: 0
@@ -38853,7 +38896,7 @@ Transform:
   - {fileID: 460037973}
   - {fileID: 1167961394}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!1 &682473440
 GameObject:
   m_ObjectHideFlags: 0
@@ -44572,7 +44615,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22438516, guid: bc6434d4ea92f8146a91c8510f23073d, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bc6434d4ea92f8146a91c8510f23073d, type: 2}
@@ -49528,6 +49571,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Buttons: []
+  onlyActiveWhenPressed: 0
   speechTriggerToActivate: []
   speechTriggerToDeactivate: []
   speech: Sometimes... timing is the most important thing...
@@ -67438,6 +67482,7 @@ MonoBehaviour:
   decoupleMiddleKey: 121
   basePartKey: 49
   middlePartKey: 50
+  HeadKey: 51
   turnDrawBridgeWheelKey: 101
   drawBridgeRotateLeftKey: 276
   drawBridgeRotateRightKey: 275
@@ -68287,6 +68332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1cda27bf0d20dc40a8cc51f1a34ab9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
   Player: {fileID: 1093484261}
   PartNames:
   - Part0
@@ -71128,6 +71174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Buttons: []
+  onlyActiveWhenPressed: 0
   speechTriggerToActivate: []
   speechTriggerToDeactivate: []
   speech: There is a button ahead. Those are nifty little pieces. Sometimes you realize
@@ -71442,6 +71489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c19927d56b906b84480b33975493c868, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
 --- !u!4 &1213644705
 Transform:
   m_ObjectHideFlags: 0
@@ -71650,6 +71698,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Buttons:
   - {fileID: 119816844}
+  onlyActiveWhenPressed: 0
   speechTriggerToActivate: []
   speechTriggerToDeactivate: []
   Type: 0
@@ -76576,6 +76625,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Buttons:
   - {fileID: 1228274082}
+  onlyActiveWhenPressed: 0
   speechTriggerToActivate: []
   speechTriggerToDeactivate: []
   OnAction: 1
@@ -77523,7 +77573,7 @@ RectTransform:
   - {fileID: 1005141893}
   - {fileID: 267865013}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -78464,6 +78514,7 @@ MonoBehaviour:
   Buttons:
   - {fileID: 119816844}
   - {fileID: 1332608962}
+  onlyActiveWhenPressed: 0
   speechTriggerToActivate: []
   speechTriggerToDeactivate: []
   Type: 0
@@ -80798,6 +80849,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Buttons: []
+  onlyActiveWhenPressed: 0
   speechTriggerToActivate: []
   speechTriggerToDeactivate: []
   speech: Oh no the easterbunny has stolen my nose. I hope he is not intending to
@@ -86684,6 +86736,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Buttons: []
+  onlyActiveWhenPressed: 0
   speechTriggerToActivate: []
   speechTriggerToDeactivate: []
   speech: The nasty little rabbit went this way. If i hurry up i might be able to
@@ -102263,7 +102316,7 @@ Transform:
   - {fileID: 1329307417}
   - {fileID: 9174207}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!1 &1739097091
 GameObject:
   m_ObjectHideFlags: 0
@@ -103981,6 +104034,7 @@ MonoBehaviour:
   - {fileID: 1332608962}
   - {fileID: 1228274082}
   - {fileID: 119816844}
+  onlyActiveWhenPressed: 0
   speechTriggerToActivate: []
   speechTriggerToDeactivate: []
   Type: 0
@@ -111584,6 +111638,50 @@ Transform:
   - {fileID: 781938147}
   m_Father: {fileID: 1809961677}
   m_RootOrder: 3
+--- !u!1001 &1903010459
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 419800, guid: aca700e854b69b34c874f9e6be554f6b, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419800, guid: aca700e854b69b34c874f9e6be554f6b, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419800, guid: aca700e854b69b34c874f9e6be554f6b, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419800, guid: aca700e854b69b34c874f9e6be554f6b, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419800, guid: aca700e854b69b34c874f9e6be554f6b, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419800, guid: aca700e854b69b34c874f9e6be554f6b, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419800, guid: aca700e854b69b34c874f9e6be554f6b, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 419800, guid: aca700e854b69b34c874f9e6be554f6b, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: aca700e854b69b34c874f9e6be554f6b, type: 2}
+  m_RootGameObject: {fileID: 384107680}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1 &1903488729
 GameObject:
   m_ObjectHideFlags: 0
@@ -114278,6 +114376,7 @@ MonoBehaviour:
   Buttons:
   - {fileID: 119816844}
   - {fileID: 1332608962}
+  onlyActiveWhenPressed: 0
   speechTriggerToActivate: []
   speechTriggerToDeactivate: []
   Type: 0
@@ -123334,6 +123433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Buttons: []
+  onlyActiveWhenPressed: 0
   speechTriggerToActivate: []
   speechTriggerToDeactivate: []
   speech: When i lighte those, i will always find my way back here.
