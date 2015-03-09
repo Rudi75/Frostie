@@ -638,12 +638,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1f94a9f3288c3242afce10c2549d266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
   Buttons:
   - {fileID: 1628850928}
   - {fileID: 654913897}
   onlyActiveWhenPressed: 0
-  speechTriggerToActivate: []
-  speechTriggerToDeactivate: []
   plankTransform: {fileID: 719219583}
   wheelEnabled: 0
   drawBridgeWheelPopupCamera: {fileID: 0}
@@ -4006,15 +4005,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f412b22535ada464eb011e8ba9f383a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
   Buttons:
   - {fileID: 1696127984}
   onlyActiveWhenPressed: 0
-  speechTriggerToActivate: []
-  speechTriggerToDeactivate:
-  - {fileID: 240360588}
   speech: Hmm seems like both of these buttons have to be pressed at the same time...
   activated: 0
   triggered: 0
+  speechTriggerToActivate: []
+  speechTriggerToDeactivate:
+  - {fileID: 240360588}
 --- !u!61 &66707267
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4207,11 +4207,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 406878, guid: bbf012cd54722d84c8959b989333b4df, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 157.289993
+      value: 161.100006
       objectReference: {fileID: 0}
     - target: {fileID: 406878, guid: bbf012cd54722d84c8959b989333b4df, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -11.0200005
+      value: -11.0299997
       objectReference: {fileID: 0}
     - target: {fileID: 406878, guid: bbf012cd54722d84c8959b989333b4df, type: 2}
       propertyPath: m_LocalPosition.z
@@ -4239,7 +4239,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 406878, guid: bbf012cd54722d84c8959b989333b4df, type: 2}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 1.16250026
       objectReference: {fileID: 0}
     - target: {fileID: 6106878, guid: bbf012cd54722d84c8959b989333b4df, type: 2}
       propertyPath: m_IsTrigger
@@ -10617,15 +10617,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f412b22535ada464eb011e8ba9f383a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
   Buttons: []
   onlyActiveWhenPressed: 0
-  speechTriggerToActivate: []
-  speechTriggerToDeactivate: []
   speech: 'Still nothing... I think the color of the buttons somehow indicates which
     part of me has to press it. That remindes me: After I split myself up using [Y]
     I can choose with which part I want to move by pressing [1] resp. [2] . '
   activated: 0
   triggered: 0
+  speechTriggerToActivate: []
+  speechTriggerToDeactivate: []
 --- !u!61 &229088193
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10731,15 +10732,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f412b22535ada464eb011e8ba9f383a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
   Buttons: []
   onlyActiveWhenPressed: 0
-  speechTriggerToActivate: []
-  speechTriggerToDeactivate: []
   speech: 'Still nothing... I think the color of the buttons somehow indicates which
     part of me has to press it. That remindes me: After I split myself up using [Y]
     I can choose with which part I want to move by pressing [1] resp. [2] . '
   activated: 0
   triggered: 0
+  speechTriggerToActivate: []
+  speechTriggerToDeactivate: []
 --- !u!4 &230148919
 Transform:
   m_ObjectHideFlags: 0
@@ -11425,15 +11427,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f412b22535ada464eb011e8ba9f383a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
   Buttons:
   - {fileID: 690561134}
   onlyActiveWhenPressed: 0
-  speechTriggerToActivate: []
-  speechTriggerToDeactivate:
-  - {fileID: 66707266}
   speech: Hmm seems like both of these buttons have to be pressed at the same time...
   activated: 0
   triggered: 0
+  speechTriggerToActivate: []
+  speechTriggerToDeactivate:
+  - {fileID: 66707266}
 --- !u!61 &240360589
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17837,12 +17840,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c87410b75c71c254c99c6eef78db93a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
   Buttons:
   - {fileID: 1696127984}
   - {fileID: 690561134}
   onlyActiveWhenPressed: 0
-  speechTriggerToActivate: []
-  speechTriggerToDeactivate: []
   Type: 0
   Path: {fileID: 116025395}
   Speed: 3
@@ -19089,6 +19091,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbe719bd4fed74b45963b408cf9d0cee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
+  Buttons: []
+  onlyActiveWhenPressed: 0
+  active: 1
   isSqeezing: 1
   lethal: 0
   currentMovingDirection: -1
@@ -25181,7 +25187,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22424460, guid: af4fe761b53181f4fa47b4df1c94b786, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 22424460, guid: af4fe761b53181f4fa47b4df1c94b786, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -29808,16 +29814,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f412b22535ada464eb011e8ba9f383a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
   Buttons: []
   onlyActiveWhenPressed: 0
-  speechTriggerToActivate: []
-  speechTriggerToDeactivate: []
   speech: My head can't move on it's on but I can switch between my head and my other
     parts by pressing [1] resp. [3] without calling it back. But I should be careful,
     running around without my Head is dangerous and I can't speak without it. I like
     speaking a lot!!
   activated: 0
   triggered: 0
+  speechTriggerToActivate: []
+  speechTriggerToDeactivate: []
 --- !u!61 &622508908
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -41058,12 +41065,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c87410b75c71c254c99c6eef78db93a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
   Buttons:
   - {fileID: 1532884120}
   - {fileID: 2131337500}
   onlyActiveWhenPressed: 0
-  speechTriggerToActivate: []
-  speechTriggerToDeactivate: []
   Type: 0
   Path: {fileID: 162692614}
   Speed: 4
@@ -41733,13 +41739,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f412b22535ada464eb011e8ba9f383a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
   Buttons: []
   onlyActiveWhenPressed: 0
-  speechTriggerToActivate: []
-  speechTriggerToDeactivate: []
   speech: Oh, such a beautiful landscape!
   activated: 1
   triggered: 0
+  speechTriggerToActivate: []
+  speechTriggerToDeactivate: []
 --- !u!61 &888032288
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -47870,12 +47877,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c87410b75c71c254c99c6eef78db93a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
   Buttons:
   - {fileID: 1696127984}
   - {fileID: 690561134}
   onlyActiveWhenPressed: 0
-  speechTriggerToActivate: []
-  speechTriggerToDeactivate: []
   Type: 0
   Path: {fileID: 623144233}
   Speed: 3
@@ -48856,11 +48862,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c87410b75c71c254c99c6eef78db93a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
   Buttons:
   - {fileID: 5246661}
   onlyActiveWhenPressed: 0
-  speechTriggerToActivate: []
-  speechTriggerToDeactivate: []
   Type: 0
   Path: {fileID: 1697274256}
   Speed: 2
@@ -63152,6 +63157,46 @@ Prefab:
   m_RootGameObject: {fileID: 2071646623}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &1368637941
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 119800, guid: aca700e854b69b34c874f9e6be554f6b, type: 2}
+  m_PrefabInternal: {fileID: 2073680606}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1368637943}
+  - 114: {fileID: 1368637942}
+  m_Layer: 0
+  m_Name: SaveManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1368637942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11419800, guid: aca700e854b69b34c874f9e6be554f6b,
+    type: 2}
+  m_PrefabInternal: {fileID: 2073680606}
+  m_GameObject: {fileID: 1368637941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd24b8de05fa2314d9a6e53636cf5d27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1368637943
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 419800, guid: aca700e854b69b34c874f9e6be554f6b, type: 2}
+  m_PrefabInternal: {fileID: 2073680606}
+  m_GameObject: {fileID: 1368637941}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
 --- !u!1 &1370801435
 GameObject:
   m_ObjectHideFlags: 0
@@ -67077,7 +67122,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22438516, guid: bc6434d4ea92f8146a91c8510f23073d, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 138518, guid: bc6434d4ea92f8146a91c8510f23073d, type: 2}
       propertyPath: m_IsActive
@@ -67518,15 +67563,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f412b22535ada464eb011e8ba9f383a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
   Buttons: []
   onlyActiveWhenPressed: 0
-  speechTriggerToActivate: []
-  speechTriggerToDeactivate: []
   speech: This gap is very narrow! I can't even go throw there without my head. Seems
     like I have to get rid of my ripped chest as well by pressing [Y]. I can call
     it back by pressing [X].
   activated: 1
   triggered: 0
+  speechTriggerToActivate: []
+  speechTriggerToDeactivate: []
 --- !u!61 &1460693974
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -68242,17 +68288,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f412b22535ada464eb011e8ba9f383a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
   Buttons:
   - {fileID: 654913897}
   - {fileID: 1628850928}
   onlyActiveWhenPressed: 0
+  speech: Yei! I heard something! I think the wheel is no longer blocked
+  activated: 0
+  triggered: 0
   speechTriggerToActivate: []
   speechTriggerToDeactivate:
   - {fileID: 230148918}
   - {fileID: 229088192}
-  speech: Yei! I heard something! I think the wheel is no longer blocked
-  activated: 0
-  triggered: 0
 --- !u!61 &1470646173
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -70045,6 +70092,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbe719bd4fed74b45963b408cf9d0cee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
+  Buttons: []
+  onlyActiveWhenPressed: 0
+  active: 1
   isSqeezing: 1
   lethal: 1
   currentMovingDirection: -1
@@ -72322,14 +72373,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f412b22535ada464eb011e8ba9f383a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
   Buttons: []
   onlyActiveWhenPressed: 0
-  speechTriggerToActivate: []
-  speechTriggerToDeactivate: []
   speech: Yeii I can see the sun! But apart from that coming up here was rather pointless...
     what was I thinking?!
   activated: 1
   triggered: 0
+  speechTriggerToActivate: []
+  speechTriggerToDeactivate: []
 --- !u!61 &1548978715
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -73525,14 +73577,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f412b22535ada464eb011e8ba9f383a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
   Buttons: []
   onlyActiveWhenPressed: 0
-  speechTriggerToActivate: []
-  speechTriggerToDeactivate: []
   speech: I can't jump that far. There has to be some kind of mechanism to get that
     platform moving...
   activated: 1
   triggered: 0
+  speechTriggerToActivate: []
+  speechTriggerToDeactivate: []
 --- !u!61 &1570477346
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -76973,12 +77026,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c87410b75c71c254c99c6eef78db93a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
   Buttons:
   - {fileID: 1696127984}
   - {fileID: 690561134}
   onlyActiveWhenPressed: 0
-  speechTriggerToActivate: []
-  speechTriggerToDeactivate: []
   Type: 0
   Path: {fileID: 588674841}
   Speed: 3
@@ -79315,8 +79367,8 @@ Transform:
   m_PrefabInternal: {fileID: 71525522}
   m_GameObject: {fileID: 1686858905}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 157.289993, y: -11.0200005, z: 10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 161.100006, y: -11.0299997, z: 10}
+  m_LocalScale: {x: 1.16250026, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 18266509}
   m_RootOrder: 0
@@ -85427,15 +85479,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f412b22535ada464eb011e8ba9f383a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
   Buttons: []
   onlyActiveWhenPressed: 0
+  speech: Hmm Nothing happened. There has to be another Button!
+  activated: 1
+  triggered: 0
   speechTriggerToActivate:
   - {fileID: 229088192}
   speechTriggerToDeactivate:
   - {fileID: 2004099181}
-  speech: Hmm Nothing happened. There has to be another Button!
-  activated: 1
-  triggered: 0
 --- !u!4 &1825116126
 Transform:
   m_ObjectHideFlags: 0
@@ -91505,15 +91558,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f412b22535ada464eb011e8ba9f383a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
   Buttons: []
   onlyActiveWhenPressed: 0
-  speechTriggerToActivate:
-  - {fileID: 622508907}
-  speechTriggerToDeactivate: []
   speech: I Have to press this button but I can't jump that high. Maybe I can throw
     my head using [Q] to press it. I can call my head back with [W]
   activated: 1
   triggered: 0
+  speechTriggerToActivate:
+  - {fileID: 622508907}
+  speechTriggerToDeactivate: []
 --- !u!61 &1959417606
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -93880,15 +93934,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f412b22535ada464eb011e8ba9f383a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
   Buttons: []
   onlyActiveWhenPressed: 0
+  speech: Hmm Nothing happened. There has to be another Button!
+  activated: 1
+  triggered: 0
   speechTriggerToActivate:
   - {fileID: 230148918}
   speechTriggerToDeactivate:
   - {fileID: 1825116125}
-  speech: Hmm Nothing happened. There has to be another Button!
-  activated: 1
-  triggered: 0
 --- !u!61 &2004099182
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -98171,6 +98226,50 @@ Transform:
   - {fileID: 846551148}
   m_Father: {fileID: 340157787}
   m_RootOrder: 35
+--- !u!1001 &2073680606
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 419800, guid: aca700e854b69b34c874f9e6be554f6b, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419800, guid: aca700e854b69b34c874f9e6be554f6b, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419800, guid: aca700e854b69b34c874f9e6be554f6b, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419800, guid: aca700e854b69b34c874f9e6be554f6b, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419800, guid: aca700e854b69b34c874f9e6be554f6b, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419800, guid: aca700e854b69b34c874f9e6be554f6b, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419800, guid: aca700e854b69b34c874f9e6be554f6b, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 419800, guid: aca700e854b69b34c874f9e6be554f6b, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: aca700e854b69b34c874f9e6be554f6b, type: 2}
+  m_RootGameObject: {fileID: 1368637941}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1001 &2074150990
 Prefab:
   m_ObjectHideFlags: 0
@@ -101461,11 +101560,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d02c474546250a498af0281d5afaa67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Jump: {fileID: 8300000, guid: 31c63c6f08e180a46af0a0cb337c585e, type: 3}
-  Walk: {fileID: 8300000, guid: e80da2edb36106e4ebe6a355de9c0ca4, type: 3}
+  Jump: {fileID: 8300000, guid: dcd6e5285976ecd4e9eb556a3a02fcb4, type: 3}
+  Walk: {fileID: 8300000, guid: 68f1b7c8d463c914db1eb10e920f3bb9, type: 3}
   Melting: {fileID: 8300000, guid: 9841f3b403d933449bd00a0df3d1d8b5, type: 3}
   FreezeGround: {fileID: 8300000, guid: 0177492ad04c87a42a9782379ed9d819, type: 3}
-  Death: {fileID: 8300000, guid: 3851bcce56de95948bb822f82f012b6a, type: 3}
+  Death: {fileID: 8300000, guid: 746976f80c1dd8c4eba2df64b0d3d3f4, type: 3}
   DeathInFire: {fileID: 8300000, guid: 0721f491a5001464d92eb17b4983a652, type: 3}
 --- !u!1 &2127436600
 GameObject:

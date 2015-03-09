@@ -14,7 +14,7 @@ public abstract class TargetActionScript : SaveableScript
     abstract protected void performAction();
 
     public void Start()
-    {
+    { 
         foreach (Transform button in Buttons)
         {
              ButtonScript buttonScript = button.GetComponent<ButtonScript>();

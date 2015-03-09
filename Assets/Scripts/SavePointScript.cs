@@ -9,6 +9,7 @@ public class SavePointScript : SaveableScript
 
     public void Awake()
     {
+        base.Awake();
         foreach (Transform childTransform in transform)
         {
             if(childTransform.name.Contains("Fire"))
