@@ -32,6 +32,7 @@ public class SqeezerAnimationScript : TargetActionScript
 	// Use this for initialization
 	void Awake () 
     {
+        base.Awake();
         foreach (Transform child in transform)
         {
             if(child.name.Contains("Top"))

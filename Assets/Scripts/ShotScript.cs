@@ -25,6 +25,8 @@ public class ShotScript : MonoBehaviour
         if (destroyShotAtCollision && !collider.gameObject.tag.Contains("Lethal") && !collider.isTrigger)
         {
             gameObject.renderer.enabled = false;
+
+            gameObject.tag = "Untagged";
         }
     }
     
