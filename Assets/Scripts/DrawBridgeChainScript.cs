@@ -74,6 +74,12 @@ public class DrawBridgeChainScript : MonoBehaviour
             if (lastChainElement != null)
             {
                 currentlyXChainPosition = openingDirection == DrawBridgePlanksScript.Directions.right ? 1.2f : -1.2f;
+
+                if(planksCount+1==12)
+                {
+                    currentlyXChainPosition = openingDirection == DrawBridgePlanksScript.Directions.right ? 2f : -2f;
+                }
+
                 lastChainElement.localPosition = new Vector3(currentlyXChainPosition, 0.0f, -2.0f);
 
                 //Debug.Log("planksCount: " + planksCount);
@@ -124,7 +130,14 @@ public class DrawBridgeChainScript : MonoBehaviour
             if (drawBridgeChainBaseTransform != null)
             {
                 //Debug.Log("lastPlankYPosition: " + lastPlankYPosition);
-                drawBridgeChainBaseTransform.localPosition = new Vector3(-1.0f, lastPlankYPosition + 0.5f, 2.0f);
+                float xOffset = -1.0f;
+                if(planksCount+1==12)
+                {
+                    Debug.Log("PlanksCount is 12!!");
+                    xOffset=-1.5f;
+                }
+
+                drawBridgeChainBaseTransform.localPosition = new Vector3(xOffset, lastPlankYPosition + 0.5f, 2.0f);
                 InitializeIceBlockPrefab(drawBridgeChainBaseTransform);
 				return true;
             }
