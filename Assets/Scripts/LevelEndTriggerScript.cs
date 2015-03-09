@@ -6,7 +6,7 @@ using Mood = Assets.Scripts.Utils.Enums.Mood;
 public class LevelEndTriggerScript : MonoBehaviour
 {
     public string Level = "LevelMenu";
-    public float DelayLoadLevel = 5.0f;
+    public float DelayLoadLevel = 3.0f;
     public string Speech;
     public Mood MoodeToGetIn;
 

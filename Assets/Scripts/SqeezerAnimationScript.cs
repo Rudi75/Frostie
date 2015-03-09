@@ -3,7 +3,7 @@ using System.Collections;
 using System;
 using Assets.Scripts.Utils;
 
-public class SqeezerAnimationScript : MonoBehaviour
+public class SqeezerAnimationScript : TargetActionScript
 {
     private Transform top;
     private Transform bottom;
@@ -13,6 +13,7 @@ public class SqeezerAnimationScript : MonoBehaviour
     private float deltaTimeSound = 0;
     private float deltaTime = 0;
     private float distance;
+    public bool active = true;
 
     public bool isSqeezing = true;
     public bool lethal = true;
@@ -86,30 +87,33 @@ public class SqeezerAnimationScript : MonoBehaviour
 	// Update is called once per frame
 	void FixedUpdate () 
     {
-        deltaTime -= Time.deltaTime;
-        deltaTimeSound -= Time.deltaTime;
-        switch (sqeezerTop)
+        if (active)
         {
-            case Enums.Edges.LEFT:
-                {
-                    animateLeftToRight();
-                    break;
-                }
-            case Enums.Edges.RIGHT:
-                {
-                    animateRightToLeft();
-                    break;
-                }
-            case Enums.Edges.TOP:
-                {
-                    animateTopDown();
-                    break;
-                }
-            case Enums.Edges.BOTTOM:
-                {
-                    animateBottomUp();
-                    break;
-                }
+            deltaTime -= Time.deltaTime;
+            deltaTimeSound -= Time.deltaTime;
+            switch (sqeezerTop)
+            {
+                case Enums.Edges.LEFT:
+                    {
+                        animateLeftToRight();
+                        break;
+                    }
+                case Enums.Edges.RIGHT:
+                    {
+                        animateRightToLeft();
+                        break;
+                    }
+                case Enums.Edges.TOP:
+                    {
+                        animateTopDown();
+                        break;
+                    }
+                case Enums.Edges.BOTTOM:
+                    {
+                        animateBottomUp();
+                        break;
+                    }
+            }
         }
 	}
 
@@ -286,5 +290,22 @@ public class SqeezerAnimationScript : MonoBehaviour
         Vector3 armScale = arm.localScale;
         armScale.y = armScale.y - (2 * -currentMovingDirection * distanceToMovePerFrame * Time.deltaTime);
         arm.localScale = armScale;
+    }
+
+    protected override void performAction()
+    {
+        active = !active;
+        squeezer.position = startPosition;
+        arm.localScale = new Vector3(1, 1, 1);
+    }
+
+    public override void saveData(SavedDataContainer dataContainer)
+    {
+        dataContainer.AddData("active", active);
+    }
+
+    public override void loadData(SavedDataContainer dataContainer)
+    {
+        active = (bool)dataContainer.retrieveData("active");
     }
 }

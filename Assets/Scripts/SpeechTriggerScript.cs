@@ -1,12 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.Utils;
 
 public class SpeechTriggerScript : TargetActionScript {
 
     public string speech;
     public bool activated = true;
     public bool triggered = false;
+
+    public List<SpeechTriggerScript> speechTriggerToActivate;
+    public List<SpeechTriggerScript> speechTriggerToDeactivate;
 
     public void OnTriggerStay2D(Collider2D other)
     {
@@ -60,5 +64,16 @@ public class SpeechTriggerScript : TargetActionScript {
     public void deactivateTrigger()
     {
         activated = false;
+    }
+    public override void saveData(SavedDataContainer dataContainer)
+    {
+        dataContainer.AddData("active", activated);
+        dataContainer.AddData("triggered", triggered);
+    }
+
+    public override void loadData(SavedDataContainer dataContainer)
+    {
+        activated = (bool)dataContainer.retrieveData("active");
+        triggered = (bool)dataContainer.retrieveData("triggered");
     }
 }

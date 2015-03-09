@@ -2897,6 +2897,10 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: .600000024
       objectReference: {fileID: 0}
+    - target: {fileID: 11457804, guid: 499f22ffea5a3964293915703442b6de, type: 2}
+      propertyPath: Level
+      value: Level_9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 499f22ffea5a3964293915703442b6de, type: 2}
   m_RootGameObject: {fileID: 876502375}
@@ -4508,6 +4512,10 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: .600000024
       objectReference: {fileID: 0}
+    - target: {fileID: 11457804, guid: 499f22ffea5a3964293915703442b6de, type: 2}
+      propertyPath: Level
+      value: Level_2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 499f22ffea5a3964293915703442b6de, type: 2}
   m_RootGameObject: {fileID: 571409813}
@@ -5685,7 +5693,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 449c96d072ec4224a8fa348202a8164c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Level: 
+  Level: Level_2
 --- !u!58 &571409816
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -8321,7 +8329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 449c96d072ec4224a8fa348202a8164c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Level: 
+  Level: Level_9
 --- !u!58 &876502378
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -9728,7 +9736,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 1030643661}
   LevelButtons: {fileID: 940059821}
-  currentLevel: 0
   levelCount: 9
 --- !u!1 &1033873454
 GameObject:
@@ -10183,6 +10190,10 @@ Prefab:
     - target: {fileID: 457804, guid: 499f22ffea5a3964293915703442b6de, type: 2}
       propertyPath: m_LocalScale.y
       value: .600000024
+      objectReference: {fileID: 0}
+    - target: {fileID: 11457804, guid: 499f22ffea5a3964293915703442b6de, type: 2}
+      propertyPath: Level
+      value: Level_5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 499f22ffea5a3964293915703442b6de, type: 2}
@@ -11893,6 +11904,10 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: .600000024
       objectReference: {fileID: 0}
+    - target: {fileID: 11457804, guid: 499f22ffea5a3964293915703442b6de, type: 2}
+      propertyPath: Level
+      value: Level_6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 499f22ffea5a3964293915703442b6de, type: 2}
   m_RootGameObject: {fileID: 1347545437}
@@ -12204,7 +12219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 449c96d072ec4224a8fa348202a8164c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Level: 
+  Level: Level_6
 --- !u!58 &1347545439
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -13305,7 +13320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 449c96d072ec4224a8fa348202a8164c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Level: 
+  Level: Level_5
 --- !u!58 &1472641010
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -13761,7 +13776,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 449c96d072ec4224a8fa348202a8164c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Level: 
+  Level: Level_7
 --- !u!58 &1489819540
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -13824,6 +13839,10 @@ Prefab:
     - target: {fileID: 457804, guid: 499f22ffea5a3964293915703442b6de, type: 2}
       propertyPath: m_LocalScale.y
       value: .600000024
+      objectReference: {fileID: 0}
+    - target: {fileID: 11457804, guid: 499f22ffea5a3964293915703442b6de, type: 2}
+      propertyPath: Level
+      value: Level_10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 499f22ffea5a3964293915703442b6de, type: 2}
@@ -16354,7 +16373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 449c96d072ec4224a8fa348202a8164c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Level: 
+  Level: Level_10
 --- !u!58 &1831697858
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -16533,6 +16552,10 @@ Prefab:
     - target: {fileID: 457804, guid: 499f22ffea5a3964293915703442b6de, type: 2}
       propertyPath: m_LocalScale.y
       value: .600000024
+      objectReference: {fileID: 0}
+    - target: {fileID: 11457804, guid: 499f22ffea5a3964293915703442b6de, type: 2}
+      propertyPath: Level
+      value: Level_7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 499f22ffea5a3964293915703442b6de, type: 2}

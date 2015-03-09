@@ -2389,16 +2389,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c87410b75c71c254c99c6eef78db93a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
   Buttons:
   - {fileID: 1332608962}
-  - {fileID: 1228274082}
-  - {fileID: 119816844}
   onlyActiveWhenPressed: 0
-  speechTriggerToActivate: []
-  speechTriggerToDeactivate: []
   Type: 0
   Path: {fileID: 261179667}
-  Speed: 1
+  Speed: 3
   MaxDistanceToGoal: .100000001
   started: 0
 --- !u!50 &41627949
@@ -3804,14 +3801,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c87410b75c71c254c99c6eef78db93a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
   Buttons:
   - {fileID: 119816844}
   onlyActiveWhenPressed: 0
-  speechTriggerToActivate: []
-  speechTriggerToDeactivate: []
   Type: 0
   Path: {fileID: 655790485}
-  Speed: 1
+  Speed: 3
   MaxDistanceToGoal: .100000001
   started: 0
 --- !u!50 &70586320
@@ -16896,11 +16892,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf706f7205d10d34f82127bc310d5415, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
   Buttons:
   - {fileID: 1228274082}
   onlyActiveWhenPressed: 0
-  speechTriggerToActivate: []
-  speechTriggerToDeactivate: []
   Type: 1
   Path: {fileID: 1751861757}
   Speed: 1
@@ -20571,7 +20566,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 11435694, guid: 8c5056ffdbe56fd4887d08112bf4cf13, type: 2}
       propertyPath: Buttons.Array.size
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 435694, guid: 8c5056ffdbe56fd4887d08112bf4cf13, type: 2}
       propertyPath: m_LocalPosition.x
@@ -20621,6 +20616,10 @@ Prefab:
       propertyPath: Buttons.Array.data[1]
       value: 
       objectReference: {fileID: 1228274082}
+    - target: {fileID: 11435694, guid: 8c5056ffdbe56fd4887d08112bf4cf13, type: 2}
+      propertyPath: Speed
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8c5056ffdbe56fd4887d08112bf4cf13, type: 2}
   m_RootGameObject: {fileID: 41627946}
@@ -24432,7 +24431,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7.54123402
+  orthographic size: 10.6315012
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -24451,7 +24450,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 460037968}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.03999996, y: -5.61999989, z: -10}
+  m_LocalPosition: {x: 9.48999977, y: 3.57999992, z: -10}
   m_LocalScale: {x: 1.24671257, y: 3.30468321, z: 4.37818623}
   m_Children: []
   m_Father: {fileID: 681714139}
@@ -36464,6 +36463,10 @@ Prefab:
       propertyPath: Buttons.Array.data[0]
       value: 
       objectReference: {fileID: 119816844}
+    - target: {fileID: 11435694, guid: 8c5056ffdbe56fd4887d08112bf4cf13, type: 2}
+      propertyPath: Speed
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8c5056ffdbe56fd4887d08112bf4cf13, type: 2}
   m_RootGameObject: {fileID: 1218072941}
@@ -49570,13 +49573,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f412b22535ada464eb011e8ba9f383a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
   Buttons: []
   onlyActiveWhenPressed: 0
-  speechTriggerToActivate: []
-  speechTriggerToDeactivate: []
   speech: Sometimes... timing is the most important thing...
   activated: 1
   triggered: 0
+  speechTriggerToActivate: []
+  speechTriggerToDeactivate: []
 --- !u!61 &845881886
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -54228,7 +54232,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 11435694, guid: 8c5056ffdbe56fd4887d08112bf4cf13, type: 2}
       propertyPath: Buttons.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 435694, guid: 8c5056ffdbe56fd4887d08112bf4cf13, type: 2}
       propertyPath: m_LocalPosition.x
@@ -54273,11 +54277,15 @@ Prefab:
     - target: {fileID: 11435694, guid: 8c5056ffdbe56fd4887d08112bf4cf13, type: 2}
       propertyPath: Buttons.Array.data[0]
       value: 
-      objectReference: {fileID: 119816844}
+      objectReference: {fileID: 1332608962}
     - target: {fileID: 11435694, guid: 8c5056ffdbe56fd4887d08112bf4cf13, type: 2}
       propertyPath: Buttons.Array.data[1]
       value: 
       objectReference: {fileID: 1332608962}
+    - target: {fileID: 11435694, guid: 8c5056ffdbe56fd4887d08112bf4cf13, type: 2}
+      propertyPath: Speed
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8c5056ffdbe56fd4887d08112bf4cf13, type: 2}
   m_RootGameObject: {fileID: 1322791997}
@@ -64725,7 +64733,7 @@ MonoBehaviour:
   Jump: {fileID: 8300000, guid: dcd6e5285976ecd4e9eb556a3a02fcb4, type: 3}
   Walk: {fileID: 8300000, guid: 68f1b7c8d463c914db1eb10e920f3bb9, type: 3}
   Melting: {fileID: 8300000, guid: 9841f3b403d933449bd00a0df3d1d8b5, type: 3}
-  FreezeGround: {fileID: 8300000, guid: 42f79b1e61f461147894d229ab0242e1, type: 3}
+  FreezeGround: {fileID: 8300000, guid: 0177492ad04c87a42a9782379ed9d819, type: 3}
   Death: {fileID: 8300000, guid: 746976f80c1dd8c4eba2df64b0d3d3f4, type: 3}
   DeathInFire: {fileID: 8300000, guid: 0721f491a5001464d92eb17b4983a652, type: 3}
 --- !u!1 &1093672552
@@ -71173,14 +71181,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f412b22535ada464eb011e8ba9f383a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
   Buttons: []
   onlyActiveWhenPressed: 0
-  speechTriggerToActivate: []
-  speechTriggerToDeactivate: []
   speech: There is a button ahead. Those are nifty little pieces. Sometimes you realize
     just later on why you should or shoudn't have pressed them.
   activated: 1
   triggered: 0
+  speechTriggerToActivate: []
+  speechTriggerToDeactivate: []
 --- !u!61 &1208831128
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -71696,14 +71705,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c87410b75c71c254c99c6eef78db93a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
   Buttons:
   - {fileID: 119816844}
   onlyActiveWhenPressed: 0
-  speechTriggerToActivate: []
-  speechTriggerToDeactivate: []
   Type: 0
   Path: {fileID: 1959564656}
-  Speed: 1
+  Speed: 3
   MaxDistanceToGoal: .100000001
   started: 0
 --- !u!50 &1218072944
@@ -76040,7 +76048,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 11435694, guid: 8c5056ffdbe56fd4887d08112bf4cf13, type: 2}
       propertyPath: Buttons.Array.size
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 435694, guid: 8c5056ffdbe56fd4887d08112bf4cf13, type: 2}
       propertyPath: m_LocalPosition.x
@@ -76090,6 +76098,10 @@ Prefab:
       propertyPath: Buttons.Array.data[1]
       value: 
       objectReference: {fileID: 1228274082}
+    - target: {fileID: 11435694, guid: 8c5056ffdbe56fd4887d08112bf4cf13, type: 2}
+      propertyPath: Speed
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8c5056ffdbe56fd4887d08112bf4cf13, type: 2}
   m_RootGameObject: {fileID: 1768283841}
@@ -76623,11 +76635,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a41abb09ab43334da5f038d44cfa68e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
   Buttons:
   - {fileID: 1228274082}
   onlyActiveWhenPressed: 0
-  speechTriggerToActivate: []
-  speechTriggerToDeactivate: []
   OnAction: 1
   destroyOnAction: 0
   objectToSpawnPrefab: {fileID: 196540, guid: 02ad297576fa8a744b58a607795c0450, type: 2}
@@ -78075,7 +78086,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 11435694, guid: 8c5056ffdbe56fd4887d08112bf4cf13, type: 2}
       propertyPath: Buttons.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 435694, guid: 8c5056ffdbe56fd4887d08112bf4cf13, type: 2}
       propertyPath: m_LocalPosition.x
@@ -78116,11 +78127,15 @@ Prefab:
     - target: {fileID: 11435694, guid: 8c5056ffdbe56fd4887d08112bf4cf13, type: 2}
       propertyPath: Buttons.Array.data[0]
       value: 
-      objectReference: {fileID: 119816844}
+      objectReference: {fileID: 1332608962}
     - target: {fileID: 11435694, guid: 8c5056ffdbe56fd4887d08112bf4cf13, type: 2}
       propertyPath: Buttons.Array.data[1]
       value: 
       objectReference: {fileID: 1332608962}
+    - target: {fileID: 11435694, guid: 8c5056ffdbe56fd4887d08112bf4cf13, type: 2}
+      propertyPath: Speed
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8c5056ffdbe56fd4887d08112bf4cf13, type: 2}
   m_RootGameObject: {fileID: 1945322423}
@@ -78511,15 +78526,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c87410b75c71c254c99c6eef78db93a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
   Buttons:
-  - {fileID: 119816844}
   - {fileID: 1332608962}
   onlyActiveWhenPressed: 0
-  speechTriggerToActivate: []
-  speechTriggerToDeactivate: []
   Type: 0
   Path: {fileID: 150075376}
-  Speed: 1
+  Speed: 3
   MaxDistanceToGoal: .100000001
   started: 0
 --- !u!50 &1322792000
@@ -80848,14 +80861,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f412b22535ada464eb011e8ba9f383a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
   Buttons: []
   onlyActiveWhenPressed: 0
-  speechTriggerToActivate: []
-  speechTriggerToDeactivate: []
   speech: Oh no the easterbunny has stolen my nose. I hope he is not intending to
     eat my carrot...
   activated: 1
   triggered: 0
+  speechTriggerToActivate: []
+  speechTriggerToDeactivate: []
 --- !u!61 &1357296077
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -84174,7 +84188,7 @@ Prefab:
     - target: {fileID: 11451984, guid: cb7430f3753c3604c8a649c80557df0b, type: 2}
       propertyPath: FreezeGround
       value: 
-      objectReference: {fileID: 8300000, guid: 42f79b1e61f461147894d229ab0242e1, type: 3}
+      objectReference: {fileID: 8300000, guid: 0177492ad04c87a42a9782379ed9d819, type: 3}
     - target: {fileID: 11451984, guid: cb7430f3753c3604c8a649c80557df0b, type: 2}
       propertyPath: Walk
       value: 
@@ -86747,14 +86761,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f412b22535ada464eb011e8ba9f383a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
   Buttons: []
   onlyActiveWhenPressed: 0
-  speechTriggerToActivate: []
-  speechTriggerToDeactivate: []
   speech: The nasty little rabbit went this way. If i hurry up i might be able to
     catch him.
   activated: 1
   triggered: 0
+  speechTriggerToActivate: []
+  speechTriggerToDeactivate: []
 --- !u!61 &1445417081
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -98034,6 +98049,10 @@ Prefab:
       propertyPath: Type
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11435694, guid: 8c5056ffdbe56fd4887d08112bf4cf13, type: 2}
+      propertyPath: Speed
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8c5056ffdbe56fd4887d08112bf4cf13, type: 2}
   m_RootGameObject: {fileID: 70586317}
@@ -104042,16 +104061,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c87410b75c71c254c99c6eef78db93a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
   Buttons:
   - {fileID: 1332608962}
-  - {fileID: 1228274082}
-  - {fileID: 119816844}
   onlyActiveWhenPressed: 0
-  speechTriggerToActivate: []
-  speechTriggerToDeactivate: []
   Type: 0
   Path: {fileID: 508193602}
-  Speed: 1
+  Speed: 3
   MaxDistanceToGoal: .100000001
   started: 0
 --- !u!50 &1768283844
@@ -114385,15 +114401,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c87410b75c71c254c99c6eef78db93a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
   Buttons:
-  - {fileID: 119816844}
   - {fileID: 1332608962}
   onlyActiveWhenPressed: 0
-  speechTriggerToActivate: []
-  speechTriggerToDeactivate: []
   Type: 0
   Path: {fileID: 506783430}
-  Speed: 1
+  Speed: 3
   MaxDistanceToGoal: .100000001
   started: 0
 --- !u!50 &1945322426
@@ -123444,13 +123458,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f412b22535ada464eb011e8ba9f383a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
   Buttons: []
   onlyActiveWhenPressed: 0
-  speechTriggerToActivate: []
-  speechTriggerToDeactivate: []
   speech: When i lighte those, i will always find my way back here.
   activated: 1
   triggered: 0
+  speechTriggerToActivate: []
+  speechTriggerToDeactivate: []
 --- !u!61 &2110396345
 BoxCollider2D:
   m_ObjectHideFlags: 0
