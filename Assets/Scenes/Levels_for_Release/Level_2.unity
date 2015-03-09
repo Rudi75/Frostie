@@ -10826,7 +10826,7 @@ MonoBehaviour:
   drawBridgeRotateRightKey: 275
   meltingEnabed: 1
   throwingHeadEnabled: 0
-  shootButtonEnabled: 1
+  shootButtonEnabled: 0
   freezeGroundEnabled: 0
   takeWaterEnabled: 0
   decoupleMiddleEnabled: 0
@@ -25805,7 +25805,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11470058, guid: cb7430f3753c3604c8a649c80557df0b, type: 2}
       propertyPath: shootButtonEnabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11470066, guid: cb7430f3753c3604c8a649c80557df0b, type: 2}
       propertyPath: m_Enabled
