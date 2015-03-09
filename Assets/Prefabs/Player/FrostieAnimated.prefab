@@ -3706,7 +3706,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Jump: {fileID: 8300000, guid: dcd6e5285976ecd4e9eb556a3a02fcb4, type: 3}
   Walk: {fileID: 8300000, guid: 68f1b7c8d463c914db1eb10e920f3bb9, type: 3}
-  Melting: {fileID: 8300000, guid: 9841f3b403d933449bd00a0df3d1d8b5, type: 3}
+  Melting: {fileID: 8300000, guid: a2e96401838983b43b774e22b560515a, type: 3}
   FreezeGround: {fileID: 8300000, guid: 0177492ad04c87a42a9782379ed9d819, type: 3}
   Death: {fileID: 8300000, guid: 746976f80c1dd8c4eba2df64b0d3d3f4, type: 3}
   DeathInFire: {fileID: 8300000, guid: 0721f491a5001464d92eb17b4983a652, type: 3}

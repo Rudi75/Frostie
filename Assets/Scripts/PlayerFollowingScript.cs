@@ -48,17 +48,26 @@ public class PlayerFollowingScript : SaveableScript
 
     public override void saveData(SavedDataContainer dataContainer)
     {
-        dataContainer.AddData("Pos", transform.position);
+        //dataContainer.AddData("Pos", transform.position);
         dataContainer.AddData("Names", PartNames);
         dataContainer.AddData("Dis", DistanceToTrigger);
         dataContainer.AddData("isP", isPlaying);
+
+        AnimatorStateInfo currentState = compAnimator.GetCurrentAnimatorStateInfo(0);
+        float playbackTime = currentState.normalizedTime % 1;
+        dataContainer.AddData("AnimName", currentState.nameHash); 
+        dataContainer.AddData("AnimTime", playbackTime);     
     }
 
     public override void loadData(SavedDataContainer dataContainer)
     {
-        transform.position = (Vector3)dataContainer.retrieveData("Pos");
+        //transform.position = (Vector3)dataContainer.retrieveData("Pos");
         PartNames = dataContainer.retrieveData("Names") as List<string>;
         DistanceToTrigger = dataContainer.retrieveData("Dis") as List<float>;
         isPlaying = (bool)dataContainer.retrieveData("isP");
+
+        int nameHash = (int)dataContainer.retrieveData("AnimName");
+        float playbackTime = (float)dataContainer.retrieveData("AnimTime");
+        compAnimator.Play(nameHash, 0, playbackTime);
     }
 }

@@ -23,7 +23,7 @@ public class FrostieSoundManager : MonoBehaviour
                 audio.Stop();
         }
         audio.PlayOneShot(Jump);
-    }
+      }
 
     public void playWalkingSound(float movement)
     {
@@ -31,7 +31,9 @@ public class FrostieSoundManager : MonoBehaviour
         {
             if (!isWalking)
             {
-                audio.PlayOneShot(Walk);
+                audio.clip = Walk;
+				audio.loop = true;
+                audio.Play();
                 isWalking = true;
             }
         }
@@ -41,6 +43,7 @@ public class FrostieSoundManager : MonoBehaviour
             {
                 audio.Stop();
             }
+			audio.loop = false;
             isWalking = false;
         } 
     }
@@ -54,7 +57,7 @@ public class FrostieSoundManager : MonoBehaviour
             else
                 audio.Stop();
         }
-        audio.PlayOneShot(Melting);
+		audio.PlayOneShot(Melting);
     }
 
     public void playFreezingGroundSound()
@@ -71,26 +74,15 @@ public class FrostieSoundManager : MonoBehaviour
 
     public void playDeathSound()
     {
-        if (audio.isPlaying)
-        {
-            if (audio.clip.name.Equals(Death.name))
-                return;
-            else
-                audio.Stop();
-        }
+		isWalking = false;
+		audio.Stop();
         audio.PlayOneShot(Death);
     }
 
     public void playDeathInFireSound()
     {
-        if (audio.isPlaying)
-        {
-            if (audio.clip.name.Equals(DeathInFire.name))
-                return;
-            else
-                audio.Stop();
-        }
-        audio.loop = true;
+		isWalking = false;
+		audio.Stop();
         audio.PlayOneShot(DeathInFire);
     }
 }

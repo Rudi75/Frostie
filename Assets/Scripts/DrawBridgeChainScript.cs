@@ -74,9 +74,15 @@ public class DrawBridgeChainScript : MonoBehaviour
             if (lastChainElement != null)
             {
                 currentlyXChainPosition = openingDirection == DrawBridgePlanksScript.Directions.right ? 1.2f : -1.2f;
+
+                if(planksCount+1==12)
+                {
+                    currentlyXChainPosition = openingDirection == DrawBridgePlanksScript.Directions.right ? 2f : -2f;
+                }
+
                 lastChainElement.localPosition = new Vector3(currentlyXChainPosition, 0.0f, -2.0f);
 
-                Debug.Log("planksCount: " + planksCount);
+                //Debug.Log("planksCount: " + planksCount);
                 chainElementCountPerIteration = (planksCount + 1) / 3;
                 insertedChainElementCount = 1;
                 //chainElementCountPerIteration -= 1;
@@ -88,8 +94,8 @@ public class DrawBridgeChainScript : MonoBehaviour
                     else
                         chainElementCountPerIteration = (planksCount + 1) / 3;
 
-                    Debug.Log("current temp angle: " + (i * 22.5f));
-                    Debug.Log("Math.Abs(currentAngle): " + Math.Abs(currentAngle));
+                    //Debug.Log("current temp angle: " + (i * 22.5f));
+                    //Debug.Log("Math.Abs(currentAngle): " + Math.Abs(currentAngle));
                     UpdateChainObjects(true, openingDirection);
                 }
 
@@ -111,7 +117,7 @@ public class DrawBridgeChainScript : MonoBehaviour
         float differenceToQuarterDegree = 45f - 22.5f;
         degreeChangePerIteration = differenceToQuarterDegree / iterationCount;
         currentChainAngle = ((Convert.ToInt32(openingDirection)) * 22.5f) - ((Convert.ToInt32(openingDirection)) * degreeChangePerIteration);
-        Debug.Log("currentChainAngle: " + currentChainAngle);
+        //Debug.Log("currentChainAngle: " + currentChainAngle);
     }
 
 
@@ -123,9 +129,17 @@ public class DrawBridgeChainScript : MonoBehaviour
 
             if (drawBridgeChainBaseTransform != null)
             {
-                Debug.Log("lastPlankYPosition: " + lastPlankYPosition);
-                drawBridgeChainBaseTransform.localPosition = new Vector3(-1.0f, lastPlankYPosition + 0.5f, 2.0f);
-                return InitializeIceBlockPrefab(drawBridgeChainBaseTransform);
+                //Debug.Log("lastPlankYPosition: " + lastPlankYPosition);
+                float xOffset = -1.0f;
+                if(planksCount+1==12)
+                {
+                    Debug.Log("PlanksCount is 12!!");
+                    xOffset=-1.5f;
+                }
+
+                drawBridgeChainBaseTransform.localPosition = new Vector3(xOffset, lastPlankYPosition + 0.5f, 2.0f);
+                InitializeIceBlockPrefab(drawBridgeChainBaseTransform);
+				return true;
             }
             Debug.LogError("drawBridgeChainBaseTransform is null!");
         }
@@ -153,27 +167,26 @@ public class DrawBridgeChainScript : MonoBehaviour
 
     private bool ChangeTextureOfPrefab(GameObject sourceGameObject, Sprite newTexture)
     {
-        if (sourceGameObject != null && newTexture != null)
-        {
-            SpriteRenderer renderer = sourceGameObject.GetComponent<SpriteRenderer>();
-            if (renderer != null)
-            {
-                renderer.sprite = newTexture;
-                return true;
-            }
-            else
-                Debug.LogError("Could not find SpriteRenderer for Gameobject: " + sourceGameObject.name);
-        }
-        else
-            Debug.LogError("Could not change Sprite for GameObject!");
+        if (sourceGameObject != null && newTexture != null) {
+			SpriteRenderer renderer = sourceGameObject.GetComponent<SpriteRenderer> ();
+			if (renderer != null) {
+				renderer.sprite = newTexture;
+				return true;
+			} else
+				Debug.LogError ("Could not find SpriteRenderer for Gameobject: " + sourceGameObject.name);
+		}
+		else
+		{
+			//Debug.LogError ("Could not change Sprite for GameObject!");
+		}
 
         return false;
     }
 
     public void UpdateChainObjects(bool addChain, DrawBridgePlanksScript.Directions direction)
     {
-        Debug.Log("In Function UpdateChainObjects!");
-        Debug.Log("chainElementCountPerIteration: " + chainElementCountPerIteration);
+        //Debug.Log("In Function UpdateChainObjects!");
+        //Debug.Log("chainElementCountPerIteration: " + chainElementCountPerIteration);
 
         if (addChain)
         {
@@ -189,7 +202,7 @@ public class DrawBridgeChainScript : MonoBehaviour
         }
         else
         {
-            Debug.Log("chainElementCountPerIteration: " + chainElementCountPerIteration);
+            //Debug.Log("chainElementCountPerIteration: " + chainElementCountPerIteration);
             for (int i = 1; i <= chainElementCountPerIteration; i++)
             {
                 if (lastChainElement != null)
@@ -261,5 +274,19 @@ public class DrawBridgeChainScript : MonoBehaviour
     private void DestroyPrefab(GameObject prefab)
     {
         Destroy(prefab);
+    }
+
+    
+    public void RemoveCompleteChain()
+    {
+        if(chainElementsContainer!=null)
+        {
+            for(int i=chainElementsContainer.childCount-1;i>=0;i--)
+            {
+                Transform currentChainElement = chainElementsContainer.GetChild(i);
+                if (currentChainElement != null && currentChainElement.gameObject != null)
+                    Destroy(currentChainElement.gameObject);
+            }
+        }
     }
 }
