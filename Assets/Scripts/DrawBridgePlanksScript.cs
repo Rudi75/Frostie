@@ -3,7 +3,7 @@ using System.Collections;
 using System;
 using Assets.Scripts.Utils;
 
-public class DrawBridgePlanksScript : SaveableScript {
+public class DrawBridgePlanksScript : MonoBehaviour {
 
     public enum Directions
     {
@@ -120,18 +120,5 @@ public class DrawBridgePlanksScript : SaveableScript {
 
         Debug.Log("I am not locked!");
         return false;
-    }
-
-    public override void saveData(SavedDataContainer dataContainer)
-    {
-        dataContainer.AddData("currentAngle", currentAngle);
-        Debug.Log("save " + currentAngle);
-    }
-
-    public override void loadData(SavedDataContainer dataContainer)
-    {
-        currentAngle = (float)dataContainer.retrieveData("currentAngle");
-        Debug.Log("load " + currentAngle);
-        //Start();
     }
 }
