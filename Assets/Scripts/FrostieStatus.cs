@@ -70,6 +70,7 @@ public class FrostieStatus : MonoBehaviour {
         frostieAnimationManager = GetComponent<FrostieAnimationManager>();
         frostiePartManager = GetComponent<FrostiePartManager>();
         isFixated = false;
+        isMelted = false;
         face = Faces.SIDE;
         mood = Mood.SAD;
     }
