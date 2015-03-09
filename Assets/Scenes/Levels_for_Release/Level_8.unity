@@ -6985,10 +6985,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbe719bd4fed74b45963b408cf9d0cee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
   Buttons: []
   onlyActiveWhenPressed: 0
-  speechTriggerToActivate: []
-  speechTriggerToDeactivate: []
   active: 1
   isSqeezing: 1
   lethal: 1
@@ -7803,11 +7802,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c87410b75c71c254c99c6eef78db93a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
   Buttons:
   - {fileID: 767399737}
   onlyActiveWhenPressed: 1
-  speechTriggerToActivate: []
-  speechTriggerToDeactivate: []
   Type: 0
   Path: {fileID: 1113495047}
   Speed: 3
@@ -10000,11 +9998,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a41abb09ab43334da5f038d44cfa68e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
   Buttons:
   - {fileID: 445566411}
   onlyActiveWhenPressed: 0
-  speechTriggerToActivate: []
-  speechTriggerToDeactivate: []
   OnAction: 1
   destroyOnAction: 1
   objectToSpawnPrefab: {fileID: 190152, guid: c4e54aea0503a3f439f2416d503c485b, type: 2}
@@ -11858,6 +11855,11 @@ Prefab:
     - target: {fileID: 427270, guid: d98054c5c13bb4441a31ca798348a1f5, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11427272, guid: d98054c5c13bb4441a31ca798348a1f5, type: 2}
+      propertyPath: Speech
+      value: Ahh! That's a chunk of my nose... And it doesn't look good anymore! That
+        bastard will pay for this!
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d98054c5c13bb4441a31ca798348a1f5, type: 2}
@@ -26978,11 +26980,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c87410b75c71c254c99c6eef78db93a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
   Buttons:
   - {fileID: 615625210}
   onlyActiveWhenPressed: 1
-  speechTriggerToActivate: []
-  speechTriggerToDeactivate: []
   Type: 0
   Path: {fileID: 533374581}
   Speed: 3
@@ -27314,11 +27315,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c87410b75c71c254c99c6eef78db93a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
   Buttons:
   - {fileID: 1036770187}
   onlyActiveWhenPressed: 1
-  speechTriggerToActivate: []
-  speechTriggerToDeactivate: []
   Type: 0
   Path: {fileID: 1073097033}
   Speed: 3
@@ -30381,8 +30381,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Level: LevelMenu
   DelayLoadLevel: 10
-  Speech: Oh no! That's a chunk of my carrot... I have to hurry up before he eats
-    it all...
+  Speech: Ahh! That's a chunk of my nose... And it doesn't look good anymore! That
+    bastard will pay for this!
   MoodeToGetIn: 2
 --- !u!61 &792803166
 BoxCollider2D:
@@ -31156,10 +31156,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c87410b75c71c254c99c6eef78db93a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
   Buttons: []
   onlyActiveWhenPressed: 0
-  speechTriggerToActivate: []
-  speechTriggerToDeactivate: []
   Type: 0
   Path: {fileID: 1483345403}
   Speed: 4
@@ -34408,10 +34407,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c87410b75c71c254c99c6eef78db93a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
   Buttons: []
   onlyActiveWhenPressed: 0
-  speechTriggerToActivate: []
-  speechTriggerToDeactivate: []
   Type: 0
   Path: {fileID: 1368428226}
   Speed: 4
@@ -44281,14 +44279,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f412b22535ada464eb011e8ba9f383a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
   Buttons:
   - {fileID: 445566411}
   onlyActiveWhenPressed: 0
-  speechTriggerToActivate: []
-  speechTriggerToDeactivate: []
   speech: If I press this button the Stone gets resettet to this point
   activated: 0
   triggered: 0
+  speechTriggerToActivate: []
+  speechTriggerToDeactivate: []
 --- !u!61 &1139494722
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -49232,10 +49231,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbe719bd4fed74b45963b408cf9d0cee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
   Buttons: []
   onlyActiveWhenPressed: 0
-  speechTriggerToActivate: []
-  speechTriggerToDeactivate: []
   active: 1
   isSqeezing: 1
   lethal: 1
@@ -52604,10 +52602,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbe719bd4fed74b45963b408cf9d0cee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
   Buttons: []
   onlyActiveWhenPressed: 0
-  speechTriggerToActivate: []
-  speechTriggerToDeactivate: []
   active: 1
   isSqeezing: 1
   lethal: 1
@@ -64613,10 +64610,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c87410b75c71c254c99c6eef78db93a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
   Buttons: []
   onlyActiveWhenPressed: 0
-  speechTriggerToActivate: []
-  speechTriggerToDeactivate: []
   Type: 0
   Path: {fileID: 326140925}
   Speed: 4
@@ -67780,10 +67776,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c87410b75c71c254c99c6eef78db93a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
   Buttons: []
   onlyActiveWhenPressed: 0
-  speechTriggerToActivate: []
-  speechTriggerToDeactivate: []
   Type: 0
   Path: {fileID: 1756399274}
   Speed: 8
@@ -69350,10 +69345,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c87410b75c71c254c99c6eef78db93a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
   Buttons: []
   onlyActiveWhenPressed: 0
-  speechTriggerToActivate: []
-  speechTriggerToDeactivate: []
   Type: 0
   Path: {fileID: 1434213918}
   Speed: 4
@@ -74854,11 +74848,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d02c474546250a498af0281d5afaa67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Jump: {fileID: 8300000, guid: 31c63c6f08e180a46af0a0cb337c585e, type: 3}
-  Walk: {fileID: 8300000, guid: e80da2edb36106e4ebe6a355de9c0ca4, type: 3}
+  Jump: {fileID: 8300000, guid: dcd6e5285976ecd4e9eb556a3a02fcb4, type: 3}
+  Walk: {fileID: 8300000, guid: 68f1b7c8d463c914db1eb10e920f3bb9, type: 3}
   Melting: {fileID: 8300000, guid: 9841f3b403d933449bd00a0df3d1d8b5, type: 3}
   FreezeGround: {fileID: 8300000, guid: 0177492ad04c87a42a9782379ed9d819, type: 3}
-  Death: {fileID: 8300000, guid: 3851bcce56de95948bb822f82f012b6a, type: 3}
+  Death: {fileID: 8300000, guid: 746976f80c1dd8c4eba2df64b0d3d3f4, type: 3}
   DeathInFire: {fileID: 8300000, guid: 0721f491a5001464d92eb17b4983a652, type: 3}
 --- !u!1001 &1953301649
 Prefab:
@@ -79166,11 +79160,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c87410b75c71c254c99c6eef78db93a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
   Buttons:
   - {fileID: 339365230}
   onlyActiveWhenPressed: 1
-  speechTriggerToActivate: []
-  speechTriggerToDeactivate: []
   Type: 0
   Path: {fileID: 804581309}
   Speed: 3
@@ -81826,10 +81819,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c87410b75c71c254c99c6eef78db93a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
   Buttons: []
   onlyActiveWhenPressed: 0
-  speechTriggerToActivate: []
-  speechTriggerToDeactivate: []
   Type: 0
   Path: {fileID: 1787228090}
   Speed: 2

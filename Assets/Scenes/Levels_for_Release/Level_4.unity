@@ -3269,7 +3269,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1837557694}
   m_GameObject: {fileID: 59987602}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b370f94f8019e5443be3a4fa3d115911, type: 3}
   m_Name: 
@@ -3281,7 +3281,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1837557694}
   m_GameObject: {fileID: 59987602}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a7623f09f27188942b1fae0a052d60bd, type: 3}
   m_Name: 
@@ -11060,6 +11060,8 @@ Transform:
   - {fileID: 1377076329}
   - {fileID: 2131337500}
   - {fileID: 622508906}
+  - {fileID: 2002614517}
+  - {fileID: 323205036}
   m_Father: {fileID: 18266509}
   m_RootOrder: 6
 --- !u!1 &233985067
@@ -15570,6 +15572,45 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_Size: {x: 8.82305527, y: 6.6835475}
   m_Center: {x: 3.56114197, y: 2.84177208}
+--- !u!1 &323205035
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 323205036}
+  - 61: {fileID: 323205037}
+  m_Layer: 0
+  m_Name: blockade
+  m_TagString: Untagged
+  m_Icon: {fileID: -1376725286, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &323205036
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 323205035}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 142.513, y: 15.3590002, z: 0}
+  m_LocalScale: {x: .100000016, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 233612902}
+  m_RootOrder: 108
+--- !u!61 &323205037
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 323205035}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: 1, y: 1}
+  m_Center: {x: 0, y: 0}
 --- !u!1 &323605228
 GameObject:
   m_ObjectHideFlags: 0
@@ -34758,6 +34799,10 @@ Prefab:
       propertyPath: speechTriggerToActivate.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: speechTriggerToDeactivate.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
       propertyPath: m_LocalPosition.x
       value: 140.360001
@@ -34799,6 +34844,10 @@ Prefab:
       propertyPath: speechTriggerToActivate.Array.data[0]
       value: 
       objectReference: {fileID: 622508907}
+    - target: {fileID: 11411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: speechTriggerToDeactivate.Array.data[0]
+      value: 
+      objectReference: {fileID: 2002614518}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
   m_RootGameObject: {fileID: 1959417604}
@@ -40942,8 +40991,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Level: LevelMenu
   DelayLoadLevel: 10
-  Speech: Oh! This is a piece of fur from the easter bunny... I'm certain now... He
-    ran this way.
+  Speech: Oh! This is a piece of the easter bunnys fur... My snowman senses tell me
+    it ran that way!    Maybe...
   MoodeToGetIn: 0
 --- !u!61 &875494035
 BoxCollider2D:
@@ -55651,6 +55700,90 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: e816868c1b4fc4a4b8baeb7b5564c227, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1001 &1190769234
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 233612902}
+    m_Modifications:
+    - target: {fileID: 11411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: speechTriggerToActivate.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 137.979996
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 17.0699997
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_RootOrder
+      value: 107
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: speech
+      value: I think there is another button somewhere close by...
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: speechTriggerToActivate.Array.data[0]
+      value: 
+      objectReference: {fileID: 622508907}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 7.60106707
+      objectReference: {fileID: 0}
+    - target: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 3.57687354
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_Size.x
+      value: .349010229
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_Center.x
+      value: -.220695034
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_Size.y
+      value: .100491367
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: m_Center.y
+      value: -.449753791
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+      propertyPath: triggered
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+  m_RootGameObject: {fileID: 2002614516}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1 &1191973460
 GameObject:
   m_ObjectHideFlags: 0
@@ -72157,6 +72290,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 16
       objectReference: {fileID: 0}
+    - target: {fileID: 11462754, guid: 98007eb1b0a43134ab7895ed48ce953c, type: 2}
+      propertyPath: Speech
+      value: Oh! This is a piece of the easter bunnys fur... My snowman senses tell
+        me it ran that way!    Maybe...
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 98007eb1b0a43134ab7895ed48ce953c, type: 2}
   m_RootGameObject: {fileID: 875494032}
@@ -85856,6 +85994,14 @@ Prefab:
       propertyPath: shootButtonEnabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11470066, guid: cb7430f3753c3604c8a649c80557df0b, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11470056, guid: cb7430f3753c3604c8a649c80557df0b, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11470090, guid: cb7430f3753c3604c8a649c80557df0b, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: cb7430f3753c3604c8a649c80557df0b, type: 2}
@@ -91567,7 +91713,8 @@ MonoBehaviour:
   triggered: 0
   speechTriggerToActivate:
   - {fileID: 622508907}
-  speechTriggerToDeactivate: []
+  speechTriggerToDeactivate:
+  - {fileID: 2002614518}
 --- !u!61 &1959417606
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -93733,6 +93880,67 @@ Prefab:
   m_RootGameObject: {fileID: 1965652589}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &2002614516
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 111096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+  m_PrefabInternal: {fileID: 1190769234}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2002614517}
+  - 61: {fileID: 2002614519}
+  - 114: {fileID: 2002614518}
+  m_Layer: 2
+  m_Name: SpeechTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: -1203168336, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2002614517
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 411096, guid: 3e1a134a56b37d24688b8be6fd91ab25, type: 2}
+  m_PrefabInternal: {fileID: 1190769234}
+  m_GameObject: {fileID: 2002614516}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 137.979996, y: 17.0699997, z: 0}
+  m_LocalScale: {x: 3.57687354, y: 7.60106707, z: 1}
+  m_Children: []
+  m_Father: {fileID: 233612902}
+  m_RootOrder: 107
+--- !u!114 &2002614518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11411096, guid: 3e1a134a56b37d24688b8be6fd91ab25,
+    type: 2}
+  m_PrefabInternal: {fileID: 1190769234}
+  m_GameObject: {fileID: 2002614516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f412b22535ada464eb011e8ba9f383a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 
+  Buttons: []
+  onlyActiveWhenPressed: 0
+  speech: I think there is another button somewhere close by...
+  activated: 1
+  triggered: 0
+  speechTriggerToActivate: []
+  speechTriggerToDeactivate: []
+--- !u!61 &2002614519
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6111096, guid: 3e1a134a56b37d24688b8be6fd91ab25,
+    type: 2}
+  m_PrefabInternal: {fileID: 1190769234}
+  m_GameObject: {fileID: 2002614516}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Size: {x: .349010229, y: .100491367}
+  m_Center: {x: -.220695034, y: -.449753791}
 --- !u!1 &2003048670
 GameObject:
   m_ObjectHideFlags: 0
