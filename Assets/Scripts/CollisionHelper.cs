@@ -116,7 +116,8 @@ namespace AssemblyCSharp
         {
                 if (colliders.Length < 1)
                 {
-                    throw new System.Exception("no colliders found");
+                    Debug.Log("no colliders found");
+                    return null;
                 }
 
                 Collider2D bottomCollider = colliders[0];
@@ -132,7 +133,8 @@ namespace AssemblyCSharp
         {
                 if (colliders.Length < 1)
                 {
-                    throw new System.Exception("no colliders found");
+                    Debug.Log("no colliders found");
+                    return null;
                 }
 
                 Collider2D topCollider = colliders[0];
