@@ -133,7 +133,14 @@ public class FrostieMoveScript : MonoBehaviour {
         FrostieSoundManager frostieSoundManager = GetComponent<FrostieSoundManager>();
         if (frostieSoundManager != null)
         {
-            frostieSoundManager.playWalkingSound(movement);
+            if(frostieStatus.isGrounded())
+            {
+                frostieSoundManager.playWalkingSound(movement);
+            }
+            else
+            {
+                frostieSoundManager.playWalkingSound(0);
+            }
         }
     }
 
