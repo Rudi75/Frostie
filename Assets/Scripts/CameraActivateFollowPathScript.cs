@@ -2,6 +2,7 @@
 using UnityEngine;
 using System.Collections;
 using FollowType = Assets.Scripts.Utils.Enums.FollowType;
+using Assets.Scripts.Utils;
 
 public class CameraActivateFollowPathScript : TargetActionScript 
 {
@@ -37,5 +38,15 @@ public class CameraActivateFollowPathScript : TargetActionScript
             consumed = true;
             controller.setPathAndStart(Type, Speed, Presicion, Path);
         }
+    }
+
+    public override void saveData(SavedDataContainer dataContainer)
+    {
+        dataContainer.AddData("consumed", consumed);
+    }
+
+    public override void loadData(SavedDataContainer dataContainer)
+    {
+        consumed = (bool)dataContainer.retrieveData("consumed");
     }
 }

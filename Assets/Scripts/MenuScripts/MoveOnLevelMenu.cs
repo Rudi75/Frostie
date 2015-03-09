@@ -7,12 +7,14 @@ public class MoveOnLevelMenu : MonoBehaviour
   public Transform Player;
   public Transform LevelButtons;
 
-  public int currentLevel = 0;
+  public static int currentLevel = 0;
   public int levelCount = 5;
+  public static int availableLevels = 0;
 
 	// Use this for initialization
 	void Start ()
   {
+    availableLevels++;
     if (LevelButtons.GetChild(currentLevel))
     {
       Player.position = LevelButtons.GetChild(currentLevel).position + new Vector3(0, 0.3f, -1);
@@ -25,6 +27,9 @@ public class MoveOnLevelMenu : MonoBehaviour
     if(Input.GetKeyDown(KeyCode.RightArrow))
     {
       currentLevel++;
+      if (currentLevel > availableLevels)
+          currentLevel = availableLevels;
+
       if (currentLevel > levelCount)
         currentLevel = levelCount;
     }

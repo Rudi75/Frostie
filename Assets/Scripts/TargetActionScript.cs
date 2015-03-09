@@ -3,7 +3,8 @@ using System.Collections;
 using System.Linq;
 using System.Collections.Generic;
 
-public abstract class TargetActionScript : MonoBehaviour {
+public abstract class TargetActionScript : SaveableScript
+{
 
     public Transform[] Buttons;
 
@@ -11,8 +12,6 @@ public abstract class TargetActionScript : MonoBehaviour {
     private bool activated_ = false;
 
     abstract protected void performAction();
-    public List<SpeechTriggerScript> speechTriggerToActivate;
-    public List<SpeechTriggerScript> speechTriggerToDeactivate;
 
     public void Start()
     {
