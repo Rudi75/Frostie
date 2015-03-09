@@ -262,4 +262,18 @@ public class DrawBridgeChainScript : MonoBehaviour
     {
         Destroy(prefab);
     }
+
+    
+    public void RemoveCompleteChain()
+    {
+        if(chainElementsContainer!=null)
+        {
+            for(int i=chainElementsContainer.childCount-1;i>=0;i--)
+            {
+                Transform currentChainElement = chainElementsContainer.GetChild(i);
+                if (currentChainElement != null && currentChainElement.gameObject != null)
+                    Destroy(currentChainElement.gameObject);
+            }
+        }
+    }
 }
