@@ -831,11 +831,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95f7b1f9801b925409971a303b453220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 
-  openingDirection: 1
-  ChainScript: {fileID: 486751878}
-  planksCount: 6
-  startingAngle: 22.5
 --- !u!1 &28306939
 GameObject:
   m_ObjectHideFlags: 0
@@ -22340,11 +22335,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95f7b1f9801b925409971a303b453220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 
-  openingDirection: -1
-  ChainScript: {fileID: 1529153568}
-  planksCount: 3
-  startingAngle: 90
 --- !u!1 &642617309
 GameObject:
   m_ObjectHideFlags: 0
@@ -22452,13 +22442,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ef4367b80fdefd4280f6e1b4cb1a66e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 
-  Buttons:
-  - {fileID: 117646394}
-  onlyActiveWhenPressed: 0
-  plankTransform: {fileID: 25144073}
-  wheelEnabled: 0
-  drawBridgeWheelPopupCamera: {fileID: 0}
 --- !u!95 &644153659
 Animator:
   serializedVersion: 3
@@ -27042,13 +27025,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ef4367b80fdefd4280f6e1b4cb1a66e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 
-  Buttons:
-  - {fileID: 1928433635}
-  onlyActiveWhenPressed: 0
-  plankTransform: {fileID: 641157253}
-  wheelEnabled: 0
-  drawBridgeWheelPopupCamera: {fileID: 1625980896}
 --- !u!95 &739740230
 Animator:
   serializedVersion: 3
@@ -69304,7 +69280,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -7}
-  m_SizeDelta: {x: 200, y: 586}
+  m_SizeDelta: {x: 200, y: 186}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1890176802
 MonoBehaviour:
