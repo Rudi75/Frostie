@@ -71,7 +71,7 @@ State:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Part0
-  m_Speed: 1
+  m_Speed: 1.10000002
   m_CycleOffset: 0
   m_Motions:
   - {fileID: 7400000, guid: c166817f73e2e8941b1829f79226b618, type: 2}
@@ -86,7 +86,7 @@ State:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Part1
-  m_Speed: 1
+  m_Speed: 1.10000002
   m_CycleOffset: 0
   m_Motions:
   - {fileID: 7400000, guid: cfd4869cf3982484880392989df6f831, type: 2}
@@ -113,16 +113,16 @@ StateMachine:
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
     data:
-      first: {fileID: 110257268}
-      second: []
-    data:
-      first: {fileID: 110202646}
+      first: {fileID: 110258044}
       second: []
     data:
       first: {fileID: 110261864}
       second: []
     data:
-      first: {fileID: 110258044}
+      first: {fileID: 110202646}
+      second: []
+    data:
+      first: {fileID: 110257268}
       second: []
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: 50, y: 20, z: 0}

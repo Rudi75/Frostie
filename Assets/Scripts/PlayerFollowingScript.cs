@@ -13,12 +13,12 @@ public class PlayerFollowingScript : SaveableScript
     private Animator compAnimator;
     private bool isPlaying = false;
 
-	// Use this for initialization
-	void Start () 
+    public void Awake()
     {
+        base.Awake();
         compAnimator = GetComponent<Animator>();
         if(compAnimator == null) compAnimator = GetComponentInChildren<Animator>();
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () 
@@ -34,7 +34,7 @@ public class PlayerFollowingScript : SaveableScript
             {
                 isPlaying = true;
                 string name = PartNames.FirstOrDefault();
-                compAnimator.Play(name);
+                compAnimator.Play(Animator.StringToHash(name), 0, 0);
                 PartNames.Remove(name);
                 DistanceToTrigger.Remove(dis);
             }
@@ -48,7 +48,6 @@ public class PlayerFollowingScript : SaveableScript
 
     public override void saveData(SavedDataContainer dataContainer)
     {
-        //dataContainer.AddData("Pos", transform.position);
         dataContainer.AddData("Names", PartNames);
         dataContainer.AddData("Dis", DistanceToTrigger);
         dataContainer.AddData("isP", isPlaying);
@@ -61,7 +60,6 @@ public class PlayerFollowingScript : SaveableScript
 
     public override void loadData(SavedDataContainer dataContainer)
     {
-        //transform.position = (Vector3)dataContainer.retrieveData("Pos");
         PartNames = dataContainer.retrieveData("Names") as List<string>;
         DistanceToTrigger = dataContainer.retrieveData("Dis") as List<float>;
         isPlaying = (bool)dataContainer.retrieveData("isP");
