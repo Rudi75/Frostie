@@ -32933,7 +32933,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11462754, guid: 98007eb1b0a43134ab7895ed48ce953c, type: 2}
       propertyPath: MoodeToGetIn
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11462754, guid: 98007eb1b0a43134ab7895ed48ce953c, type: 2}
       propertyPath: Speech
@@ -79979,7 +79979,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
 --- !u!1001 &1566169732
 Prefab:
   m_ObjectHideFlags: 0
@@ -99408,7 +99408,7 @@ MonoBehaviour:
   Level: LevelMenu
   DelayLoadLevel: 10
   Speech: This piece ist still warm. He must be close.
-  MoodeToGetIn: 1
+  MoodeToGetIn: 0
 --- !u!61 &1937070189
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -6111,7 +6111,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 182706215}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d680f60026663164faaa1d16c4df58b2, type: 3}
+  m_Script: {fileID: 11500000, guid: 583460a5330b9dd42938491136b36cc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 
@@ -6120,7 +6120,7 @@ MonoBehaviour:
   onlyActiveWhenPressed: 0
   plankTransform: {fileID: 1158458449}
   wheelEnabled: 0
-  drawBridgeWheelPopupCamera: {fileID: 1780448447}
+  drawBridgeWheelPopupCamera: {fileID: 0}
 --- !u!95 &182706218
 Animator:
   serializedVersion: 3
@@ -12211,7 +12211,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 349505140}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 929064362bbadc54b90c1d9a43db473b, type: 3}
+  m_Script: {fileID: 11500000, guid: c9b7183a1cc41174b9d159818668a757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 
@@ -19729,7 +19729,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
 --- !u!1 &534499176
 GameObject:
   m_ObjectHideFlags: 0
@@ -39498,7 +39498,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 124460, guid: af4fe761b53181f4fa47b4df1c94b786, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: af4fe761b53181f4fa47b4df1c94b786, type: 2}
@@ -43429,7 +43429,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1158458448}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 929064362bbadc54b90c1d9a43db473b, type: 3}
+  m_Script: {fileID: 11500000, guid: c9b7183a1cc41174b9d159818668a757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 
@@ -54169,7 +54169,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1425119408}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d680f60026663164faaa1d16c4df58b2, type: 3}
+  m_Script: {fileID: 11500000, guid: 583460a5330b9dd42938491136b36cc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 
@@ -66354,7 +66354,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1717479633
 RectTransform:
   m_ObjectHideFlags: 0
@@ -66891,6 +66891,10 @@ Prefab:
     - target: {fileID: 22438516, guid: bc6434d4ea92f8146a91c8510f23073d, type: 2}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 138518, guid: bc6434d4ea92f8146a91c8510f23073d, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bc6434d4ea92f8146a91c8510f23073d, type: 2}
