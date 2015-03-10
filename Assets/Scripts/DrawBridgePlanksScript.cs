@@ -3,7 +3,7 @@ using System.Collections;
 using System;
 using Assets.Scripts.Utils;
 
-public class DrawBridgePlanksScript : MonoBehaviour {
+public class DrawBridgePlanksScript : SaveableScript {
 
     public enum Directions
     {
@@ -21,6 +21,7 @@ public class DrawBridgePlanksScript : MonoBehaviour {
 	// Use this for initialization
     void Start()
     {
+        Debug.Log("START OF DRAWBRIDGEPLANKSCRIPT");
 
         startingAngle = (Convert.ToInt32(openingDirection) * startingAngle);
         
@@ -121,4 +122,35 @@ public class DrawBridgePlanksScript : MonoBehaviour {
         Debug.Log("I am not locked!");
         return false;
     }
+
+    public override void loadData(SavedDataContainer dataContainer)
+    {
+        Debug.Log("LOADDATA!!");
+        float loadedStartingAngle = (float)dataContainer.retrieveData(ID);
+        Debug.Log("loadedStartingAngle: " + loadedStartingAngle);
+
+        startingAngle = loadedStartingAngle;
+
+        Debug.Log("Inserted Planks count: " + transform.childCount);
+        for (int i = transform.childCount - 1; i >= 2; i--)
+        {
+            Transform child = transform.GetChild(i);
+            Destroy(child.gameObject);
+        }
+
+        if(ChainScript!=null)
+        {
+            ChainScript.RemoveCompleteChain();
+        }
+
+    }
+
+    public override void saveData(SavedDataContainer dataContainer)
+    {
+        dataContainer.AddData(ID, Math.Abs(currentAngle));
+        Debug.Log("SAVEDATA");
+    }
+
+
+
 }
