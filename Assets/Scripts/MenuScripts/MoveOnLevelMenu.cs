@@ -10,9 +10,9 @@ public class MoveOnLevelMenu : MonoBehaviour
   public Transform Player;
   public Transform LevelButtons;
 
-  public static int currentLevel = 0;
+  public static int currentLevel = 1;
   public int levelCount = 5;
-  public static int availableLevels = 0;
+  public static int availableLevels = 1;
   public static bool start = true; 
 
   
