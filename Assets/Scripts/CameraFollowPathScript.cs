@@ -48,18 +48,11 @@ public class CameraFollowPathScript : MonoBehaviour
                  y = pos.y;
             }
 
-            Debug.Log("New");
-            Debug.Log(x);
-            Debug.Log(y);
-
 		    var cameraHalfWidth = camera.orthographicSize * ((float)Screen.width / Screen.height);
 
 		    var xt = Mathf.Clamp(x,minPosition.x + cameraHalfWidth, maxPosition.x - cameraHalfWidth);
 		    var yt = Mathf.Clamp(y,minPosition.y + camera.orthographicSize, maxPosition.y - camera.orthographicSize);
 		    camera.transform.position = new Vector3 (xt, yt, transform.position.z);
-
-            Debug.Log(xt);
-            Debug.Log(yt);
 
             var distanceSquared = Vector2.Distance(camera.transform.position, currentPoint.Current.position);
             if ((distanceSquared < MaxDistanceToGoal) || ((xt != x) && (yt != y)) || 
