@@ -17,6 +17,13 @@ public class QuitScript : MonoBehaviour {
 
   public void OnAction()//OnMouseDown
   {
-    Application.Quit();
+    if (Application.loadedLevelName == "MainMenu")
+    {
+      Application.Quit();
+    }
+    else
+    {
+      Application.LoadLevel("LevelMenu");
+    }
   }
 }
