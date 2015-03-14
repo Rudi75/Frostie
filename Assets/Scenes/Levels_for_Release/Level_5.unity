@@ -5082,7 +5082,7 @@ Transform:
   m_LocalScale: {x: 4.849998, y: 11.923234, z: 1}
   m_Children: []
   m_Father: {fileID: 2140495446}
-  m_RootOrder: 8
+  m_RootOrder: 7
 --- !u!114 &156319730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6036,14 +6036,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1f94a9f3288c3242afce10c2549d266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 
-  Buttons:
-  - {fileID: 696544889}
-  - {fileID: 325564967}
-  onlyActiveWhenPressed: 0
-  plankTransform: {fileID: 1158458449}
-  wheelEnabled: 0
-  drawBridgeWheelPopupCamera: {fileID: 0}
 --- !u!95 &182706218
 Animator:
   serializedVersion: 3
@@ -6358,7 +6350,7 @@ Transform:
   m_LocalScale: {x: 4.849998, y: 11.923234, z: 1}
   m_Children: []
   m_Father: {fileID: 2140495446}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!1 &185934801
 GameObject:
   m_ObjectHideFlags: 0
@@ -12061,11 +12053,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 362d85821eab93a4e971a4f3b48a6ceb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 
-  openingDirection: 1
-  ChainScript: {fileID: 788734130}
-  planksCount: 6
-  startingAngle: 22.5
 --- !u!1 &351043651
 GameObject:
   m_ObjectHideFlags: 0
@@ -13175,19 +13162,19 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 2140495446}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 419800, guid: aca700e854b69b34c874f9e6be554f6b, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 28.4799995
       objectReference: {fileID: 0}
     - target: {fileID: 419800, guid: aca700e854b69b34c874f9e6be554f6b, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -5.69999981
       objectReference: {fileID: 0}
     - target: {fileID: 419800, guid: aca700e854b69b34c874f9e6be554f6b, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -13.6300001
       objectReference: {fileID: 0}
     - target: {fileID: 419800, guid: aca700e854b69b34c874f9e6be554f6b, type: 2}
       propertyPath: m_LocalRotation.x
@@ -13207,7 +13194,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 419800, guid: aca700e854b69b34c874f9e6be554f6b, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: aca700e854b69b34c874f9e6be554f6b, type: 2}
@@ -15627,11 +15614,11 @@ Transform:
   m_PrefabInternal: {fileID: 380805016}
   m_GameObject: {fileID: 430352100}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 28.4799995, y: -5.69999981, z: -13.6300001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2140495446}
-  m_RootOrder: 3
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
 --- !u!114 &430352102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19870,7 +19857,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2140495446}
-  m_RootOrder: 7
+  m_RootOrder: 6
 --- !u!61 &541098543
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21365,7 +21352,7 @@ Transform:
   - {fileID: 629939746}
   - {fileID: 1854109927}
   m_Father: {fileID: 2140495446}
-  m_RootOrder: 10
+  m_RootOrder: 9
 --- !u!114 &588019319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21440,7 +21427,7 @@ Transform:
   m_LocalScale: {x: 4.849998, y: 11.923234, z: 1}
   m_Children: []
   m_Father: {fileID: 2140495446}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!1 &589178148
 GameObject:
   m_ObjectHideFlags: 0
@@ -29719,7 +29706,7 @@ Transform:
   - {fileID: 1979202514}
   - {fileID: 619860377}
   m_Father: {fileID: 2140495446}
-  m_RootOrder: 6
+  m_RootOrder: 5
 --- !u!114 &807525890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43241,11 +43228,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 362d85821eab93a4e971a4f3b48a6ceb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 
-  openingDirection: 1
-  ChainScript: {fileID: 877154149}
-  planksCount: 6
-  startingAngle: 22.5
 --- !u!1 &1160323596
 GameObject:
   m_ObjectHideFlags: 0
@@ -47286,7 +47268,7 @@ Transform:
   m_LocalScale: {x: 2, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 2140495446}
-  m_RootOrder: 13
+  m_RootOrder: 12
 --- !u!114 &1251518939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53981,12 +53963,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1f94a9f3288c3242afce10c2549d266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 
-  Buttons: []
-  onlyActiveWhenPressed: 0
-  plankTransform: {fileID: 349505141}
-  wheelEnabled: 0
-  drawBridgeWheelPopupCamera: {fileID: 0}
 --- !u!95 &1425119411
 Animator:
   serializedVersion: 3
@@ -57118,7 +57094,7 @@ Transform:
   m_LocalScale: {x: 4.849998, y: 11.923234, z: 1}
   m_Children: []
   m_Father: {fileID: 2140495446}
-  m_RootOrder: 12
+  m_RootOrder: 11
 --- !u!114 &1512978088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62553,7 +62529,7 @@ Transform:
   - {fileID: 1560129562}
   - {fileID: 1275394270}
   m_Father: {fileID: 2140495446}
-  m_RootOrder: 9
+  m_RootOrder: 8
 --- !u!1001 &1624118028
 Prefab:
   m_ObjectHideFlags: 0
@@ -75166,7 +75142,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2140495446}
-  m_RootOrder: 11
+  m_RootOrder: 10
 --- !u!61 &1929457108
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -84667,7 +84643,6 @@ Transform:
   - {fileID: 1588789172}
   - {fileID: 847200469}
   - {fileID: 1681458390}
-  - {fileID: 430352101}
   - {fileID: 588553161}
   - {fileID: 185876841}
   - {fileID: 807525889}
@@ -84679,7 +84654,7 @@ Transform:
   - {fileID: 1512978087}
   - {fileID: 1251518938}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
 --- !u!1 &2140813465
 GameObject:
   m_ObjectHideFlags: 0
