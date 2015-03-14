@@ -17,6 +17,14 @@ public class CameraControler : MonoBehaviour
 	{
 		minPosition = Bounds.bounds.min;
 		maxPosition = Bounds.bounds.max;
+
+    var x = Player.transform.position.x;
+    var y = Player.transform.position.y;
+    var cameraHalfWidth = camera.orthographicSize * ((float)Screen.width / Screen.height);
+
+    x = Mathf.Clamp(x, minPosition.x + cameraHalfWidth, maxPosition.x - cameraHalfWidth);
+    y = Mathf.Clamp(y, minPosition.y + camera.orthographicSize, maxPosition.y - camera.orthographicSize);
+    camera.transform.position = new Vector3(x, y, transform.position.z);
 	}
 
 	public void Update()
