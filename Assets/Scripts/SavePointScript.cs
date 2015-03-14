@@ -23,7 +23,6 @@ public class SavePointScript : SaveableScript
     {
         if (other.tag.Contains("Player") && !activated)
         {
-            Debug.Log("uuuuuuuusave");
             activated = true;
             fire.gameObject.SetActive(true);
 
@@ -52,7 +51,6 @@ public class SavePointScript : SaveableScript
 
     public override void loadData(SavedDataContainer dataContainer)
     {
-        Debug.Log("dddddload");
         activated = (bool)dataContainer.retrieveData("active");
         fire.gameObject.SetActive(activated);
     }

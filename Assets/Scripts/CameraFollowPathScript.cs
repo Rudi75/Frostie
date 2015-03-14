@@ -14,7 +14,7 @@ public class CameraFollowPathScript : MonoBehaviour
     private float MaxDistanceToGoal;
 
     private IEnumerator<Transform> currentPoint;
-    private bool onWayBack = false;
+    public bool onWayBack = false;
     private bool started = false;
 
     public void Start()
