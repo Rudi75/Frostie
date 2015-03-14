@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 470870}
   m_Layer: 0
-  m_Name: Drawbridge 1
+  m_Name: DrawbridgeNew
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -218,7 +218,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 170870}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.16668987, y: .290832669, z: -2.75}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 470872}
@@ -234,7 +234,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 170872}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.5, y: 0, z: 0}
+  m_LocalPosition: {x: 10.1400003, y: 1.12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 470874}
@@ -313,9 +313,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 470890}
   - {fileID: 470886}
   - {fileID: 470888}
-  - {fileID: 470890}
   m_Father: {fileID: 470870}
   m_RootOrder: 2
 --- !u!4 &470886
@@ -325,11 +325,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 170886}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: .200000003}
+  m_LocalPosition: {x: 0, y: 0, z: -.100000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 470884}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!4 &470888
 Transform:
   m_ObjectHideFlags: 1
@@ -337,11 +337,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 170888}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -.100000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 470884}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!4 &470890
 Transform:
   m_ObjectHideFlags: 1
@@ -354,7 +354,7 @@ Transform:
   m_Children:
   - {fileID: 470892}
   m_Father: {fileID: 470884}
-  m_RootOrder: 2
+  m_RootOrder: 0
 --- !u!4 &470892
 Transform:
   m_ObjectHideFlags: 1
@@ -374,7 +374,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 170894}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: -2.95000005, y: 2.91000009, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 470870}
@@ -385,7 +385,7 @@ Camera:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 170894}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: .595588207, g: .595588207, b: .595588207, a: .0196078438}
@@ -419,7 +419,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 170874}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Radius: 1.12
   m_Center: {x: 0, y: 0}
 --- !u!61 &6170890
@@ -494,7 +494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 
-  openingDirection: -1
+  openingDirection: 1
   ChainScript: {fileID: 11470890}
   planksCount: 3
   startingAngle: 22.5
