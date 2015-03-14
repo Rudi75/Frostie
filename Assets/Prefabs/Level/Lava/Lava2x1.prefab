@@ -11,6 +11,7 @@ GameObject:
   - 212: {fileID: 21253642}
   - 61: {fileID: 6153642}
   - 95: {fileID: 9529780}
+  - 61: {fileID: 6146362}
   m_Layer: 0
   m_Name: Lava
   m_TagString: LethalHot
@@ -90,6 +91,17 @@ Transform:
   - {fileID: 453642}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!61 &6146362
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153642}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: 2.25, y: .178670287}
+  m_Center: {x: 0, y: -1.0356636}
 --- !u!61 &6153642
 BoxCollider2D:
   m_ObjectHideFlags: 1

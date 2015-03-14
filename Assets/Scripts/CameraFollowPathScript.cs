@@ -14,7 +14,7 @@ public class CameraFollowPathScript : MonoBehaviour
     private float MaxDistanceToGoal;
 
     private IEnumerator<Transform> currentPoint;
-    private bool onWayBack = false;
+    public bool onWayBack = false;
     private bool started = false;
 
     public void Start()
@@ -55,7 +55,9 @@ public class CameraFollowPathScript : MonoBehaviour
 		    camera.transform.position = new Vector3 (xt, yt, transform.position.z);
 
             var distanceSquared = Vector2.Distance(camera.transform.position, currentPoint.Current.position);
-            if ((distanceSquared < MaxDistanceToGoal) || (xt != x) || (yt != y))
+            if ((distanceSquared < MaxDistanceToGoal) || ((xt != x) && (yt != y)) || 
+                ((xt != x) && ((y - currentPoint.Current.position.y) < MaxDistanceToGoal)) || 
+                (((x - currentPoint.Current.position.x) < MaxDistanceToGoal)) && (yt != y))
             {
                 if (onWayBack)
                 {
