@@ -57,13 +57,11 @@ public class FollowPath : TargetActionScript
 
     public override void saveData(SavedDataContainer dataContainer)
     {
-        Debug.Log("grrrrr");
         dataContainer.AddData("started", started);
     }
 
     public override void loadData(SavedDataContainer dataContainer)
     {
-        Debug.Log("zzzzzzzzzzzzzzzz");
         started = (bool)dataContainer.retrieveData("started");
     }
 }﻿

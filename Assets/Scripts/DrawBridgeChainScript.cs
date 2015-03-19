@@ -237,7 +237,7 @@ public class DrawBridgeChainScript : MonoBehaviour
                 {
                     if (ChangeTextureOfPrefab(newItem.gameObject, chainSprite))
                     {
-                        newItem.parent = lastChainElement.parent;
+                        newItem.SetParent(lastChainElement.parent);
                         newItem.localPosition = new Vector3(lastChainElement.localPosition.x + (2.25f * Convert.ToInt32(openingDirection)*-1.0f), 0.0f, 0.0f);
                         newItem.localRotation = Quaternion.AngleAxis(currentChainAngle, new Vector3(0.0f, 0.0f, 0.0f));
                         lastChainElement = newItem;

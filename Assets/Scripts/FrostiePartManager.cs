@@ -273,7 +273,7 @@ public class FrostiePartManager : MonoBehaviour {
     }
     public void FixedUpdate()
     {
-        //if(headClone == null)
+        if (camera != null)
             camera.GetComponent<CameraControler>().Player = activePart.transform;
     }
 }

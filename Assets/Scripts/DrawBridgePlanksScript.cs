@@ -50,7 +50,7 @@ public class DrawBridgePlanksScript : SaveableScript {
             var newItem = Instantiate(child) as Transform;
 
             newItem.position = new Vector3(child.position.x, child.position.y + 2.25f, child.position.z);
-            newItem.parent = transform;
+            newItem.SetParent(transform);
             child = newItem;
         }
 
