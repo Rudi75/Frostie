@@ -4,7 +4,7 @@ using System.IO;
 
 public class MainStartScript : StartScript
 {
-    public static string SAVE_PATH = "..\\saveGames\\Test.txt";
+    public static string SAVE_PATH = "../saveGames/Test.txt";
     
     public void Start()
     {
