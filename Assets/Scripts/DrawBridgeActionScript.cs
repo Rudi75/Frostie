@@ -4,6 +4,13 @@ using Assets.Scripts.Utils;
 
 public class DrawBridgeActionScript : TargetActionScript 
 {
+    public enum Direction
+    {
+        Left,
+        Right,
+    }
+
+    public Direction OpeningDirection;
     public DrawBridgeScript Drawbridge;
     public bool IsEnabled = true;
 
@@ -16,8 +23,9 @@ public class DrawBridgeActionScript : TargetActionScript
     private bool FrostieAction = false;
 
 	// Use this for initialization
-	void Start () 
+    public void Start() 
     {
+        base.Start();
         compAnimator = GetComponent<Animator>();
         PopUpCam = transform.parent.GetComponentInChildren<Camera>();
         KeyInput = FindObjectOfType<KeyInterpreter>();
@@ -60,15 +68,31 @@ public class DrawBridgeActionScript : TargetActionScript
         }
         if (FrostieAction)
         {
-            if (KeyInput.isDrawBridgeRotateLeftKeyPressed())
+            if (OpeningDirection == Direction.Right)
             {
-                Drawbridge.DrawbridgeUp();
-                compAnimator.Play(Animator.StringToHash("Left"), 0, 0);
+                if (KeyInput.isDrawBridgeRotateLeftKeyPressed())
+                {
+                    Drawbridge.DrawbridgeUp();
+                    compAnimator.Play(Animator.StringToHash("Left"), 0, 0);
+                }
+                if (KeyInput.isDrawBridgeRotateRightKeyPressed())
+                {
+                    Drawbridge.DrawbridgeDown();
+                    compAnimator.Play(Animator.StringToHash("Right"), 0, 0);
+                }
             }
-            if (KeyInput.isDrawBridgeRotateRightKeyPressed())
+            if (OpeningDirection == Direction.Left)
             {
-                Drawbridge.DrawbridgeDown();
-                compAnimator.Play(Animator.StringToHash("Right"), 0, 0);
+                if (KeyInput.isDrawBridgeRotateRightKeyPressed())
+                {
+                    Drawbridge.DrawbridgeUp();
+                    compAnimator.Play(Animator.StringToHash("Left"), 0, 0);
+                }
+                if (KeyInput.isDrawBridgeRotateLeftKeyPressed())
+                {
+                    Drawbridge.DrawbridgeDown();
+                    compAnimator.Play(Animator.StringToHash("Right"), 0, 0);
+                }
             }
         }
 	}

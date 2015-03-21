@@ -201,6 +201,7 @@ MonoBehaviour:
   ID: 
   Buttons: []
   onlyActiveWhenPressed: 0
+  OpeningDirection: 1
   Drawbridge: {fileID: 0}
   IsEnabled: 1
 --- !u!212 &21200490

@@ -99,8 +99,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Size: {x: 2.25, y: 1.60000002}
-  m_Center: {x: 0, y: -.330000013}
+  m_Size: {x: 1.97000003, y: 1.41999996}
+  m_Center: {x: 0, y: -.419999987}
 --- !u!61 &6196604
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -110,8 +110,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Size: {x: 2.25, y: 1.60000002}
-  m_Center: {x: 0, y: -.330000013}
+  m_Size: {x: 1.97000003, y: 1.41999996}
+  m_Center: {x: 0, y: -.419999987}
 --- !u!61 &6196606
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -121,8 +121,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Size: {x: 2.25, y: 1.60000002}
-  m_Center: {x: 0, y: -.330000013}
+  m_Size: {x: 1.97000003, y: 1.41999996}
+  m_Center: {x: 0, y: -.419999987}
 --- !u!82 &8282980
 AudioSource:
   m_ObjectHideFlags: 1

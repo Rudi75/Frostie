@@ -6,8 +6,6 @@ using AssemblyCSharp;
 
 public class FrostiePartManager : SaveableScript
 {
-    public Vector3 spawnPosition = new Vector3(0,0,0);
-
     private Transform head;
     private Transform middlePart;
     private Transform basePart;
@@ -22,12 +20,6 @@ public class FrostiePartManager : SaveableScript
     public GameObject MiddleClonePrefab;
     public GameObject HeadAndMiddleClonePrefab;
     public GameObject camera;
-
-
-    public void Awake()
-    {
-        transform.position = spawnPosition;
-    }
 
     void Start()
     {
@@ -279,11 +271,11 @@ public class FrostiePartManager : SaveableScript
 
     public override void saveData(SavedDataContainer dataContainer)
     {
-        dataContainer.AddData("spawnPos", spawnPosition);
+        dataContainer.AddData("spawnPos", transform.position);
     }
 
     public override void loadData(SavedDataContainer dataContainer)
     {
-        spawnPosition = (Vector3)dataContainer.retrieveData("spawnPos");
+        transform.position = (Vector3)dataContainer.retrieveData("spawnPos");
     }
 }

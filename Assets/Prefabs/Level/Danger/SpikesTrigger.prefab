@@ -137,22 +137,22 @@ BoxCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 189704}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Size: {x: 2.25, y: 1.20000005}
-  m_Center: {x: 0, y: -.550000012}
+  m_Size: {x: 1.97000003, y: 1.41999996}
+  m_Center: {x: 0, y: -.419999987}
 --- !u!61 &6189704
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 189706}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Size: {x: 2.25, y: 1.20000005}
-  m_Center: {x: 0, y: -.550000012}
+  m_Size: {x: 1.97000003, y: 1.41999996}
+  m_Center: {x: 0, y: -.419999987}
 --- !u!82 &8206784
 AudioSource:
   m_ObjectHideFlags: 1
@@ -237,6 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9bf478c3fe59674f9be3e56f29be8c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlaySoundOnTriggered: 0
 --- !u!114 &11434618
 MonoBehaviour:
   m_ObjectHideFlags: 1

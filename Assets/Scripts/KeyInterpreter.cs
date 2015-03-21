@@ -24,13 +24,6 @@ public class KeyInterpreter : SaveableScript {
     public KeyCode drawBridgeRotateLeftKey = KeyCode.LeftArrow;
     public KeyCode drawBridgeRotateRightKey = KeyCode.RightArrow;
 
-    /*public static bool meltingEnabedSave = false;
-    public static bool throwingHeadEnabledSave = false;
-    public static bool shootButtonEnabledSave = false;
-    public static bool freezeGroundEnabledSave = false;
-    public static bool takeWaterEnabledSave = false;
-    public static bool decoupleMiddleEnabledSave = false;*/
-
     public bool meltingEnabed = false;
     public bool throwingHeadEnabled = false;
     public bool shootButtonEnabled = false;
@@ -43,16 +36,6 @@ public class KeyInterpreter : SaveableScript {
     private bool turnDrawBridgeWheelKeyPressed;
     private bool drawBridgeRotateLeftKeyPressed;
     private bool drawBridgeRotateRightKeyPressed;
-	
-    public void Start()
-    {
-        /*meltingEnabed |= KeyInterpreter.meltingEnabedSave;
-        throwingHeadEnabled |= KeyInterpreter.throwingHeadEnabledSave;
-        shootButtonEnabled |= KeyInterpreter.shootButtonEnabledSave;
-        freezeGroundEnabled |= KeyInterpreter.freezeGroundEnabledSave;
-        takeWaterEnabled |= KeyInterpreter.takeWaterEnabledSave;
-        decoupleMiddleEnabled |= KeyInterpreter.decoupleMiddleEnabledSave;*/
-    }
 
 	// Update is called once per frame
 	void Update () {
