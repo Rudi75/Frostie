@@ -30,7 +30,7 @@ public class SavePointScript : SaveableScript
            // if (savedData != null) 
             savedData.SaveCurrentState();
 
-            FrostiePartManager.spawnPosition = transform.position;
+            /*FrostiePartManager.spawnPosition = transform.position;
 
             KeyInterpreter interpreter = other.GetComponentInParent<KeyInterpreter>();
 
@@ -39,7 +39,7 @@ public class SavePointScript : SaveableScript
             KeyInterpreter.throwingHeadEnabledSave = interpreter.throwingHeadEnabled;
             KeyInterpreter.shootButtonEnabledSave = interpreter.shootButtonEnabled;
             KeyInterpreter.freezeGroundEnabledSave = interpreter.freezeGroundEnabled;
-            KeyInterpreter.takeWaterEnabledSave = interpreter.takeWaterEnabled;
+            KeyInterpreter.takeWaterEnabledSave = interpreter.takeWaterEnabled;*/
 
         }
     }

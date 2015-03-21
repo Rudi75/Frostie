@@ -4,9 +4,9 @@ using Assets.Scripts.Utils;
 using KindsOfDeath = Assets.Scripts.Utils.Enums.KindsOfDeath;
 using AssemblyCSharp;
 
-public class FrostiePartManager : MonoBehaviour {
-
-    public static Vector3 spawnPosition = new Vector3(0,0,0);
+public class FrostiePartManager : SaveableScript
+{
+    public Vector3 spawnPosition = new Vector3(0,0,0);
 
     private Transform head;
     private Transform middlePart;
@@ -275,5 +275,15 @@ public class FrostiePartManager : MonoBehaviour {
     {
         if (camera != null)
             camera.GetComponent<CameraControler>().Player = activePart.transform;
+    }
+
+    public override void saveData(SavedDataContainer dataContainer)
+    {
+        dataContainer.AddData("spawnPos", spawnPosition);
+    }
+
+    public override void loadData(SavedDataContainer dataContainer)
+    {
+        spawnPosition = (Vector3)dataContainer.retrieveData("spawnPos");
     }
 }

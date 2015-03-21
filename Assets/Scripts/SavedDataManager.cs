@@ -44,14 +44,11 @@ public class SavedDataManager : MonoBehaviour
 
     public void LoadCurrentState()
     {
-        Debug.Log("here");
         var saveable = FindObjectsOfType<SaveableScript>();
         foreach (var item in saveable)
         {
-            Debug.Log(item.ID);
             if (SavedData.ContainsKey(item.ID))
             {
-                Debug.Log("ja");
                 item.loadData(SavedData[item.ID]);
             }
         }

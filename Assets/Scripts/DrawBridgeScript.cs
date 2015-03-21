@@ -11,6 +11,8 @@ public class DrawBridgeScript : MonoBehaviour
     private Transform Chain;
     private Transform Plank;
 
+    private AudioSource ChainSound;
+
     private Vector2 PlanksTopPos;
     private Vector2 PlanksBasePos;
     private Vector2 ChainBasePos;
@@ -21,6 +23,7 @@ public class DrawBridgeScript : MonoBehaviour
         Transform chainBase = transform.FindChild("DrawbridgeChainBase");
         Plank = transform.FindChild("DrawbridgePlank");
         Chain = Plank.FindChild("DrawbridgeChain");
+        ChainSound = Chain.GetComponent<AudioSource>();
 
         PlanksBasePos = new Vector2(Plank.position.x, Plank.position.y);
         ChainBasePos = GetChainBasePos(chainBase);
@@ -30,14 +33,18 @@ public class DrawBridgeScript : MonoBehaviour
 	}
 
     public void DrawbridgeUp()
-    { 
+    {
+        float tempAngle = Angle;
         Angle = Mathf.Clamp(Angle + 5, MinAngle, MaxAngle);
+        if (ChainSound != null && !ChainSound.isPlaying && tempAngle != Angle) ChainSound.Play();
         UpdatePosition();
     }
 
     public void DrawbridgeDown()
     {
+        float tempAngle = Angle;
         Angle = Mathf.Clamp(Angle - 5, MinAngle, MaxAngle);
+        if (ChainSound != null && !ChainSound.isPlaying && tempAngle != Angle) ChainSound.Play();
         UpdatePosition();
     }
 

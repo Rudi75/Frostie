@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Assets.Scripts.Utils;
 
-public class KeyInterpreter : MonoBehaviour {
+public class KeyInterpreter : SaveableScript {
 
     public KeyCode jumpKey = KeyCode.Space;
     public KeyCode jumpKey2 = KeyCode.UpArrow;
@@ -23,12 +24,12 @@ public class KeyInterpreter : MonoBehaviour {
     public KeyCode drawBridgeRotateLeftKey = KeyCode.LeftArrow;
     public KeyCode drawBridgeRotateRightKey = KeyCode.RightArrow;
 
-    public static bool meltingEnabedSave = false;
+    /*public static bool meltingEnabedSave = false;
     public static bool throwingHeadEnabledSave = false;
     public static bool shootButtonEnabledSave = false;
     public static bool freezeGroundEnabledSave = false;
     public static bool takeWaterEnabledSave = false;
-    public static bool decoupleMiddleEnabledSave = false;
+    public static bool decoupleMiddleEnabledSave = false;*/
 
     public bool meltingEnabed = false;
     public bool throwingHeadEnabled = false;
@@ -45,12 +46,12 @@ public class KeyInterpreter : MonoBehaviour {
 	
     public void Start()
     {
-        meltingEnabed |= KeyInterpreter.meltingEnabedSave;
+        /*meltingEnabed |= KeyInterpreter.meltingEnabedSave;
         throwingHeadEnabled |= KeyInterpreter.throwingHeadEnabledSave;
         shootButtonEnabled |= KeyInterpreter.shootButtonEnabledSave;
         freezeGroundEnabled |= KeyInterpreter.freezeGroundEnabledSave;
         takeWaterEnabled |= KeyInterpreter.takeWaterEnabledSave;
-        decoupleMiddleEnabled |= KeyInterpreter.decoupleMiddleEnabledSave;
+        decoupleMiddleEnabled |= KeyInterpreter.decoupleMiddleEnabledSave;*/
     }
 
 	// Update is called once per frame
@@ -206,5 +207,25 @@ public class KeyInterpreter : MonoBehaviour {
             return true;
         }
         return false;
+    }
+
+    public override void saveData(SavedDataContainer dataContainer)
+    {
+        dataContainer.AddData("melting", meltingEnabed);
+        dataContainer.AddData("throwingHead", throwingHeadEnabled);
+        dataContainer.AddData("shootButton", shootButtonEnabled);
+        dataContainer.AddData("freezeGround", freezeGroundEnabled);
+        dataContainer.AddData("takeWater", takeWaterEnabled);
+        dataContainer.AddData("decoupleMiddle", decoupleMiddleEnabled);
+    }
+
+    public override void loadData(SavedDataContainer dataContainer)
+    {
+        meltingEnabed = (bool)dataContainer.retrieveData("melting");
+        throwingHeadEnabled = (bool)dataContainer.retrieveData("throwingHead");
+        shootButtonEnabled = (bool)dataContainer.retrieveData("shootButton");
+        freezeGroundEnabled = (bool)dataContainer.retrieveData("freezeGround");
+        takeWaterEnabled = (bool)dataContainer.retrieveData("takeWater");
+        decoupleMiddleEnabled = (bool)dataContainer.retrieveData("decoupleMiddle");
     }
 }

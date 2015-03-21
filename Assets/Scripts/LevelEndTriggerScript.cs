@@ -14,9 +14,9 @@ public class LevelEndTriggerScript : MonoBehaviour
     {
         if (other.tag.Contains("Player"))
         {
-            FrostiePartManager.spawnPosition = new Vector3(0,0,0);
-            var savedData = FindObjectOfType<SavedDataManager>();
-            if (savedData != null) savedData.ResetCurrentState();
+            //FrostiePartManager.spawnPosition = new Vector3(0,0,0);
+            //var savedData = FindObjectOfType<SavedDataManager>();
+            //if (savedData != null) savedData.ResetCurrentState();
 
             var bubble = other.gameObject.GetComponentInParent<SpeechBubble>();
             if(bubble != null)

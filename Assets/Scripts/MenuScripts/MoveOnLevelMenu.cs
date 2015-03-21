@@ -6,7 +6,6 @@ using System.Text;
 
 public class MoveOnLevelMenu : MonoBehaviour
 {
-
   public Transform Player;
   public Transform LevelButtons;
 
@@ -43,6 +42,12 @@ public class MoveOnLevelMenu : MonoBehaviour
         writer.Write(availableLevels);
         writer.Close();
 	}
+
+    void OnLevelWasLoaded(int level)
+    {
+        var savedData = FindObjectOfType<SavedDataManager>();
+        if (savedData != null) savedData.ResetCurrentState();
+    }
 	
 	// Update is called once per frame
 	void Update ()
