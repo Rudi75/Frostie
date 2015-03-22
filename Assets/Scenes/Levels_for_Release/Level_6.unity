@@ -20513,7 +20513,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &533754770
 RectTransform:
   m_ObjectHideFlags: 0
@@ -48192,6 +48192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5179bcccf1121d44d8a697b37274572c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
   jumpKey: 32
   jumpKey2: 273
   meltKey: 308
@@ -48214,7 +48215,7 @@ MonoBehaviour:
   meltingEnabed: 1
   throwingHeadEnabled: 1
   shootButtonEnabled: 1
-  freezeGroundEnabled: 0
+  freezeGroundEnabled: 1
   takeWaterEnabled: 0
   decoupleMiddleEnabled: 1
   Player: {fileID: 1287586669}
@@ -71445,6 +71446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330015b04974d4c46b2b883381f9f774, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 
   HeadClonePrefab: {fileID: 151660, guid: 1211c3508982c8145a7132ab74f80f06, type: 2}
   MiddleClonePrefab: {fileID: 122796, guid: 6e06b02b2e0fe5e408dc6f854181e94f, type: 2}
   HeadAndMiddleClonePrefab: {fileID: 110810, guid: 42a5547bf2b84834fbbf7a40f40a0a43,
@@ -73712,7 +73714,7 @@ Prefab:
       objectReference: {fileID: 8300000, guid: d52a8cf0a3a20e94a958f4158186c031, type: 3}
     - target: {fileID: 11470058, guid: cb7430f3753c3604c8a649c80557df0b, type: 2}
       propertyPath: freezeGroundEnabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11470058, guid: cb7430f3753c3604c8a649c80557df0b, type: 2}
       propertyPath: takeWaterEnabled
